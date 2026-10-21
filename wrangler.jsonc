@@ -6,6 +6,10 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "spiritualknowledge",
   "compatibility_date": "2025-09-15",
+  // Serve main at spiritualknowledge.<account>.workers.dev (until harkhowal.com is attached),
+  // and give each branch preview its own address.
+  "workers_dev": true,
+  "preview_urls": true,
   "build": {
     "command": "python3 scripts/build.py"
   },
