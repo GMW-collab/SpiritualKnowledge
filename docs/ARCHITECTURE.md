@@ -13,6 +13,7 @@ Principles, in priority order: Gurmat as the frame; integrity before novelty; Ba
 ## 2. Information architecture
 
 ```
+/latest/              Every recording and video, newest first, by month; filter All / Audio / Video and by title
 /                     Newest katha (hero) · Begin with a question · Continue listening · Recent divans · Library shelves · Programmes · Dera
 /themes/              Eleven themes as questions + map of their connections
 /themes/<slug>/       Discover · Understand · Explore Babaji's katha · How this connects · Reflect · Go deeper
@@ -99,6 +100,7 @@ Adding a source: write `scripts/sources/<name>.py` with `run()`, add it to `ADAP
 
 - **Classification** is rule-based and transparent: each theme lists Gurmukhi terms (matched by whole word or word start, after folding nukta, tippi/bindi and addak) and roman patterns, plus whole series. Video descriptions are used up to the first hashtag or link. Every link records why it was made, so an editor can judge it. Rules were tuned against the real titles to remove false positives (for example *karam* matching the name Karam Singh).
 - **Gurbani ↔ katha.** Recording titles are parsed for Ang ranges ("Ang 0465 to 0467") and Japji pauris. Every Gurbani line on the site resolves to Babaji's katha of that Ang or pauri: 23 of 23 lines today.
+- **Two ways to find katha.** *Latest* is the simple view: everything in the order it arrived, with a type filter and a plain title filter, for people who just want the newest divan or a recording they half remember. *Search* is the knowledge view: it ranks themes, series and recordings and understands ideas across languages. The two pages link to each other.
 - **Search** is a compact JSON index (59 KB compressed) searched in the browser. Queries are folded the same way as the content, matched at word starts, and expanded through theme vocabularies, so "ego", "pride", ਹੰਕਾਰ and ਹਉਮੈ all reach Haumai and the items linked to it. Semantic embeddings were considered and not used: the corpus is mostly short titles, so embeddings would add cost and an external dependency without a measurable gain. They become worthwhile once transcripts exist (see ROADMAP).
 - **No AI question-answering yet.** With no transcripts, an AI answer would have to invent what Babaji said. It is on the roadmap behind transcripts and a retrieval design that cites recordings and timestamps.
 

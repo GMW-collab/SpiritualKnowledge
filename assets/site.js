@@ -239,6 +239,61 @@
     b.onclick = function () { store.clear(); b.textContent = "Listening history forgotten on this device"; b.disabled = true; };
   }
 
+  /* ------------------------------------------------------------ latest: everything, newest first */
+  var MONTHS_LONG = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  function videoRow(id, title, d) {
+    var b = el("button", "row vrow"); b.type = "button"; b.dataset.vrow = id; b.setAttribute("aria-expanded", "false");
+    var vt = el("span", "vt"); vt.setAttribute("aria-hidden", "true"); var img = new Image(); img.loading = "lazy"; img.alt = "";
+    img.src = "https://i.ytimg.com/vi/" + encodeURIComponent(id) + "/mqdefault.jpg"; vt.appendChild(img); b.appendChild(vt);
+    var tx = el("span", "t"), bt = el("b", null, title); if (/[\u0A00-\u0A7F]/.test(title)) bt.lang = "pa";
+    tx.appendChild(bt); tx.appendChild(el("span", null, "Video")); b.appendChild(tx); b.appendChild(el("span", "d", fdate(d)));
+    return b;
+  }
+  document.addEventListener("click", function (ev) {
+    var b = ev.target.closest("[data-vrow]"); if (!b || !b.closest("#main")) return;
+    var id = b.dataset.vrow, next = b.nextElementSibling;
+    if (PREVIEW) { var a = document.createElement("a"); a.href = "https://www.youtube.com/watch?v=" + encodeURIComponent(id); a.target = "_blank"; a.rel = "noopener"; a.click(); return; }
+    if (next && next.classList.contains("vembed")) { next.remove(); b.setAttribute("aria-expanded", "false"); return; }
+    var box = el("div", "vembed"), f = document.createElement("iframe");
+    f.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(id) + "?autoplay=1&rel=0"; f.title = b.querySelector("b").textContent;
+    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen"; f.allowFullscreen = true; box.appendChild(f);
+    b.after(box); b.setAttribute("aria-expanded", "true"); if (!A.paused) A.pause();
+  });
+  function initLatest(root) {
+    var box = root.querySelector("[data-latest]"); if (!box) return;
+    var list = box.querySelector(".rows"), more = box.querySelector("[data-more]"), count = box.querySelector(".latest-count");
+    var inp = root.querySelector("#lq"), kind = "", shown = 60, data = null, PAGE = 60;
+    function matches() {
+      var q = fold(inp.value), words = q ? q.split(" ") : [];
+      return data.items.filter(function (r) {
+        var isV = r.length === 3;
+        if (kind === "a" && isV) return false; if (kind === "v" && !isV) return false;
+        if (!words.length) return true;
+        var text = " " + (r.f || (r.f = fold(r[1] + " " + (isV ? "" : r[5]))));
+        return words.every(function (w) { return text.indexOf(" " + w) >= 0; });
+      });
+    }
+    function render() {
+      var hits = matches(), month = null; list.textContent = "";
+      hits.slice(0, shown).forEach(function (r) {
+        var m = r[0] ? MONTHS_LONG[+r[0].slice(5, 7) - 1] + " " + r[0].slice(0, 4) : "Undated";
+        if (m !== month) { month = m; list.appendChild(el("h2", "month", m)); }
+        if (r.length === 3) { list.appendChild(videoRow(r[2], r[1], r[0])); return; }
+        var s = data.series[r[2]];
+        list.appendChild(rowFor({ p: r[3], t: r[1], s: r[5] + (r[4] ? ", divan of " + fdate(r[4]) : ""), sg: s[2], sid: s[0], d: r[0] }));
+      });
+      more.hidden = hits.length <= shown;
+      count.textContent = hits.length ? "Showing " + Math.min(shown, hits.length).toLocaleString("en-GB") + " of " + hits.length.toLocaleString("en-GB") + (inp.value.trim() ? " matching \u2018" + inp.value.trim() + "\u2019" : "") + "." : "Nothing matches \u2018" + inp.value.trim() + "\u2019. Try fewer words, or Search to look by theme.";
+      refresh();
+    }
+    function load() { return data ? Promise.resolve() : fetch(box.dataset.src).then(function (r) { return r.json(); }).then(function (d) { data = d; }); }
+    var tm; inp.oninput = function () { clearTimeout(tm); tm = setTimeout(function () { shown = PAGE; load().then(render); }, 120); };
+    root.querySelectorAll("[data-lk]").forEach(function (b) { b.onclick = function () {
+      kind = b.dataset.lk; root.querySelectorAll("[data-lk]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      shown = PAGE; load().then(render); }; });
+    more.onclick = function () { shown += PAGE; load().then(render); };
+  }
+
   /* ------------------------------------------------------------ search */
   var INDEX = null;
   function loadIndex(src) { return INDEX ? Promise.resolve(INDEX) : fetch(src).then(function (r) { return r.json(); }).then(function (d) { INDEX = d; return d; }); }
@@ -366,7 +421,7 @@
 
   function init(root) {
     initVideos(root); initContinue(root); initSeries(root); initFilter(root); initChips(root);
-    initMap(root); initRail(root); initForget(root); initSearch(root); initReview(root); refresh();
+    initMap(root); initRail(root); initForget(root); initSearch(root); initReview(root); initLatest(root); refresh();
   }
   init(document.getElementById("main"));
 })();

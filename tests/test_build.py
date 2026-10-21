@@ -147,6 +147,23 @@ class BuildTest(unittest.TestCase):
         block = re.search(r'<figure class="bani" id="g-haumai-rog".*?</figure>', txt, re.S).group(0)
         self.assertIn("Ang 0465 to 0467", block)
 
+    def test_latest_is_newest_first_and_complete(self):
+        d = json.loads(self.read("latest/index.json"))
+        k = self.ctx["k"]
+        n_rec = sum(len(s["tracks"]) for s in k["audio"]["series"])
+        self.assertEqual(len(d["items"]), n_rec + len(k["videos"]))
+        dates = [r[0] for r in d["items"]]
+        self.assertEqual(dates, sorted(dates, reverse=True))
+        for r in d["items"]:
+            if len(r) == 6:
+                self.assertLess(r[2], len(d["series"]))
+                if r[4]:
+                    self.assertRegex(r[4], r"^\d{4}-\d\d-\d\d$")
+        page = self.read("latest/index.html")
+        self.assertIn('class="month"', page)
+        self.assertGreaterEqual(page.count('class="row'), 60)
+        self.assertIn('href="/latest/"', self.read("index.html"))
+
     def test_sitemap_and_robots(self):
         root = ET.parse(self.out / "sitemap.xml").getroot()
         locs = [e.text for e in root.iter("{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]

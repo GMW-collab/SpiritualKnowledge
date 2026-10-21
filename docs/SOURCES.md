@@ -14,6 +14,7 @@ Status as of 21 October 2026. The live status of each source is shown on the sit
 | BaniDB | API check of each quoted Gurbani line against its Ang | **Built**; first run happens in GitHub Actions (this work environment cannot reach BaniDB) | Nothing |
 | Facebook page | Graph API, Page posts | **Built, needs permission** | Page admin creates a token (below) |
 | Other websites, blogs, channels | RSS / Atom feed adapter | **Built**; none registered yet | Add a feed to `config.json` |
+| SikhNet Play playlist (30 divans, mostly 1990 and 1994) | No feed offered | **Linked** on Listen and Watch | Nothing |
 | Previous harkhowal.com (Wix) | One-off migration | **Done** for text; files outstanding | Download two PDFs and portraits before cancelling Wix |
 
 Nothing here scrapes sites that have not published their content for this kind of use. Public visibility is not treated as permission: YouTube and Facebook are read only through their official feeds and APIs; Gurmatveechar's audio is streamed from Gurmatveechar and credited, as on the current site.

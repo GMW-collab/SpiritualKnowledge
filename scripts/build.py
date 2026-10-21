@@ -204,7 +204,7 @@ def page(ctx, path, title, body, desc, *, section="", noindex=False, jsonld=None
     site = k["config"].get("site_name", "Harkhowal Online")
     full = title if title == site else f"{title} | {site}"
     canonical = k["config"].get("site_url", "").rstrip("/") + "/" + path.lstrip("/")
-    nav = [("themes/", "Themes", "themes"), ("listen/", "Listen", "listen"), ("watch/", "Watch", "watch"), ("about/", "About", "about")]
+    nav = [("latest/", "Latest", "latest"), ("themes/", "Themes", "themes"), ("listen/", "Listen", "listen"), ("watch/", "Watch", "watch"), ("about/", "About", "about")]
     navh = "".join(f'<a href="{u(p)}"{" aria-current=\"page\"" if section == s else ""}>{t}</a>' for p, t, s in nav)
     ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else ""
     img = og_image or "https://i.ytimg.com/vi/" + (k["videos"][0]["id"] if k["videos"] else "") + "/hqdefault.jpg"
@@ -369,7 +369,7 @@ def build_theme(ctx, th):
     more_r = (f'<details class="morerows"><summary>Show {len(recs) - 12} more</summary><div class="rows">{rest}</div></details>'
               if len(recs) > 12 else "")
     sh = "".join(series_line(ctx, s) for s in series)
-    exh = "".join(f'<li><a href="https://www.youtube.com/watch?v={e(x["youtube"])}" target="_blank" rel="noopener">{e(x["title"])}</a>'
+    exh = "".join(f'<li><a href="{e(ext_url(x))}" target="_blank" rel="noopener">{e(x["title"])}</a>'
                   f'<span>{e(x["creator"])}. From another channel; curated by the Dera.</span></li>' for x in ext)
     explore_parts = []
     shown_lines = [g for g, st in ctx_local["gurbani_used"] if st in VERIFY_TEXT]
@@ -503,6 +503,11 @@ def build_listen(ctx):
     dated = sorted([(t, s) for s in k["audio"].get("series", []) for t in s["tracks"] if t.get("d")], key=lambda ts: ts[0]["d"], reverse=True)[:8]
     newest = ("<section class='wrap newest'><h2>Recently added</h2><div class='rows' data-queue>"
               + "".join(track_row(t, s, sub=s["title"]) for t, s in dated) + "</div></section>") if dated else ""
+    els = [x for x in k["external"]["items"] if x.get("collection") == "elsewhere" and x.get("status") == "published"]
+    col = k["external"]["collections"].get("elsewhere", {})
+    elsewhere = (f'<section class="wrap extcol"><h2>{e(col.get("title"))}</h2><p class="sub">{e(col.get("intro"))}</p><ul class="extlist">'
+                 + "".join(f'<li><a href="{e(ext_url(x))}" target="_blank" rel="noopener">{e(x["title"])}</a><span>{e(x["source_note"])}</span></li>' for x in els)
+                 + '</ul></section>') if els else ""
     body = f"""
 <section class="page-head"><div class="wrap">
   <h1>Listen</h1>
@@ -511,7 +516,8 @@ def build_listen(ctx):
 </div></section>
 <div data-continue class="wrap continue" hidden><h2>Continue listening</h2><div class="rows"></div></div>
 {newest}
-<div class="wrap shelves" data-filter-scope>{''.join(shelves)}</div>"""
+<div class="wrap shelves" data-filter-scope>{''.join(shelves)}</div>
+{elsewhere}"""
     page(ctx, "listen/", "Listen to Babaji’s katha", body,
          f"Listen to {total:,} katha recordings by Sant Baba Jagjit Singh Ji Harkhowal Wale: Sri Guru Granth Sahib Ji, Suraj Parkash, Bhai Gurdas Ji, Vedanta and more.",
          section="listen")
@@ -568,6 +574,10 @@ def build_series(ctx, s):
     page(ctx, f"listen/{s['id']}/", f"{title_txt} katha", body, desc[:300], section="listen", jsonld=ld)
 
 
+def ext_url(x):
+    return x.get("url") or f"https://www.youtube.com/watch?v={x['youtube']}"
+
+
 def build_watch(ctx):
     k, links = ctx["k"], ctx["links"]
     chips = "".join(f'<button type="button" class="chip" data-theme-chip="{t["slug"]}" aria-pressed="false"><span class="g" lang="pa">{e(t["gurmukhi"])}</span> {e(t["title"].split(":")[0])}</button>'
@@ -581,7 +591,7 @@ def build_watch(ctx):
         items = [x for x in k["external"]["items"] if x.get("collection") == cid and x.get("status") == "published"]
         if not items:
             continue
-        lis = "".join(f'<li><a href="https://www.youtube.com/watch?v={e(x["youtube"])}" target="_blank" rel="noopener">{e(x["title"])}</a>'
+        lis = "".join(f'<li><a href="{e(ext_url(x))}" target="_blank" rel="noopener">{e(x["title"])}</a>'
                       f'<span>{e(x["creator"])}</span></li>' for x in items)
         ext.append(f'<section class="extcol"><h2>{e(col["title"])}</h2><p class="sub">{e(col["intro"])}</p><ul class="extlist">{lis}</ul></section>')
     feeds = K.published_feed_items(k)
@@ -652,7 +662,7 @@ def build_home(ctx):
   <ul class="qlist">{qs}</ul>
 </section>
 <div data-continue class="wrap band continue" hidden><h2>Continue listening</h2><div class="rows"></div></div>
-<section class="wrap band"><div class="h-row"><h2>Recent divans</h2><a href="{u('watch/')}">All videos</a></div><div class="vgrid">{vids}</div></section>
+<section class="wrap band"><div class="h-row"><h2>Recent divans</h2><a href="{u('latest/')}">All audio and video, newest first</a></div><div class="vgrid">{vids}</div></section>
 <section class="wrap band library-teaser"><div class="h-row"><h2>The katha library</h2><a href="{u('listen/')}">Open the library</a></div><ul class="shelfnav">{''.join(shelves)}</ul></section>
 {progh}
 <section class="wrap band lineage-teaser">
@@ -787,6 +797,81 @@ def build_review(ctx):
     page(ctx, "review/", "Editorial review", body, "Editorial review queue.", noindex=True)
 
 
+TITLE_DATE = re.compile(r"\b((?:19|20)\d\d)-(\d\d)-(\d\d)\b")
+MONTHS_LONG = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+
+def latest_items(k):
+    """Every recording and video, newest first.
+
+    Recordings are dated by when they were added to Gurmatveechar (they arrive in batches);
+    within a batch the later parts come first. Where a title carries the divan's own date,
+    it is kept as 'r' and shown alongside.
+    """
+    items = []
+    for s in k["audio"].get("series", []):
+        for t in s["tracks"]:
+            m = TITLE_DATE.search(t["t"])
+            items.append({"k": "a", "t": t["t"], "s": s["title"] + (", " + t["g"] if t.get("g") else ""), "sg": s.get("gurmukhi", ""),
+                          "sid": s["id"], "p": t["p"], "d": t.get("d", ""), "r": "-".join(m.groups()) if m else "", "i": t["i"]})
+    for v in k["videos"]:
+        items.append({"k": "v", "t": v["title"].replace(" || ", ". ").replace("||", ". "), "id": v["id"], "d": v.get("published", ""), "r": "", "i": 0})
+    items.sort(key=lambda x: (x["d"], x["k"] == "v", x["r"], x["i"]), reverse=True)
+    return items
+
+
+def latest_row(x):
+    if x["k"] == "v":
+        lang = "pa" if re.search("[\u0A00-\u0A7F]", x["t"]) else "en"
+        return (f'<button type="button" class="row vrow" data-vrow="{e(x["id"])}" aria-expanded="false">'
+                f'<span class="vt" aria-hidden="true"><img loading="lazy" alt="" src="https://i.ytimg.com/vi/{e(x["id"])}/mqdefault.jpg" width="320" height="180"></span>'
+                f'<span class="t"><b lang="{lang}">{e(x["t"])}</b><span>Video</span></span><span class="d">{fdate(x["d"])}</span></button>')
+    t = {"t": x["t"], "p": x["p"], "d": x["d"], "i": x["i"]}
+    s = {"title": x["s"], "id": x["sid"], "gurmukhi": x["sg"]}
+    sub = x["s"] + (f", divan of {fdate(x['r'])}" if x["r"] else "")
+    return track_row(t, s, sub=sub)
+
+
+def build_latest(ctx):
+    k = ctx["k"]
+    items = latest_items(k)
+    # compact form: a series table, then rows [d, title, video id] or [d, title, series index, path, divan date]
+    series = {s["id"]: i for i, s in enumerate(k["audio"].get("series", []))}
+    rows_json = [[x["d"], x["t"], x["id"]] if x["k"] == "v" else [x["d"], x["t"], series[x["sid"]], x["p"], x["r"], x["s"]] for x in items]
+    write("latest/index.json", json.dumps({"series": [[s["id"], s["title"], s.get("gurmukhi", "")] for s in k["audio"].get("series", [])],
+                                           "items": rows_json}, ensure_ascii=False, separators=(",", ":")))
+    first, month, rows = items[:60], None, []
+    for x in first:
+        mlabel = f"{MONTHS_LONG[int(x['d'][5:7]) - 1]} {x['d'][:4]}" if x["d"] else "Undated"
+        if mlabel != month:
+            month = mlabel
+            rows.append(f'<h2 class="month">{e(mlabel)}</h2>')
+        rows.append(latest_row(x))
+    na = sum(1 for x in items if x["k"] == "a")
+    nv = len(items) - na
+    body = f"""
+<section class="page-head"><div class="wrap">
+  <h1>Latest</h1>
+  <p class="lede">All of Babaji’s katha as it arrives, newest first: videos from the YouTube channel and recordings added to Gurmatveechar. To search by theme or idea, use <a href="{u('search/')}">Search</a>.</p>
+  <div class="latest-tools">
+    <div class="seg" role="group" aria-label="Show">
+      <button type="button" aria-pressed="true" data-lk="">All <span>{len(items):,}</span></button>
+      <button type="button" aria-pressed="false" data-lk="a">Audio <span>{na:,}</span></button>
+      <button type="button" aria-pressed="false" data-lk="v">Video <span>{nv:,}</span></button>
+    </div>
+    <label class="filter"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><input id="lq" type="search" placeholder="Filter titles, in English or Gurmukhi" aria-label="Filter titles" autocomplete="off"></label>
+  </div>
+</div></section>
+<div class="wrap latest" data-latest data-src="{u('latest/index.json')}">
+  <p class="latest-count" aria-live="polite">Showing the newest {len(first)} of {len(items):,}.</p>
+  <div class="rows" data-queue>{''.join(rows)}</div>
+  <p class="more"><button type="button" class="btn plain" data-more>Show more</button></p>
+</div>"""
+    page(ctx, "latest/", "Latest katha, newest first", body,
+         "Every katha recording and video by Sant Baba Jagjit Singh Ji Harkhowal Wale, newest first, with a simple filter for audio, video and titles.",
+         section="latest")
+
+
 def build_search(ctx):
     k = ctx["k"]
     links = ctx["links"]
@@ -814,7 +899,7 @@ def build_search(ctx):
             v["title"] + " " + v.get("description", ""), links.get("yt:" + v["id"], {}).keys(), {"id": v["id"]})
     for x in k["external"]["items"]:
         if x.get("status") == "published":
-            add("external", x["title"], x["creator"], "https://www.youtube.com/watch?v=" + x["youtube"], x["title"] + " " + x["creator"], x.get("themes", []))
+            add("external", x["title"], x["creator"], ext_url(x), x["title"] + " " + x["creator"], x.get("themes", []))
     add("page", "About Babaji and the Dera", "Sant Jawala Singh Ji, Dera Sant Ghar, lineage", u("about/"),
         "about babaji dera sant ghar harkhowal jawala singh hoti mardan lineage history contact ਹਰਖੋਵਾਲ")
     terms = {t["slug"]: [K.fold(x) for x in [t["title"], t["gurmukhi"]] + t.get("terms", []) + [g.lstrip("=") for g in t["match"].get("gurmukhi", [])]]
@@ -908,6 +993,7 @@ def build(out=None):
         build_theme(ctx, th)
     build_listen(ctx)
     build_watch(ctx)
+    build_latest(ctx)
     build_about(ctx)
     build_sources(ctx)
     build_search(ctx)
