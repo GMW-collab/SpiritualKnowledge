@@ -4,7 +4,7 @@
 // The name must match the Worker's name in the Cloudflare dashboard.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "harkhowal",
+  "name": "spiritualknowledge",
   "compatibility_date": "2025-09-15",
   "build": {
     "command": "python3 scripts/build.py"
