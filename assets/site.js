@@ -304,15 +304,16 @@
     var hitThemes = Object.keys(d.themes).filter(function (s) { return d.themes[s].some(function (term) { return term && (term === q || (q.length > 2 && term.indexOf(q) === 0) || (term.length > 3 && q.indexOf(term) >= 0)); }); });
     var res = [];
     d.items.forEach(function (it) {
-      if (kind && it[0] !== kind) return;
+      if (kind && it[0] !== kind && !(kind === "topic" && it[0] === "theme")) return;
       var text = " " + it[4], score = 0;
       if (words.every(function (w) { return text.indexOf(" " + w) >= 0; })) score = 10 + (text.indexOf(" " + q) >= 0 ? 5 : 0);
       if (score) score += words.filter(function (w) { return (text + " ").indexOf(" " + w + " ") >= 0; }).length * 2;
       else if (nospace.length > 3 && text.replace(/ /g, "").indexOf(nospace) >= 0) score = 8;
       var th = it[5] ? it[5].split(" ") : [], via = null;
       hitThemes.forEach(function (s) { if (th.indexOf(s) >= 0) { if (!score) via = s; score = Math.max(score, 4) + 2; } });
-      if (it[0] === "theme" && hitThemes.indexOf(th[0]) >= 0) score += 40;
-      if (score && it[0] === "theme") score += 6; else if (score && it[0] === "series") score += 3;
+      if ((it[0] === "theme" || it[0] === "topic") && hitThemes.indexOf(th[0]) >= 0) score += 40;
+      if ((it[0] === "theme" || it[0] === "topic") && (fold(it[1]) === q || fold(it[6]) === q || fold(it[1].split(" (")[0]) === q)) score += 25;
+      if (score && (it[0] === "theme" || it[0] === "topic")) score += 6; else if (score && it[0] === "series") score += 3;
       if (score > 6 || (score && it[0] !== "rec")) res.push({ it: it, score: score, via: via });
     });
     res.sort(function (a, b) { return b.score - a.score || ((b.it[6] && b.it[6].d) || "").localeCompare((a.it[6] && a.it[6].d) || ""); });
@@ -330,7 +331,7 @@
         var r = search(d, q, kind); box.textContent = "";
         if (!r) { box.innerHTML = hint; return; }
         if (!r.res.length) { box.appendChild(el("p", "hint", "Nothing matches \u2018" + q + "\u2019. Try a shorter word, a different spelling, or the same idea in Gurmukhi or English.")); return; }
-        var groups = { theme: "Themes", series: "Series and texts", video: "Videos", rec: "Recordings", external: "From other teachers and makers", page: "Pages" };
+        var groups = { theme: "In-depth themes", topic: "Topics", series: "Series and texts", video: "Videos", rec: "Recordings", external: "From other teachers and makers", page: "Pages" };
         Object.keys(groups).forEach(function (g) {
           var list = r.res.filter(function (x) { return x.it[0] === g; }); if (!list.length) return;
           var lim = g === "rec" ? 40 : 12;
@@ -338,13 +339,13 @@
           var wrap = el("div", g === "rec" ? "rows" : null); if (g === "rec") wrap.setAttribute("data-queue", "");
           list.slice(0, lim).forEach(function (x) {
             var it = x.it;
-            if (g === "theme") { var a = el("a", "res-theme"); a.href = it[3]; var s = el("span", "g", it[6]); s.lang = "pa"; a.appendChild(s); a.appendChild(el("b", null, it[1])); a.appendChild(el("span", null, it[2])); wrap.appendChild(a); }
+            if (g === "theme" || g === "topic") { var a = el("a", "res-theme"); a.href = it[3]; var s = el("span", "g", it[6]); s.lang = "pa"; a.appendChild(s); a.appendChild(el("b", null, it[1])); a.appendChild(el("span", null, it[2])); wrap.appendChild(a); }
             else if (g === "rec") { var m = it[6]; wrap.appendChild(rowFor({ p: m.p, t: it[1], s: it[2], sg: m.sg, sid: m.sid, d: m.d })); }
             else { var l = el("a", "res-link"); l.href = it[3]; if (/^https?:/.test(it[3]) && it[3].indexOf(location.origin) !== 0) { l.target = "_blank"; l.rel = "noopener"; } l.appendChild(el("b", null, it[1])); l.appendChild(el("span", null, it[2])); wrap.appendChild(l); }
           });
           box.appendChild(wrap);
         });
-        if (r.themes.length) box.appendChild(el("p", "via", "Results include items linked to the theme" + (r.themes.length > 1 ? "s " : " ") + r.themes.map(function (s) { return d.names[s][0]; }).join(", ") + ", which your search names."));
+        if (r.themes.length) box.appendChild(el("p", "via", "Results include katha linked to the topic" + (r.themes.length > 1 ? "s " : " ") + r.themes.map(function (s) { return d.names[s][0]; }).join(", ") + ", which your search names."));
         refresh();
       });
     }
@@ -390,8 +391,8 @@
         function upd() { if (sel.value === "awaiting-review" && !who.value) delete ov.theme_review[th.slug]; else ov.theme_review[th.slug] = { status: sel.value, reviewer: who.value, date: new Date().toISOString().slice(0, 10) }; sync(); }
         sel.onchange = upd; who.onchange = upd; row.appendChild(sel); row.appendChild(who); s3.appendChild(row); });
 
-      var s4 = sec("Automatic theme links", "Made from titles. Untick a link to remove it; tick \u2018confirmed\u2019 once you have checked it.");
-      d.themes.forEach(function (th) { var list = d.auto[th.slug] || []; var det = el("details"); det.appendChild(el("summary", null, th.title + " (" + list.length + ")"));
+      var s4 = sec("Automatic topic links", "Made from titles and Ang ranges. Untick a link to remove it; tick \u2018confirmed\u2019 once you have checked it.");
+      (d.topics || d.themes).forEach(function (th) { var list = d.auto[th.slug] || []; var det = el("details"); det.appendChild(el("summary", null, th.title + " (" + list.length + ")"));
         list.slice(0, 400).forEach(function (it) { var lb = el("label"); var keep = el("input"); keep.type = "checkbox"; keep.checked = !((ov.theme_remove[it.id] || []).indexOf(th.slug) >= 0);
           keep.onchange = function () { addTo(ov.theme_remove, it.id, th.slug, !keep.checked); };
           var conf = el("input"); conf.type = "checkbox"; conf.checked = it.confirmed; conf.title = "Confirmed";
@@ -399,9 +400,9 @@
           lb.appendChild(keep); var a = el("a", null, it.kind + ": " + it.title); a.href = it.url; a.target = "_blank"; lb.appendChild(a); lb.appendChild(el("span", "sub", " (" + it.via + ") ")); lb.appendChild(conf); lb.appendChild(el("span", "sub", "confirmed")); det.appendChild(lb); });
         s4.appendChild(det); });
 
-      var s5 = sec("Videos with no theme", "Add a theme to any recent video its title did not reveal.");
+      var s5 = sec("Videos with no topic", "Add a topic to any recent video its title did not reveal.");
       d.untagged.forEach(function (v) { var lb = el("label"); var sel = el("select"); sel.appendChild(el("option", null, "Add a theme\u2026"));
-        d.themes.forEach(function (th) { var o = el("option", null, th.title); o.value = th.slug; sel.appendChild(o); });
+        (d.topics || d.themes).forEach(function (th) { var o = el("option", null, th.title); o.value = th.slug; sel.appendChild(o); });
         sel.onchange = function () { if (sel.value) addTo(ov.theme_add, v.id, sel.value, true); };
         lb.appendChild(sel); lb.appendChild(document.createTextNode(" " + v.title + " (" + v.date + ")")); s5.appendChild(lb); });
 

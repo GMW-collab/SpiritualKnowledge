@@ -204,7 +204,7 @@ def page(ctx, path, title, body, desc, *, section="", noindex=False, jsonld=None
     site = k["config"].get("site_name", "Harkhowal Online")
     full = title if title == site else f"{title} | {site}"
     canonical = k["config"].get("site_url", "").rstrip("/") + "/" + path.lstrip("/")
-    nav = [("latest/", "Latest", "latest"), ("themes/", "Themes", "themes"), ("listen/", "Listen", "listen"), ("watch/", "Watch", "watch"), ("about/", "About", "about")]
+    nav = [("latest/", "Latest", "latest"), ("topics/", "Topics", "topics"), ("listen/", "Listen", "listen"), ("watch/", "Watch", "watch"), ("about/", "About", "about")]
     navh = "".join(f'<a href="{u(p)}"{" aria-current=\"page\"" if section == s else ""}>{t}</a>' for p, t, s in nav)
     ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else ""
     img = og_image or "https://i.ytimg.com/vi/" + (k["videos"][0]["id"] if k["videos"] else "") + "/hqdefault.jpg"
@@ -423,7 +423,7 @@ def build_theme(ctx, th):
 <article class="theme">
   <header class="theme-head">
     <div class="wrap">
-      <p class="crumbs"><a href="{u('themes/')}">Themes</a></p>
+      <p class="crumbs"><a href="{u('topics/')}">Topics</a>, in depth</p>
       <h1><span class="g" lang="pa">{e(th['gurmukhi'])}</span><span class="en">{e(th['title'])}</span></h1>
       <p class="sub">{e(th['subtitle'])}</p>
       <p class="q">{e(th['question'])}</p>
@@ -449,7 +449,7 @@ def build_theme(ctx, th):
     ld = {"@context": "https://schema.org", "@type": "Article", "headline": f"{th['title']} ({th['gurmukhi']})",
           "description": th["summary"], "inLanguage": "en", "about": th["title"],
           "publisher": {"@type": "Organization", "name": k["config"].get("site_name")}}
-    page(ctx, f"themes/{slug}/", f"{th['title']}: {th['subtitle']}", body, th["summary"], section="themes", jsonld=ld)
+    page(ctx, f"themes/{slug}/", f"{th['title']}: {th['subtitle']}", body, th["summary"], section="topics", jsonld=ld)
     ctx["gurbani_log"][slug] = ctx_local["gurbani_used"]
 
 
@@ -460,20 +460,146 @@ def series_line(ctx, s):
             f'{e(prof.get("text") or s["title"])}</a><span>{len(s["tracks"]):,} recordings</span></li>')
 
 
-def build_themes_index(ctx):
+def reason(via):
+    """How a link was made, in plain words for readers."""
+    m = re.match(r"(title|description|series title): ‘(.*)’$", via)
+    if m:
+        return {"title": "title names", "description": "description names", "series title": "series title names"}[m.group(1)] + f" ‘{m.group(2)}’"
+    if via.startswith("covers"):
+        return f"katha {via}"
+    return {"editor": "linked by an editor", "curated": "chosen by the Dera"}.get(via, "part of a series on this topic")
+
+
+def topic_url(tp):
+    return u(f"themes/{tp['theme']}/") if tp["kind"] == "theme" else u(f"topics/{tp['id']}/")
+
+
+def topic_items(ctx, tid):
+    """Everything linked to a topic: videos, recordings (with why), series."""
+    k, links = ctx["k"], ctx["links"]
+    vids = [(v, links["yt:" + v["id"]][tid]["via"]) for v in k["videos"] if tid in links.get("yt:" + v["id"], {})]
+    recs, series = [], []
+    for s in k["audio"].get("series", []):
+        if tid in links.get("s:" + s["id"], {}):
+            series.append(s)
+            continue
+        for t in s["tracks"]:
+            if tid in links.get(t["id"], {}):
+                recs.append((t, s, links[t["id"]][tid]["via"]))
+    return vids, recs, series
+
+
+def related_topics(ctx, tid, limit=6):
+    """Topics that share katha with this one, most shared first."""
+    k, links = ctx["k"], ctx["links"]
+    counts = {}
+    for iid, tps in links.items():
+        if tid in tps:
+            for other in tps:
+                if other != tid and other in k["topic_by_id"]:
+                    counts[other] = counts.get(other, 0) + 1
+    return [k["topic_by_id"][t] for t, n in sorted(counts.items(), key=lambda x: (-x[1], x[0]))[:limit]]
+
+
+def topic_count(ctx, tid):
+    vids, recs, series = topic_items(ctx, tid)
+    seen = {t["p"] for t, s, via in recs} | {t["p"] for s in series for t in s["tracks"]}
+    th = ctx["k"]["theme_by_slug"].get(tid)
+    if th:  # an in-depth theme also offers the katha of each Gurbani line it quotes
+        for g in set(K.gurbani_refs("\n".join(th["sections"].values())) + [th["anchor"]]):
+            line = ctx["k"]["gurbani"][g]
+            if K.gurbani_state(line, ctx["k"]["verification"], ctx["k"]["overrides"])[0]:
+                seen |= {t["p"] for t, s in K.katha_for_line(line, ctx["katha_idx"], limit=2)}
+    return len(vids) + len(seen)
+
+
+def build_topics(ctx):
     k = ctx["k"]
-    items = "".join(f'<li><a href="{u("themes/" + t["slug"] + "/")}"><span class="g" lang="pa">{e(t["gurmukhi"])}</span>'
-                    f'<span class="en">{e(t["title"])}</span><span class="q">{e(t["question"])}</span></a></li>' for t in k["themes"])
+    kinds = k["topics_file"].get("kinds", {})
+    # In-depth themes, as questions, with the map of how they connect
+    qs = "".join(f'<li><a href="{u("themes/" + t["slug"] + "/")}"><span class="g" lang="pa">{e(t["gurmukhi"])}</span>'
+                 f'<span class="en">{e(t["title"])}</span><span class="q">{e(t["question"])}</span></a></li>' for t in k["themes"])
+    groups = []
+    for kind, meta in kinds.items():
+        rows = []
+        for tp in [t for t in k["topics"] if t["kind"] == kind]:
+            n = topic_count(ctx, tp["id"])
+            if not n:
+                continue
+            terms = K.fold(" ".join([tp["title"], tp["gurmukhi"]] + tp.get("aliases", [])))
+            rows.append(f'<a class="ix" href="{topic_url(tp)}" data-filter="{e(terms)}"><span class="gn" lang="pa">{e(tp["gurmukhi"])}</span>'
+                        f'<span class="en">{e(tp["title"])}</span><span class="n">{n:,}</span></a>')
+        groups.append(f'<section class="shelf"><div class="shelf-head"><h2><span class="g" lang="pa">{e(meta["gurmukhi"])}</span> {e(meta["title"])}</h2></div>'
+                      f'<div class="index">{"".join(rows)}</div></section>')
+    theme_rows = "".join(f'<a class="ix" href="{u("themes/" + t["slug"] + "/")}" data-filter="{e(K.fold(" ".join([t["title"], t["gurmukhi"], t["question"]] + t.get("terms", []))))}">'
+                         f'<span class="gn" lang="pa">{e(t["gurmukhi"])}</span><span class="en">{e(t["title"])}: in depth</span><span class="n">{topic_count(ctx, t["slug"]):,}</span></a>' for t in k["themes"])
     body = f"""
 <section class="page-head"><div class="wrap">
-  <h1>Themes</h1>
-  <p class="lede">Eleven doorways into Gurmat, chosen from what Babaji actually teaches: the subjects named in his divans and the texts he has given katha on. Each one moves from a first introduction, through Gurbani and Babaji’s katha, to questions for your own life.</p>
+  <h1>Topics</h1>
+  <p class="lede">Find a topic, then the katha that speaks to it. Topics are drawn from Babaji’s own titles and from the Gurbani he has expounded: Gurbani topics gather the katha of their Angs, others gather recordings and videos whose titles name them.</p>
+  <label class="filter"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><input id="tq" type="search" data-filter-input placeholder="Find a topic: ego, ਨਾਮ, Sukhmani, Sangrand" aria-label="Find a topic" autocomplete="off"></label>
 </div></section>
-<section class="wrap themes-index">
-  <ol class="qlist">{items}</ol>
-  <figure class="mapfig">{constellation(ctx)}<figcaption>Lines show the connections explained on each theme’s page. Dashed lines mark connections where the two ideas also pull in different directions.</figcaption></figure>
+<div class="wrap shelves" data-filter-scope>
+  <section class="shelf"><div class="shelf-head"><h2><span class="g" lang="pa">ਵਿਸਥਾਰ</span> In depth</h2><p>Eleven themes with an introduction, Gurbani, Babaji’s katha and questions for reflection.</p></div>
+  <div class="index">{theme_rows}</div></section>
+  {"".join(groups)}
+</div>
+<section class="wrap band themes-index">
+  <ol class="qlist">{qs}</ol>
+  <figure class="mapfig">{constellation(ctx)}<figcaption>How the in-depth themes connect. Dashed lines mark connections where the two ideas also pull in different directions.</figcaption></figure>
 </section>"""
-    page(ctx, "themes/", "Themes", body, "Explore Gurmat through themes drawn from Babaji's katha: Haumai, Hukam, Naam, Shabad Guru, Seva, Maya, the mind, Gian, Bhagti, Rahini and Mukti.", section="themes")
+    page(ctx, "topics/", "Topics", body,
+         "A knowledge base of Gurmat topics from Babaji's katha: ideas, Gurbani, Gurus and Gurmukhs, and occasions, each with the katha that refers to it.",
+         section="topics")
+    for tp in k["topics"]:
+        if tp["kind"] != "theme":
+            build_topic(ctx, tp)
+
+
+def build_topic(ctx, tp):
+    k = ctx["k"]
+    tid = tp["id"]
+    vids, recs, series = topic_items(ctx, tid)
+    total = len(vids) + len(recs) + sum(len(s["tracks"]) for s in series)
+    angs = tp.get("match", {}).get("angs", [])
+    by_ang = bool(angs)
+    if by_ang:
+        recs.sort(key=lambda x: (x[1]["id"] != SGGS, x[1]["title"], x[0]["i"]))
+    else:
+        recs.sort(key=lambda x: (x[0].get("d") or "", x[0]["i"]), reverse=True)
+    parts = []
+    if angs:
+        al = "".join(f'<li><a href="https://www.sikhitothemax.org/ang?ang={a}&amp;source=G" target="_blank" rel="noopener">Ang {a} to {b}</a>'
+                     f'<span>Sri Guru Granth Sahib Ji</span></li>' for a, b in angs)
+        parts.append(f'<h2>Where it is in the Granth</h2><ul class="anglist">{al}</ul>')
+    if vids:
+        parts.append(f'<h2>Videos</h2><div class="vgrid">{"".join(video_card(v, small=True, label=reason(via).capitalize()) for v, via in vids)}</div>')
+    if recs:
+        rows = "".join(track_row(t, s, sub=f"{s['title']}. Linked: {reason(via)}") for t, s, via in recs[:200])
+        parts.append(f'<h2>Recordings{" in Ang order" if by_ang else ", newest first"}</h2><div class="rows" data-queue>{rows}</div>')
+    if series:
+        parts.append(f'<h2>Whole series</h2><ul class="serieslist">{"".join(series_line(ctx, s) for s in series)}</ul>')
+    if not parts:
+        parts.append('<p class="empty">No katha is linked to this topic yet.</p>')
+    rel = related_topics(ctx, tid)
+    relh = "".join(f'<a class="tag" href="{topic_url(r)}"><span class="g" lang="pa">{e(r["gurmukhi"])}</span> {e(r["title"])}</a>' for r in rel)
+    theme = k["theme_by_slug"].get(tp.get("theme", ""))
+    deep = (f'<p class="deeper-link">Go deeper: <a href="{u("themes/" + theme["slug"] + "/")}"><span class="g" lang="pa">{e(theme["gurmukhi"])}</span> '
+            f'{e(theme["title"])}</a>, with Gurbani, comparisons and questions for reflection.</p>') if theme else ""
+    kind = k["topics_file"]["kinds"].get(tp["kind"], {}).get("title", "")
+    body = f"""
+<section class="page-head topic-head"><div class="wrap">
+  <p class="crumbs"><a href="{u('topics/')}">Topics</a>, {e(kind)}</p>
+  <h1><span class="g" lang="pa">{e(tp['gurmukhi'])}</span><span class="en">{e(tp['title'])}</span></h1>
+  <p class="lede">{e(tp.get('about', ''))}</p>
+  <p class="gloss solo"><b>How this page is made</b><span>{total:,} {'recording or video' if total == 1 else 'recordings and videos'} linked {'by the Angs their titles cover, and ' if by_ang else ''}by their titles; each says why. The note above is editorial.</span></p>
+  {deep}
+  {('<p class="tags">Related topics: ' + relh + '</p>') if relh else ''}
+</div></section>
+<div class="wrap topic-body">{"".join(parts)}</div>"""
+    page(ctx, f"topics/{tid}/", f"{tp['title']}: Babaji’s katha", body,
+         f"{tp.get('about', '')} Katha by Sant Baba Jagjit Singh Ji Harkhowal Wale on {tp['title']}.", section="topics",
+         noindex=total < 3)
 
 
 def build_listen(ctx):
@@ -620,7 +746,7 @@ def build_home(ctx):
         parts = [p.strip() for p in re.split(r"[।|]|\bl\b", title) if p.strip()]
         lead = parts[0] if parts else title
         rest = " · ".join(parts[1:4])
-        theme_hits = [k["theme_by_slug"][s] for s in ctx["links"].get("yt:" + v["id"], {})]
+        theme_hits = [k["topic_by_id"][s] for s in ctx["links"].get("yt:" + v["id"], {}) if s in k["topic_by_id"]]
         hero_video = f"""
     <div class="hero-text">
       <p class="when"><span class="live" aria-hidden="true"></span>Newest katha, {fdate(v.get('published'))}</p>
@@ -630,7 +756,7 @@ def build_home(ctx):
         <button class="btn sun" type="button" data-video-target="hero-screen"><svg class="icon"><use href="#i-play"/></svg>Watch now</button>
         <a class="btn ghost" href="{u('listen/')}">Browse {sum(len(s['tracks']) for s in k['audio'].get('series', [])):,} recordings</a>
       </div>
-      {('<p class="hthemes">On ' + ', '.join(f'<a href="{u("themes/" + t["slug"] + "/")}">{e(t["title"].split(":")[0])}</a>' for t in theme_hits[:3]) + '</p>') if theme_hits else ''}
+      {('<p class="hthemes">Topics: ' + ', '.join(f'<a href="{topic_url(t)}">{e(t["title"].split(":")[0])}</a>' for t in theme_hits[:5]) + '</p>') if theme_hits else ''}
     </div>
     <div class="hero-screen" id="hero-screen">
       <button type="button" class="thumb" data-video="{e(v['id'])}" aria-label="Play video: {e(title)}">
@@ -658,7 +784,7 @@ def build_home(ctx):
 </section>
 <section class="wrap band begin">
   <div class="begin-head"><h2>Begin with a question</h2>
-  <p>Each theme starts from a question, then opens into Gurbani, Babaji’s katha and your own reflection.</p></div>
+  <p>Each theme starts from a question, then opens into Gurbani, Babaji’s katha and your own reflection. Or <a href="{u('topics/')}">find a topic</a> and the katha that speaks to it.</p></div>
   <ul class="qlist">{qs}</ul>
 </section>
 <div data-continue class="wrap band continue" hidden><h2>Continue listening</h2><div class="rows"></div></div>
@@ -666,6 +792,7 @@ def build_home(ctx):
 <section class="wrap band library-teaser"><div class="h-row"><h2>The katha library</h2><a href="{u('listen/')}">Open the library</a></div><ul class="shelfnav">{''.join(shelves)}</ul></section>
 {progh}
 <section class="wrap band lineage-teaser">
+  {portrait("babaji", "Sant Baba Jagjit Singh Ji, seated cross-legged in white", "", sizes="(max-width: 760px) 60vw, 240px")}
   <div><h2>Dera Sant Ghar, Harkhowal</h2>
   <p>Founded in 1918 by Sant Jawala Singh Ji, a disciple of Sant Aiya Singh Ji of Hoti Mardan. Sant Baba Jagjit Singh Ji continues its seva through katha of Gurbani in Punjab and abroad.</p>
   <p><a href="{u('about/')}">About Babaji and the Dera</a></p></div>
@@ -675,6 +802,18 @@ def build_home(ctx):
     page(ctx, "", k["config"].get("site_name", "Harkhowal Online"), body,
          "Katha and Gurmat vichar by Sant Baba Jagjit Singh Ji Harkhowal Wale: thousands of recordings, the latest divans, and themes that connect Gurbani with everyday life.",
          jsonld=ld)
+
+
+def portrait(name, alt, caption, sizes="(max-width: 900px) 92vw, 400px", lazy=True):
+    small, large = PHOTOS[name]
+    return (f'<figure class="portrait"><img src="{u(f"assets/images/{name}-{small[0]}.jpg")}" '
+            f'srcset="{u(f"assets/images/{name}-{small[0]}.jpg")} {small[0]}w, {u(f"assets/images/{name}-{large[0]}.jpg")} {large[0]}w" '
+            f'sizes="{sizes}" width="{small[0]}" height="{small[1]}" alt="{e(alt)}"{" loading=\"lazy\"" if lazy else ""} decoding="async">'
+            f'{"<figcaption>" + e(caption) + "</figcaption>" if caption else ""}</figure>')
+
+
+# (width, height) of the prepared sizes in assets/images
+PHOTOS = {"babaji": ((440, 471), (800, 856)), "sant-jawala-singh-ji": ((400, 485), (720, 873))}
 
 
 def build_about(ctx):
@@ -694,9 +833,12 @@ def build_about(ctx):
 <section class="page-head"><div class="wrap"><h1>About Babaji and the Dera</h1></div></section>
 <div class="wrap about">
   <div class="col">
+    {portrait("babaji", "Sant Baba Jagjit Singh Ji, seated cross-legged in white, holding prashad", "Sant Baba Jagjit Singh Ji Harkhowal Wale", lazy=False)}
     {md(s.get('babaji', ''), ctx)}
     <h2>Dera Sant Ghar</h2>{md(s.get('dera', ''), ctx)}
-    <h2>Sant Jawala Singh Ji</h2>{md(s.get('jawala-singh', ''), ctx)}
+    <h2>Sant Jawala Singh Ji</h2>
+    {portrait("sant-jawala-singh-ji", "Painted portrait of Sant Jawala Singh Ji seated in meditation, wearing a garland", "Sant Jawala Singh Ji (1889 to 1957), founder of Dera Sant Ghar. A painted portrait.")}
+    {md(s.get('jawala-singh', ''), ctx)}
     {('<div class="rows" data-queue>' + jk + '</div>') if jk else ''}
     <p class="gloss solo"><b>About this page</b><span>{e(rv.get('by', ''))}. Corrections are welcome at {e(k['config'].get('contact_email'))}.</span></p>
     <h2>Contact</h2>{md(s.get('contact', ''), ctx)}
@@ -783,6 +925,7 @@ def build_review(ctx):
     data = {
         "overrides": k["overrides"],
         "themes": [{"slug": t["slug"], "title": t["title"], "gurmukhi": t["gurmukhi"], "review": K.theme_review(k, t["slug"])} for t in k["themes"]],
+        "topics": [{"slug": t["id"], "title": t["title"] + (" (in depth)" if t["kind"] == "theme" else ""), "gurmukhi": t["gurmukhi"]} for t in k["topics"]],
         "auto": auto, "untagged": untagged, "gurbani": gb,
         "pending": [{"id": i["id"], "title": i["title"], "link": i["link"], "feed": i["feed"], "date": i.get("published", ""), "summary": i.get("summary", "")}
                     for i in K.pending_feed_items(k)],
@@ -902,22 +1045,26 @@ def build_search(ctx):
             add("external", x["title"], x["creator"], ext_url(x), x["title"] + " " + x["creator"], x.get("themes", []))
     add("page", "About Babaji and the Dera", "Sant Jawala Singh Ji, Dera Sant Ghar, lineage", u("about/"),
         "about babaji dera sant ghar harkhowal jawala singh hoti mardan lineage history contact ਹਰਖੋਵਾਲ")
-    terms = {t["slug"]: [K.fold(x) for x in [t["title"], t["gurmukhi"]] + t.get("terms", []) + [g.lstrip("=") for g in t["match"].get("gurmukhi", [])]]
-             for t in k["themes"]}
+    for tp in k["topics"]:
+        if tp["kind"] != "theme":
+            add("topic", tp["title"], tp.get("about", ""), topic_url(tp),
+                " ".join([tp["title"], tp["gurmukhi"], tp.get("about", "")] + tp.get("aliases", [])), [tp["id"]], tp["gurmukhi"])
+    terms = {tp["id"]: [K.fold(x) for x in [tp["title"], tp["gurmukhi"]] + tp.get("aliases", []) + [g.lstrip("=") for g in tp.get("match", {}).get("gurmukhi", [])]]
+             for tp in k["topics"]}
     write("search/index.json", json.dumps({"items": idx, "themes": terms,
-                                           "names": {t["slug"]: [t["title"], t["gurmukhi"]] for t in k["themes"]}}, ensure_ascii=False, separators=(",", ":")))
+                                           "names": {tp["id"]: [tp["title"], tp["gurmukhi"]] for tp in k["topics"]}}, ensure_ascii=False, separators=(",", ":")))
     body = f"""
 <section class="page-head"><div class="wrap"><h1>Search</h1>
 <form class="bigsearch" role="search" data-search-form><label class="sr" for="sq">Search</label>
 <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><input id="sq" name="q" type="search" placeholder="Try ego, ਹੁਕਮ, Japji, Vichar Sagar, 1990" autocomplete="off"></form>
 <div class="chips" role="group" aria-label="Filter results" data-kind-filter>
 <button type="button" class="chip" aria-pressed="true" data-kind="">Everything</button>
-<button type="button" class="chip" aria-pressed="false" data-kind="theme">Themes</button>
+<button type="button" class="chip" aria-pressed="false" data-kind="topic">Topics</button>
 <button type="button" class="chip" aria-pressed="false" data-kind="series">Series</button>
 <button type="button" class="chip" aria-pressed="false" data-kind="rec">Recordings</button>
 <button type="button" class="chip" aria-pressed="false" data-kind="video">Videos</button></div>
 </div></section>
-<div class="wrap search-results" data-search data-src="{u('search/index.json')}" aria-live="polite"><p class="hint">Search Babaji’s katha, videos and themes in English, Punjabi or transliteration. Searching a theme in any language, such as ‘ego’ or ‘ਹੰਕਾਰ’, also finds recordings linked to it.</p></div>"""
+<div class="wrap search-results" data-search data-src="{u('search/index.json')}" aria-live="polite"><p class="hint">Search Babaji’s katha, videos and themes in English, Punjabi or transliteration. Searching a topic in any language, such as ‘ego’, ‘ਹੰਕਾਰ’ or ‘Sangrand’, also finds the katha linked to it.</p></div>"""
     page(ctx, "search/", "Search", body, "Search Babaji's katha recordings, videos and themes in English or Gurmukhi.")
 
 
@@ -935,6 +1082,7 @@ def build_redirects(ctx):
     for old, new in REDIRECTS.items():
         for src in (f"/{old}", f"/{old}/"):
             lines.append(f"{BASE}{src.lstrip('/')} {u(new)} 301")
+    lines += ["# The themes index became the topic index", f"{BASE}themes {u('topics/')} 301", f"{BASE}themes/ {u('topics/')} 301"]
     (OUT / "_redirects").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
@@ -962,7 +1110,7 @@ def build_headers(ctx):
 
 def build_404(ctx):
     body = f"""<section class="page-head"><div class="wrap"><h1>This page isn’t here</h1>
-<p class="lede">It may have moved when the site was rebuilt. Try <a href="{u('search/')}">searching</a>, or start from <a href="{u('themes/')}">the themes</a> or <a href="{u('listen/')}">the katha library</a>.</p></div></section>"""
+<p class="lede">It may have moved when the site was rebuilt. Try <a href="{u('search/')}">searching</a>, or start from <a href="{u('topics/')}">the topics</a> or <a href="{u('listen/')}">the katha library</a>.</p></div></section>"""
     page(ctx, "404.html", "Page not found", body, "Page not found.", noindex=True)
 
 
@@ -985,10 +1133,10 @@ def build(out=None):
     shutil.copytree(ROOT / "assets", OUT / "assets")
     ver = hashlib.sha1(b"".join((ROOT / "assets" / f).read_bytes() for f in ("site.css", "site.js"))).hexdigest()[:8]
     updated = max([x for x in (k["audio"].get("updated", ""), k["sync"].get("updated", "")[:10]) if x] or [date.today().isoformat()])
-    ctx = {"k": k, "links": K.classify(k), "katha_idx": K.katha_index(k["audio"].get("series", [])), "sitemap": [], "ver": ver,
+    ctx = {"k": k, "links": K.classify_topics(k), "katha_idx": K.katha_index(k["audio"].get("series", [])), "sitemap": [], "ver": ver,
            "updated": fdate(updated), "gurbani_log": {}}
     build_home(ctx)
-    build_themes_index(ctx)
+    build_topics(ctx)
     for th in k["themes"]:
         build_theme(ctx, th)
     build_listen(ctx)

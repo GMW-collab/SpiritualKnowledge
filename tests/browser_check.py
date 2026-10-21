@@ -97,7 +97,7 @@ with sync_playwright() as p:
         return pg
 
     pg = newpage()
-    for path in ["", "themes/", "themes/haumai/", "listen/", "listen/sri-guru-granth-sahib-ji-di-lareevar-katha/",
+    for path in ["", "topics/", "topics/sukhmani/", "themes/haumai/", "listen/", "listen/sri-guru-granth-sahib-ji-di-lareevar-katha/",
                  "watch/", "search/?q=ego", "about/", "sources/", "review/"]:
         pg.goto(URL + path)
         pg.wait_for_load_state("networkidle")
@@ -170,6 +170,24 @@ with sync_playwright() as p:
     pg.wait_for_timeout(300)
     pg.locator("#main .row.vrow").first.click()
     check("a video in Latest opens its player in place", pg.locator("#main .vembed iframe").count() == 1)
+
+    # Topics: find a topic, open it, play its katha.
+    pg.goto(URL + "topics/")
+    pg.fill("#tq", "sangrand")
+    visible = [t for t in pg.locator(".ix:visible .en").all_inner_texts()]
+    check("the topic finder narrows to Sangrand", "Sangrand" in visible and len(visible) <= 2, visible)
+    pg.fill("#tq", "ਸੁਖਮਨੀ")
+    check("the topic finder works in Gurmukhi", "Sukhmani Sahib" in pg.locator(".ix:visible").first.inner_text())
+    pg.locator(".ix:visible").first.click()
+    pg.wait_for_url("**/topics/sukhmani/")
+    check("a topic page lists katha with reasons", pg.locator("#main .row").count() > 3 and "Linked:" in pg.locator("#main .row").first.inner_text())
+    pg.locator("#main .row").first.click()
+    check("katha on a topic page plays", pg.locator("#player").is_visible())
+    pg.goto(URL + "search/?q=sangrand")
+    pg.wait_for_selector(".res-theme")
+    check("Search finds the Sangrand topic", "Sangrand" in pg.locator(".res-theme").first.inner_text())
+    r = pg.goto(URL + "themes/")
+    check("the old /themes/ address goes to Topics", pg.url.endswith("/topics/"), pg.url)
 
     # Ang lookup on the Guru Granth Sahib series.
     pg.goto(URL + "listen/sri-guru-granth-sahib-ji-di-lareevar-katha/")
