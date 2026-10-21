@@ -1,0 +1,37 @@
+{
+  "_about": "Material by other teachers and makers, curated by hand. Shown only when status is 'published'. Each item is linked, never copied. These seven were curated on the previous harkhowal.com and carried over as reviewed.",
+  "items": [
+    {"id": "yt:QAhM45wQhEc", "kind": "video", "youtube": "QAhM45wQhEc", "status": "published", "collection": "jeevan",
+     "title": "Se Kinehiya: biography of Sant Baba Harnam Singh Ji (audiobook, part 13)",
+     "creator": "Sant Sewa Singh Ji (author, as credited in the title)", "language": "Punjabi",
+     "provenance": "external", "source_note": "Curated on the previous harkhowal.com (Jeevan Katha Videos).", "themes": ["seva", "bhagti"]},
+    {"id": "yt:63rw7A2wcts", "kind": "video", "youtube": "63rw7A2wcts", "status": "published", "collection": "jeevan",
+     "title": "Baba Nand Singh Ji: life story (documentary)",
+     "creator": "Dr Tara Singh Aalam, Aalami Geet (as credited in the title)", "language": "Punjabi",
+     "provenance": "external", "source_note": "Curated on the previous harkhowal.com (Jeevan Katha Videos).", "themes": ["bhagti", "naam"]},
+    {"id": "yt:wh3Oo-rnQ7o", "kind": "video", "youtube": "wh3Oo-rnQ7o", "status": "published", "collection": "jeevan",
+     "title": "The life of Sant Baba Gurbachan Singh Ji Khalsa Bhindranwale",
+     "creator": "Not stated", "language": "Punjabi",
+     "provenance": "external", "source_note": "Curated on the previous harkhowal.com (Jeevan Katha Videos).", "themes": []},
+    {"id": "yt:4SPG_ITWt9I", "kind": "video", "youtube": "4SPG_ITWt9I", "status": "published", "collection": "jeevan",
+     "title": "The life of Sant Baba Jarnail Singh Bhindranwale",
+     "creator": "Baba Mukhtiar Singh Mukhi Ji (as credited in the title)", "language": "Punjabi",
+     "provenance": "external", "source_note": "Curated on the previous harkhowal.com (Jeevan Katha Videos).", "themes": []},
+    {"id": "yt:zbG-bkY2pkM", "kind": "video", "youtube": "zbG-bkY2pkM", "status": "published", "collection": "history",
+     "title": "Lost treasures of the Sikh Kingdom",
+     "creator": "Discover Sikhism (as linked in the video's description)", "language": "English",
+     "provenance": "external", "source_note": "Curated on the previous harkhowal.com (Sikhi Videos).", "themes": []},
+    {"id": "yt:RcvnrRCP0fk", "kind": "video", "youtube": "RcvnrRCP0fk", "status": "published", "collection": "history",
+     "title": "The Story of the Turban",
+     "creator": "BBC One (as credited in the title)", "language": "English",
+     "provenance": "external", "source_note": "Curated on the previous harkhowal.com (Sikhi Videos).", "themes": []},
+    {"id": "yt:BTol8j0piQQ", "kind": "video", "youtube": "BTol8j0piQQ", "status": "published", "collection": "history",
+     "title": "1984: A Sikh Story",
+     "creator": "BBC (as credited in the title)", "language": "English",
+     "provenance": "external", "source_note": "Curated on the previous harkhowal.com (Sikhi Videos).", "themes": []}
+  ],
+  "collections": {
+    "jeevan": {"title": "Lives of mahapurakhs, from other channels", "intro": "Jeevan katha and documentaries by other teachers and makers, chosen by the Dera's sevadars. They open on YouTube."},
+    "history": {"title": "Sikh history documentaries", "intro": "Documentaries by broadcasters and other makers about Sikh history and identity. They open on YouTube."}
+  }
+}

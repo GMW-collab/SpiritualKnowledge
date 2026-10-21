@@ -1,0 +1,10 @@
+{
+  "_about": "Editorial decisions that override automatic processing. Edit this file on GitHub (or paste the snippet the Review page generates). Item ids: 'yt:<videoId>' for YouTube videos, 'a:<path>' for a Gurmatveechar recording (path as in data/audio.json), 's:<series-id>' for a whole series, 'f:<feed-id>:<guid>' for a feed item.",
+  "theme_add": {},
+  "theme_remove": {},
+  "theme_confirmed": {},
+  "approve": [],
+  "reject": [],
+  "gurbani_confirmed": [],
+  "theme_review": {}
+}
