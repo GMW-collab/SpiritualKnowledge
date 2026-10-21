@@ -1,5 +1,7 @@
 # Audit: harkhowal.com and the harkhowal-site repository
 
+The new platform is built in GMW-collab/SpiritualKnowledge, which began as an exact import of harkhowal-site (commit 28ed50d). harkhowal-site itself was left unchanged.
+
 Audited 21 October 2026. Two things exist today, and they are at very different stages.
 
 ## 1. The live harkhowal.com (Wix)

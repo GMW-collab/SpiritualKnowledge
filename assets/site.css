@@ -339,7 +339,8 @@ details.morerows summary{cursor:pointer;font:500 16px var(--sans);color:var(--ne
 .bigsearch{display:flex;align-items:center;gap:12px;border:1px solid var(--rule);background:var(--raised);border-radius:10px;padding:0 16px;max-width:720px;color:var(--muted)}
 .bigsearch input{border:0;outline:0;background:none;font:22px var(--serif);color:var(--ink);padding:14px 0;width:100%;min-width:0}
 .bigsearch:focus-within{border-color:var(--neela)}
-.search-results{padding-top:24px;max-width:860px}
+.search-results{padding-top:24px}
+.search-results>*{max-width:860px}
 .search-results h2{font-size:20px;margin:28px 0 8px;font-family:var(--sans);color:var(--muted)}
 .hint{color:var(--muted)}
 .res-theme{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 16px;padding:16px;border:1px solid var(--rule);border-radius:6px;background:var(--raised);text-decoration:none;color:var(--ink);margin-bottom:10px}

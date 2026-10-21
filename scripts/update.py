@@ -20,7 +20,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from sources.common import SourceResult, load, load_config, now_iso, save  # noqa: E402
 
 ADAPTERS = {"youtube": "youtube", "gurmatveechar": "gurmatveechar", "sheet": "sheet",
-            "feed": "feeds", "banidb": "banidb"}
+            "feed": "feeds", "banidb": "banidb", "facebook": "facebook"}
 
 
 def run_source(cfg, src):

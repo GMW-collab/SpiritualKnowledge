@@ -1,0 +1,178 @@
+"""Build the whole site into a temporary folder and check what visitors and search engines receive."""
+import html.parser
+import json
+import os
+import re
+import shutil
+import sys
+import tempfile
+import unittest
+import xml.etree.ElementTree as ET
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "scripts"))
+
+
+class Links(html.parser.HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.hrefs, self.imgs_without_alt, self.ids, self.buttons_unnamed, self.h1 = [], 0, set(), 0, 0
+        self._btn = None
+
+    def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
+        if a.get("id"):
+            self.ids.add(a["id"])
+        if tag == "a" and a.get("href"):
+            self.hrefs.append(a["href"])
+        if tag == "img" and "alt" not in a:
+            self.imgs_without_alt += 1
+        if tag == "h1":
+            self.h1 += 1
+        if tag == "button":
+            self._btn = [a.get("aria-label") or "", ""]
+
+    def handle_data(self, data):
+        if self._btn is not None:
+            self._btn[1] += data
+
+    def handle_endtag(self, tag):
+        if tag == "button" and self._btn is not None:
+            if not (self._btn[0].strip() or self._btn[1].strip()):
+                self.buttons_unnamed += 1
+            self._btn = None
+
+
+class BuildTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.out = Path(tempfile.mkdtemp()) / "site"
+        os.environ["BASE_PATH"] = "/"
+        import build
+        cls.ctx = build.build(cls.out)
+        cls.pages = sorted(p for p in cls.out.rglob("*.html"))
+
+    @classmethod
+    def tearDownClass(cls):
+        shutil.rmtree(cls.out.parent)
+
+    def read(self, rel):
+        return (self.out / rel).read_text(encoding="utf-8")
+
+    def test_expected_pages_exist(self):
+        k = self.ctx["k"]
+        for rel in ["index.html", "themes/index.html", "listen/index.html", "watch/index.html", "search/index.html",
+                    "about/index.html", "sources/index.html", "review/index.html", "404.html", "sitemap.xml", "robots.txt",
+                    "search/index.json", "review/data.json", "assets/site.css", "assets/site.js"]:
+            self.assertTrue((self.out / rel).exists(), rel)
+        for th in k["themes"]:
+            self.assertTrue((self.out / "themes" / th["slug"] / "index.html").exists())
+        for s in k["audio"]["series"]:
+            self.assertTrue((self.out / "listen" / s["id"] / "index.html").exists(), s["id"])
+
+    def test_every_internal_link_resolves(self):
+        broken = []
+        for p in self.pages:
+            parser = Links()
+            parser.feed(p.read_text(encoding="utf-8"))
+            for h in parser.hrefs:
+                if h.startswith(("http", "mailto:", "#")):
+                    continue
+                path = h.split("#")[0].split("?")[0]
+                target = self.out / path.lstrip("/")
+                if path.endswith("/") or not target.suffix:
+                    target = target / "index.html"
+                if not target.exists():
+                    broken.append(f"{p.relative_to(self.out)} -> {h}")
+        self.assertEqual(broken, [])
+
+    def test_accessibility_basics(self):
+        for p in self.pages:
+            if p.parent.name in ("shabadguru",) or "refresh" in p.read_text(encoding="utf-8")[:600]:
+                continue
+            parser = Links()
+            txt = p.read_text(encoding="utf-8")
+            parser.feed(txt)
+            rel = p.relative_to(self.out)
+            self.assertEqual(parser.imgs_without_alt, 0, f"{rel}: image without alt")
+            self.assertEqual(parser.buttons_unnamed, 0, f"{rel}: button without a name")
+            self.assertEqual(parser.h1, 1, f"{rel}: should have exactly one h1")
+            self.assertIn('<html lang="', txt)
+            self.assertIn('class="skip"', txt)
+
+    def test_unique_titles_and_descriptions(self):
+        titles, descs = {}, {}
+        for p in self.pages:
+            txt = p.read_text(encoding="utf-8")
+            if 'noindex' in txt:
+                continue
+            t = re.search(r"<title>(.*?)</title>", txt).group(1)
+            d = re.search(r'<meta name="description" content="(.*?)"', txt).group(1)
+            self.assertNotIn(t, titles, f"duplicate title {t}: {p} and {titles.get(t)}")
+            titles[t] = p
+            self.assertTrue(d)
+            self.assertIn('rel="canonical"', txt)
+
+    def test_theme_pages_label_provenance(self):
+        for th in self.ctx["k"]["themes"]:
+            txt = self.read(f"themes/{th['slug']}/index.html")
+            self.assertIn("Editorial introduction", txt)
+            self.assertIn("Not Gurbani and not Babaji’s words", txt)
+            self.assertIn("Babaji’s katha", txt)
+            for layer in ("discover", "understand", "explore", "reflect", "deeper"):
+                self.assertIn(f'id="{layer}"', txt, f"{th['slug']} lacks layer {layer}")
+            if th.get("review", {}).get("status") != "reviewed":
+                self.assertIn("Awaiting review", txt)
+
+    def test_gurbani_blocks_carry_source_and_labelled_translation(self):
+        n = 0
+        for th in self.ctx["k"]["themes"]:
+            txt = self.read(f"themes/{th['slug']}/index.html")
+            for block in re.findall(r'<figure class="bani".*?</figure>', txt, re.S):
+                n += 1
+                self.assertIn("Ang", block)
+                self.assertIn("Translation, editorial", block)
+                self.assertIn('lang="pa"', block)
+        self.assertGreater(n, 15)
+
+    def test_unverified_lines_are_hidden(self):
+        k = self.ctx["k"]
+        for gid, line in k["gurbani"].items():
+            if line["confidence"] == "to-verify" and k["verification"].get(gid, {}).get("status") != "verified" \
+                    and gid not in k["overrides"].get("gurbani_confirmed", []):
+                for th in k["themes"]:
+                    self.assertNotIn(line["gurmukhi"], self.read(f"themes/{th['slug']}/index.html"), gid)
+
+    def test_gurbani_lines_link_to_babajis_katha(self):
+        txt = self.read("themes/haumai/index.html")
+        block = re.search(r'<figure class="bani" id="g-haumai-rog".*?</figure>', txt, re.S).group(0)
+        self.assertIn("Ang 0465 to 0467", block)
+
+    def test_sitemap_and_robots(self):
+        root = ET.parse(self.out / "sitemap.xml").getroot()
+        locs = [e.text for e in root.iter("{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
+        self.assertGreater(len(locs), 50)
+        self.assertFalse(any("/review/" in l for l in locs))
+        self.assertIn("Disallow: /review/", self.read("robots.txt"))
+
+    def test_old_wix_urls_redirect(self):
+        for old in ("shabadguru", "sggs-katha", "sants-gurmukhs", "literature"):
+            self.assertIn('http-equiv="refresh"', self.read(f"{old}/index.html"))
+
+    def test_search_index(self):
+        d = json.loads(self.read("search/index.json"))
+        kinds = {i[0] for i in d["items"]}
+        self.assertTrue({"theme", "series", "rec", "video"} <= kinds)
+        self.assertIn("ego", d["themes"]["haumai"])
+        self.assertTrue(any("ਹਕਮ" in t or "ਹੁਕਮ" in t for t in d["themes"]["hukam"]))
+
+    def test_no_unescaped_template_leaks(self):
+        for p in self.pages:
+            txt = p.read_text(encoding="utf-8")
+            for bad in ("{e(", "None</", ">None<", "[[gurbani:", "undefined"):
+                self.assertNotIn(bad, txt, f"{p.relative_to(self.out)} contains {bad!r}")
+
+
+if __name__ == "__main__":
+    unittest.main()

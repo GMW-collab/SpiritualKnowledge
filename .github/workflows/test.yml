@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  pull_request:
+  push:
+    branches-ignore: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit and build tests
+        run: python -m unittest discover -s tests -p "test_*.py" -v
+      - name: Browser tests
+        run: |
+          pip install playwright==1.56.0
+          python -m playwright install --with-deps chromium
+          python tests/browser_check.py

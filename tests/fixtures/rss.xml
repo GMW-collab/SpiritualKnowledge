@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <channel>
+  <title>Example Gurmat essays</title>
+  <item>
+   <title>On &lt;b&gt;Hukam&lt;/b&gt;</title>
+   <link>https://example.org/hukam</link>
+   <guid>https://example.org/hukam</guid>
+   <pubDate>Tue, 20 Oct 2026 08:00:00 GMT</pubDate>
+   <dc:creator>A. Writer</dc:creator>
+   <description>&lt;p&gt;An essay on living in the Divine Order, with a long body that should be shortened before it is stored so that the site links to the original rather than copying it. It goes on and on and on, well past the limit that the adapter keeps, because publishers often syndicate whole articles in their feeds and we must not republish them.&lt;/p&gt;</description>
+  </item>
+  <item>
+   <title>Bad link</title>
+   <link>javascript:alert(1)</link>
+   <guid>bad</guid>
+  </item>
+ </channel>
+</rss>

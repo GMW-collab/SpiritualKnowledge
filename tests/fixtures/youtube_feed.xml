@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <title>Sant Jagjit Singh Ji Harkhowal</title>
+ <entry>
+  <id>yt:video:AAAAAAAAAAA</id>
+  <yt:videoId>AAAAAAAAAAA</yt:videoId>
+  <title>ਹੁਕਮ ਮੰਨਣਾਂ ਬਹੁਤ ਔਖਾ। ਸ਼ਬਦ ਦੀ ਪੜ੍ਹਾਈ।</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=AAAAAAAAAAA"/>
+  <published>2026-10-06T10:00:00+00:00</published>
+  <media:group><media:description>ਹੰਕਾਰ ਦੇ ਪੱਲੇ ਕੁੱਝ ਨਹੀਂ || Sant Ashram Sultanpur Lodhi #katha https://example.org</media:description></media:group>
+ </entry>
+ <entry>
+  <id>yt:video:BBBBBBBBBBB</id>
+  <yt:videoId>BBBBBBBBBBB</yt:videoId>
+  <title>Anmol Bachan</title>
+  <published>2026-09-28T10:00:00+00:00</published>
+ </entry>
+</feed>

@@ -40,7 +40,7 @@ def save(name, obj, compact=False, base=None):
     (d / name).write_text(txt + "\n", encoding="utf-8")
 
 
-_SECRET_ENV = ("YOUTUBE_API_KEY", "FACEBOOK_PAGE_TOKEN")
+_SECRET_ENV = ("YOUTUBE_API_KEY", "FACEBOOK_PAGE_TOKEN", "FACEBOOK_PAGE_ID")
 
 
 def scrub(text):

@@ -18,9 +18,9 @@
     {"id": "banidb", "adapter": "banidb", "title": "BaniDB (Gurbani check)", "kind": "Reference",
      "method": "Checks each quoted Gurbani line against its Ang in the BaniDB API (Khalis Foundation). Only the result is stored.",
      "publish": "Lines marked for verification stay hidden until they pass."},
-    {"id": "facebook", "adapter": null, "state": "needs-credentials", "title": "Facebook page", "kind": "Babaji's own",
+    {"id": "facebook", "adapter": "facebook", "title": "Facebook page", "kind": "Babaji's own",
      "method": "Meta Graph API with a Page access token (pages_read_engagement), granted by a page admin.",
-     "note": "Not connected. Needs a Facebook Page admin to create a Meta app and grant a Page access token; see docs/SOURCES.md. Until then the page is linked, not imported."}
+     "note": "Not connected until a Page admin adds FACEBOOK_PAGE_ID and FACEBOOK_PAGE_TOKEN; see docs/SOURCES.md. Imported posts wait for approval."}
   ],
   "youtube_channel_id": "UCAq_dxXKBpMJQmr-msu0YmA",
   "youtube_url": "https://www.youtube.com/@Santjagjitsinghjiharkhowal",

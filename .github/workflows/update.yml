@@ -1,27 +1,83 @@
-name: Daily content update
+name: Update, build and publish
+
+# Daily: pull new material from every registered source, save it, rebuild the
+# site and publish it to GitHub Pages. Also runs whenever main changes (for
+# example after an editor saves content/editorial/overrides.json), and can be
+# started by hand from the Actions tab.
+#
+# Publishing needs Settings > Pages > Source set to "GitHub Actions".
+# Until that is switched on, the "publish" job is skipped and nothing goes live.
 
 on:
   schedule:
-    - cron: "17 4 * * *"   # every day at 04:17 UTC
-  workflow_dispatch:         # lets you run it by hand from the Actions tab
+    - cron: "17 4 * * *"      # 04:17 UTC every day
+  push:
+    branches: [main]
+    paths-ignore: ["docs/**", "**.md"]
+  workflow_dispatch:
+    inputs:
+      sources:
+        description: "Only these source ids (space-separated), or leave empty for all"
+        required: false
+        default: ""
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Pull latest videos, katha and posts
-        run: python scripts/update.py
-      - name: Save changes
+      - name: Pull new material from each source
+        if: github.event_name != 'push'
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+          FACEBOOK_PAGE_TOKEN: ${{ secrets.FACEBOOK_PAGE_TOKEN }}
+        run: python scripts/update.py ${{ github.event.inputs.sources }}
+      - name: Save new data
+        if: github.event_name != 'push'
         run: |
           git config user.name "harkhowal-bot"
           git config user.email "actions@users.noreply.github.com"
           git add data
           git diff --cached --quiet || git commit -m "Daily content update"
           git push
+      - name: Test
+        run: python -m unittest discover -s tests -p "test_*.py"
+      - name: Find the Pages address
+        id: pages
+        uses: actions/configure-pages@v5
+        continue-on-error: true
+      - name: Build the site
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: python scripts/build.py
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.pages.outcome == 'success'
+        with:
+          path: _site
+    outputs:
+      pages_ready: ${{ steps.pages.outcome == 'success' }}
+
+  publish:
+    needs: update
+    if: needs.update.outputs.pages_ready == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

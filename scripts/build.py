@@ -157,7 +157,8 @@ def track_attrs(t, s):
 
 def track_row(t, s, sub="", date_shown=True):
     sub = sub if sub is not None else ""
-    d = f'<span class="d">{fdate(t.get("d"))}</span>' if date_shown and t.get("d") else '<span class="d"></span>'
+    d = (f'<span class="d" title="Date the recording was added to Gurmatveechar">Added {fdate(t.get("d"))}</span>'
+         if date_shown and t.get("d") else '<span class="d"></span>')
     return (f'<button type="button" class="row" {track_attrs(t, s)}><span class="pp" aria-hidden="true">'
             f'<svg><use href="#i-play"/></svg></span><span class="t"><b>{e(t["t"])}</b>'
             f'{"<span>" + e(sub) + "</span>" if sub else ""}<i class="bar" hidden><i></i></i></span>{d}</button>')

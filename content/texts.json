@@ -1,132 +1,429 @@
 {
   "_about": "Shelves group the Gurmatveechar series for the Listen pages. Profiles describe the text each series is katha on. Profiles are editorial (AI-assisted, awaiting review). Only well-established facts are stated; where authorship or edition is not known, 'unknown' says so rather than guessing.",
   "shelves": [
-    {"id": "gurbani", "title": "Gurbani", "gurmukhi": "ਗੁਰਬਾਣੀ",
-     "intro": "Katha of the Guru's own Word: Sri Guru Granth Sahib Ji Ang by Ang, the daily Nitnem banis and individual compositions.",
-     "series": ["sri-guru-granth-sahib-ji-di-lareevar-katha", "jap-ji-sahib-katha", "nitnem-bani-katha", "sukhmani-sahib", "baramaha"]},
-    {"id": "bhai-sahiban", "title": "Bhai Gurdas Ji and Bhai Nand Lal Ji", "gurmukhi": "ਭਾਈ ਸਾਹਿਬਾਨ",
-     "intro": "The writings Sikh tradition reads alongside Gurbani as its closest companions.",
-     "series": ["bhai-gurdas-di-vaaran-di-katha", "bhai-gurdas-de-kabit-savaiye-katha", "gazlan-bhai-nand-lal-ji"]},
-    {"id": "itihaas", "title": "Lives of the Gurus and Gurmukhs", "gurmukhi": "ਇਤਿਹਾਸ",
-     "intro": "Sacred history told as katha: the great Granths of Kavi Santokh Singh and the lives of mahapurakhs.",
-     "series": ["sri-gurpartap-suraj-parkash-katha", "sri-nanak-parkash-katha", "sikh-raaj-ke-usariyo"]},
-    {"id": "darshan", "title": "Indian philosophy, read through Gurmat", "gurmukhi": "ਦਰਸ਼ਨ",
-     "intro": "Katha on classical texts of Vedanta, Yoga, Buddhist and practical wisdom, a long tradition of Sikh learning. The theme pages explain where these texts meet Gurbani and where they differ.",
-     "series": ["man-budh-atam", "vedant-darshan", "vichar-sagar", "vichar-mala", "astavakra-gita-katha", "adhyatam-parkash", "adhyatmik-veechar", "yog-darshan", "om-pantanjali-yog-shastar", "vairaag-shatak", "parbodh-chandar-natak-katha", "bhavrasamrit", "sarkutavali", "dajistar", "dhampad", "chanaka-raajniti"]},
-    {"id": "talks", "title": "Talks and questions", "gurmukhi": "ਸਵਾਲ ਜਵਾਬ",
-     "intro": "Question-and-answer sessions and talks on household life and brahmcharya.",
-     "series": ["discussions-questions-and-answers", "brahmchari-pati-patni-dharam", "brahmchari-katha"]},
-    {"id": "divans", "title": "Divans, by place and year", "gurmukhi": "ਦੀਵਾਨ",
-     "intro": "Recordings of divans in Punjab and with sangats abroad, from 1988 onwards.",
-     "series": ["single-divans", "katha-at-gurdwara-ber-sahib-sultanpur-lodhi", "guru-nanak-gurdwara-smethwick", "toronto-2009", "australia-2010", "canada-2010", "australia-2011"]}
+    {
+      "id": "gurbani",
+      "title": "Gurbani",
+      "gurmukhi": "ਗੁਰਬਾਣੀ",
+      "intro": "Katha of the Guru's own Word: Sri Guru Granth Sahib Ji Ang by Ang, the daily Nitnem banis and individual compositions.",
+      "series": [
+        "sri-guru-granth-sahib-ji-di-lareevar-katha",
+        "jap-ji-sahib-katha",
+        "nitnem-bani-katha",
+        "sukhmani-sahib",
+        "baramaha"
+      ]
+    },
+    {
+      "id": "bhai-sahiban",
+      "title": "Bhai Gurdas Ji and Bhai Nand Lal Ji",
+      "gurmukhi": "ਭਾਈ ਸਾਹਿਬਾਨ",
+      "intro": "The writings Sikh tradition reads alongside Gurbani as its closest companions.",
+      "series": [
+        "bhai-gurdas-di-vaaran-di-katha",
+        "bhai-gurdas-de-kabit-savaiye-katha",
+        "gazlan-bhai-nand-lal-ji"
+      ]
+    },
+    {
+      "id": "itihaas",
+      "title": "Lives of the Gurus and Gurmukhs",
+      "gurmukhi": "ਇਤਿਹਾਸ",
+      "intro": "Sacred history told as katha: the great Granths of Kavi Santokh Singh and the lives of mahapurakhs.",
+      "series": [
+        "sri-gurpartap-suraj-parkash-katha",
+        "sri-nanak-parkash-katha",
+        "sikh-raaj-ke-usariyo"
+      ]
+    },
+    {
+      "id": "darshan",
+      "title": "Indian philosophy, read through Gurmat",
+      "gurmukhi": "ਦਰਸ਼ਨ",
+      "intro": "Katha on classical texts of Vedanta, Yoga, Buddhist and practical wisdom, a long tradition of Sikh learning. The theme pages explain where these texts meet Gurbani and where they differ.",
+      "series": [
+        "man-budh-atam",
+        "vedant-darshan",
+        "vichar-sagar",
+        "vichar-mala",
+        "astavakra-gita-katha",
+        "adhyatam-parkash",
+        "adhyatmik-veechar",
+        "yog-darshan",
+        "om-pantanjali-yog-shastar",
+        "vairaag-shatak",
+        "parbodh-chandar-natak-katha",
+        "bhavrasamrit",
+        "sarkutavali",
+        "dajistar",
+        "dhampad",
+        "chanaka-raajniti"
+      ]
+    },
+    {
+      "id": "talks",
+      "title": "Talks and questions",
+      "gurmukhi": "ਸਵਾਲ ਜਵਾਬ",
+      "intro": "Question-and-answer sessions and talks on household life and brahmcharya.",
+      "series": [
+        "discussions-questions-and-answers",
+        "brahmchari-pati-patni-dharam",
+        "brahmchari-katha"
+      ]
+    },
+    {
+      "id": "divans",
+      "title": "Divans, by place and year",
+      "gurmukhi": "ਦੀਵਾਨ",
+      "intro": "Recordings of divans in Punjab and with sangats abroad, from 1988 onwards.",
+      "series": [
+        "single-divans",
+        "katha-at-gurdwara-ber-sahib-sultanpur-lodhi",
+        "guru-nanak-gurdwara-smethwick",
+        "toronto-2009",
+        "australia-2010",
+        "canada-2010",
+        "australia-2011"
+      ]
+    }
   ],
   "profiles": {
     "sri-guru-granth-sahib-ji-di-lareevar-katha": {
-      "text": "Sri Guru Granth Sahib Ji", "tradition": "Gurbani",
+      "text": "Sri Guru Granth Sahib Ji",
+      "tradition": "Gurbani",
       "author": "The Sikh Gurus and the Bhagats whose bani the Gurus included",
       "about": "Babaji's largest body of katha follows Sri Guru Granth Sahib Ji Ang by Ang, beginning with the Mool Mantar and Japji Sahib. Most recordings are titled by the Ang range they cover, so any Gurbani line quoted on this site can be traced to the katha of its Ang.",
-      "themes": ["shabad-guru", "naam", "hukam"]},
+      "themes": [
+        "shabad-guru",
+        "naam",
+        "hukam"
+      ]
+    },
     "jap-ji-sahib-katha": {
-      "text": "Japji Sahib", "tradition": "Gurbani", "author": "Guru Nanak Dev Ji",
+      "text": "Japji Sahib",
+      "tradition": "Gurbani",
+      "author": "Guru Nanak Dev Ji",
       "about": "The opening bani of Sri Guru Granth Sahib Ji (Ang 1 to 8): the Mool Mantar, thirty-eight pauris and a closing Salok, recited every morning. Much of Gurmat's vocabulary (Hukam, Naam, nadar, the five khands) is set out here.",
-      "themes": ["hukam", "naam", "haumai"]},
+      "themes": [
+        "hukam",
+        "naam",
+        "haumai"
+      ]
+    },
     "nitnem-bani-katha": {
-      "text": "Nitnem banis", "tradition": "Gurbani and Sri Dasam Granth",
+      "text": "Nitnem banis",
+      "tradition": "Gurbani and Sri Dasam Granth",
       "author": "Several: Japji Sahib and Anand Sahib from Sri Guru Granth Sahib Ji; Jaap Sahib, Tav Prasad Savaiye and Shabad Hazare Patshahi 10 from Sri Dasam Granth; the Saloks of Guru Tegh Bahadur Ji",
       "about": "Katha on the banis of the daily Sikh discipline. The source of each bani is named in the recording titles.",
-      "themes": ["naam", "bhagti"]},
+      "themes": [
+        "naam",
+        "bhagti"
+      ]
+    },
     "sukhmani-sahib": {
-      "text": "Sukhmani Sahib", "tradition": "Gurbani", "author": "Guru Arjan Dev Ji",
+      "text": "Sukhmani Sahib",
+      "tradition": "Gurbani",
+      "author": "Guru Arjan Dev Ji",
       "about": "‘The jewel of peace’: twenty-four ashtapadis in Raag Gauri (Ang 262 to 296) on simran, the sadh sangat, the brahmgiani and the Divine. Six recordings.",
-      "themes": ["naam", "shabad-guru"]},
+      "themes": [
+        "naam",
+        "shabad-guru"
+      ]
+    },
     "baramaha": {
-      "text": "Barah Maha", "tradition": "Gurbani",
+      "text": "Barah Maha",
+      "tradition": "Gurbani",
       "author": "Two compositions in the Granth: Guru Arjan Dev Ji (Raag Majh, Ang 133) and Guru Nanak Dev Ji (Raag Tukhari, Ang 1107)",
       "about": "Songs of the twelve months, in which each season colours the soul's longing for the Beloved. The recording titles do not say which composition each covers.",
-      "themes": ["bhagti", "maya"]},
+      "themes": [
+        "bhagti",
+        "maya"
+      ]
+    },
     "bhai-gurdas-di-vaaran-di-katha": {
-      "text": "Vaaran Bhai Gurdas Ji", "tradition": "Bhai Gurdas Ji's writings",
+      "text": "Vaaran Bhai Gurdas Ji",
+      "tradition": "Bhai Gurdas Ji's writings",
       "author": "Bhai Gurdas Ji, the scribe of the Adi Granth",
       "about": "Forty Punjabi vaars that explain Gurmat and recount the Gurus' lives; Sikh tradition calls them a key to Gurbani. Babaji's katha begins with Bhai Gurdas Ji's own life and continues through Vaar 41.",
       "uncertainty": "Scholars generally attribute the forty-first Vaar to a later poet rather than to Bhai Gurdas Ji himself.",
-      "themes": ["shabad-guru", "rahini"]},
+      "themes": [
+        "shabad-guru",
+        "rahini"
+      ]
+    },
     "bhai-gurdas-de-kabit-savaiye-katha": {
-      "text": "Kabit Savaiye", "tradition": "Bhai Gurdas Ji's writings", "author": "Bhai Gurdas Ji",
+      "text": "Kabit Savaiye",
+      "tradition": "Bhai Gurdas Ji's writings",
+      "author": "Bhai Gurdas Ji",
       "about": "Short poems in Braj on the Guru, the Gurmukh and the sangat, traditionally numbered at 675. Fifty-six recordings.",
-      "themes": ["shabad-guru", "bhagti"]},
+      "themes": [
+        "shabad-guru",
+        "bhagti"
+      ]
+    },
     "gazlan-bhai-nand-lal-ji": {
-      "text": "Ghazals of Bhai Nand Lal Ji", "tradition": "Persian devotional poetry", "author": "Bhai Nand Lal Ji ‘Goya’, poet at the court of Guru Gobind Singh Ji",
+      "text": "Ghazals of Bhai Nand Lal Ji",
+      "tradition": "Persian devotional poetry",
+      "author": "Bhai Nand Lal Ji ‘Goya’, poet at the court of Guru Gobind Singh Ji",
       "about": "Persian ghazals of love for the Guru, in the imagery of the Persian mystical tradition. Five recordings.",
-      "themes": ["bhagti"]},
+      "themes": [
+        "bhagti"
+      ]
+    },
     "sri-gurpartap-suraj-parkash-katha": {
-      "text": "Sri Gur Partap Suraj Granth", "tradition": "Sikh sacred history", "author": "Kavi Santokh Singh (completed 1843)",
+      "text": "Sri Gur Partap Suraj Granth",
+      "tradition": "Sikh sacred history",
+      "author": "Kavi Santokh Singh (completed 1843)",
       "about": "A vast Braj poem on the lives of the Gurus from Guru Angad Dev Ji to Guru Gobind Singh Ji, arranged in raases and ruts and read in katha across the Panth. Babaji's katha runs to more than a thousand recordings.",
       "uncertainty": "Historians note that the Granth weaves history, tradition and the outlook of its own time; its episodes are best heard as sacred narrative and weighed against Gurbani.",
-      "themes": ["seva", "bhagti"]},
+      "themes": [
+        "seva",
+        "bhagti"
+      ]
+    },
     "sri-nanak-parkash-katha": {
-      "text": "Sri Nanak Parkash", "tradition": "Sikh sacred history", "author": "Kavi Santokh Singh (1823)",
+      "text": "Sri Nanak Parkash",
+      "tradition": "Sikh sacred history",
+      "author": "Kavi Santokh Singh (1823)",
       "about": "The life of Guru Nanak Dev Ji in two halves (Purbardh and Utarardh), a forerunner of the Suraj Granth.",
       "uncertainty": "As with the Suraj Granth, history and tradition are interwoven.",
-      "themes": ["shabad-guru"]},
+      "themes": [
+        "shabad-guru"
+      ]
+    },
     "sikh-raaj-ke-usariyo": {
-      "text": "Sikh Raaj Ke Usariyo", "tradition": "Lives of mahapurakhs", "author": "Babaji's katha",
+      "text": "Sikh Raaj Ke Usariyo",
+      "tradition": "Lives of mahapurakhs",
+      "author": "Babaji's katha",
       "about": "The lives of mahapurakhs of the Sikh Raaj era: Baba Sahib Singh Bedi (Una Sahib), Baba Bhag Singh (Kuri), and Baba Bir Singh, Baba Khuda Singh and Baba Maharaj Singh of Naurangabad.",
-      "themes": ["seva", "rahini"]},
+      "themes": [
+        "seva",
+        "rahini"
+      ]
+    },
     "man-budh-atam": {
-      "text": "Man, Budh, Atam (mind, intellect, self)", "tradition": "Talks", "author": "Babaji",
+      "text": "Man, Budh, Atam (mind, intellect, self)",
+      "tradition": "Talks",
+      "author": "Babaji",
       "about": "Nine talks with their subjects in their titles: devotion and love, renouncing the world, the paths of devotion, how wanting obstructs knowledge, the make-up of the mind, devotion and food, who is a yogi, what is the self and what is knowledge.",
-      "themes": ["man", "gian", "bhagti", "maya"]},
+      "themes": [
+        "man",
+        "gian",
+        "bhagti",
+        "maya"
+      ]
+    },
     "vedant-darshan": {
-      "text": "Vedanta Darshan", "tradition": "Vedanta",
+      "text": "Vedanta Darshan",
+      "tradition": "Vedanta",
       "author": "‘Vedanta Darshan’ usually names the Brahma Sutras, traditionally attributed to Badarayana",
       "about": "The foundational aphorisms of the Vedanta school on the nature of Brahman and the self.",
       "uncertainty": "The recordings do not say which edition or commentary Babaji read from.",
-      "themes": ["gian", "mukti"]},
+      "themes": [
+        "gian",
+        "mukti"
+      ]
+    },
     "vichar-sagar": {
-      "text": "Vichar Sagar", "tradition": "Advaita Vedanta", "author": "Nischaldas (19th century)",
+      "text": "Vichar Sagar",
+      "tradition": "Advaita Vedanta",
+      "author": "Nischaldas (19th century)",
       "about": "A Hindi exposition of Advaita Vedanta, long studied among sadhus and in sant traditions of learning. Twenty-one recordings.",
-      "themes": ["gian", "maya"]},
+      "themes": [
+        "gian",
+        "maya"
+      ]
+    },
     "vichar-mala": {
-      "text": "Vichar Mala", "tradition": "Vedanta", "author": "unknown",
+      "text": "Vichar Mala",
+      "tradition": "Vedanta",
+      "author": "unknown",
       "about": "A short Vedanta text studied alongside Vichar Sagar. Six recordings.",
-      "themes": ["gian"]},
+      "themes": [
+        "gian"
+      ]
+    },
     "astavakra-gita-katha": {
-      "text": "Ashtavakra Gita", "tradition": "Advaita Vedanta", "author": "Traditionally, a dialogue between the sage Ashtavakra and King Janaka",
+      "text": "Ashtavakra Gita",
+      "tradition": "Advaita Vedanta",
+      "author": "Traditionally, a dialogue between the sage Ashtavakra and King Janaka",
       "about": "One of the most uncompromising statements of non-duality: the self is already free and only needs to recognise it. Eleven recordings.",
-      "themes": ["gian", "mukti"]},
-    "adhyatam-parkash": {"text": "Adhyatam Parkash", "tradition": "Spiritual philosophy", "author": "unknown", "themes": ["gian"]},
-    "adhyatmik-veechar": {"text": "Adhyatmik Veechar", "tradition": "Talks", "author": "Babaji", "about": "Seven talks on spiritual reflection.", "themes": ["gian"]},
+      "themes": [
+        "gian",
+        "mukti"
+      ]
+    },
+    "adhyatam-parkash": {
+      "text": "Adhyatam Parkash",
+      "tradition": "Spiritual philosophy",
+      "author": "unknown",
+      "themes": [
+        "gian"
+      ]
+    },
+    "adhyatmik-veechar": {
+      "text": "Adhyatmik Veechar",
+      "tradition": "Talks",
+      "author": "Babaji",
+      "about": "Seven talks on spiritual reflection.",
+      "themes": [
+        "gian"
+      ]
+    },
     "yog-darshan": {
-      "text": "Yoga Sutras (Yog Darshan)", "tradition": "Yoga", "author": "Patanjali",
+      "text": "Yoga Sutras (Yog Darshan)",
+      "tradition": "Yoga",
+      "author": "Patanjali",
       "about": "The classical text of Yoga in four chapters, which Babaji's twenty-one recordings follow, beginning with a talk on kundalini shakti.",
-      "themes": ["man", "mukti"]},
+      "themes": [
+        "man",
+        "mukti"
+      ]
+    },
     "om-pantanjali-yog-shastar": {
-      "text": "Patanjali Yog Shastar", "tradition": "Yoga", "author": "Patanjali",
+      "text": "Patanjali Yog Shastar",
+      "tradition": "Yoga",
+      "author": "Patanjali",
       "about": "Six talks titled Moksh, Naam Di Mehima, Sadhana, Samadhi, Satsangat and Sidhian.",
-      "themes": ["man", "mukti", "naam"]},
+      "themes": [
+        "man",
+        "mukti",
+        "naam"
+      ]
+    },
     "vairaag-shatak": {
-      "text": "Vairaag Shatak", "tradition": "Sanskrit poetry of dispassion", "author": "The Vairagya Shatakam is attributed to the poet Bhartrihari",
+      "text": "Vairaag Shatak",
+      "tradition": "Sanskrit poetry of dispassion",
+      "author": "The Vairagya Shatakam is attributed to the poet Bhartrihari",
       "about": "Verses on the passing nature of pleasure, wealth and youth, and the call to detachment. Thirty-seven recordings across thirteen adhyais.",
       "uncertainty": "The thirteen adhyais suggest a version arranged in chapters, perhaps a Punjabi or Braj rendering; the edition is not recorded.",
-      "themes": ["maya"]},
+      "themes": [
+        "maya"
+      ]
+    },
     "parbodh-chandar-natak-katha": {
-      "text": "Prabodh Chandar Natak", "tradition": "Allegorical drama", "author": "After the Sanskrit Prabodha Chandrodaya of Krishna Mishra (11th century)",
+      "text": "Prabodh Chandar Natak",
+      "tradition": "Allegorical drama",
+      "author": "After the Sanskrit Prabodha Chandrodaya of Krishna Mishra (11th century)",
       "about": "An allegory in which King Discernment (Vivek) battles Great Delusion (Mahamoh) for the soul. Thirty-three recordings.",
       "uncertainty": "The title suggests a Punjabi or Braj version; which one is not recorded.",
-      "themes": ["maya", "man", "gian"]},
-    "bhavrasamrit": {"text": "Bhavrasamrit", "tradition": "Devotional and philosophical poetry", "author": "unknown", "themes": ["bhagti"]},
-    "sarkutavali": {"text": "Sarkutavali", "tradition": "unknown", "author": "unknown", "themes": []},
-    "dajistar": {"text": "Dajistar", "tradition": "unknown", "author": "unknown", "themes": []},
+      "themes": [
+        "maya",
+        "man",
+        "gian"
+      ]
+    },
+    "bhavrasamrit": {
+      "text": "Bhavrasamrit",
+      "tradition": "Devotional and philosophical poetry",
+      "author": "unknown",
+      "themes": [
+        "bhagti"
+      ]
+    },
+    "sarkutavali": {
+      "text": "Sarkutavali",
+      "tradition": "unknown",
+      "author": "unknown",
+      "themes": []
+    },
+    "dajistar": {
+      "text": "Dajistar",
+      "tradition": "unknown",
+      "author": "unknown",
+      "themes": []
+    },
     "dhampad": {
-      "text": "Dhammapada", "tradition": "Buddhist", "author": "Verses attributed to the Buddha, from the Pali canon",
+      "text": "Dhammapada",
+      "tradition": "Buddhist",
+      "author": "Verses attributed to the Buddha, from the Pali canon",
       "about": "A classic anthology of Buddhist verse on the mind, conduct and the ending of craving. Five recordings.",
-      "themes": ["man", "haumai"]},
+      "themes": [
+        "man",
+        "haumai"
+      ]
+    },
     "chanaka-raajniti": {
-      "text": "Chanakya Niti", "tradition": "Practical and political wisdom", "author": "Attributed to Chanakya (Kautilya)",
+      "text": "Chanakya Niti",
+      "tradition": "Practical and political wisdom",
+      "author": "Attributed to Chanakya (Kautilya)",
       "about": "Aphorisms on prudence, friendship, wealth and rule, with two further talks titled Jeevan Jugtan (ways of living).",
-      "themes": ["rahini"]},
-    "discussions-questions-and-answers": {"text": "Questions and answers", "tradition": "Talks", "author": "Babaji with the sangat", "about": "Question-and-answer sessions from 2007 to 2017.", "themes": []},
-    "brahmchari-pati-patni-dharam": {"text": "Brahmchari and Pati Patni Dharam", "tradition": "Talks", "author": "Babaji", "about": "Ten talks on brahmcharya and the duties of husband and wife.", "themes": ["rahini"]},
-    "brahmchari-katha": {"text": "Brahmchari Katha", "tradition": "Talks", "author": "Babaji", "themes": ["rahini"]}
+      "themes": [
+        "rahini"
+      ]
+    },
+    "discussions-questions-and-answers": {
+      "text": "Questions and answers",
+      "tradition": "Talks",
+      "author": "Babaji with the sangat",
+      "about": "Question-and-answer sessions from 2007 to 2017.",
+      "themes": []
+    },
+    "brahmchari-pati-patni-dharam": {
+      "text": "Brahmchari and Pati Patni Dharam",
+      "tradition": "Talks",
+      "author": "Babaji",
+      "about": "Ten talks on brahmcharya and the duties of husband and wife.",
+      "themes": [
+        "rahini"
+      ]
+    },
+    "brahmchari-katha": {
+      "text": "Brahmchari Katha",
+      "tradition": "Talks",
+      "author": "Babaji",
+      "themes": [
+        "rahini"
+      ]
+    },
+    "single-divans": {
+      "text": "Single divans",
+      "tradition": "Divans",
+      "author": "Babaji",
+      "about": "Individual divans from 1988 onwards, in Punjab and with sangats in the United Kingdom and elsewhere. Many titles give the date and place; some name the shabad or Ang of the katha.",
+      "themes": []
+    },
+    "katha-at-gurdwara-ber-sahib-sultanpur-lodhi": {
+      "text": "Katha at Gurdwara Sri Ber Sahib, Sultanpur Lodhi",
+      "tradition": "Divans",
+      "author": "Babaji",
+      "about": "Divans at Gurdwara Sri Ber Sahib, including katha on Amavas and on the Gurpurbs of Guru Nanak Dev Ji and Guru Gobind Singh Ji, 2012 and 2013.",
+      "themes": []
+    },
+    "guru-nanak-gurdwara-smethwick": {
+      "text": "Guru Nanak Gurdwara, Smethwick",
+      "tradition": "Divans",
+      "author": "Babaji",
+      "about": "Sixteen divans with the sangat at Smethwick, England.",
+      "themes": []
+    },
+    "toronto-2009": {
+      "text": "Toronto, 2009",
+      "tradition": "Divans",
+      "author": "Babaji",
+      "about": "Divans at Malton Gurdwara and Nanaksar, Brampton.",
+      "themes": []
+    },
+    "australia-2010": {
+      "text": "Australia, 2010",
+      "tradition": "Divans",
+      "author": "Babaji",
+      "about": "Divans at Nanaksar, Blackburn and Sydney.",
+      "themes": []
+    },
+    "canada-2010": {
+      "text": "Canada, 2010",
+      "tradition": "Divans",
+      "author": "Babaji",
+      "about": "Gurbani katha during the 2010 visit to Canada.",
+      "themes": []
+    },
+    "australia-2011": {
+      "text": "Australia, 2011",
+      "tradition": "Divans",
+      "author": "Babaji",
+      "about": "Divans at Blackburn, Keysborough, Craigieburn, Brisbane, Hobart, Hoppers Crossing and Nanaksar.",
+      "themes": []
+    }
   }
 }

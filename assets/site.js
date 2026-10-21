@@ -152,7 +152,7 @@
     ["p", "t", "s", "sg", "sid", "d"].forEach(function (k) { b.dataset[k] = t[k] || ""; });
     var pp = el("span", "pp"); pp.innerHTML = '<svg><use href="#i-play"/></svg>'; b.appendChild(pp);
     var tx = el("span", "t"); tx.appendChild(el("b", null, t.t)); tx.appendChild(el("span", null, t.s));
-    var bar = el("i", "bar"); bar.hidden = true; bar.appendChild(el("i")); tx.appendChild(bar); b.appendChild(tx); b.appendChild(el("span", "d", t.d ? fdate(t.d) : ""));
+    var bar = el("i", "bar"); bar.hidden = true; bar.appendChild(el("i")); tx.appendChild(bar); b.appendChild(tx); b.appendChild(el("span", "d", t.d ? "Added " + fdate(t.d) : ""));
     return b;
   }
   function initContinue(root) {
@@ -241,13 +241,14 @@
     var res = [];
     d.items.forEach(function (it) {
       if (kind && it[0] !== kind) return;
-      var text = it[4], score = 0;
-      if (words.every(function (w) { return text.indexOf(w) >= 0; })) score = 10 + (text.indexOf(q) >= 0 ? 5 : 0);
+      var text = " " + it[4], score = 0;
+      if (words.every(function (w) { return text.indexOf(" " + w) >= 0; })) score = 10 + (text.indexOf(" " + q) >= 0 ? 5 : 0);
+      if (score) score += words.filter(function (w) { return (text + " ").indexOf(" " + w + " ") >= 0; }).length * 2;
       else if (nospace.length > 3 && text.replace(/ /g, "").indexOf(nospace) >= 0) score = 8;
       var th = it[5] ? it[5].split(" ") : [], via = null;
       hitThemes.forEach(function (s) { if (th.indexOf(s) >= 0) { if (!score) via = s; score = Math.max(score, 4) + 2; } });
       if (it[0] === "theme" && hitThemes.indexOf(th[0]) >= 0) score += 40;
-      if (it[0] === "theme") score += 6; else if (it[0] === "series") score += 3;
+      if (score && it[0] === "theme") score += 6; else if (score && it[0] === "series") score += 3;
       if (score > 6 || (score && it[0] !== "rec")) res.push({ it: it, score: score, via: via });
     });
     res.sort(function (a, b) { return b.score - a.score || ((b.it[6] && b.it[6].d) || "").localeCompare((a.it[6] && a.it[6].d) || ""); });
