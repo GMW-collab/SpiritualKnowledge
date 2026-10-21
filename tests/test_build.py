@@ -62,7 +62,7 @@ class BuildTest(unittest.TestCase):
 
     def test_expected_pages_exist(self):
         k = self.ctx["k"]
-        for rel in ["index.html", "themes/index.html", "listen/index.html", "watch/index.html", "search/index.html",
+        for rel in ["index.html", "topics/index.html", "listen/index.html", "watch/index.html", "search/index.html",
                     "about/index.html", "sources/index.html", "review/index.html", "404.html", "sitemap.xml", "robots.txt",
                     "search/index.json", "review/data.json", "assets/site.css", "assets/site.js"]:
             self.assertTrue((self.out / rel).exists(), rel)
@@ -164,6 +164,31 @@ class BuildTest(unittest.TestCase):
         self.assertGreaterEqual(page.count('class="row'), 60)
         self.assertIn('href="/latest/"', self.read("index.html"))
 
+    def test_topic_pages_explain_every_link(self):
+        k = self.ctx["k"]
+        for tp in k["topics"]:
+            if tp["kind"] == "theme":
+                continue
+            page = self.read(f"topics/{tp['id']}/index.html")
+            self.assertIn("How this page is made", page)
+            rows = page.count('class="row"')
+            self.assertEqual(rows, page.count("Linked: "), f"{tp['id']}: a recording without a reason")
+            if tp.get("match", {}).get("angs"):
+                self.assertIn("sikhitothemax.org/ang?ang=", page, tp["id"])
+        sidh = self.read("topics/sidh-gosht/index.html")
+        self.assertIn("katha covers Ang", sidh)
+        self.assertIn('href="/themes/shabad-guru/"', sidh)
+        # places named after Gurus are not katha about the Gurus
+        self.assertNotIn("Leicester", self.read("topics/guru-tegh-bahadur/index.html"))
+        self.assertNotIn("Smethwick", self.read("topics/guru-nanak/index.html"))
+
+    def test_topics_are_searchable(self):
+        d = json.loads(self.read("search/index.json"))
+        kinds = {i[0] for i in d["items"]}
+        self.assertIn("topic", kinds)
+        self.assertIn("sangrand", d["themes"])
+        self.assertIn("ego", d["themes"]["haumai"])
+
     def test_sitemap_and_robots(self):
         root = ET.parse(self.out / "sitemap.xml").getroot()
         locs = [e.text for e in root.iter("{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
@@ -179,7 +204,8 @@ class BuildTest(unittest.TestCase):
         for src, dest, code in lines:
             self.assertEqual(code, "301")
             self.assertTrue((self.out / dest.lstrip("/") / "index.html").exists(), dest)
-            self.assertFalse((self.out / src.strip("/")).exists(), f"{src} would be shadowed by a page")
+            self.assertFalse((self.out / src.strip("/") / "index.html").exists(), f"{src} would be shadowed by a page")
+        self.assertIn("/themes/ /topics/ 301", self.read("_redirects"))
 
     def test_cloudflare_headers(self):
         h = self.read("_headers")

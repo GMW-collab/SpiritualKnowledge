@@ -89,6 +89,7 @@ def load_all():
         "external": read_json(CONTENT / "external.json", {"items": [], "collections": {}}),
         "overrides": read_json(CONTENT / "editorial" / "overrides.json", {}),
         "about": parse_doc(CONTENT / "pages" / "about.md"),
+        "topics_file": read_json(CONTENT / "topics.json", {"kinds": {}, "topics": []}),
     }
     for s in k["audio"].get("series", []):
         for i, t in enumerate(s["tracks"]):
@@ -97,6 +98,11 @@ def load_all():
             t["id"] = "a:" + t["p"]
     k["series_by_id"] = {s["id"]: s for s in k["audio"].get("series", [])}
     k["theme_by_slug"] = {t["slug"]: t for t in k["themes"]}
+    # every in-depth theme is also a topic; the topic index adds the rest
+    k["topics"] = [{"id": t["slug"], "kind": "theme", "gurmukhi": t["gurmukhi"], "title": t["title"], "aliases": t.get("terms", []),
+                    "about": t["subtitle"], "theme": t["slug"], "match": t.get("match", {})} for t in k["themes"]] + \
+                  [dict(t, slug=t["id"]) for t in k["topics_file"].get("topics", [])]
+    k["topic_by_id"] = {t["id"]: t for t in k["topics"]}
     return k
 
 
@@ -181,8 +187,9 @@ def match_theme(theme, text):
             return term.lstrip("=")
     roman = re.sub(r"[_\-–.|]+", " ", text)
     for term in theme.get("match", {}).get("roman", []):
-        if _roman_re(term).search(roman):
-            return term
+        m = _roman_re(term).search(roman)
+        if m:
+            return m.group(0).lower()
     return None
 
 
@@ -240,6 +247,62 @@ def classify(k):
     for ex in k["external"].get("items", []):
         for slug in links.get(ex["id"], {}):
             links[ex["id"]][slug]["confirmed"] = True
+    return {iid: v for iid, v in links.items() if v}
+
+
+def classify_topics(k, theme_links=None):
+    """Links for every topic: the themes' own links, plus the topic index's rules.
+
+    Topic index rules work like theme rules, and also by Ang: a topic with 'angs'
+    collects the Guru Granth Sahib katha whose titles cover any of those Angs.
+    Overrides use the same file and keys as themes (topic ids never clash with theme slugs).
+    """
+    links = {iid: dict(v) for iid, v in (theme_links or classify(k)).items()}
+    ov = k["overrides"]
+    idx = katha_index(k["audio"].get("series", []))
+
+    def put(iid, tid, via):
+        links.setdefault(iid, {}).setdefault(tid, {"via": via, "confirmed": False})
+
+    for tp in k["topics_file"].get("topics", []):
+        tid, m = tp["id"], tp.get("match", {})
+        series_terms = set(m.get("series", []))
+        for s in k["audio"].get("series", []):
+            if s["id"] in series_terms:
+                put("s:" + s["id"], tid, "series: listed for this topic")
+                continue
+            hit = match_theme(tp, s["title"] + " " + s.get("gurmukhi", ""))
+            if hit:
+                put("s:" + s["id"], tid, f"series title: ‘{hit}’")
+                continue
+            for t in s["tracks"]:
+                hit = match_theme(tp, t["t"] + " " + t.get("g", ""))
+                if hit:
+                    put(t["id"], tid, f"title: ‘{hit}’")
+        for a, b in m.get("angs", []):
+            for x, y, t, s in idx["angs"]:
+                if x <= b and a <= y and s["id"] not in series_terms:
+                    put(t["id"], tid, f"covers Ang {x}" + (f" to {y}" if y != x else ""))
+        for v in k["videos"]:
+            hit = match_theme(tp, v["title"])
+            if hit:
+                put("yt:" + v["id"], tid, f"title: ‘{hit}’")
+                continue
+            hit = match_theme(tp, re.split(r"#|https?://", v.get("description", ""))[0])
+            if hit:
+                put("yt:" + v["id"], tid, f"description: ‘{hit}’")
+    topic_ids = {t["id"] for t in k["topics_file"].get("topics", [])}
+    for iid, slugs in ov.get("theme_add", {}).items():
+        for tid in slugs:
+            if tid in topic_ids:
+                links.setdefault(iid, {})[tid] = {"via": "editor", "confirmed": True}
+    for iid, slugs in ov.get("theme_remove", {}).items():
+        for tid in slugs:
+            links.get(iid, {}).pop(tid, None)
+    for iid, slugs in ov.get("theme_confirmed", {}).items():
+        for tid in slugs:
+            if tid in links.get(iid, {}):
+                links[iid][tid]["confirmed"] = True
     return {iid: v for iid, v in links.items() if v}
 
 

@@ -15,8 +15,11 @@ Principles, in priority order: Gurmat as the frame; integrity before novelty; Ba
 ```
 /latest/              Every recording and video, newest first, by month; filter All / Audio / Video and by title
 /                     Newest katha (hero) · Begin with a question · Continue listening · Recent divans · Library shelves · Programmes · Dera
-/themes/              Eleven themes as questions + map of their connections
-/themes/<slug>/       Discover · Understand · Explore Babaji's katha · How this connects · Reflect · Go deeper
+/topics/              The knowledge base: a topic finder (English or Gurmukhi); the 11 in-depth themes; ~40 topics in four kinds
+                      (ideas and practice, Gurbani and other texts, Gurus and Gurmukhs, occasions); map of the themes
+/topics/<id>/         One topic: an editorial note, where it is in the Granth (Gurbani topics), every katha linked to it
+                      with the reason ("title names ‘ਸੰਗਰਾਂਦ’", "katha covers Ang 940 to 946"), related topics by shared katha
+/themes/<slug>/       In depth: Discover · Understand · Explore Babaji's katha · How this connects · Reflect · Go deeper
 /listen/              Six shelves (Gurbani; Bhai Sahiban; Itihaas; Indian philosophy read through Gurmat; Talks; Divans)
 /listen/<series>/     Text profile (labelled) · every recording · Go to Ang (Guru Granth Sahib series)
 /watch/               Babaji's videos, filterable by theme · curated videos by others (labelled)
@@ -48,6 +51,7 @@ Everything is a file in the repository: easy to review, version and restore.
 ### Entities
 
 - **Gurbani line**: `id, gurmukhi, translit, rendering, source{granth, ang, bani, author}, japji_pauri?, confidence (high | to-verify), translation_note?`. Verification results live separately in `data/gurbani-verification.json` (`status: verified | not-found | error | not-applicable`, date, fingerprint of the text).
+- **Topic** (`content/topics.json`): `id, kind, gurmukhi, title, aliases (search words in any language), about (one editorial line), theme? (its in-depth theme), match {gurmukhi[], roman[], series[], angs[[from, to]]}`. Every in-depth theme is also a topic. A topic with `angs` gathers the Guru Granth Sahib katha whose titles cover those Angs. Related topics are computed from shared katha, not written by hand.
 - **Theme**: a Markdown file with a JSON header: `slug, gurmukhi, title, subtitle, question, summary, terms (English synonyms for search), match {gurmukhi[], roman[], series[]}, anchor, review{status, drafted, by}`; sections `discover, understand, reflect, practise`.
 - **Relationship** (`content/graph.json`): `a, b, kind, why, tension?, gurbani[]`. Relationships are explicit and explained, not inferred from shared tags.
 - **Series / text profile** (`content/texts.json`): `text, tradition, author (or "unknown"), about, uncertainty?, themes[]`, grouped into shelves.
