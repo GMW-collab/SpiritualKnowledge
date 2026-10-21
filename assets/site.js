@@ -6,8 +6,13 @@
 (function () {
   "use strict";
   var $ = function (id) { return document.getElementById(id); };
-  var BASE = document.body.getAttribute("data-base") || "/";
-  var AUDIO_BASE = document.body.getAttribute("data-audio-base") || "";
+  // Configuration lives on <body>, or on #sitecfg where the page is embedded in another document (the preview).
+  var CFG = document.getElementById("sitecfg") || document.body;
+  var REL = CFG.getAttribute("data-rel") === "1";          // static preview: relative links ending in index.html
+  var PREVIEW = CFG.getAttribute("data-preview") === "1";  // preview frame: outside audio and video cannot load
+  var BASE = new URL(CFG.getAttribute("data-base") || "/", location.href).pathname;
+  var AUDIO_BASE = CFG.getAttribute("data-audio-base") || "";
+  function dir(p) { return REL && /\/$/.test(p) ? p + "index.html" : p; }
   var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
   function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
@@ -20,10 +25,10 @@
   };
 
   /* Same folding as scripts/knowledge.py fold(): lower-case, Gurmukhi variants folded, words only. */
-  var FOLD = { "ਸ਼": "ਸ", "ਖ਼": "ਖ", "ਗ਼": "ਗ", "ਜ਼": "ਜ", "ਫ਼": "ਫ", "ਲ਼": "ਲ", "ੰ": "ਂ", "਼": "", "ੱ": "", "ੑ": "" };
+  var FOLD = { "\u0a36": "\u0a38", "\u0a59": "\u0a16", "\u0a5a": "\u0a17", "\u0a5b": "\u0a1c", "\u0a5e": "\u0a2b", "\u0a33": "\u0a32", "\u0a70": "\u0a02", "\u0a3c": "", "\u0a71": "", "\u0a51": "" };
   function fold(t) {
-    t = (t || "").normalize("NFC").toLowerCase().replace(/[ਸ਼ਖ਼ਗ਼ਜ਼ਫ਼ਲ਼ੰ਼ੱੑ]/g, function (c) { return FOLD[c]; });
-    return t.split(/[^਀-੿a-z0-9]+/).filter(Boolean).join(" ");
+    t = (t || "").normalize("NFC").toLowerCase().replace(/[\u0a36\u0a59\u0a5a\u0a5b\u0a5e\u0a33\u0a70\u0a3c\u0a71\u0a51]/g, function (c) { return FOLD[c]; });
+    return t.split(/[^\u0a00-\u0a7fa-z0-9]+/).filter(Boolean).join(" ");
   }
   window.HK = { fold: fold };
 
@@ -44,7 +49,7 @@
     if (!keepPaused) A.play().catch(function () {});
     $("player").hidden = false; document.body.classList.add("playing");
     $("p-title").textContent = t.t; $("p-series").textContent = t.s;
-    $("p-mark").textContent = t.sg || "ਕਥਾ"; $("p-series-link").href = BASE + "listen/" + t.sid + "/";
+    $("p-mark").textContent = t.sg || "\u0a15\u0a25\u0a3e"; $("p-series-link").href = dir(BASE + "listen/" + t.sid + "/");
     var rec = store.get("recent", []).filter(function (r) { return r.p !== t.p; }); rec.unshift(t); store.set("recent", rec.slice(0, 12)); store.set("last", t);
     if ("mediaSession" in navigator) { try { navigator.mediaSession.metadata = new MediaMetadata({ title: t.t, artist: "Sant Baba Jagjit Singh Ji Harkhowal Wale", album: t.s }); } catch (e) {} }
     refresh();
@@ -73,17 +78,17 @@
     $("p-mini").style.width = (d ? t / d * 100 : 0) + "%";
     if (Q.cur && d && Date.now() - lastSave > 5000) { lastSave = Date.now(); store.set("pos:" + Q.cur.p, { t: t, d: d, at: Date.now() }); }
   });
-  A.addEventListener("error", function () { if (Q.cur && A.getAttribute("src")) { var m = $("p-err"); m.hidden = false; m.textContent = "This recording could not be loaded from Gurmatveechar. Try the next one, or check your connection."; } });
+  A.addEventListener("error", function () { if (Q.cur && A.getAttribute("src")) { var m = $("p-err"); m.hidden = false; m.textContent = PREVIEW ? "Audio can\u2019t play inside this preview, which only loads the site\u2019s own files. On the live site it streams from Gurmatveechar." : "This recording could not be loaded from Gurmatveechar. Try the next one, or check your connection."; } });
   $("p-seek").addEventListener("input", function () { dragging = true; if (A.duration) $("p-cur").textContent = clock(this.value / 1000 * A.duration); });
   $("p-seek").addEventListener("change", function () { if (A.duration) A.currentTime = this.value / 1000 * A.duration; dragging = false; });
   $("p-play").onclick = toggle; $("p-next").onclick = function () { step(1); };
   $("p-prev").onclick = function () { if (A.currentTime > 5) A.currentTime = 0; else step(-1); };
   $("p-back").onclick = function () { A.currentTime = Math.max(0, A.currentTime - 15); };
   $("p-fwd").onclick = function () { A.currentTime = Math.min(A.duration || 0, A.currentTime + 30); };
-  function showSpeed() { $("p-speed").textContent = String(sp).replace(/^0/, "") + "×"; } showSpeed();
+  function showSpeed() { $("p-speed").textContent = String(sp).replace(/^0/, "") + "\u00d7"; } showSpeed();
   $("p-speed").onclick = function () { sp = SPEEDS[(SPEEDS.indexOf(sp) + 1) % SPEEDS.length]; A.playbackRate = sp; store.set("speed", sp); showSpeed(); };
   $("p-close").onclick = function () { A.pause(); $("player").hidden = true; $("player").classList.remove("open"); document.body.classList.remove("playing"); };
-  $("p-np").onclick = function () { if (matchMedia("(max-width:900px)").matches) $("player").classList.toggle("open"); else if (Q.cur) go(BASE + "listen/" + Q.cur.sid + "/"); };
+  $("p-np").onclick = function () { if (matchMedia("(max-width:900px)").matches) $("player").classList.toggle("open"); else if (Q.cur) go(dir(BASE + "listen/" + Q.cur.sid + "/")); };
   if ("mediaSession" in navigator) { try {
     navigator.mediaSession.setActionHandler("play", function () { A.play(); }); navigator.mediaSession.setActionHandler("pause", function () { A.pause(); });
     navigator.mediaSession.setActionHandler("previoustrack", function () { step(-1); }); navigator.mediaSession.setActionHandler("nexttrack", function () { step(1); });
@@ -119,7 +124,8 @@
       document.getElementById("main").replaceWith(main);
       document.title = doc.title;
       ["description", "robots"].forEach(function (n) { var a = doc.querySelector('meta[name="' + n + '"]'), b = document.querySelector('meta[name="' + n + '"]'); if (b) b.remove(); if (a) document.head.appendChild(a.cloneNode()); });
-      var nav = doc.querySelector(".top nav"); if (nav) document.querySelector(".top nav").innerHTML = nav.innerHTML;
+      // header and footer links are relative to the page they came from, so take them from the new page too
+      [".top .wrap", ".foot .wrap"].forEach(function (sel) { var n = doc.querySelector(sel), o = document.querySelector(sel); if (n && o) o.innerHTML = n.innerHTML; });
       if (push !== false) history.pushState({}, "", url);
       var h = location.hash && document.getElementById(location.hash.slice(1));
       if (h) h.scrollIntoView(); else window.scrollTo(0, 0);
@@ -133,11 +139,14 @@
     if (a && sameSite(a)) { ev.preventDefault(); go(a.href); }
   });
   window.addEventListener("popstate", function () { go(location.href, false); });
-  var hs = document.querySelector(".hsearch");
-  if (hs) hs.addEventListener("submit", function (ev) { ev.preventDefault(); var q = $("hq").value.trim(); go(BASE + "search/?q=" + encodeURIComponent(q)); $("hq").blur(); });
+  document.addEventListener("submit", function (ev) {
+    if (!ev.target.closest(".hsearch")) return;
+    ev.preventDefault(); var q = $("hq").value.trim(); go(dir(BASE + "search/") + "?q=" + encodeURIComponent(q)); $("hq").blur();
+  });
 
   /* ------------------------------------------------------------ components */
   function embed(target, id, title) {
+    if (PREVIEW) { var a = document.createElement("a"); a.href = "https://www.youtube.com/watch?v=" + encodeURIComponent(id); a.target = "_blank"; a.rel = "noopener"; a.click(); return; }
     var f = document.createElement("iframe");
     f.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(id) + "?autoplay=1&rel=0";
     f.title = title || "YouTube video"; f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen"; f.allowFullscreen = true;
@@ -236,7 +245,7 @@
   function search(d, raw, kind) {
     var q = fold(raw); if (q.length < 2) return null;
     var words = q.split(" "), nospace = q.replace(/ /g, "");
-    // themes the query names, in any language (ego -> haumai, ਹੰਕਾਰ -> haumai)
+    // themes the query names, in any language (ego -> haumai, \u0a39\u0a70\u0a15\u0a3e\u0a30 -> haumai)
     var hitThemes = Object.keys(d.themes).filter(function (s) { return d.themes[s].some(function (term) { return term && (term === q || (q.length > 2 && term.indexOf(q) === 0) || (term.length > 3 && q.indexOf(term) >= 0)); }); });
     var res = [];
     d.items.forEach(function (it) {
@@ -265,7 +274,7 @@
       loadIndex(box.dataset.src).then(function (d) {
         var r = search(d, q, kind); box.textContent = "";
         if (!r) { box.innerHTML = hint; return; }
-        if (!r.res.length) { box.appendChild(el("p", "hint", "Nothing matches ‘" + q + "’. Try a shorter word, a different spelling, or the same idea in Gurmukhi or English.")); return; }
+        if (!r.res.length) { box.appendChild(el("p", "hint", "Nothing matches \u2018" + q + "\u2019. Try a shorter word, a different spelling, or the same idea in Gurmukhi or English.")); return; }
         var groups = { theme: "Themes", series: "Series and texts", video: "Videos", rec: "Recordings", external: "From other teachers and makers", page: "Pages" };
         Object.keys(groups).forEach(function (g) {
           var list = r.res.filter(function (x) { return x.it[0] === g; }); if (!list.length) return;
@@ -326,7 +335,7 @@
         function upd() { if (sel.value === "awaiting-review" && !who.value) delete ov.theme_review[th.slug]; else ov.theme_review[th.slug] = { status: sel.value, reviewer: who.value, date: new Date().toISOString().slice(0, 10) }; sync(); }
         sel.onchange = upd; who.onchange = upd; row.appendChild(sel); row.appendChild(who); s3.appendChild(row); });
 
-      var s4 = sec("Automatic theme links", "Made from titles. Untick a link to remove it; tick ‘confirmed’ once you have checked it.");
+      var s4 = sec("Automatic theme links", "Made from titles. Untick a link to remove it; tick \u2018confirmed\u2019 once you have checked it.");
       d.themes.forEach(function (th) { var list = d.auto[th.slug] || []; var det = el("details"); det.appendChild(el("summary", null, th.title + " (" + list.length + ")"));
         list.slice(0, 400).forEach(function (it) { var lb = el("label"); var keep = el("input"); keep.type = "checkbox"; keep.checked = !((ov.theme_remove[it.id] || []).indexOf(th.slug) >= 0);
           keep.onchange = function () { addTo(ov.theme_remove, it.id, th.slug, !keep.checked); };
@@ -336,13 +345,13 @@
         s4.appendChild(det); });
 
       var s5 = sec("Videos with no theme", "Add a theme to any recent video its title did not reveal.");
-      d.untagged.forEach(function (v) { var lb = el("label"); var sel = el("select"); sel.appendChild(el("option", null, "Add a theme…"));
+      d.untagged.forEach(function (v) { var lb = el("label"); var sel = el("select"); sel.appendChild(el("option", null, "Add a theme\u2026"));
         d.themes.forEach(function (th) { var o = el("option", null, th.title); o.value = th.slug; sel.appendChild(o); });
         sel.onchange = function () { if (sel.value) addTo(ov.theme_add, v.id, sel.value, true); };
         lb.appendChild(sel); lb.appendChild(document.createTextNode(" " + v.title + " (" + v.date + ")")); s5.appendChild(lb); });
 
       var s6 = sec("Imported items awaiting approval", d.pending.length ? "From connected feeds. Nothing here is public until approved." : "No feed items are waiting. Connect a feed in config.json to import material from other sources.");
-      d.pending.forEach(function (p) { var lb = el("label"); var sel = el("select"); ["", "approve", "reject"].forEach(function (v) { var o = el("option", null, v || "Decide…"); o.value = v; sel.appendChild(o); });
+      d.pending.forEach(function (p) { var lb = el("label"); var sel = el("select"); ["", "approve", "reject"].forEach(function (v) { var o = el("option", null, v || "Decide\u2026"); o.value = v; sel.appendChild(o); });
         sel.onchange = function () { ["approve", "reject"].forEach(function (k) { var i = ov[k].indexOf(p.id); if (i >= 0) ov[k].splice(i, 1); }); if (sel.value) ov[sel.value].push(p.id); sync(); };
         lb.appendChild(sel); var a = el("a", null, p.title); a.href = p.link; a.target = "_blank"; a.rel = "noopener"; lb.appendChild(a); lb.appendChild(el("span", "sub", " " + p.feed + ", " + p.date)); s6.appendChild(lb); });
 
