@@ -1,0 +1,66 @@
+{
+ "updated": "2026-10-21T18:12:01Z",
+ "sources": {
+  "youtube": {
+   "title": "Babaji's YouTube channel",
+   "adapter": "youtube",
+   "method": "Public channel feed (newest 15). With a free YouTube Data API key in the YOUTUBE_API_KEY secret, the whole upload history.",
+   "state": "ok",
+   "message": "15 fetched via feed",
+   "counts": {
+    "videos": 15,
+    "fetched": 15
+   },
+   "last_attempt": "2026-10-21T18:10:28Z",
+   "last_success": "2026-10-21T18:10:28Z"
+  },
+  "gurmatveechar": {
+   "title": "Gurmatveechar.com, Babaji's katha folder",
+   "adapter": "gurmatveechar",
+   "method": "Reads the public folder listings once a day, one page per second, and records each recording's upload date once.",
+   "state": "ok",
+   "message": "37 series, 2333 recordings, 68 pages read, 0 dates looked up",
+   "counts": {
+    "series": 37,
+    "recordings": 2333,
+    "new": 0
+   },
+   "last_attempt": "2026-10-21T18:11:40Z",
+   "last_success": "2026-10-21T18:11:40Z"
+  },
+  "programmes": {
+   "title": "Programmes (Google Sheet)",
+   "adapter": "sheet",
+   "method": "A Google Sheet published as CSV, set as programmes_csv_url in config.json.",
+   "state": "not-configured",
+   "message": "Add the sheet's published CSV link to programmes_csv_url in config.json",
+   "counts": {},
+   "last_attempt": "2026-10-21T18:11:40Z",
+   "last_success": ""
+  },
+  "banidb": {
+   "title": "BaniDB (Gurbani check)",
+   "adapter": "banidb",
+   "method": "Checks each quoted Gurbani line against its Ang in the BaniDB API (Khalis Foundation). Only the result is stored.",
+   "state": "ok",
+   "message": "23 line(s) checked",
+   "counts": {
+    "verified": 23,
+    "not-found": 0,
+    "error": 0
+   },
+   "last_attempt": "2026-10-21T18:12:01Z",
+   "last_success": "2026-10-21T18:12:01Z"
+  },
+  "facebook": {
+   "title": "Facebook page",
+   "adapter": "facebook",
+   "method": "Meta Graph API with a Page access token (pages_read_engagement), granted by a page admin.",
+   "state": "needs-credentials",
+   "message": "Add FACEBOOK_PAGE_ID and FACEBOOK_PAGE_TOKEN as repository secrets (docs/SOURCES.md).",
+   "counts": {},
+   "last_attempt": "2026-10-21T18:12:01Z",
+   "last_success": ""
+  }
+ }
+}

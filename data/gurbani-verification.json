@@ -1,0 +1,166 @@
+{
+ "updated": "2026-10-21",
+ "lines": {
+  "hukam-rajai": {
+   "status": "verified",
+   "reason": "",
+   "fp": "64b87d5cb929",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 1"
+  },
+  "hukmai-andar": {
+   "status": "verified",
+   "reason": "",
+   "fp": "8ef2237e2cf4",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 1"
+  },
+  "haumai-rog": {
+   "status": "verified",
+   "reason": "",
+   "fp": "b169ec4019e9",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 466"
+  },
+  "haumai-bujhai": {
+   "status": "verified",
+   "reason": "",
+   "fp": "b6e1389a74d5",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 466"
+  },
+  "man-jot-saroop": {
+   "status": "verified",
+   "reason": "",
+   "fp": "349a4f76fc4e",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 441"
+  },
+  "man-jitai": {
+   "status": "verified",
+   "reason": "",
+   "fp": "9cf6441e8b99",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 6"
+  },
+  "man-mailai": {
+   "status": "verified",
+   "reason": "",
+   "fp": "dc8ca904dfa8",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 558"
+  },
+  "sabad-guru": {
+   "status": "verified",
+   "reason": "",
+   "fp": "774aae0ccfba",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 943"
+  },
+  "satsangat-kaisi": {
+   "status": "verified",
+   "reason": "",
+   "fp": "d5049ba5d36f",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 72"
+  },
+  "sach-achar": {
+   "status": "verified",
+   "reason": "",
+   "fp": "7bf2f1d13121",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 62"
+  },
+  "jin-seviya": {
+   "status": "verified",
+   "reason": "",
+   "fp": "b4de28ff4d26",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 2"
+  },
+  "vich-duniya-sev": {
+   "status": "verified",
+   "reason": "",
+   "fp": "20be3afb654e",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 26"
+  },
+  "hasandia-khelandia": {
+   "status": "verified",
+   "reason": "",
+   "fp": "5aea9a9ad77e",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 522"
+  },
+  "ghal-khaye": {
+   "status": "verified",
+   "reason": "",
+   "fp": "e157493b8852",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 1245"
+  },
+  "karmi-apo-apni": {
+   "status": "verified",
+   "reason": "",
+   "fp": "25a0b0759df5",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 8"
+  },
+  "jini-naam-dhiaya": {
+   "status": "verified",
+   "reason": "",
+   "fp": "7e68821912d8",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 8"
+  },
+  "simrau-simar": {
+   "status": "verified",
+   "reason": "",
+   "fp": "d2c420817c2c",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 262"
+  },
+  "eh-maya": {
+   "status": "verified",
+   "reason": "",
+   "fp": "ac1ae3ea328f",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 921"
+  },
+  "anjan-mahi": {
+   "status": "verified",
+   "reason": "",
+   "fp": "7ff203730f86",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 730"
+  },
+  "jau-tau-prem": {
+   "status": "verified",
+   "reason": "",
+   "fp": "b0abf86a4efa",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 1412"
+  },
+  "brahmande-pinde": {
+   "status": "verified",
+   "reason": "",
+   "fp": "69ccfc3276b9",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 695"
+  },
+  "path-pario": {
+   "status": "verified",
+   "reason": "",
+   "fp": "a6d9e102a66a",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 641"
+  },
+  "gian-anjan": {
+   "status": "verified",
+   "reason": "",
+   "fp": "40d7d57870d6",
+   "checked": "2026-10-21",
+   "against": "BaniDB, Ang 293"
+  }
+ }
+}
