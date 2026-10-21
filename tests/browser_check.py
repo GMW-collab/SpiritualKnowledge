@@ -25,8 +25,53 @@ from playwright.sync_api import sync_playwright  # noqa: E402
 
 out = Path(tempfile.mkdtemp()) / "site"
 build.build(out)
-Handler = partial(http.server.SimpleHTTPRequestHandler, directory=str(out))
-http.server.SimpleHTTPRequestHandler.log_message = lambda *a: None
+
+
+def parse_headers(text):
+    rules, cur = [], None
+    for line in text.splitlines():
+        if line and not line[0].isspace():
+            cur = (line.strip(), [])
+            rules.append(cur)
+        elif line.strip() and cur:
+            k, _, v = line.strip().partition(":")
+            cur[1].append((k.strip(), v.strip()))
+    return rules
+
+
+HEADERS = parse_headers((out / "_headers").read_text(encoding="utf-8"))
+REDIRECTS = {l.split()[0]: l.split()[1] for l in (out / "_redirects").read_text(encoding="utf-8").splitlines() if l and not l.startswith("#")}
+
+
+class CloudflareLike(http.server.SimpleHTTPRequestHandler):
+    """Serves _site the way Cloudflare's static assets will: _headers, _redirects,
+    auto-trailing-slash and the 404 page."""
+    def log_message(self, *a):
+        pass
+
+    def end_headers(self):
+        path = self.path.split("?")[0]
+        for pat, hs in HEADERS:
+            if pat == path or (pat.endswith("*") and path.startswith(pat[:-1])):
+                for k, v in hs:
+                    self.send_header(k, v)
+        super().end_headers()
+
+    def do_GET(self):
+        path = self.path.split("?")[0]
+        if path in REDIRECTS:
+            self.send_response(301); self.send_header("Location", REDIRECTS[path]); self.end_headers(); return
+        target = out / path.lstrip("/")
+        if not path.endswith("/") and (target / "index.html").exists():
+            self.send_response(307); self.send_header("Location", path + "/"); self.end_headers(); return
+        if not target.exists() and not (target / "index.html").exists():
+            body = (out / "404.html").read_bytes()
+            self.send_response(404); self.send_header("Content-Type", "text/html; charset=utf-8"); self.end_headers()
+            self.wfile.write(body); return
+        super().do_GET()
+
+
+Handler = partial(CloudflareLike, directory=str(out))
 srv = socketserver.TCPServer(("127.0.0.1", 0), Handler)
 PORT = srv.server_address[1]
 threading.Thread(target=srv.serve_forever, daemon=True).start()
@@ -47,6 +92,7 @@ with sync_playwright() as p:
         pg = b.new_page(viewport={"width": w, "height": h})
         pg.errors = []
         pg.on("pageerror", lambda e: pg.errors.append(str(e)))
+        pg.on("console", lambda m: pg.errors.append(m.text) if "Content Security Policy" in m.text else None)
         pg.route("**/*", lambda r: r.continue_() if r.request.url.startswith(URL) else r.abort())
         return pg
 
@@ -57,6 +103,14 @@ with sync_playwright() as p:
         pg.wait_for_load_state("networkidle")
         check(f"loads without script errors: /{path}", not pg.errors, pg.errors)
         pg.errors.clear()
+
+    # Cloudflare behaviour: old Wix addresses redirect, missing pages get the 404 page.
+    r = pg.goto(URL + "shabadguru")
+    check("old Wix address /shabadguru redirects to the Shabad Guru theme", pg.url.endswith("/themes/shabad-guru/"), pg.url)
+    r = pg.goto(URL + "no-such-page")
+    check("unknown address shows the 404 page", r.status == 404 and "isn" in pg.locator("h1").inner_text(), r.status)
+    r = pg.goto(URL + "themes/naam/")
+    check("security headers are sent", "default-src 'self'" in (r.headers.get("content-security-policy") or ""))
 
     # Playing a recording, then moving to another page: the player and its track survive.
     pg.goto(URL + "themes/haumai/")

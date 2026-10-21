@@ -89,8 +89,6 @@ class BuildTest(unittest.TestCase):
 
     def test_accessibility_basics(self):
         for p in self.pages:
-            if p.parent.name in ("shabadguru",) or "refresh" in p.read_text(encoding="utf-8")[:600]:
-                continue
             parser = Links()
             txt = p.read_text(encoding="utf-8")
             parser.feed(txt)
@@ -156,9 +154,34 @@ class BuildTest(unittest.TestCase):
         self.assertFalse(any("/review/" in l for l in locs))
         self.assertIn("Disallow: /review/", self.read("robots.txt"))
 
-    def test_old_wix_urls_redirect(self):
-        for old in ("shabadguru", "sggs-katha", "sants-gurmukhs", "literature"):
-            self.assertIn('http-equiv="refresh"', self.read(f"{old}/index.html"))
+    def test_old_wix_urls_redirect_to_real_pages(self):
+        lines = [l.split() for l in self.read("_redirects").splitlines() if l and not l.startswith("#")]
+        sources = {l[0] for l in lines}
+        for old in ("/shabadguru", "/sggs-katha/", "/sants-gurmukhs", "/literature"):
+            self.assertIn(old, sources)
+        for src, dest, code in lines:
+            self.assertEqual(code, "301")
+            self.assertTrue((self.out / dest.lstrip("/") / "index.html").exists(), dest)
+            self.assertFalse((self.out / src.strip("/")).exists(), f"{src} would be shadowed by a page")
+
+    def test_cloudflare_headers(self):
+        h = self.read("_headers")
+        self.assertIn("Content-Security-Policy:", h)
+        self.assertIn("/assets/*", h)
+        self.assertIn("X-Robots-Tag: noindex", h)
+        # the CSP has no 'unsafe-inline', so pages must carry no inline scripts or style attributes
+        for p in self.pages:
+            txt = p.read_text(encoding="utf-8")
+            self.assertNotIn(' style="', txt, p)
+            for m in re.finditer(r"<script(?![^>]*\bsrc=)([^>]*)>", txt):
+                self.assertIn("application/ld+json", m.group(1), f"inline script in {p}")
+
+    def test_wrangler_config_points_at_the_build(self):
+        cfg = (ROOT / "wrangler.jsonc").read_text(encoding="utf-8")
+        cfg = json.loads(re.sub(r"^\s*//.*$", "", cfg, flags=re.M))
+        self.assertEqual(cfg["assets"]["directory"], "./_site")
+        self.assertIn("scripts/build.py", cfg["build"]["command"])
+        self.assertEqual(cfg["assets"]["not_found_handling"], "404-page")
 
     def test_search_index(self):
         d = json.loads(self.read("search/index.json"))

@@ -187,7 +187,7 @@ def provenance(kind, extra=""):
     return f'<p class="gloss"><b>{t}</b><span>{d}</span>{extra}</p>'
 
 
-ICONS = """<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ICONS = """<svg width="0" height="0" class="sprite" aria-hidden="true">
 <symbol id="i-play" viewBox="0 0 12 14"><path d="M1 0.6l10.4 6.4L1 13.4z"/></symbol>
 <symbol id="i-pause" viewBox="0 0 12 14"><path d="M1 0h3.4v14H1zM7.6 0H11v14H7.6z"/></symbol>
 <symbol id="i-next" viewBox="0 0 24 24"><path d="M5 5l10 7-10 7zM17 5h2v14h-2z"/></symbol>
@@ -845,11 +845,34 @@ REDIRECTS = {
 
 
 def build_redirects(ctx):
-    site = ctx["k"]["config"].get("site_url", "").rstrip("/")
+    """Permanent redirects from the old Wix addresses, in Cloudflare's _redirects format."""
+    lines = ["# Old harkhowal.com (Wix) addresses -> their new homes"]
     for old, new in REDIRECTS.items():
-        write(old + "/", f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Moved</title>
-<link rel="canonical" href="{e(site + '/' + new)}"><meta name="robots" content="noindex">
-<meta http-equiv="refresh" content="0; url={e(u(new))}"></head><body><p>This page has moved to <a href="{e(u(new))}">{e(new)}</a>.</p></body></html>""")
+        for src in (f"/{old}", f"/{old}/"):
+            lines.append(f"{BASE}{src.lstrip('/')} {u(new)} 301")
+    (OUT / "_redirects").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+# Security headers and caching, in Cloudflare's _headers format. The Content-Security-Policy
+# allows exactly what the site uses: its own files, Google Fonts, YouTube thumbnails and the
+# privacy-enhanced YouTube player, and audio streamed over HTTPS (Gurmatveechar).
+CSP = ("default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; "
+       "font-src https://fonts.gstatic.com; img-src 'self' data: https://i.ytimg.com; media-src https:; "
+       "frame-src https://www.youtube-nocookie.com; connect-src 'self'; base-uri 'self'; form-action 'self'; "
+       "frame-ancestors 'self'; object-src 'none'")
+
+
+def build_headers(ctx):
+    rules = {
+        "/*": ["X-Content-Type-Options: nosniff", "Referrer-Policy: strict-origin-when-cross-origin",
+               "Permissions-Policy: camera=(), microphone=(), geolocation=()",
+               f"Content-Security-Policy: {CSP}", "Strict-Transport-Security: max-age=31536000"],
+        f"{BASE}assets/*": ["Cache-Control: public, max-age=31536000, immutable"],
+        f"{BASE}search/index.json": ["Cache-Control: public, max-age=3600"],
+        f"{BASE}review/*": ["X-Robots-Tag: noindex, nofollow", "Cache-Control: no-store"],
+    }
+    text = "".join(f"{path}\n" + "".join(f"  {h}\n" for h in hs) for path, hs in rules.items())
+    (OUT / "_headers").write_text(text, encoding="utf-8")
 
 
 def build_404(ctx):
@@ -863,10 +886,7 @@ def build_meta(ctx):
     urls = "".join(f"<url><loc>{e(site + '/' + p)}</loc></url>" for p in ctx["sitemap"])
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n', encoding="utf-8")
     (OUT / "robots.txt").write_text(f"User-agent: *\nDisallow: {BASE}review/\nSitemap: {site}/sitemap.xml\n", encoding="utf-8")
-    (OUT / ".nojekyll").write_text("", encoding="utf-8")
-    cname = ctx["k"]["config"].get("cname")
-    if cname:
-        (OUT / "CNAME").write_text(cname + "\n", encoding="utf-8")
+    build_headers(ctx)
 
 
 def build(out=None):

@@ -1,0 +1,22 @@
+// Cloudflare deployment: a Worker that serves the static site in _site/.
+// Cloudflare's Git integration (Workers Builds) runs `npx wrangler deploy` on every push
+// to main; the custom build below generates _site/ first. No server code runs.
+// The name must match the Worker's name in the Cloudflare dashboard.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "harkhowal",
+  "compatibility_date": "2025-09-15",
+  "build": {
+    "command": "python3 scripts/build.py"
+  },
+  "assets": {
+    "directory": "./_site",
+    // /themes/ is served from /themes/index.html, and /themes redirects to /themes/
+    "html_handling": "auto-trailing-slash",
+    // unknown paths get _site/404.html with a 404 status
+    "not_found_handling": "404-page"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
