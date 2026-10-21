@@ -18,5 +18,7 @@
   },
   "observability": {
     "enabled": true
-  }
+  },
+  // Branches other than main are built as previews (npx wrangler preview), which needs this block.
+  "previews": {}
 }
