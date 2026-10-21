@@ -1,0 +1,107 @@
+{
+  "site_name": "Harkhowal Online",
+  "contact_email": "harkhowal@outlook.com",
+  "youtube_channel_id": "UCAq_dxXKBpMJQmr-msu0YmA",
+  "youtube_url": "https://www.youtube.com/@Santjagjitsinghjiharkhowal",
+  "gurmatveechar_root": "/Katha/02_Present_Day_Katha/Baba_Jagjit_Singh_(Harkhowal_wale)",
+  "programmes_csv_url": "",
+  "social": {
+    "youtube": "https://www.youtube.com/@Santjagjitsinghjiharkhowal",
+    "facebook": "https://www.facebook.com/people/Harkhowal-Wale/61585470817150/",
+    "tiktok": ""
+  },
+  "audio_categories": [
+    {
+      "name": "Gurbani",
+      "match": [
+        "Guru_Granth",
+        "Jap_Ji",
+        "Nitnem",
+        "Sukhmani",
+        "Baramaha"
+      ]
+    },
+    {
+      "name": "Itihaas",
+      "match": [
+        "Suraj",
+        "Nanak_Parkash",
+        "Sikh_Raaj"
+      ]
+    },
+    {
+      "name": "Bhai Gurdas & Bhai Nand Lal",
+      "match": [
+        "Bhai_Gurdas",
+        "Bhai_Nand_Lal"
+      ]
+    },
+    {
+      "name": "Vedant & Darshan",
+      "match": [
+        "Vichar",
+        "Darshan",
+        "Yog",
+        "Astavakra",
+        "Adhyat",
+        "Vairaag",
+        "Parbodh",
+        "Bhavrasamrit",
+        "Man_Budh",
+        "Sarkutavali",
+        "Dajistar",
+        "Dhampad",
+        "Chanaka",
+        "Pantanjali"
+      ]
+    },
+    {
+      "name": "Divans abroad",
+      "match": [
+        "Australia",
+        "Canada",
+        "Toronto",
+        "Smethwick",
+        "Sultanpur"
+      ]
+    },
+    {
+      "name": "Talks & Q&A",
+      "match": [
+        "Discussions",
+        "Brahmchari"
+      ]
+    }
+  ],
+  "series_gurmukhi": {
+    "Adhyatam_Parkash": "ਅਧਿਆਤਮ ਪ੍ਰਕਾਸ਼",
+    "Adhyatmik_Veechar": "ਅਧਿਆਤਮਿਕ ਵੀਚਾਰ",
+    "Astavakra Gita Katha": "ਅਸ਼ਟਾਵਕ੍ਰ ਗੀਤਾ",
+    "Baramaha": "ਬਾਰਹ ਮਾਹਾ",
+    "Bhai_Gurdas_De_Kabit_Savaiye_Katha": "ਕਬਿੱਤ ਸਵੱਯੇ",
+    "Bhai_Gurdas_Di_Vaaran_Di_Katha": "ਵਾਰਾਂ ਭਾਈ ਗੁਰਦਾਸ ਜੀ",
+    "Bhavrasamrit": "ਭਾਵਰਸਾਮ੍ਰਿਤ",
+    "Brahmchari_&_Pati_Patni_Dharam": "ਪਤੀ ਪਤਨੀ ਧਰਮ",
+    "Brahmchari_Katha": "ਬ੍ਰਹਮਚਾਰੀ",
+    "Chanaka_Raajniti": "ਚਾਣਕਯ ਰਾਜਨੀਤੀ",
+    "Dhampad": "ਧੰਮਪਦ",
+    "Discussions_Questions_and_Answers": "ਸਵਾਲ ਜਵਾਬ",
+    "Gazlan_Bhai_Nand_Lal_Ji": "ਗ਼ਜ਼ਲਾਂ ਭਾਈ ਨੰਦ ਲਾਲ ਜੀ",
+    "Jap_Ji_Sahib_Katha": "ਜਪੁਜੀ ਸਾਹਿਬ",
+    "Katha_at_Gurdwara_Ber_Sahib_Sultanpur_Lodhi": "ਬੇਰ ਸਾਹਿਬ",
+    "Man_Budh_Atam": "ਮਨ ਬੁੱਧ ਆਤਮ",
+    "Nitnem_Bani_Katha": "ਨਿਤਨੇਮ",
+    "Om_Pantanjali_Yog_Shastar": "ਪਾਤੰਜਲ ਯੋਗ",
+    "Parbodh_Chandar_Natak_Katha": "ਪ੍ਰਬੋਧ ਚੰਦ੍ਰ ਨਾਟਕ",
+    "Sri_Gurpartap_Suraj_Parkash_Katha": "ਸੂਰਜ ਪ੍ਰਕਾਸ਼",
+    "Sri_Guru_Granth_Sahib_Ji_Di_Lareevar_Katha": "ਸ੍ਰੀ ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ ਜੀ",
+    "Sri_Nanak_Parkash_Katha": "ਸ੍ਰੀ ਨਾਨਕ ਪ੍ਰਕਾਸ਼",
+    "Sukhmani_Sahib": "ਸੁਖਮਨੀ ਸਾਹਿਬ",
+    "Vairaag_Shatak": "ਵੈਰਾਗ ਸ਼ਤਕ",
+    "Vedant_Darshan": "ਵੇਦਾਂਤ ਦਰਸ਼ਨ",
+    "Vichar_Mala": "ਵਿਚਾਰ ਮਾਲਾ",
+    "Vichar_Sagar": "ਵਿਚਾਰ ਸਾਗਰ",
+    "Yog_Darshan": "ਯੋਗ ਦਰਸ਼ਨ",
+    "__single": "ਕਥਾ"
+  }
+}
