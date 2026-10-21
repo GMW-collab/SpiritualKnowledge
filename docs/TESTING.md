@@ -4,20 +4,28 @@ Run on 21 October 2026, Python 3.13, Chromium 141 (headless), against the data i
 
 ## Automated tests
 
-Run with `python -m unittest discover -s tests -p "test_*.py"` (42 tests) and `python tests/browser_check.py` (34 checks). Both run on every pull request (`.github/workflows/test.yml`); the unit and build tests also run before every publish.
+Run with `python -m unittest discover -s tests -p "test_*.py"` (44 tests) and `python tests/browser_check.py` (37 checks). Both run on every pull request (`.github/workflows/test.yml`); the unit and build tests also run before every publish.
 
 | Suite | Tests | Result | What it covers |
 |---|---|---|---|
 | `test_sources.py` | 15 | Pass | Each adapter against recorded fixtures, no network: YouTube feed and Data API paging (private videos dropped, API key scrubbed from messages), keeping the archive and keeping previous data when offline; Gurmatveechar listing parsing, titles, date memory, refusal to save a listing that shrank by half; RSS/Atom parsing, HTML stripped, summaries shortened, `javascript:` links dropped, items imported unpublished; Google Sheet dates and link sanitising; Facebook needing credentials, and importing posts for review; BaniDB normalisation, verified and not-found checks, one request per Ang, no re-checking of verified lines |
 | `test_knowledge.py` | 14 | Pass | Gurmukhi folding and whole-word matching (ਮਨ does not match ਮਨਮੁਖ; ਬ੍ਰਹਮ does not match ਬ੍ਰਹਮਚਾਰੀ); Ang ranges and Japji pauris to katha; Gurbani display rules; **content integrity**: every Gurbani line fully sourced, every theme's Gurbani known, no Gurbani quoted loose in prose, every comparison names its tradition and source, graph and shelves reference real items, external items attributed, every theme link records how it was made, overrides add/remove/confirm |
-| `test_build.py` | 13 | Pass | Full build: every page exists (11 themes, 37 series); every internal link resolves; one `h1`, alt text, named buttons, `lang`, skip link on every page; unique titles, descriptions, canonical links; provenance glosses and all five layers on every theme page; every Gurbani block has Ang, a labelled translation and `lang="pa"`; unverified lines hidden; Ang 466 links to Babaji's katha of Ang 465 to 467; sitemap valid and excludes `/review/`; Wix redirects; search index contents; no template leaks |
-| `browser_check.py` | 34 | Pass | No script errors on ten page types; pressing a recording opens the player and streams from Gurmatveechar; moving to another page keeps the same document and the same track (audio continues); URL, title and Back button behave; search for "ego" puts Haumai first, ਹੁਕਮ finds Hukam, "vichar sagar" finds the series, a nonsense query explains what to try; "Go to Ang 466" finds the right recording; Gurmukhi filter on the library; theme chips on Watch; Review page produces override JSON; first Tab reaches the skip link; no sideways scrolling at 390 px on six pages; dark mode uses the night palette; page weight |
+| `test_build.py` | 15 | Pass | Cloudflare files: `_redirects` targets exist and are not shadowed, `_headers` carries the security policy, no inline scripts or style attributes (so the policy needs no `unsafe-inline`), `wrangler.jsonc` points at the build; Full build: every page exists (11 themes, 37 series); every internal link resolves; one `h1`, alt text, named buttons, `lang`, skip link on every page; unique titles, descriptions, canonical links; provenance glosses and all five layers on every theme page; every Gurbani block has Ang, a labelled translation and `lang="pa"`; unverified lines hidden; Ang 466 links to Babaji's katha of Ang 465 to 467; sitemap valid and excludes `/review/`; Wix redirects; search index contents; no template leaks |
+| `browser_check.py` | 37 | Pass | Served the way Cloudflare serves the site (headers, redirects, trailing slashes, 404 page): old Wix addresses redirect, unknown addresses get the 404 page, security headers are sent, no Content-Security-Policy violations; No script errors on ten page types; pressing a recording opens the player and streams from Gurmatveechar; moving to another page keeps the same document and the same track (audio continues); URL, title and Back button behave; search for "ego" puts Haumai first, ਹੁਕਮ finds Hukam, "vichar sagar" finds the series, a nonsense query explains what to try; "Go to Ang 466" finds the right recording; Gurmukhi filter on the library; theme chips on Watch; Review page produces override JSON; first Tab reaches the skip link; no sideways scrolling at 390 px on six pages; dark mode uses the night palette; page weight |
 
 Defects found by these tests and fixed during the work: search listed every theme for any query (relevance bonus applied to non-matches); "ego" matched "Begowal" (substring matching, now word-start); a shelf listed divan series with no profile; a duplicated sentence in theme glosses.
 
+## Cloudflare
+
+Checked on 21 October 2026 against the real Cloudflare account:
+
+- `wrangler deploy --dry-run` passes in GitHub Actions on every push.
+- Cloudflare's own build of the `platform` branch (Wrangler 4.151.3) ran `python3 scripts/build.py`, read 122 files and uploaded them successfully. Earlier failures, and how they were fixed: the Worker name did not match (`harkhowal` vs `spiritualknowledge`); branch previews need a `previews` block.
+- The production build of `main` still fails until the pull request is merged, because `main` holds only the imported old page and no Wrangler configuration.
+
 ## Measurements
 
-Uncompressed / gzip, as GitHub Pages serves them:
+Uncompressed / gzip (Cloudflare compresses responses):
 
 | File | Size | Compressed |
 |---|---|---|

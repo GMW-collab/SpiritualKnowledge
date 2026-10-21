@@ -82,7 +82,7 @@ content/*  ───────────────────────
                                                                                            v
                               scripts/knowledge.py (classify, Ang index, display rules)
                                                                                            │
-                                                   scripts/build.py ──> _site/ ──> GitHub Pages
+                                                   scripts/build.py ──> _site/ ──> Cloudflare
 ```
 
 Each adapter exposes `run(cfg, source, fetch=...)` and returns a `SourceResult(state, message, counts)`. Rules every adapter follows:

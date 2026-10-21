@@ -8,7 +8,7 @@ It does three things:
 2. **Opens Gurmat through themes.** Eleven themes drawn from what Babaji actually teaches (Haumai, Hukam, Naam, Shabad Guru, Seva, Maya, the mind, Gian, Bhagti, Rahini, Mukti), each moving from a first introduction through Gurbani and Babaji's katha to reflection. Every Gurbani line shown is linked to Babaji's katha of that very Ang.
 3. **Is honest about where every word comes from.** Gurbani, Babaji's katha, editorial writing and other people's material are labelled on every page. Gurbani quotations are checked against BaniDB automatically. AI-assisted writing is marked as such and waits for review by a learned reader.
 
-It costs nothing to run beyond the domain name. It is a set of plain web pages, built by a short Python program and hosted free on GitHub Pages.
+It costs nothing to run beyond the domain name. It is a set of plain web pages, built by a short Python program and hosted free on Cloudflare, which rebuilds and publishes it whenever the repository changes.
 
 ## Where things are
 

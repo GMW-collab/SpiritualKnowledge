@@ -1,23 +1,39 @@
 # Deployment, configuration, maintenance and costs
 
-Nothing in this repository has been deployed. Every step below that makes something public needs the owner's go-ahead.
+The site is hosted on **Cloudflare** as a Worker named `spiritualknowledge` that serves static files (no server code runs). Cloudflare is connected to this repository: every push to `main` is built and deployed, and every other branch gets a preview build. Nothing goes live except through `main`.
 
-## Deploying (in order)
+## How a deploy works
 
-**1. Review the pull request** from the `platform` branch and merge it into `main`. Merging alone publishes nothing: the workflow builds and tests the site, and skips publishing while GitHub Pages is switched off.
+1. Something changes `main`: a merged pull request, an editor's commit, or the daily update saving new data.
+2. Cloudflare runs `npx wrangler deploy`. Wrangler reads `wrangler.jsonc`, runs `python3 scripts/build.py` to generate `_site/`, and uploads the files that changed.
+3. Cloudflare serves `_site/` with the rules the build writes into it: `_headers` (security policy and caching) and `_redirects` (permanent redirects from the old Wix addresses). `/themes` redirects to `/themes/`, and unknown addresses get the 404 page.
 
-**2. Preview on GitHub's address.** In this repository: *Settings → Pages → Build and deployment → Source: GitHub Actions*. Then *Actions → Update, build and publish → Run workflow*. The site appears at `https://gmw-collab.github.io/SpiritualKnowledge/` (the build adjusts its links to that address automatically). This first run also performs the first live BaniDB check and the first runs of every source; their results appear on the site's Sources and Review pages.
+On every push, GitHub also runs the tests, the browser checks (served the way Cloudflare serves the site) and `wrangler deploy --dry-run`, so a broken configuration shows up on the pull request.
 
-> GitHub Pages is free for public repositories. For a private repository it needs a paid GitHub plan.
+## Going live (in order)
 
-**3. Move harkhowal.com to it** once you are happy with the preview.
-1. In the *old* repository `harkhowal-site`: *Settings → Pages* → remove its custom domain if one is set, and in *Actions* disable its "Daily content update" workflow, so the two do not both crawl Gurmatveechar or claim the domain.
-2. Here: *Settings → Pages → Custom domain* → `www.harkhowal.com` → *Save*. Tick *Enforce HTTPS* when offered.
-3. At the domain's registrar (Wix, if bought there): `www` → **CNAME** → `gmw-collab.github.io`; the bare domain `@` → **A** records `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`.
-4. Run the workflow again so links are rebuilt for the root of the domain. DNS can take a few hours.
+**1. Merge pull request #1** into `main`. Cloudflare deploys it within a few minutes at `https://spiritualknowledge.<your-subdomain>.workers.dev` (*Workers & Pages → spiritualknowledge → Domains* shows the exact address). The daily update then starts at 04:17 UTC; its first run performs the first live BaniDB check and the first run of every source, shown on the site's Sources and Review pages. To run it at once: *Actions → Daily content update → Run workflow*.
+
+**2. Retire the old set-up**, so the two do not both crawl Gurmatveechar or claim the domain: in the old `harkhowal-site` repository, *Actions* → disable "Daily content update"; in Cloudflare, check that the older `harkhowal-site` Worker has no custom domain attached.
+
+**3. Move harkhowal.com to Cloudflare** once you are happy with the workers.dev site.
+1. In Cloudflare: *Add a domain* → `harkhowal.com` (Free plan). Cloudflare copies the existing DNS records; check that any email (MX) records are among them before continuing.
+2. At the registrar where the domain is held (Wix, if bought there), replace the nameservers with the two Cloudflare gives you. This can take a few hours.
+3. *Workers & Pages → spiritualknowledge → Settings → Domains & Routes → Add → Custom domain*: add `www.harkhowal.com`, then `harkhowal.com`. Cloudflare creates the DNS records and certificates.
+4. *Rules → Redirect Rules → Create from template → "Redirect from root to WWW"* so `harkhowal.com` goes to `www.harkhowal.com`, the canonical address used in the site's links and sitemap.
 5. Complete the Wix migration checklist in [SOURCES.md](SOURCES.md), then cancel the Wix plan (keep the domain).
 
-Old Wix addresses (`/shabadguru`, `/sggs-katha`, `/babaji-videos` …) redirect to their new pages.
+Old Wix addresses (`/shabadguru`, `/sggs-katha`, `/babaji-videos` …) redirect permanently to their new pages.
+
+## Cloudflare files in this repository
+
+| File | Purpose |
+|---|---|
+| `wrangler.jsonc` | Worker name (must match the dashboard), build command, the `_site` folder, trailing-slash and 404 handling, workers.dev and preview URLs |
+| `_site/_headers` (generated) | Content-Security-Policy, HSTS and other security headers; long caching for `/assets/`; `noindex` for `/review/` |
+| `_site/_redirects` (generated) | 301 redirects from the old Wix addresses |
+
+If the Worker is ever renamed in Cloudflare, change `name` in `wrangler.jsonc` to match, or builds fail.
 
 ## Configuration (`config.json`)
 
@@ -44,7 +60,7 @@ Old Wix addresses (`/shabadguru`, `/sggs-katha`, `/babaji-videos` …) redirect 
 
 | Item | Cost |
 |---|---|
-| GitHub Pages hosting | Free (public repository; generous limits: sites up to 1 GB, about 100 GB of traffic a month) |
+| Cloudflare hosting | Free on the Workers Free plan: requests for static files are free and unlimited; the site is about 150 files, far inside the per-deploy file limit |
 | GitHub Actions | Free for public repositories. A private repository's free allowance (2,000 minutes a month) also covers it: a daily run takes a few minutes, longer on days with many new recordings |
 | YouTube Data API | Free within the daily quota; this site uses a small fraction |
 | BaniDB API | Free; a handful of requests only when Gurbani lines change |
@@ -53,4 +69,4 @@ Old Wix addresses (`/shabadguru`, `/sggs-katha`, `/babaji-videos` …) redirect 
 | Domain harkhowal.com | The existing renewal fee |
 | AI services | None. No AI model runs on the live site. The theme essays were drafted once, with AI assistance, and are now ordinary files. Future AI features would carry usage-based costs; see ROADMAP |
 
-There is no server, no database and nothing to patch.
+There is no server code, no database and nothing to patch.
