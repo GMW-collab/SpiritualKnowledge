@@ -182,6 +182,25 @@ class BaniDBTest(TempData):
         self.assertEqual(banidb.check_line("ਹਉਮੈ ਦੀਰਘ ਰੋਗੁ ਹੈ ਦਾਰੂ ਭੀ ਇਸੁ ਮਾਹਿ ॥", page)[0], "verified")
         self.assertEqual(banidb.check_line("ਹਉਮੈ ਦੀਰਘ ਰੋਗੁ ਨਹੀ ॥", page)[0], "not-found")
 
+    def test_line_on_a_neighbouring_ang_is_reported_and_stays_hidden(self):
+        content = self.tmp / "content"
+        content.mkdir()
+        lines = [{"id": "slip", "gurmukhi": "ਹਉਮੈ ਬੂਝੈ ਤਾ ਦਰੁ ਸੂਝੈ ॥", "source": {"ang": 467}, "confidence": "high"}]
+        (content / "gurbani.json").write_text(json.dumps({"lines": lines}), encoding="utf-8")
+        old = banidb.CONTENT
+        banidb.CONTENT = content
+        try:
+            pages = {"465": "{}", "466": fixture("banidb_ang466.json"), "467": '{"page": [{"verse": {"unicode": "ਹੋਰ ਬਾਣੀ ॥"}}]}', "468": "{}"}
+            res = banidb.run({}, {}, fetch=lambda u, **k: pages[u.split("/angs/")[1].split("/")[0]], delay=0)
+            v = common.load("gurbani-verification.json", {})["lines"]["slip"]
+            self.assertEqual(v["status"], "wrong-ang")
+            self.assertIn("Ang 466", v["reason"])
+            self.assertEqual(res.counts["wrong-ang"], 1)
+            import knowledge as KN
+            self.assertEqual(KN.gurbani_state(lines[0], {"slip": v}, {}), (False, "failed-check"))
+        finally:
+            banidb.CONTENT = old
+
     def test_run_checks_each_ang_once_and_caches(self):
         content = self.tmp / "content"
         content.mkdir()

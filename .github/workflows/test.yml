@@ -6,11 +6,11 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Unit and build tests
@@ -21,17 +21,36 @@ jobs:
           python -m playwright install --with-deps chromium
           python tests/browser_check.py
 
+  accessibility:
+    # axe-core audit (WCAG 2.1 A/AA) of every kind of page, light and dark, desktop and phone.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+      - name: Accessibility audit
+        run: |
+          pip install playwright==1.56.0
+          python -m playwright install --with-deps chromium
+          npm install --no-save axe-core@4.10.2
+          python tests/a11y_check.py node_modules/axe-core/axe.min.js
+
   cloudflare-config:
     # Runs the same command Cloudflare runs, without deploying: checks wrangler.jsonc,
     # runs the custom build and lists the files that would be uploaded.
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: "22"
       - name: Wrangler dry run

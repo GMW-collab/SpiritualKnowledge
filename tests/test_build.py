@@ -189,6 +189,32 @@ class BuildTest(unittest.TestCase):
         self.assertIn("sangrand", d["themes"])
         self.assertIn("ego", d["themes"]["haumai"])
 
+    def test_journey_page(self):
+        page = self.read("journey/index.html")
+        for st in self.ctx["k"]["journey"]["stages"]:
+            self.assertIn(f'id="{st["id"]}"', page)
+            self.assertIn(f'href="#{st["id"]}"', page)
+        self.assertIn("Step 7 of 7", page)
+        self.assertIn('class="mint"', page)
+        self.assertIn("Pauri 34 to 36", page)
+        self.assertIn("Is it a ladder?", page)
+        self.assertIn("Awaiting review", page)
+        # every Gurbani block on the journey carries its Ang and a labelled translation
+        blocks = re.findall(r'<figure class="bani".*?</figure>', page, re.S)
+        self.assertGreaterEqual(len(blocks), 12)
+        for b in blocks:
+            self.assertIn("Ang", b)
+            self.assertIn("Translation, editorial", b)
+        # the five khand pauris each link to Babaji's katha of that pauri
+        for gid in ("dharam-sal", "gian-parchand", "saram-khand", "karam-khand", "sach-khand", "taksal"):
+            block = re.search(rf'<figure class="bani" id="g-{gid}".*?</figure>', page, re.S).group(0)
+            self.assertIn("Babaji’s katha of this pauri", block, gid)
+        home = self.read("index.html")
+        self.assertIn('href="/journey/#karam-khand"', home)
+        self.assertIn('href="/journey/"', self.read("topics/index.html"))
+        d = json.loads(self.read("search/index.json"))
+        self.assertIn("gurmukh", d["themes"]["journey"])
+
     def test_sitemap_and_robots(self):
         root = ET.parse(self.out / "sitemap.xml").getroot()
         locs = [e.text for e in root.iter("{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]

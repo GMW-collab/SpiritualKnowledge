@@ -97,7 +97,7 @@ with sync_playwright() as p:
         return pg
 
     pg = newpage()
-    for path in ["", "topics/", "topics/sukhmani/", "themes/haumai/", "listen/", "listen/sri-guru-granth-sahib-ji-di-lareevar-katha/",
+    for path in ["", "journey/", "topics/", "topics/sukhmani/", "themes/haumai/", "listen/", "listen/sri-guru-granth-sahib-ji-di-lareevar-katha/",
                  "watch/", "search/?q=ego", "about/", "sources/", "review/"]:
         pg.goto(URL + path)
         pg.wait_for_load_state("networkidle")
@@ -171,6 +171,23 @@ with sync_playwright() as p:
     pg.locator("#main .row.vrow").first.click()
     check("a video in Latest opens its player in place", pg.locator("#main .vembed iframe").count() == 1)
 
+    # The journey from manmukh to gurmukh.
+    pg.goto(URL + "journey/")
+    pg.locator(".journey-head .path a").nth(5).click()
+    pg.wait_for_timeout(300)
+    check("a stop on the journey path jumps to its step", pg.url.endswith("#karam-khand") and pg.locator("#karam-khand").is_visible())
+    pg.locator(".journey-head .journey-listen a").click()
+    pg.wait_for_timeout(200)
+    first = pg.locator("#katha + p + .rows .row").first
+    first.click()
+    check("Babaji's katha of the khands plays from the journey", pg.locator("#player").is_visible() and "Pauri" in pg.locator("#p-title").inner_text())
+    pg.goto(URL + "search/?q=gurmukh")
+    pg.wait_for_selector(".res-theme")
+    check("searching 'gurmukh' finds the journey first", "manmukh to gurmukh" in pg.locator(".res-theme").first.inner_text())
+    pg.goto(URL + "search/?q=" + "ਸਚ ਖੰਡ")
+    pg.wait_for_selector(".res-theme")
+    check("searching ਸਚ ਖੰਡ finds the step", "realm of truth" in pg.locator("#main").inner_text())
+
     # Topics: find a topic, open it, play its katha.
     pg.goto(URL + "topics/")
     pg.fill("#tq", "sangrand")
@@ -223,7 +240,7 @@ with sync_playwright() as p:
 
     # Mobile: no sideways scrolling on key pages.
     m = newpage(390, 844)
-    for path in ["", "themes/maya/", "listen/", "listen/vairaag-shatak/", "watch/", "sources/"]:
+    for path in ["", "journey/", "themes/maya/", "listen/", "listen/vairaag-shatak/", "watch/", "sources/"]:
         m.goto(URL + path)
         over = m.evaluate("document.documentElement.scrollWidth - window.innerWidth")
         check(f"no horizontal scroll on mobile: /{path}", over <= 0, f"{over}px too wide")
