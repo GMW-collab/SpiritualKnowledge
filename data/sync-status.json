@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22T04:41:02Z",
+ "updated": "2026-10-22T17:46:41Z",
  "sources": {
   "youtube": {
    "title": "Babaji's YouTube channel",
@@ -42,14 +42,15 @@
    "adapter": "banidb",
    "method": "Checks each quoted Gurbani line against its Ang in the BaniDB API (Khalis Foundation). Only the result is stored.",
    "state": "ok",
-   "message": "0 line(s) checked",
+   "message": "16 line(s) checked",
    "counts": {
-    "verified": 23,
+    "verified": 39,
     "not-found": 0,
+    "wrong-ang": 0,
     "error": 0
    },
-   "last_attempt": "2026-10-22T04:41:02Z",
-   "last_success": "2026-10-22T04:41:02Z"
+   "last_attempt": "2026-10-22T17:46:41Z",
+   "last_success": "2026-10-22T17:46:41Z"
   },
   "facebook": {
    "title": "Facebook page",

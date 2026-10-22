@@ -161,6 +161,118 @@
    "fp": "40d7d57870d6",
    "checked": "2026-10-21",
    "against": "BaniDB, Ang 293"
+  },
+  "gurmukh-sanmukh": {
+   "status": "verified",
+   "reason": "",
+   "fp": "c19295160dc4",
+   "checked": "2026-10-22",
+   "against": "BaniDB, Ang 131"
+  },
+  "manmukh-bandh": {
+   "status": "verified",
+   "reason": "",
+   "fp": "ac91b4da21cc",
+   "checked": "2026-10-22",
+   "against": "BaniDB, Ang 559"
+  },
+  "chanan": {
+   "status": "verified",
+   "reason": "",
+   "fp": "097959d830e4",
+   "checked": "2026-10-22",
+   "against": "BaniDB, Ang 20"
+  },
+  "man-aarsi": {
+   "status": "verified",
+   "reason": "",
+   "fp": "d021ab2afacc",
+   "checked": "2026-10-22",
+   "against": "BaniDB, Ang 115"
+  },
+  "dharam-sal": {
+   "status": "verified",
+   "reason": "",
+   "fp": "9644f37094c9",
+   "checked": "2026-10-22",
+   "against": "BaniDB, Ang 7"
+  },
+  "karmi-karmi": {
+   "status": "verified",
+   "reason": "",
+   "fp": "f51f1f75dd0f",
+   "checked": "2026-10-22",
+   "against": "BaniDB, Ang 7"
+  },
+  "dharam-khand-eho": {
+   "status": "verified",
+   "reason": "",
+   "fp": "2cdf8449d693",
+   "checked": "2026-10-22",
+   "against": "BaniDB, Ang 7"
+  },
+  "gian-parchand": {
+   "status": "verified",
+   "reason": "",
+   "fp": "1932c92e8e37",
+   "checked": "2026-10-22",
+   "against": "BaniDB, Ang 7"
+  },
+  "saram-khand": {
+   "status": "verified",
+   "reason": "",
+   "fp": "ec9a94791f98",
+   "checked": "2026-10-22",
+   "against": "BaniDB, Ang 8"
+  },
+  "saram-ghariai": {
+   "status": "verified",
+   "reason": "",
+   "fp": "06d1b1157fab",
+   "checked": "2026-10-22",
+   "against": "BaniDB, Ang 8"
+  },
+  "karam-khand": {
+   "status": "verified",
+   "reason": "",
+   "fp": "c17cd4cfa1b1",
+   "checked": "2026-10-22",
+   "against": "BaniDB, Ang 8"
+  },
+  "sach-khand": {
+   "status": "verified",
+   "reason": "",
+   "fp": "a73b9e259795",
+   "checked": "2026-10-22",
+   "against": "BaniDB, Ang 8"
+  },
+  "taksal": {
+   "status": "verified",
+   "reason": "",
+   "fp": "c49b25218c81",
+   "checked": "2026-10-22",
+   "against": "BaniDB, Ang 8"
+  },
+  "nadar-kar": {
+   "status": "verified",
+   "reason": "",
+   "fp": "e6885bb4954f",
+   "checked": "2026-10-22",
+   "against": "BaniDB, Ang 8"
+  },
+  "gurmukh-nadam": {
+   "status": "verified",
+   "reason": "",
+   "fp": "82ae50bb1443",
+   "checked": "2026-10-22",
+   "against": "BaniDB, Ang 2"
+  },
+  "gurmukh-mukta": {
+   "status": "verified",
+   "reason": "",
+   "fp": "cda16cebeffe",
+   "checked": "2026-10-22",
+   "against": "BaniDB, Ang 131"
   }
  }
 }
