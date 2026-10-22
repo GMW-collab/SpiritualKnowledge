@@ -286,17 +286,20 @@
       count.textContent = hits.length ? "Showing " + Math.min(shown, hits.length).toLocaleString("en-GB") + " of " + hits.length.toLocaleString("en-GB") + (inp.value.trim() ? " matching \u2018" + inp.value.trim() + "\u2019" : "") + "." : "Nothing matches \u2018" + inp.value.trim() + "\u2019. Try fewer words, or Search to look by theme.";
       refresh();
     }
-    function load() { return data ? Promise.resolve() : fetch(box.dataset.src).then(function (r) { return r.json(); }).then(function (d) { data = d; }); }
-    var tm; inp.oninput = function () { clearTimeout(tm); tm = setTimeout(function () { shown = PAGE; load().then(render); }, 120); };
+    function load() {
+      return data ? Promise.resolve() : fetch(box.dataset.src).then(function (r) { if (!r.ok) throw r.status; return r.json(); }).then(function (d) { data = d; });
+    }
+    function failed() { count.textContent = "The full list could not be loaded. Check your connection and reload the page; the newest 60 are shown below."; }
+    var tm; inp.oninput = function () { clearTimeout(tm); tm = setTimeout(function () { shown = PAGE; load().then(render, failed); }, 120); };
     root.querySelectorAll("[data-lk]").forEach(function (b) { b.onclick = function () {
       kind = b.dataset.lk; root.querySelectorAll("[data-lk]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
-      shown = PAGE; load().then(render); }; });
-    more.onclick = function () { shown += PAGE; load().then(render); };
+      shown = PAGE; load().then(render, failed); }; });
+    more.onclick = function () { shown += PAGE; load().then(render, failed); };
   }
 
   /* ------------------------------------------------------------ search */
   var INDEX = null;
-  function loadIndex(src) { return INDEX ? Promise.resolve(INDEX) : fetch(src).then(function (r) { return r.json(); }).then(function (d) { INDEX = d; return d; }); }
+  function loadIndex(src) { return INDEX ? Promise.resolve(INDEX) : fetch(src).then(function (r) { if (!r.ok) throw r.status; return r.json(); }).then(function (d) { INDEX = d; return d; }); }
   function search(d, raw, kind) {
     var q = fold(raw); if (q.length < 2) return null;
     var words = q.split(" "), nospace = q.replace(/ /g, "");
@@ -347,6 +350,8 @@
         });
         if (r.themes.length) box.appendChild(el("p", "via", "Results include katha linked to the topic" + (r.themes.length > 1 ? "s " : " ") + r.themes.map(function (s) { return d.names[s][0]; }).join(", ") + ", which your search names."));
         refresh();
+      }, function () {
+        box.textContent = ""; box.appendChild(el("p", "hint", "Search could not be loaded. Check your connection and reload the page. You can still browse Topics, Latest and Listen."));
       });
     }
     var tm; inp.oninput = function () { clearTimeout(tm); tm = setTimeout(render, 140); };

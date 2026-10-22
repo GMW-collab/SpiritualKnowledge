@@ -235,6 +235,8 @@ def page(ctx, path, title, body, desc, *, section="", noindex=False, jsonld=None
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#161A33">
 <link rel="icon" href="{u('assets/icon.svg')}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{u('assets/apple-touch-icon.png')}">
+<link rel="manifest" href="{u('manifest.webmanifest')}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;1,400&family=Alegreya+Sans:wght@400;500;700&family=Mukta+Mahee:wght@400;500;700&family=Noto+Serif+Gurmukhi:wght@500;700&display=swap">
@@ -1204,6 +1206,9 @@ def build_headers(ctx):
         f"{BASE}assets/*": ["Cache-Control: public, max-age=31536000, immutable"],
         f"{BASE}search/index.json": ["Cache-Control: public, max-age=3600"],
         f"{BASE}review/*": ["X-Robots-Tag: noindex, nofollow", "Cache-Control: no-store"],
+        # The temporary workers.dev address (and branch previews) stay out of search engines;
+        # harkhowal.com, once attached, is indexed normally.
+        "https://:worker.:account.workers.dev/*": ["X-Robots-Tag: noindex"],
     }
     text = "".join(f"{path}\n" + "".join(f"  {h}\n" for h in hs) for path, hs in rules.items())
     (OUT / "_headers").write_text(text, encoding="utf-8")
@@ -1221,6 +1226,11 @@ def build_meta(ctx):
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n', encoding="utf-8")
     (OUT / "robots.txt").write_text(f"User-agent: *\nDisallow: {BASE}review/\nSitemap: {site}/sitemap.xml\n", encoding="utf-8")
     build_headers(ctx)
+    manifest = json.loads((ROOT / "assets" / "manifest.webmanifest").read_text(encoding="utf-8"))
+    manifest["start_url"], manifest["scope"] = BASE, BASE
+    for icon in manifest["icons"]:
+        icon["src"] = u(icon["src"])
+    (OUT / "manifest.webmanifest").write_text(json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
 def build(out=None):

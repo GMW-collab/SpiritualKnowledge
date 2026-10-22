@@ -74,6 +74,24 @@ with sync_playwright() as p:
     b.close()
 srv.shutdown()
 
+def annotate(level, group):
+    """Group by rule and emit GitHub annotations, so results are readable from the checks API."""
+    rules = {}
+    for key, nodes in group:
+        rule = key.split("] /", 1)[1].split(" ", 1)[1]
+        where = key.split("] /", 1)[0] + "] /" + key.split("] /", 1)[1].split(" ", 1)[0]
+        r = rules.setdefault(rule, {"where": [], "nodes": []})
+        r["where"].append(where.strip("["))
+        r["nodes"] += [n for n in nodes if n not in r["nodes"]]
+    for rule, r in list(rules.items())[:10]:
+        msg = f"{len(r['where'])} page views: {'; '.join(r['where'][:6])}%0A" + "%0A".join(n[:240] for n in r["nodes"][:4])
+        print(f"::{level} title=axe {rule[:120]}::{msg}")
+
+
+if os.environ.get("GITHUB_ACTIONS"):
+    annotate("error", serious)
+    annotate("warning", minor)
+
 for title, group in (("Serious or critical", serious), ("Moderate or minor", minor)):
     print(f"\n{title}: {len(group)}")
     for key, nodes in group:
