@@ -89,6 +89,7 @@ def load_all():
         "external": read_json(CONTENT / "external.json", {"items": [], "collections": {}}),
         "overrides": read_json(CONTENT / "editorial" / "overrides.json", {}),
         "about": parse_doc(CONTENT / "pages" / "about.md"),
+        "journey": parse_doc(CONTENT / "journey.md"),
         "topics_file": read_json(CONTENT / "topics.json", {"kinds": {}, "topics": []}),
     }
     for s in k["audio"].get("series", []):
@@ -115,7 +116,7 @@ def gurbani_state(line, verification, overrides):
         return True, "verified"
     if confirmed:
         return True, "editor-confirmed"
-    if v.get("status") == "not-found":
+    if v.get("status") in ("not-found", "wrong-ang"):
         return False, "failed-check"
     if line.get("confidence") == "high":
         return True, "unchecked"

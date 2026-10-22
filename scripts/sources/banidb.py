@@ -68,14 +68,23 @@ def run(cfg, source, fetch=request, delay=1.0):
         if not ang:
             results[line["id"]] = {"status": "not-applicable", "reason": "No Ang to check against", "fp": fp, "checked": today()}
             continue
-        if prev and prev.get("fp") == fp and prev.get("status") in ("verified", "not-found"):
+        if prev and prev.get("fp") == fp and prev.get("status") in ("verified", "not-found", "wrong-ang"):
             continue
-        try:
-            if ang not in cache:
+
+        def page(a):
+            if a not in cache:
                 if cache and delay:
                     time.sleep(delay)
-                cache[ang] = collect_unicode(json.loads(fetch(API.format(ang=ang))), [])
-            status, reason = check_line(line["gurmukhi"], cache[ang])
+                cache[a] = collect_unicode(json.loads(fetch(API.format(ang=a))), [])
+            return cache[a]
+        try:
+            status, reason = check_line(line["gurmukhi"], page(ang))
+            if status == "not-found":
+                # A line near a page break, or a slip of one Ang: say where it really is, but keep it hidden.
+                for near in (ang - 1, ang + 1):
+                    if 1 <= near <= 1430 and check_line(line["gurmukhi"], page(near))[0] == "verified":
+                        status, reason = "wrong-ang", f"Found on Ang {near}, not Ang {ang}. Correct the Ang in content/gurbani.json."
+                        break
         except Exception as e:
             status, reason = "error", str(e)
             errors += 1
@@ -85,6 +94,6 @@ def run(cfg, source, fetch=request, delay=1.0):
     for gone in set(results) - {l["id"] for l in lines}:
         results.pop(gone)
     save("gurbani-verification.json", {"updated": today(), "lines": results})
-    counts = {s: sum(1 for r in results.values() if r["status"] == s) for s in ("verified", "not-found", "error")}
+    counts = {s: sum(1 for r in results.values() if r["status"] == s) for s in ("verified", "not-found", "wrong-ang", "error")}
     state = "ok" if not errors else ("partial" if errors < max(checked, 1) else "failed")
     return SourceResult(state, f"{checked} line(s) checked", counts)

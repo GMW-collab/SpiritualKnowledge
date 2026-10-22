@@ -93,6 +93,24 @@ class ContentIntegrityTest(unittest.TestCase):
             for first in lines:
                 self.assertNotIn(first, body, f"{th['slug']} quotes Gurbani inline: {first}")
 
+    def test_journey_is_complete_and_sourced(self):
+        j = self.k["journey"]
+        self.assertEqual(len(j["stages"]), 7)
+        self.assertEqual(j["review"]["status"] in ("awaiting-review", "reviewed", "needs-changes"), True)
+        for st in j["stages"]:
+            self.assertTrue(j["sections"].get(st["id"]), f"stage {st['id']} has no text")
+            self.assertTrue(st["source"], st["id"])
+            for tid in st["topics"]:
+                self.assertIn(tid, self.k["topic_by_id"], f"stage {st['id']} links unknown topic {tid}")
+        body = "\n".join(j["sections"].values())
+        refs = K.gurbani_refs(body)
+        self.assertGreaterEqual(len(refs), 15)
+        for gid in refs:
+            self.assertIn(gid, self.k["gurbani"], f"journey cites unknown line {gid}")
+        for first in {l["gurmukhi"].split("॥")[0].strip() for l in self.k["gurbani"].values()}:
+            self.assertNotIn(first, body, f"journey quotes Gurbani inline: {first}")
+        self.assertEqual(len(j["mint"]), 8)
+
     def test_comparisons_name_their_source(self):
         for th in self.k["themes"]:
             for m in re.finditer(r"^::: compare (.*)$", "\n".join(th["sections"].values()), re.M):

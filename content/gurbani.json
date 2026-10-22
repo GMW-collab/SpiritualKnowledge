@@ -6,7 +6,12 @@
       "gurmukhi": "ਕਿਵ ਸਚਿਆਰਾ ਹੋਈਐ ਕਿਵ ਕੂੜੈ ਤੁਟੈ ਪਾਲਿ ॥ ਹੁਕਮਿ ਰਜਾਈ ਚਲਣਾ ਨਾਨਕ ਲਿਖਿਆ ਨਾਲਿ ॥",
       "translit": "Kiv sachiārā hoīai kiv kūṛai tuṭai pāl. Hukam rajāī chalṇā Nānak likhiā nāl.",
       "rendering": "How does one become truthful, and how is the wall of falsehood torn down? By walking in the Hukam of the One whose will it is. Nanak, this is written within us.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 1, "bani": "Japji Sahib, Pauri 1", "author": "Guru Nanak Dev Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 1,
+        "bani": "Japji Sahib, Pauri 1",
+        "author": "Guru Nanak Dev Ji"
+      },
       "japji_pauri": 1,
       "confidence": "high",
       "translation_note": "‘Likhiā nāl’ is read by some as ‘written into us from the beginning’ and by others as ‘written with (by) the Hukam itself’. Both readings are traditional."
@@ -16,7 +21,12 @@
       "gurmukhi": "ਹੁਕਮੈ ਅੰਦਰਿ ਸਭੁ ਕੋ ਬਾਹਰਿ ਹੁਕਮ ਨ ਕੋਇ ॥ ਨਾਨਕ ਹੁਕਮੈ ਜੇ ਬੁਝੈ ਤ ਹਉਮੈ ਕਹੈ ਨ ਕੋਇ ॥",
       "translit": "Hukmai andar sabh ko bāhar hukam na koe. Nānak hukmai je bujhai ta haumai kahai na koe.",
       "rendering": "Everyone is within the Hukam; no one is outside it. Nanak, whoever understands the Hukam no longer speaks from haumai.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 1, "bani": "Japji Sahib, Pauri 2", "author": "Guru Nanak Dev Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 1,
+        "bani": "Japji Sahib, Pauri 2",
+        "author": "Guru Nanak Dev Ji"
+      },
       "japji_pauri": 2,
       "confidence": "high"
     },
@@ -25,7 +35,12 @@
       "gurmukhi": "ਹਉਮੈ ਦੀਰਘ ਰੋਗੁ ਹੈ ਦਾਰੂ ਭੀ ਇਸੁ ਮਾਹਿ ॥",
       "translit": "Haumai dīragh rog hai dārū bhī is māhi.",
       "rendering": "Haumai is a chronic illness, and its remedy also lies within it.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 466, "bani": "Asa ki Var, Salok", "author": "Guru Angad Dev Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 466,
+        "bani": "Asa ki Var, Salok",
+        "author": "Guru Angad Dev Ji"
+      },
       "confidence": "high"
     },
     {
@@ -33,7 +48,12 @@
       "gurmukhi": "ਹਉਮੈ ਬੂਝੈ ਤਾ ਦਰੁ ਸੂਝੈ ॥",
       "translit": "Haumai būjhai tā dar sūjhai.",
       "rendering": "When haumai is understood, the door comes into view.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 466, "bani": "Asa ki Var, Salok", "author": "Guru Nanak Dev Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 466,
+        "bani": "Asa ki Var, Salok",
+        "author": "Guru Nanak Dev Ji"
+      },
       "confidence": "high"
     },
     {
@@ -41,7 +61,12 @@
       "gurmukhi": "ਮਨ ਤੂੰ ਜੋਤਿ ਸਰੂਪੁ ਹੈ ਆਪਣਾ ਮੂਲੁ ਪਛਾਣੁ ॥",
       "translit": "Man tūṅ jot sarūp hai āpṇā mūl pachhāṇ.",
       "rendering": "O mind, you are the very form of the Light. Recognise your own source.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 441, "bani": "Raag Asa", "author": "Guru Amar Das Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 441,
+        "bani": "Raag Asa",
+        "author": "Guru Amar Das Ji"
+      },
       "confidence": "high"
     },
     {
@@ -49,7 +74,12 @@
       "gurmukhi": "ਮਨਿ ਜੀਤੈ ਜਗੁ ਜੀਤੁ ॥",
       "translit": "Man jītai jag jīt.",
       "rendering": "Overcome the mind, and the world is overcome.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 6, "bani": "Japji Sahib, Pauri 28", "author": "Guru Nanak Dev Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 6,
+        "bani": "Japji Sahib, Pauri 28",
+        "author": "Guru Nanak Dev Ji"
+      },
       "japji_pauri": 28,
       "confidence": "high"
     },
@@ -58,7 +88,12 @@
       "gurmukhi": "ਮਨਿ ਮੈਲੈ ਸਭੁ ਕਿਛੁ ਮੈਲਾ ਤਨਿ ਧੋਤੈ ਮਨੁ ਹਛਾ ਨ ਹੋਇ ॥",
       "translit": "Man mailai sabh kichh mailā tan dhotai man hachhā na hoe.",
       "rendering": "When the mind is soiled, everything is soiled. Washing the body does not make the mind clean.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 558, "bani": "Raag Vadhans", "author": "Guru Amar Das Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 558,
+        "bani": "Raag Vadhans",
+        "author": "Guru Amar Das Ji"
+      },
       "confidence": "high"
     },
     {
@@ -66,7 +101,12 @@
       "gurmukhi": "ਸਬਦੁ ਗੁਰੂ ਸੁਰਤਿ ਧੁਨਿ ਚੇਲਾ ॥",
       "translit": "Sabad gurū surat dhun chelā.",
       "rendering": "The Shabad is the Guru; attention attuned to its sound is the disciple.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 943, "bani": "Sidh Gosht, Raag Ramkali", "author": "Guru Nanak Dev Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 943,
+        "bani": "Sidh Gosht, Raag Ramkali",
+        "author": "Guru Nanak Dev Ji"
+      },
       "confidence": "high",
       "translation_note": "‘Surat dhun’ is translated variously as ‘consciousness attuned to the melody’, ‘attention to the inner sound’ or ‘focused awareness’. The reading matters: some commentators stress listening to the Shabad as words, others an inner experience."
     },
@@ -75,7 +115,12 @@
       "gurmukhi": "ਸਤਸੰਗਤਿ ਕੈਸੀ ਜਾਣੀਐ ॥ ਜਿਥੈ ਏਕੋ ਨਾਮੁ ਵਖਾਣੀਐ ॥",
       "translit": "Satsangat kaisī jāṇīai. Jithai eko nām vakhāṇīai.",
       "rendering": "How is the true congregation recognised? It is where the One Naam is spoken of.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 72, "bani": "Sri Raag", "author": "Guru Nanak Dev Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 72,
+        "bani": "Sri Raag",
+        "author": "Guru Nanak Dev Ji"
+      },
       "confidence": "high"
     },
     {
@@ -83,7 +128,12 @@
       "gurmukhi": "ਸਚਹੁ ਓਰੈ ਸਭੁ ਕੋ ਉਪਰਿ ਸਚੁ ਆਚਾਰੁ ॥",
       "translit": "Sachahu orai sabh ko upar sach āchār.",
       "rendering": "Truth is above everything, but higher still is truthful living.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 62, "bani": "Sri Raag", "author": "Guru Nanak Dev Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 62,
+        "bani": "Sri Raag",
+        "author": "Guru Nanak Dev Ji"
+      },
       "confidence": "high"
     },
     {
@@ -91,7 +141,12 @@
       "gurmukhi": "ਜਿਨਿ ਸੇਵਿਆ ਤਿਨਿ ਪਾਇਆ ਮਾਨੁ ॥",
       "translit": "Jin seviā tin pāiā mān.",
       "rendering": "Whoever serves is honoured.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 2, "bani": "Japji Sahib, Pauri 5", "author": "Guru Nanak Dev Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 2,
+        "bani": "Japji Sahib, Pauri 5",
+        "author": "Guru Nanak Dev Ji"
+      },
       "japji_pauri": 5,
       "confidence": "high",
       "translation_note": "‘Seviā’ here is often read as serving the Divine (worship, remembrance) rather than only serving others; Gurmat holds the two together."
@@ -101,7 +156,12 @@
       "gurmukhi": "ਵਿਚਿ ਦੁਨੀਆ ਸੇਵ ਕਮਾਈਐ ॥ ਤਾ ਦਰਗਹ ਬੈਸਣੁ ਪਾਈਐ ॥",
       "translit": "Vich duniā sev kamāīai. Tā dargah baisaṇ pāīai.",
       "rendering": "Practise seva in the midst of the world, and a place is found in the Divine court.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 26, "bani": "Sri Raag", "author": "Guru Nanak Dev Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 26,
+        "bani": "Sri Raag",
+        "author": "Guru Nanak Dev Ji"
+      },
       "confidence": "high"
     },
     {
@@ -109,7 +169,12 @@
       "gurmukhi": "ਨਾਨਕ ਸਤਿਗੁਰਿ ਭੇਟਿਐ ਪੂਰੀ ਹੋਵੈ ਜੁਗਤਿ ॥ ਹਸੰਦਿਆ ਖੇਲੰਦਿਆ ਪੈਨੰਦਿਆ ਖਾਵੰਦਿਆ ਵਿਚੇ ਹੋਵੈ ਮੁਕਤਿ ॥",
       "translit": "Nānak satigur bheṭiai pūrī hovai jugat. Hasandiā khelandiā painandiā khāvandiā viche hovai mukat.",
       "rendering": "Nanak, meeting the True Guru, one finds the complete way of living. Laughing, playing, dressing and eating, one is liberated in the midst of it all.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 522, "bani": "Gujri ki Var, Salok", "author": "Guru Arjan Dev Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 522,
+        "bani": "Gujri ki Var, Salok",
+        "author": "Guru Arjan Dev Ji"
+      },
       "confidence": "high"
     },
     {
@@ -117,7 +182,12 @@
       "gurmukhi": "ਘਾਲਿ ਖਾਇ ਕਿਛੁ ਹਥਹੁ ਦੇਇ ॥ ਨਾਨਕ ਰਾਹੁ ਪਛਾਣਹਿ ਸੇਇ ॥",
       "translit": "Ghāl khāe kichh hathahu dee. Nānak rāhu pachhāṇahi se.",
       "rendering": "Whoever lives by honest effort and gives some of it away with their own hand, Nanak, they recognise the path.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 1245, "bani": "Sarang ki Var, Salok", "author": "Guru Nanak Dev Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 1245,
+        "bani": "Sarang ki Var, Salok",
+        "author": "Guru Nanak Dev Ji"
+      },
       "confidence": "high"
     },
     {
@@ -125,7 +195,12 @@
       "gurmukhi": "ਚੰਗਿਆਈਆ ਬੁਰਿਆਈਆ ਵਾਚੈ ਧਰਮੁ ਹਦੂਰਿ ॥ ਕਰਮੀ ਆਪੋ ਆਪਣੀ ਕੇ ਨੇੜੈ ਕੇ ਦੂਰਿ ॥",
       "translit": "Changiāīā buriāīā vāchai dharam hadūr. Karmī āpo āpṇī ke neṛai ke dūr.",
       "rendering": "Good deeds and bad are read out in the presence of Dharam. By their own actions, some are drawn near and some are kept far.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 8, "bani": "Japji Sahib, closing Salok", "author": "Guru Angad Dev Ji (the Salok is attributed to Guru Angad Dev Ji in the Granth's arrangement by many commentators; others read it as Guru Nanak Dev Ji's)"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 8,
+        "bani": "Japji Sahib, closing Salok",
+        "author": "Guru Angad Dev Ji (the Salok is attributed to Guru Angad Dev Ji in the Granth's arrangement by many commentators; others read it as Guru Nanak Dev Ji's)"
+      },
       "japji_pauri": 39,
       "confidence": "high",
       "translation_note": "Attribution of the closing Salok of Japji is discussed by commentators. The page shows the line; it does not settle the attribution."
@@ -135,7 +210,12 @@
       "gurmukhi": "ਜਿਨੀ ਨਾਮੁ ਧਿਆਇਆ ਗਏ ਮਸਕਤਿ ਘਾਲਿ ॥ ਨਾਨਕ ਤੇ ਮੁਖ ਉਜਲੇ ਕੇਤੀ ਛੁਟੀ ਨਾਲਿ ॥",
       "translit": "Jinī nām dhiāiā gae masakat ghāl. Nānak te mukh ujale ketī chhuṭī nāl.",
       "rendering": "Those who meditated on Naam, having put in the labour, depart with radiant faces, Nanak, and many are set free along with them.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 8, "bani": "Japji Sahib, closing Salok", "author": "See the note on the closing Salok of Japji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 8,
+        "bani": "Japji Sahib, closing Salok",
+        "author": "See the note on the closing Salok of Japji"
+      },
       "japji_pauri": 39,
       "confidence": "high"
     },
@@ -144,7 +224,12 @@
       "gurmukhi": "ਸਿਮਰਉ ਸਿਮਰਿ ਸਿਮਰਿ ਸੁਖੁ ਪਾਵਉ ॥",
       "translit": "Simrau simar simar sukh pāvau.",
       "rendering": "I remember; remembering, remembering, I find peace.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 262, "bani": "Sukhmani Sahib, Ashtapadi 1", "author": "Guru Arjan Dev Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 262,
+        "bani": "Sukhmani Sahib, Ashtapadi 1",
+        "author": "Guru Arjan Dev Ji"
+      },
       "confidence": "high"
     },
     {
@@ -152,7 +237,12 @@
       "gurmukhi": "ਏਹ ਮਾਇਆ ਜਿਤੁ ਹਰਿ ਵਿਸਰੈ ਮੋਹੁ ਉਪਜੈ ਭਾਉ ਦੂਜਾ ਲਾਇਆ ॥",
       "translit": "Eh māiā jit har visarai moh upjai bhāu dūjā lāiā.",
       "rendering": "This is Maya: that by which the Divine is forgotten, attachment wells up, and love of the second takes hold.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 921, "bani": "Anand Sahib, Pauri 29, Raag Ramkali", "author": "Guru Amar Das Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 921,
+        "bani": "Anand Sahib, Pauri 29, Raag Ramkali",
+        "author": "Guru Amar Das Ji"
+      },
       "confidence": "high"
     },
     {
@@ -160,7 +250,12 @@
       "gurmukhi": "ਅੰਜਨ ਮਾਹਿ ਨਿਰੰਜਨਿ ਰਹੀਐ ਜੋਗ ਜੁਗਤਿ ਇਵ ਪਾਈਐ ॥",
       "translit": "Anjan māhi niranjan rahīai jog jugat iv pāīai.",
       "rendering": "Stay unstained in the midst of the world's soot. This is how the way of yoga is found.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 730, "bani": "Raag Suhi", "author": "Guru Nanak Dev Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 730,
+        "bani": "Raag Suhi",
+        "author": "Guru Nanak Dev Ji"
+      },
       "confidence": "high"
     },
     {
@@ -168,7 +263,12 @@
       "gurmukhi": "ਜਉ ਤਉ ਪ੍ਰੇਮ ਖੇਲਣ ਕਾ ਚਾਉ ॥ ਸਿਰੁ ਧਰਿ ਤਲੀ ਗਲੀ ਮੇਰੀ ਆਉ ॥",
       "translit": "Jau tau prem khelaṇ kā chāu. Sir dhar talī galī merī āu.",
       "rendering": "If you long to play the game of love, come into my lane with your head placed on your palm.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 1412, "bani": "Saloks additional to the Vars (Salok Varan te Vadhik)", "author": "Guru Nanak Dev Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 1412,
+        "bani": "Saloks additional to the Vars (Salok Varan te Vadhik)",
+        "author": "Guru Nanak Dev Ji"
+      },
       "confidence": "high"
     },
     {
@@ -176,7 +276,12 @@
       "gurmukhi": "ਜੋ ਬ੍ਰਹਮੰਡੇ ਸੋਈ ਪਿੰਡੇ ਜੋ ਖੋਜੈ ਸੋ ਪਾਵੈ ॥",
       "translit": "Jo brahmanḍe soī pinḍe jo khojai so pāvai.",
       "rendering": "What pervades the universe dwells in the body. Whoever searches, finds.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 695, "bani": "Raag Dhanasari", "author": "Bhagat Pipa Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 695,
+        "bani": "Raag Dhanasari",
+        "author": "Bhagat Pipa Ji"
+      },
       "confidence": "high"
     },
     {
@@ -184,7 +289,12 @@
       "gurmukhi": "ਪਾਠੁ ਪੜਿਓ ਅਰੁ ਬੇਦੁ ਬੀਚਾਰਿਓ ਨਿਵਲਿ ਭੁਅੰਗਮ ਸਾਧੇ ॥ ਪੰਚ ਜਨਾ ਸਿਉ ਸੰਗੁ ਨ ਛੁਟਕਿਓ ਅਧਿਕ ਅਹੰਬੁਧਿ ਬਾਧੇ ॥",
       "translit": "Pāṭh paṛio ar bed bīchārio nival bhuangam sādhe. Panch janā sio sang na chhuṭkio adhik ahanbudh bādhe.",
       "rendering": "I read the texts and reflected on the Vedas; I practised the inner cleansing and the coiled-breath disciplines. Yet my company with the five was not broken, and I was bound all the more by self-conceit.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 641, "bani": "Raag Sorath", "author": "Guru Arjan Dev Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 641,
+        "bani": "Raag Sorath",
+        "author": "Guru Arjan Dev Ji"
+      },
       "confidence": "high",
       "translation_note": "‘Nival’ and ‘bhuangam’ name hatha-yoga practices (abdominal cleansing; the kundalini or coiled-breath practice). ‘The five’ are kaam, krodh, lobh, moh and ahankar."
     },
@@ -193,7 +303,238 @@
       "gurmukhi": "ਗਿਆਨ ਅੰਜਨੁ ਗੁਰਿ ਦੀਆ ਅਗਿਆਨ ਅੰਧੇਰ ਬਿਨਾਸੁ ॥",
       "translit": "Giān anjan gur dīā agiān andher bināsu.",
       "rendering": "The Guru gave the healing ointment of spiritual wisdom, and the darkness of ignorance was dispelled.",
-      "source": {"granth": "Sri Guru Granth Sahib Ji", "ang": 293, "bani": "Sukhmani Sahib, Salok of Ashtapadi 22", "author": "Guru Arjan Dev Ji"},
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 293,
+        "bani": "Sukhmani Sahib, Salok of Ashtapadi 22",
+        "author": "Guru Arjan Dev Ji"
+      },
+      "confidence": "to-verify"
+    },
+    {
+      "id": "gurmukh-sanmukh",
+      "gurmukhi": "ਗੁਰਮੁਖਿ ਸਨਮੁਖੁ ਮਨਮੁਖਿ ਵੇਮੁਖੀਆ ॥",
+      "translit": "Gurmukh sanmukh manmukh vemukhīā.",
+      "rendering": "The gurmukh faces towards the One; the manmukh is turned away.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 131,
+        "bani": "Raag Majh",
+        "author": "Guru Arjan Dev Ji"
+      },
+      "confidence": "to-verify",
+      "translation_note": "The line answers the question asked a little earlier in the same composition: ‘ਕਉਣੁ ਸੁ ਸਨਮੁਖੁ ਕਉਣੁ ਵੇਮੁਖੀਆ’, who faces towards, and who is turned away?"
+    },
+    {
+      "id": "manmukh-bandh",
+      "gurmukhi": "ਨਾਨਕ ਮਨਮੁਖਿ ਬੰਧੁ ਹੈ ਗੁਰਮੁਖਿ ਮੁਕਤਿ ਕਰਾਏ ॥",
+      "translit": "Nānak manmukh bandh hai gurmukh mukat karāe.",
+      "rendering": "Nanak, the manmukh is bound; the gurmukh is set free.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 559,
+        "bani": "Raag Vadhans",
+        "author": "Guru Amar Das Ji"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "chanan",
+      "gurmukhi": "ਗੁਰਮੁਖਿ ਚਾਨਣੁ ਜਾਣੀਐ ਮਨਮੁਖਿ ਮੁਗਧੁ ਗੁਬਾਰੁ ॥",
+      "translit": "Gurmukh chānaṇ jāṇīai manmukh mugadh gubār.",
+      "rendering": "The gurmukh knows the light; the foolish manmukh lives in pitch darkness.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 20,
+        "bani": "Sri Raag",
+        "author": "Guru Nanak Dev Ji"
+      },
+      "confidence": "to-verify"
+    },
+    {
+      "id": "man-aarsi",
+      "gurmukhi": "ਇਹੁ ਮਨੁ ਆਰਸੀ ਕੋਈ ਗੁਰਮੁਖਿ ਵੇਖੈ ॥ ਮੋਰਚਾ ਨ ਲਾਗੈ ਜਾ ਹਉਮੈ ਸੋਖੈ ॥",
+      "translit": "Ih man ārsī koī gurmukh vekhai. Morchā na lāgai jā haumai sokhai.",
+      "rendering": "This mind is a mirror; rare is the gurmukh who looks into it. No rust settles on it once haumai is dried away.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 115,
+        "bani": "Raag Majh",
+        "author": "Guru Amar Das Ji"
+      },
+      "confidence": "high",
+      "translation_note": "Mirrors were once polished metal, which rusts and stops reflecting. ‘Sokhai’ is read as haumai being dried up or burnt away."
+    },
+    {
+      "id": "dharam-sal",
+      "gurmukhi": "ਰਾਤੀ ਰੁਤੀ ਥਿਤੀ ਵਾਰ ॥ ਪਵਣ ਪਾਣੀ ਅਗਨੀ ਪਾਤਾਲ ॥ ਤਿਸੁ ਵਿਚਿ ਧਰਤੀ ਥਾਪਿ ਰਖੀ ਧਰਮ ਸਾਲ ॥",
+      "translit": "Rātī rutī thitī vār. Pavaṇ pāṇī agnī pātāl. Tis vich dhartī thāp rakhī dharam sāl.",
+      "rendering": "Nights, seasons, lunar days and weekdays; air, water, fire and the regions below: in the midst of these, the earth was set in place as a home for dharam.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 7,
+        "bani": "Japji Sahib, Pauri 34",
+        "author": "Guru Nanak Dev Ji"
+      },
+      "japji_pauri": 34,
+      "confidence": "high"
+    },
+    {
+      "id": "karmi-karmi",
+      "gurmukhi": "ਕਰਮੀ ਕਰਮੀ ਹੋਇ ਵੀਚਾਰੁ ॥ ਸਚਾ ਆਪਿ ਸਚਾ ਦਰਬਾਰੁ ॥",
+      "translit": "Karmī karmī hoe vīchār. Sachā āp sachā darbār.",
+      "rendering": "Each is judged by their own deeds. True is the One, and true is the court.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 7,
+        "bani": "Japji Sahib, Pauri 34",
+        "author": "Guru Nanak Dev Ji"
+      },
+      "japji_pauri": 34,
+      "confidence": "high"
+    },
+    {
+      "id": "dharam-khand-eho",
+      "gurmukhi": "ਧਰਮ ਖੰਡ ਕਾ ਏਹੋ ਧਰਮੁ ॥ ਗਿਆਨ ਖੰਡ ਕਾ ਆਖਹੁ ਕਰਮੁ ॥",
+      "translit": "Dharam khanḍ kā eho dharam. Giān khanḍ kā ākhahu karam.",
+      "rendering": "This is the way of the realm of dharam. Now speak of the working of the realm of knowledge.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 7,
+        "bani": "Japji Sahib, Pauri 35",
+        "author": "Guru Nanak Dev Ji"
+      },
+      "japji_pauri": 35,
+      "confidence": "high",
+      "translation_note": "The pauri goes on to list countless winds, waters and fires, worlds, teachers and seekers, without end: the vastness that opens in this realm."
+    },
+    {
+      "id": "gian-parchand",
+      "gurmukhi": "ਗਿਆਨ ਖੰਡ ਮਹਿ ਗਿਆਨੁ ਪਰਚੰਡੁ ॥ ਤਿਥੈ ਨਾਦ ਬਿਨੋਦ ਕੋਡ ਅਨੰਦੁ ॥",
+      "translit": "Giān khanḍ mahi giān parchanḍ. Tithai nād binod koḍ anand.",
+      "rendering": "In the realm of knowledge, spiritual wisdom blazes forth. There is the celestial music, delight and joy beyond counting.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 7,
+        "bani": "Japji Sahib, Pauri 36",
+        "author": "Guru Nanak Dev Ji"
+      },
+      "japji_pauri": 36,
+      "confidence": "high"
+    },
+    {
+      "id": "saram-khand",
+      "gurmukhi": "ਸਰਮ ਖੰਡ ਕੀ ਬਾਣੀ ਰੂਪੁ ॥ ਤਿਥੈ ਘਾੜਤਿ ਘੜੀਐ ਬਹੁਤੁ ਅਨੂਪੁ ॥",
+      "translit": "Saram khanḍ kī bāṇī rūp. Tithai ghāṛat ghaṛīai bahut anūp.",
+      "rendering": "Beauty is the language of the realm of effort. There, forms of incomparable beauty are fashioned.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 8,
+        "bani": "Japji Sahib, Pauri 36",
+        "author": "Guru Nanak Dev Ji"
+      },
+      "japji_pauri": 36,
+      "confidence": "high",
+      "translation_note": "‘Saram’ is read as effort or spiritual endeavour (Sanskrit śrama) by many commentators, and as humility, or as beauty and bliss, by others."
+    },
+    {
+      "id": "saram-ghariai",
+      "gurmukhi": "ਤਿਥੈ ਘੜੀਐ ਸੁਰਤਿ ਮਤਿ ਮਨਿ ਬੁਧਿ ॥ ਤਿਥੈ ਘੜੀਐ ਸੁਰਾ ਸਿਧਾ ਕੀ ਸੁਧਿ ॥",
+      "translit": "Tithai ghaṛīai surat mat man budh. Tithai ghaṛīai surā sidhā kī sudh.",
+      "rendering": "There, attention, understanding, mind and intellect are shaped anew. There, the awareness of the spiritual heroes and the perfected ones is shaped.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 8,
+        "bani": "Japji Sahib, Pauri 36",
+        "author": "Guru Nanak Dev Ji"
+      },
+      "japji_pauri": 36,
+      "confidence": "high"
+    },
+    {
+      "id": "karam-khand",
+      "gurmukhi": "ਕਰਮ ਖੰਡ ਕੀ ਬਾਣੀ ਜੋਰੁ ॥ ਤਿਥੈ ਹੋਰੁ ਨ ਕੋਈ ਹੋਰੁ ॥",
+      "translit": "Karam khanḍ kī bāṇī jor. Tithai hor na koī hor.",
+      "rendering": "Power is the language of the realm of grace. There is no one else there, no one else.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 8,
+        "bani": "Japji Sahib, Pauri 37",
+        "author": "Guru Nanak Dev Ji"
+      },
+      "japji_pauri": 37,
+      "confidence": "high",
+      "translation_note": "‘Karam’ here is generally read as grace (from the Persian), not karma. ‘No one else’ is read both as the Divine alone being present and as the seeker's separate self no longer standing apart."
+    },
+    {
+      "id": "sach-khand",
+      "gurmukhi": "ਸਚ ਖੰਡਿ ਵਸੈ ਨਿਰੰਕਾਰੁ ॥ ਕਰਿ ਕਰਿ ਵੇਖੈ ਨਦਰਿ ਨਿਹਾਲ ॥",
+      "translit": "Sach khanḍ vasai nirankār. Kar kar vekhai nadar nihāl.",
+      "rendering": "In the realm of truth dwells the Formless One, who creates and watches over creation, and with a glance of grace brings joy.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 8,
+        "bani": "Japji Sahib, Pauri 37",
+        "author": "Guru Nanak Dev Ji"
+      },
+      "japji_pauri": 37,
+      "confidence": "high"
+    },
+    {
+      "id": "taksal",
+      "gurmukhi": "ਜਤੁ ਪਾਹਾਰਾ ਧੀਰਜੁ ਸੁਨਿਆਰੁ ॥ ਅਹਰਣਿ ਮਤਿ ਵੇਦੁ ਹਥੀਆਰੁ ॥ ਭਉ ਖਲਾ ਅਗਨਿ ਤਪ ਤਾਉ ॥ ਭਾਂਡਾ ਭਾਉ ਅੰਮ੍ਰਿਤੁ ਤਿਤੁ ਢਾਲਿ ॥ ਘੜੀਐ ਸਬਦੁ ਸਚੀ ਟਕਸਾਲ ॥",
+      "translit": "Jat pāhārā dhīraj suniār. Ahraṇ mat ved hathīār. Bhau khalā agan tap tāu. Bhānḍā bhāu amrit tit ḍhāl. Ghaṛīai sabad sachī ṭaksāl.",
+      "rendering": "Let self-restraint be the furnace and patience the goldsmith; understanding the anvil and spiritual knowledge the tools; reverent awe the bellows and inner discipline the fire; love the crucible, and pour the nectar into it. So the Shabad is minted in the true mint.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 8,
+        "bani": "Japji Sahib, Pauri 38",
+        "author": "Guru Nanak Dev Ji"
+      },
+      "japji_pauri": 38,
+      "confidence": "high",
+      "translation_note": "‘Ved’ is read here as spiritual knowledge rather than the Vedas as books. ‘Bhau’ is the awe and reverence of the Divine, not ordinary fear."
+    },
+    {
+      "id": "nadar-kar",
+      "gurmukhi": "ਜਿਨ ਕਉ ਨਦਰਿ ਕਰਮੁ ਤਿਨ ਕਾਰ ॥ ਨਾਨਕ ਨਦਰੀ ਨਦਰਿ ਨਿਹਾਲ ॥",
+      "translit": "Jin kau nadar karam tin kār. Nānak nadrī nadar nihāl.",
+      "rendering": "This is the work of those blessed with the glance of grace. Nanak, the Gracious One, with a glance, brings them joy.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 8,
+        "bani": "Japji Sahib, Pauri 38",
+        "author": "Guru Nanak Dev Ji"
+      },
+      "japji_pauri": 38,
+      "confidence": "high"
+    },
+    {
+      "id": "gurmukh-nadam",
+      "gurmukhi": "ਗੁਰਮੁਖਿ ਨਾਦੰ ਗੁਰਮੁਖਿ ਵੇਦੰ ਗੁਰਮੁਖਿ ਰਹਿਆ ਸਮਾਈ ॥",
+      "translit": "Gurmukh nādaṅ gurmukh vedaṅ gurmukh rahiā samāī.",
+      "rendering": "Through the Guru comes the sound of the Word; through the Guru, spiritual wisdom; through the Guru, the One is known to pervade all.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 2,
+        "bani": "Japji Sahib, Pauri 5",
+        "author": "Guru Nanak Dev Ji"
+      },
+      "japji_pauri": 5,
+      "confidence": "high",
+      "translation_note": "‘Gurmukh’ here is read by many as ‘through the Guru’ or ‘the Guru's Word’, and by others as ‘for the one who faces the Guru’. Both readings are traditional."
+    },
+    {
+      "id": "gurmukh-mukta",
+      "gurmukhi": "ਗੁਰਮੁਖਿ ਮੁਕਤਾ ਗੁਰਮੁਖਿ ਜੁਗਤਾ ॥ ਗੁਰਮੁਖਿ ਗਿਆਨੀ ਗੁਰਮੁਖਿ ਬਕਤਾ ॥",
+      "translit": "Gurmukh muktā gurmukh jugtā. Gurmukh giānī gurmukh baktā.",
+      "rendering": "The gurmukh is liberated; the gurmukh is united with the way. The gurmukh is wise; the gurmukh speaks the Truth.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 131,
+        "bani": "Raag Majh",
+        "author": "Guru Arjan Dev Ji"
+      },
       "confidence": "to-verify"
     }
   ]

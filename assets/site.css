@@ -433,3 +433,60 @@ details.morerows summary{cursor:pointer;font:500 16px var(--sans);color:var(--ne
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 @media print{.top,.player,.foot,.rail,.bani-katha{display:none!important}body{background:#fff}}
+
+/* journey: seven stops warming from night to dawn */
+.path{--c1:#6E79B8;--c2:#8A86B4;--c3:#A6889E;--c4:#C28A7E;--c5:#D88C5A;--c6:#E59A43;--c7:#F2B35E;
+  list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));position:relative}
+.path::before{content:"";position:absolute;left:calc(100%/14);right:calc(100%/14);top:9px;height:2px;
+  background:linear-gradient(90deg,var(--c1),var(--c4) 50%,var(--c7))}
+.path li{position:relative;text-align:center;min-width:0}
+.path a{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;color:var(--ink);padding:0 4px}
+.path .dot{width:20px;height:20px;border-radius:50%;background:var(--paper);border:3px solid var(--c1);position:relative;z-index:1;transition:transform .15s}
+.path .g{font-size:17px;line-height:1.3;color:var(--neela)}
+.path .en{font:14px/1.3 var(--sans);color:var(--muted)}
+.path a:hover .dot,.path a:focus-visible .dot{transform:scale(1.25)}
+.path .s1 .dot{border-color:var(--c1)}.path .s2 .dot{border-color:var(--c2)}.path .s3 .dot{border-color:var(--c3)}.path .s4 .dot{border-color:var(--c4)}
+.path .s5 .dot{border-color:var(--c5)}.path .s6 .dot{border-color:var(--c6)}.path .s7 .dot{border-color:var(--c7);background:var(--c7)}
+.path.on-night a{color:var(--night-ink)}.path.on-night .g{color:#F6C27C}.path.on-night .en{color:var(--night-muted)}
+.path.on-night .dot{background:var(--night)}.path.on-night .s7 .dot{background:var(--c7)}
+@media (max-width:760px){
+  .path{grid-template-columns:1fr;gap:2px}
+  .path::before{left:9px;right:auto;top:10px;bottom:10px;width:2px;height:auto;background:linear-gradient(180deg,var(--c1),var(--c4) 50%,var(--c7))}
+  .path li{text-align:left}
+  .path a{flex-direction:row;gap:12px;padding:5px 0}
+  .path .en::before{content:"· ";color:var(--muted)}
+}
+.journey-head h1 .g{font-size:clamp(44px,7vw,88px)}
+.journey-listen{font:16px var(--sans);margin:22px 0 0}.journey-listen a{color:#F6C27C}
+.stage h2{display:flex;flex-direction:column;gap:2px}
+.stage h2 .g{font-size:40px;line-height:1.25;color:var(--neela)}
+.stage h2 .en{font-size:22px;font-weight:500}
+.layer h2 .g+.en{display:block}
+#mint h2,#gurmukh h2,#intro h2{display:flex;flex-direction:column;gap:2px}
+#mint h2 .g,#gurmukh h2 .g{font-size:34px;color:var(--neela)}
+#mint h2 .en,#gurmukh h2 .en{font-size:22px;font-weight:500}
+.stage.s1>.gloss{border-top-color:#6E79B8}.stage.s2>.gloss{border-top-color:#8A86B4}.stage.s3>.gloss{border-top-color:#A6889E}
+.stage.s4>.gloss{border-top-color:#C28A7E}.stage.s5>.gloss{border-top-color:#D88C5A}.stage.s6>.gloss{border-top-color:#E59A43}.stage.s7>.gloss{border-top-color:#F2B35E}
+.tags-lbl{font:600 14px var(--sans);color:var(--muted);margin-right:4px}
+.rail-extra{display:flex;flex-direction:column;gap:2px;margin:0 0 20px;font:16px var(--sans)}
+.rail-extra a{color:var(--muted);text-decoration:none;padding:4px 0 4px 26px}.rail-extra a:hover{color:var(--ink)}
+.journey .rail ol a .g{font-size:15px;color:var(--neela);margin-right:2px}
+.mint{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;margin:6px 0 24px;border-top:1px solid var(--rule)}
+.mint div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.mint dt{font-weight:600}.mint dt .g{color:var(--neela);margin-right:6px}
+.mint dd{margin:0;font:15px var(--sans);color:var(--muted);text-align:right}
+@media (max-width:560px){.mint{grid-template-columns:1fr}}
+.journey-band{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+.journey-band .h-row{margin-bottom:0}
+.journey-band p{color:var(--muted);max-width:var(--measure);margin:0}
+.rail .rail-extra a::before{content:none}
+@media (max-width:760px){
+  .top nav{display:flex;justify-content:space-between;gap:0;margin-inline:0}
+  .top nav a{padding:7px 6px;font-size:15.5px}
+}
+@media (max-width:360px){.top nav a{padding:7px 4px;font-size:14.5px}}
+@media (max-width:420px){.top nav a{padding:7px 4px;font-size:15px}}
+@media (max-width:370px){.top nav a{padding:7px 3px;font-size:14.5px}}
+@media (max-width:340px){.top nav a{padding:7px 2px;font-size:13.5px}}
+.bani blockquote .pangti{display:block}
+.bani blockquote .pangti+.pangti{margin-top:.15em}

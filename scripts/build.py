@@ -120,6 +120,12 @@ VERIFY_TEXT = {
 }
 
 
+def pangtis(text):
+    """One verse line (pangti) per line, broken after each ॥ (keeping verse numbers like ॥੧॥ with it)."""
+    parts = re.findall(r"[^॥]+॥(?:[੦-੯]+॥)?", text) or [text]
+    return "".join(f'<span class="pangti">{e(p.strip())}</span>' for p in parts)
+
+
 def gurbani_block(gid, ctx):
     k = ctx["k"]
     line = k["gurbani"].get(gid)
@@ -137,7 +143,7 @@ def gurbani_block(gid, ctx):
     read = (f'<a href="https://www.sikhitothemax.org/ang?ang={ang}&amp;source=G" rel="noopener" target="_blank">Read Ang {ang} in full</a>'
             if ang else "")
     return f"""<figure class="bani" id="g-{e(gid)}">
-  <blockquote lang="pa" class="g">{e(line['gurmukhi'])}</blockquote>
+  <blockquote lang="pa" class="g">{pangtis(line['gurmukhi'])}</blockquote>
   <p class="translit" lang="pa-Latn"><span class="lbl">Transliteration</span> {e(line['translit'])}</p>
   <p class="render"><span class="lbl">Translation, editorial</span> {e(line['rendering'])}</p>
   {note}
@@ -204,7 +210,7 @@ def page(ctx, path, title, body, desc, *, section="", noindex=False, jsonld=None
     site = k["config"].get("site_name", "Harkhowal Online")
     full = title if title == site else f"{title} | {site}"
     canonical = k["config"].get("site_url", "").rstrip("/") + "/" + path.lstrip("/")
-    nav = [("latest/", "Latest", "latest"), ("topics/", "Topics", "topics"), ("listen/", "Listen", "listen"), ("watch/", "Watch", "watch"), ("about/", "About", "about")]
+    nav = [("latest/", "Latest", "latest"), ("topics/", "Topics", "topics"), ("journey/", "Journey", "journey"), ("listen/", "Listen", "listen"), ("watch/", "Watch", "watch"), ("about/", "About", "about")]
     navh = "".join(f'<a href="{u(p)}"{" aria-current=\"page\"" if section == s else ""}>{t}</a>' for p, t, s in nav)
     ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else ""
     img = og_image or "https://i.ytimg.com/vi/" + (k["videos"][0]["id"] if k["videos"] else "") + "/hqdefault.jpg"
@@ -346,6 +352,84 @@ def constellation(ctx, current=None, size=520):
                      f'<text x="{x:.1f}" y="{y + 22 + dy:.1f}" text-anchor="{anchor}" class="en">{e(t["title"].split(":")[0].split(",")[0])}</text></a>')
     return (f'<svg class="constellation" viewBox="0 0 {size} {size}" role="img" aria-label="Map of the themes and how they connect">'
             f'<g class="edges">{"".join(edges)}</g><g>{"".join(nodes)}</g></svg>')
+
+
+def journey_path(ctx, on_night=False, link_base=""):
+    """The seven stops from manmukh to sach khand, warming from night to dawn."""
+    stages = ctx["k"]["journey"]["stages"]
+    stops = "".join(f'<li class="s{i + 1}"><a href="{link_base}#{e(st["id"])}"><span class="dot" aria-hidden="true"></span>'
+                    f'<span class="g" lang="pa">{e(st["gurmukhi"])}</span><span class="en">{e(st["title"])}</span></a></li>'
+                    for i, st in enumerate(stages))
+    return f'<ol class="path{" on-night" if on_night else ""}" aria-label="The seven steps of the journey">{stops}</ol>'
+
+
+def journey_katha(ctx):
+    """Babaji's katha of Japji Sahib pauris 34 to 38, in order: the five khands and the mint."""
+    out, seen = [], set()
+    for a, b, t, s in sorted(ctx["katha_idx"]["pauris"], key=lambda x: (x[3]["id"] != "jap-ji-sahib-katha", x[0], x[2]["i"])):
+        if b >= 34 and a <= 38 and t["p"] not in seen:
+            seen.add(t["p"])
+            out.append((t, s))
+    return out
+
+
+def build_journey(ctx):
+    k = ctx["k"]
+    j = k["journey"]
+    sec = j["sections"]
+    ctx_local = {**ctx, "gurbani_used": []}
+    review = j.get("review", {})
+    reviewed = review.get("status") == "reviewed"
+    review_note = (f'Reviewed by {e(review.get("reviewer", "an editor"))}.' if reviewed else "Awaiting review by a learned reader.")
+    n = len(j["stages"])
+    rail = "".join(f'<li><a href="#{st["id"]}"><span class="g" lang="pa">{e(st["gurmukhi"])}</span> {e(st["short"])}</a></li>' for st in j["stages"])
+    layers = [f'<section id="intro" class="layer">{provenance("editorial", "<span class=rv>" + review_note + "</span>")}<h2>Two ways of facing</h2>{md(sec.get("intro", ""), ctx_local)}</section>']
+    for i, st in enumerate(j["stages"]):
+        chips = []
+        for tid in st.get("topics", []):
+            tp = k["topic_by_id"].get(tid)
+            if tp:
+                chips.append(f'<a class="tag" href="{topic_url(tp)}"><span class="g" lang="pa">{e(tp["gurmukhi"])}</span> {e(tp["title"].split(":")[0])}</a>')
+        gloss = (f'<p class="gloss"><b>Step {i + 1} of {n}</b><span>Drawn from {e(st["source"])}.</span>'
+                 f'<span>Editorial guide; Gurbani is quoted with its source.</span></p>')
+        layers.append(f'<section id="{st["id"]}" class="layer stage s{i + 1}">{gloss}'
+                      f'<h2><span class="g" lang="pa">{e(st["gurmukhi"])}</span><span class="en">{e(st["title"])}</span></h2>'
+                      f'{md(sec.get(st["id"], ""), ctx_local)}'
+                      f'{("<p class=tags><span class=tags-lbl>In Babaji’s katha:</span> " + "".join(chips) + "</p>") if chips else ""}</section>')
+    mint = "".join(f'<div><dt><span class="g" lang="pa">{e(g)}</span> {e(q)}</dt><dd>{e(tool)}</dd></div>' for g, q, tool in j.get("mint", []))
+    layers.append(f'<section id="mint" class="layer">{provenance("editorial")}<h2><span class="g" lang="pa">ਸਚੀ ਟਕਸਾਲ</span><span class="en">The true mint</span></h2>'
+                  + "".join(md(part, ctx_local) + (f'<dl class="mint" aria-label="The tools of the mint">{mint}</dl>' if i == 0 else "")
+                            for i, part in enumerate(sec.get("mint", "").split("[[mint-table]]")))
+                  + '</section>')
+    jk = journey_katha(ctx)
+    rows = "".join(track_row(t, s, sub=s["title"]) for t, s in jk)
+    layers.append(f'<section id="gurmukh" class="layer">{provenance("editorial")}<h2><span class="g" lang="pa">ਗੁਰਮੁਖ</span><span class="en">The gurmukh</span></h2>'
+                  f'{md(sec.get("gurmukh", ""), ctx_local)}'
+                  f'<h3 id="katha">Babaji’s katha of the five khands and the mint</h3><p class="sub">Japji Sahib, pauris 34 to 38, in order. Press one to listen; the next follows on.</p>'
+                  f'<div class="rows" data-queue>{rows}</div>'
+                  f'<p class="tags"><span class="tags-lbl">Further:</span> <a class="tag" href="{u("topics/sidh-gosht/")}"><span class="g" lang="pa">ਸਿਧ ਗੋਸਟਿ</span> Sidh Gosht</a>'
+                  f'<a class="tag" href="{u("topics/japji/")}"><span class="g" lang="pa">ਜਪੁਜੀ ਸਾਹਿਬ</span> Japji Sahib</a></p></section>')
+    body = f"""
+<article class="journey">
+  <header class="theme-head journey-head">
+    <div class="wrap">
+      <p class="crumbs"><a href="{u('topics/')}">Topics</a>, the journey</p>
+      <h1><span class="g" lang="pa">{e(j['gurmukhi'])}</span><span class="en">{e(j['title'])}</span></h1>
+      <p class="sub">{e(j['subtitle'])}</p>
+      {journey_path(ctx, on_night=True)}
+      <p class="journey-listen"><a href="#katha">Listen to Babaji’s katha of these pauris</a></p>
+    </div>
+  </header>
+  <div class="wrap tika">
+    <nav class="rail" aria-label="Steps of the journey"><ol>{rail}</ol>
+      <p class="rail-extra"><a href="#mint">The true mint</a><a href="#gurmukh">The gurmukh</a></p></nav>
+    <div class="col">{''.join(layers)}</div>
+  </div>
+</article>"""
+    ld = {"@context": "https://schema.org", "@type": "Article", "headline": f"{j['title']} ({j['gurmukhi']})", "description": j["summary"],
+          "inLanguage": "en", "publisher": {"@type": "Organization", "name": k["config"].get("site_name")}}
+    page(ctx, "journey/", f"{j['title']}: {j['subtitle']}", body, j["summary"], section="journey", jsonld=ld)
+    ctx["gurbani_log"]["journey"] = ctx_local["gurbani_used"]
 
 
 def build_theme(ctx, th):
@@ -531,7 +615,10 @@ def build_topics(ctx):
                         f'<span class="en">{e(tp["title"])}</span><span class="n">{n:,}</span></a>')
         groups.append(f'<section class="shelf"><div class="shelf-head"><h2><span class="g" lang="pa">{e(meta["gurmukhi"])}</span> {e(meta["title"])}</h2></div>'
                       f'<div class="index">{"".join(rows)}</div></section>')
-    theme_rows = "".join(f'<a class="ix" href="{u("themes/" + t["slug"] + "/")}" data-filter="{e(K.fold(" ".join([t["title"], t["gurmukhi"], t["question"]] + t.get("terms", []))))}">'
+    j = k["journey"]
+    journey_row = (f'<a class="ix" href="{u("journey/")}" data-filter="{e(K.fold(" ".join([j["title"], j["gurmukhi"], j["subtitle"]] + j.get("terms", []))))}">'
+                   f'<span class="gn" lang="pa">{e(j["gurmukhi"])}</span><span class="en">The journey, in seven steps</span><span class="n">{len(journey_katha(ctx)):,}</span></a>')
+    theme_rows = journey_row + "".join(f'<a class="ix" href="{u("themes/" + t["slug"] + "/")}" data-filter="{e(K.fold(" ".join([t["title"], t["gurmukhi"], t["question"]] + t.get("terms", []))))}">'
                          f'<span class="gn" lang="pa">{e(t["gurmukhi"])}</span><span class="en">{e(t["title"])}: in depth</span><span class="n">{topic_count(ctx, t["slug"]):,}</span></a>' for t in k["themes"])
     body = f"""
 <section class="page-head"><div class="wrap">
@@ -586,6 +673,9 @@ def build_topic(ctx, tp):
     theme = k["theme_by_slug"].get(tp.get("theme", ""))
     deep = (f'<p class="deeper-link">Go deeper: <a href="{u("themes/" + theme["slug"] + "/")}"><span class="g" lang="pa">{e(theme["gurmukhi"])}</span> '
             f'{e(theme["title"])}</a>, with Gurbani, comparisons and questions for reflection.</p>') if theme else ""
+    if tp.get("journey"):
+        deep += (f'<p class="deeper-link">The journey: <a href="{u("journey/")}"><span class="g" lang="pa">{e(k["journey"]["gurmukhi"])}</span> '
+                 f'{e(k["journey"]["title"])}</a>, step by step.</p>')
     kind = k["topics_file"]["kinds"].get(tp["kind"], {}).get("title", "")
     body = f"""
 <section class="page-head topic-head"><div class="wrap">
@@ -781,6 +871,11 @@ def build_home(ctx):
 <section class="hero">
   <div class="wrap hero-grid">{hero_video}</div>
   <div class="horizon" aria-hidden="true"></div>
+</section>
+<section class="wrap band journey-band">
+  <div class="h-row"><h2>The journey from manmukh to gurmukh</h2><a href="{u('journey/')}">Begin the journey</a></div>
+  <p>Seven steps, from life facing the self to the realm of truth, following the map Guru Nanak Dev Ji gives in Japji Sahib, with Babaji’s katha of each pauri.</p>
+  {journey_path(ctx, link_base=u('journey/'))}
 </section>
 <section class="wrap band begin">
   <div class="begin-head"><h2>Begin with a question</h2>
@@ -1049,10 +1144,16 @@ def build_search(ctx):
         if tp["kind"] != "theme":
             add("topic", tp["title"], tp.get("about", ""), topic_url(tp),
                 " ".join([tp["title"], tp["gurmukhi"], tp.get("about", "")] + tp.get("aliases", [])), [tp["id"]], tp["gurmukhi"])
+    j = k["journey"]
+    add("theme", j["title"], j["subtitle"], u("journey/"), " ".join([j["title"], j["gurmukhi"], j["summary"]] + j["terms"]), ["journey"], j["gurmukhi"])
+    for i, st in enumerate(j["stages"]):
+        add("topic", f"{st['short']}: {st['title']}", f"Step {i + 1} of the journey from manmukh to gurmukh", u("journey/") + "#" + st["id"],
+            " ".join([st["title"], st["gurmukhi"], st["short"], st["id"].replace("-", " "), st["source"]]), ["journey"], st["gurmukhi"])
     terms = {tp["id"]: [K.fold(x) for x in [tp["title"], tp["gurmukhi"]] + tp.get("aliases", []) + [g.lstrip("=") for g in tp.get("match", {}).get("gurmukhi", [])]]
              for tp in k["topics"]}
+    terms["journey"] = [K.fold(x) for x in [j["title"], j["gurmukhi"]] + j["terms"]]
     write("search/index.json", json.dumps({"items": idx, "themes": terms,
-                                           "names": {tp["id"]: [tp["title"], tp["gurmukhi"]] for tp in k["topics"]}}, ensure_ascii=False, separators=(",", ":")))
+                                           "names": {**{tp["id"]: [tp["title"], tp["gurmukhi"]] for tp in k["topics"]}, "journey": [j["title"], j["gurmukhi"]]}}, ensure_ascii=False, separators=(",", ":")))
     body = f"""
 <section class="page-head"><div class="wrap"><h1>Search</h1>
 <form class="bigsearch" role="search" data-search-form><label class="sr" for="sq">Search</label>
@@ -1137,6 +1238,7 @@ def build(out=None):
            "updated": fdate(updated), "gurbani_log": {}}
     build_home(ctx)
     build_topics(ctx)
+    build_journey(ctx)
     for th in k["themes"]:
         build_theme(ctx, th)
     build_listen(ctx)
