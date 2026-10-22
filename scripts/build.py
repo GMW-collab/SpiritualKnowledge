@@ -352,7 +352,7 @@ def constellation(ctx, current=None, size=520):
                      f'<circle cx="{x:.1f}" cy="{y:.1f}" r="5"/>'
                      f'<text x="{x:.1f}" y="{y - 14:.1f}" text-anchor="{anchor}" class="g" lang="pa">{e(t["gurmukhi"])}</text>'
                      f'<text x="{x:.1f}" y="{y + 22 + dy:.1f}" text-anchor="{anchor}" class="en">{e(t["title"].split(":")[0].split(",")[0])}</text></a>')
-    return (f'<svg class="constellation" viewBox="0 0 {size} {size}" role="img" aria-label="Map of the themes and how they connect">'
+    return (f'<svg class="constellation" viewBox="0 0 {size} {size}" role="group" aria-label="Map of the themes and how they connect">'
             f'<g class="edges">{"".join(edges)}</g><g>{"".join(nodes)}</g></svg>')
 
 
@@ -968,7 +968,7 @@ def build_sources(ctx):
 <p class="lede">What comes from where, how it gets here, and how to tell Gurbani, Babaji’s katha and our own writing apart.</p></div></section>
 <div class="wrap prose">
   <h2>Where the material comes from</h2>
-  <div class="tablewrap"><table class="srctable"><thead><tr><th scope="col">Source</th><th scope="col">Status</th><th scope="col">How it is connected</th></tr></thead><tbody>{''.join(rows)}</tbody></table></div>
+  <div class="tablewrap" tabindex="0" role="region" aria-label="Sources, scrollable"><table class="srctable"><thead><tr><th scope="col">Source</th><th scope="col">Status</th><th scope="col">How it is connected</th></tr></thead><tbody>{''.join(rows)}</tbody></table></div>
   <p>A source is shown as working only when its last automatic run succeeded. {('Status last checked ' + e(fdate(k['sync'].get('updated', '')[:10])) + '.') if k['sync'].get('updated') else 'The automatic update has not run on this copy of the site yet.'}{'' if feeds else ' No outside feeds are connected yet.'}</p>
 
   <h2>What each kind of text is</h2>
