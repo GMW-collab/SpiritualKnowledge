@@ -10,18 +10,34 @@ The site is hosted on **Cloudflare** as a Worker named `spiritualknowledge` that
 
 On every push, GitHub also runs the tests, the browser checks (served the way Cloudflare serves the site) and `wrangler deploy --dry-run`, so a broken configuration shows up on the pull request.
 
-## Going live (in order)
+## Production status
 
-**1. Merge pull request #1** into `main`. Cloudflare deploys it within a few minutes at `https://spiritualknowledge.<your-subdomain>.workers.dev` (*Workers & Pages → spiritualknowledge → Domains* shows the exact address). The daily update then starts at 04:17 UTC; its first run performs the first live BaniDB check and the first run of every source, shown on the site's Sources and Review pages. To run it at once: *Actions → Daily content update → Run workflow*.
+Live at `https://spiritualknowledge.imonyx.workers.dev`, deployed by Cloudflare from `main`.
 
-**2. Retire the old set-up**, so the two do not both crawl Gurmatveechar or claim the domain: in the old `harkhowal-site` repository, *Actions* → disable "Daily content update"; in Cloudflare, check that the older `harkhowal-site` Worker has no custom domain attached.
+**Done and checked**
+- Every push is tested before it can go live: 50 unit and build tests, 57 browser checks served the way Cloudflare serves the site, an axe-core accessibility audit (WCAG 2.1 A and AA) of every kind of page in light and dark mode at desktop and phone widths, and a Wrangler dry run. Cloudflare builds a preview of every branch.
+- The daily update runs at 04:17 UTC, refuses to save data if the tests fail, and keeps the previous day's material if a source is unreachable.
+- Security headers (Content-Security-Policy without `unsafe-inline`, HSTS, nosniff, referrer and permissions policies) are served, confirmed on Cloudflare.
+- The workers.dev address sends `X-Robots-Tag: noindex`, so only harkhowal.com will be indexed once attached. Confirmed on Cloudflare.
+- Gurbani quotations are checked against BaniDB every day; a line that fails, or turns out to be on a neighbouring Ang, is hidden until corrected.
+- No cookies, no analytics, no third-party scripts. Videos load from YouTube's privacy-enhanced player only when pressed.
+- Home-screen icon and web manifest; custom 404 page; permanent redirects from the old Wix addresses.
 
-**3. Move harkhowal.com to Cloudflare** once you are happy with the workers.dev site.
+**Needs the owner** (in order of importance)
+1. **Learned review** of the eleven theme essays and the journey (the Review page records it). Until then each page says "Awaiting review by a learned reader".
+2. **harkhowal.com**: move the domain to Cloudflare and attach it to the Worker (below).
+3. **Retire the old set-up**: disable the "Daily content update" workflow in the `harkhowal-site` repository, and check its Worker has no custom domain.
+4. **Optional connections**: `YOUTUBE_API_KEY` for the full video archive; `FACEBOOK_PAGE_ID` and `FACEBOOK_PAGE_TOKEN` for Facebook posts; a published Google Sheet for programmes (SOURCES.md).
+5. **Wix migration checklist** before cancelling Wix (SOURCES.md).
+
+## Moving harkhowal.com to Cloudflare
+
 1. In Cloudflare: *Add a domain* → `harkhowal.com` (Free plan). Cloudflare copies the existing DNS records; check that any email (MX) records are among them before continuing.
 2. At the registrar where the domain is held (Wix, if bought there), replace the nameservers with the two Cloudflare gives you. This can take a few hours.
 3. *Workers & Pages → spiritualknowledge → Settings → Domains & Routes → Add → Custom domain*: add `www.harkhowal.com`, then `harkhowal.com`. Cloudflare creates the DNS records and certificates.
 4. *Rules → Redirect Rules → Create from template → "Redirect from root to WWW"* so `harkhowal.com` goes to `www.harkhowal.com`, the canonical address used in the site's links and sitemap.
-5. Complete the Wix migration checklist in [SOURCES.md](SOURCES.md), then cancel the Wix plan (keep the domain).
+5. In Google Search Console, add `www.harkhowal.com` and submit `https://www.harkhowal.com/sitemap.xml`.
+6. Complete the Wix migration checklist in [SOURCES.md](SOURCES.md), then cancel the Wix plan (keep the domain).
 
 Old Wix addresses (`/shabadguru`, `/sggs-katha`, `/babaji-videos` …) redirect permanently to their new pages.
 
@@ -30,7 +46,7 @@ Old Wix addresses (`/shabadguru`, `/sggs-katha`, `/babaji-videos` …) redirect 
 | File | Purpose |
 |---|---|
 | `wrangler.jsonc` | Worker name (must match the dashboard), build command, the `_site` folder, trailing-slash and 404 handling, workers.dev and preview URLs |
-| `_site/_headers` (generated) | Content-Security-Policy, HSTS and other security headers; long caching for `/assets/`; `noindex` for `/review/` |
+| `_site/_headers` (generated) | Content-Security-Policy, HSTS and other security headers; long caching for `/assets/`; `noindex` for `/review/` and for the workers.dev address |
 | `_site/_redirects` (generated) | 301 redirects from the old Wix addresses |
 
 If the Worker is ever renamed in Cloudflare, change `name` in `wrangler.jsonc` to match, or builds fail.

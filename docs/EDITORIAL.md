@@ -36,6 +36,12 @@ A theme is `content/themes/<slug>.md`: a JSON header, a line `---`, then section
 - Keep the voice: plain, humble, exploratory; questions rather than instructions; no claims that spiritual practices are scientifically proven.
 - After a substantive edit, set the essay's review status back to awaiting review.
 
+## The journey
+
+`content/journey.md` holds the journey from manmukh to gurmukh. Each step names its source (the Gurbani it draws on) and links to topics. The same rules apply as for themes. Keep the ‘Is it a ladder?’ note: commentators differ on whether the five khands are successive stages, and the page should not present one reading as settled.
+
+If the Review page shows a Gurbani line as *failed* with ‘Found on Ang N’, the text is right but the Ang is not: correct the Ang in `content/gurbani.json`.
+
 ## Adding or correcting a topic
 
 Topics live in `content/topics.json`. Give each one a Gurmukhi and an English name, a few `aliases` people might search for (English, Punjabi in Gurmukhi, transliteration), a one-line `about` that states only established facts, and its `match` rules. For a bani, add its Ang range under `angs`; the katha of those Angs is gathered automatically. Point `theme` at an in-depth theme where one exists. Topics with fewer than three katha are kept out of search engines until more arrive. Wrong links are removed on the Review page like theme links.
