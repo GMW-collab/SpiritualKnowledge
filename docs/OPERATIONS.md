@@ -12,7 +12,9 @@ On every push, GitHub also runs the tests, the browser checks (served the way Cl
 
 ## Production status
 
-Live at `https://spiritualknowledge.imonyx.workers.dev`, deployed by Cloudflare from `main`.
+Live at **`https://www.harkhowal.com`** since 23 October 2026, deployed by Cloudflare from `main`. `harkhowal.com` redirects there (301, Cloudflare redirect rule). The working address `https://spiritualknowledge.imonyx.workers.dev` stays up but is not indexed.
+
+**Domain and email set-up.** The domain is registered at GoDaddy with Cloudflare's nameservers (randy / rihana.ns.cloudflare.com); DNS is managed in Cloudflare. The Wix A and CNAME records were removed and both names are attached to the Worker as custom domains. Cloudflare Email Routing forwards `satnam@harkhowal.com` to harkhowal@outlook.com (MX and SPF records added by Cloudflare); the site's contact address is `satnam@harkhowal.com`.
 
 **Done and checked**
 - Every push is tested before it can go live: 50 unit and build tests, 57 browser checks served the way Cloudflare serves the site, an axe-core accessibility audit (WCAG 2.1 A and AA) of every kind of page in light and dark mode at desktop and phone widths, and a Wrangler dry run. Cloudflare builds a preview of every branch.
@@ -25,15 +27,15 @@ Live at `https://spiritualknowledge.imonyx.workers.dev`, deployed by Cloudflare 
 
 **Needs the owner** (in order of importance)
 1. **Learned review** of the eleven theme essays and the journey (the Review page records it). Until then each page says "Awaiting review by a learned reader".
-2. **harkhowal.com**: move the domain to Cloudflare and attach it to the Worker (below).
+2. **Search Console**: add `www.harkhowal.com` in Google Search Console and submit `https://www.harkhowal.com/sitemap.xml`.
 3. **Retire the old set-up**: disable the "Daily content update" workflow in the `harkhowal-site` repository, and check its Worker has no custom domain.
 4. **Optional connections**: `YOUTUBE_API_KEY` for the full video archive; `FACEBOOK_PAGE_ID` and `FACEBOOK_PAGE_TOKEN` for Facebook posts; a published Google Sheet for programmes (SOURCES.md).
 5. **Wix migration checklist** before cancelling Wix (SOURCES.md).
 
-## Moving harkhowal.com to Cloudflare
+## Moving harkhowal.com to Cloudflare (done 22–23 October 2026; kept for reference)
 
 1. In Cloudflare: *Add a domain* → `harkhowal.com` (Free plan). Cloudflare copies the existing DNS records; check that any email (MX) records are among them before continuing.
-2. At the registrar where the domain is held (Wix, if bought there), replace the nameservers with the two Cloudflare gives you. This can take a few hours.
+2. At the registrar (GoDaddy), replace the nameservers with the two Cloudflare gives you. This can take a few hours.
 3. *Workers & Pages → spiritualknowledge → Settings → Domains & Routes → Add → Custom domain*: add `www.harkhowal.com`, then `harkhowal.com`. Cloudflare creates the DNS records and certificates.
 4. *Rules → Redirect Rules → Create from template → "Redirect from root to WWW"* so `harkhowal.com` goes to `www.harkhowal.com`, the canonical address used in the site's links and sitemap.
 5. In Google Search Console, add `www.harkhowal.com` and submit `https://www.harkhowal.com/sitemap.xml`.

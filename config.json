@@ -2,7 +2,7 @@
   "site_name": "Harkhowal Online",
   "site_url": "https://www.harkhowal.com",
   "repository": "GMW-collab/SpiritualKnowledge",
-  "contact_email": "harkhowal@outlook.com",
+  "contact_email": "satnam@harkhowal.com",
   "sources": [
     {"id": "youtube", "adapter": "youtube", "title": "Babaji's YouTube channel", "kind": "Babaji's own",
      "method": "Public channel feed (newest 15). With a free YouTube Data API key in the YOUTUBE_API_KEY secret, the whole upload history.",
