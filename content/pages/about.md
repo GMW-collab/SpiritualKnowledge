@@ -1,13 +1,13 @@
 {
   "slug": "about",
   "title": "About Babaji and the Dera",
-  "summary": "Sant Baba Jagjit Singh Ji Harkhowal Wale, Dera Sant Ghar at Harkhowal near Hoshiarpur, and the lineage of Sant Jawala Singh Ji and the mahapurakhs of Hoti Mardan.",
+  "summary": "Sant Baba Jagjit Singh Ji Harkhowal Wale of the Sant Ashram, Sultanpur Lodhi, and the lineage of Sant Jawala Singh Ji and the mahapurakhs of Hoti Mardan.",
   "review": {"status": "awaiting-review", "drafted": "2026-10-21", "by": "Rewritten from the previous harkhowal.com; facts to be confirmed by the Dera"}
 }
 ---
 ## babaji
 
-Sant Baba Jagjit Singh Ji continues the seva of Dera Sant Ghar, Harkhowal, through katha of Gurbani and Gurmat vichar: in Punjab, at Gurdwara Sri Ber Sahib and the Sant Ashram in Sultanpur Lodhi, and with sangats in the United Kingdom, Canada and Australia. The recordings on this site begin in 1988 and continue to the present day, through new divans published on the Dera's YouTube channel.
+Sant Baba Jagjit Singh Ji is based at the Sant Ashram in Sultanpur Lodhi, Punjab. He gives katha of Gurbani and Gurmat vichar there and at Gurdwara Sri Ber Sahib, and with sangats in the United Kingdom, Canada and Australia. The recordings on this site begin in 1988 and continue to the present day, through new divans published on Babaji's YouTube channel.
 
 His katha is notable for its range. Alongside Sri Guru Granth Sahib Ji, which he has expounded Ang by Ang, he has given katha on the writings of Bhai Gurdas Ji and Bhai Nand Lal Ji, on the great Granths of Sikh history, and on classical texts of Indian philosophy, read in the light of Gurbani.
 

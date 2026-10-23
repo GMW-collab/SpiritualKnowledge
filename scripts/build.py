@@ -261,7 +261,7 @@ def page(ctx, path, title, body, desc, *, section="", noindex=False, jsonld=None
   <div class="wrap">
     <div>
       <p class="g fateh" lang="pa">ਵਾਹਿਗੁਰੂ ਜੀ ਕਾ ਖ਼ਾਲਸਾ, ਵਾਹਿਗੁਰੂ ਜੀ ਕੀ ਫ਼ਤਿਹ</p>
-      <p>Dera Sant Ghar, Harkhowal, Hoshiarpur, Punjab. <a href="mailto:{e(k['config'].get('contact_email'))}">{e(k['config'].get('contact_email'))}</a></p>
+      <p>Sant Ashram, Sultanpur Lodhi, Punjab. <a href="mailto:{e(k['config'].get('contact_email'))}">{e(k['config'].get('contact_email'))}</a></p>
       <p>Audio is hosted by <a href="https://www.gurmatveechar.com" rel="noopener" target="_blank">Gurmatveechar.com</a>. Videos are from Babaji’s YouTube channel. {social}</p>
     </div>
     <div class="foot-links">
@@ -890,8 +890,8 @@ def build_home(ctx):
 {progh}
 <section class="wrap band lineage-teaser">
   {portrait("babaji", "Sant Baba Jagjit Singh Ji, seated cross-legged in white", "", sizes="(max-width: 760px) 60vw, 240px")}
-  <div><h2>Dera Sant Ghar, Harkhowal</h2>
-  <p>Founded in 1918 by Sant Jawala Singh Ji, a disciple of Sant Aiya Singh Ji of Hoti Mardan. Sant Baba Jagjit Singh Ji continues its seva through katha of Gurbani in Punjab and abroad.</p>
+  <div><h2>Sant Ashram, Sultanpur Lodhi</h2>
+  <p>Sant Baba Jagjit Singh Ji is based at the Sant Ashram in Sultanpur Lodhi, Punjab, and gives katha of Gurbani in Punjab and abroad. He stands in the lineage of Sant Jawala Singh Ji, who founded Dera Sant Ghar, Harkhowal, in 1918, and of the mahapurakhs of Hoti Mardan.</p>
   <p><a href="{u('about/')}">About Babaji and the Dera</a></p></div>
 </section>"""
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": k["config"].get("site_name"), "url": k["config"].get("site_url"),
