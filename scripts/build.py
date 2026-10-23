@@ -919,7 +919,7 @@ def portrait(name, alt, caption, sizes="(max-width: 900px) 92vw, 400px", lazy=Tr
 
 
 # (width, height) of the prepared sizes in assets/images
-PHOTOS = {"babaji": ((440, 471), (800, 856)), "babaji-standing": ((440, 587), (800, 1067)), "sant-jawala-singh-ji": ((400, 485), (720, 873))}
+PHOTOS = {"babaji": ((440, 471), (800, 856)), "babaji-portrait": ((440, 587), (800, 1067)), "sant-jawala-singh-ji": ((400, 485), (720, 873))}
 
 
 def build_about(ctx):
@@ -939,13 +939,14 @@ def build_about(ctx):
 <section class="page-head"><div class="wrap"><h1>About Babaji and the Dera</h1></div></section>
 <div class="wrap about">
   <div class="col">
-    {portrait("babaji-standing", "Sant Baba Jagjit Singh Ji standing outdoors in white, with a white turban, a fawn cardigan and a red garland", "Sant Baba Jagjit Singh Ji Harkhowal Wale", lazy=False)}
-    {md(s.get('babaji', ''), ctx)}
-    <h2>Dera Sant Ghar</h2>{md(s.get('dera', ''), ctx)}
     <h2>Sant Jawala Singh Ji</h2>
-    {portrait("sant-jawala-singh-ji", "Painted portrait of Sant Jawala Singh Ji seated in meditation, wearing a garland", "Sant Jawala Singh Ji (1889 to 1957), founder of Dera Sant Ghar. A painted portrait.")}
+    {portrait("sant-jawala-singh-ji", "Painted portrait of Sant Jawala Singh Ji seated in meditation, wearing a garland", "Sant Jawala Singh Ji (1889 to 1957), founder of Dera Sant Ghar. A painted portrait.", lazy=False)}
     {md(s.get('jawala-singh', ''), ctx)}
     {('<div class="rows" data-queue>' + jk + '</div>') if jk else ''}
+    <h2>Dera Sant Ghar</h2>{md(s.get('dera', ''), ctx)}
+    <h2>Sant Baba Jagjit Singh Ji</h2>
+    {portrait("babaji-portrait", "Sant Baba Jagjit Singh Ji in white turban and white shawl, outdoors against a blue sky", "Sant Baba Jagjit Singh Ji Harkhowal Wale")}
+    {md(s.get('babaji', ''), ctx)}
     <p class="gloss solo"><b>About this page</b><span>{e(rv.get('by', ''))}. Corrections are welcome at {e(k['config'].get('contact_email'))}.</span></p>
     <h2>Contact</h2>{md(s.get('contact', ''), ctx)}
   </div>
