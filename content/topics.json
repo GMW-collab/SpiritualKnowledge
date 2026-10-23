@@ -1,6 +1,26 @@
 {
   "_about": "The topic index. Each topic gathers the katha that refers to it. The eleven in-depth themes are topics too (their rules live in content/themes/*.md). Rules: 'gurmukhi' terms match at the start of a word ('=' for the whole word only); 'roman' entries are regular expressions matched as whole words in titles; 'series' links whole series; 'angs' links Guru Granth Sahib katha whose recording titles cover those Angs. 'about' is a short editorial note: only well-established facts. Ang ranges are those of the standard 1,430-Ang saroop.",
   "kinds": {
+    "jeevan": {
+      "title": "Jeevan jach: the way of living",
+      "gurmukhi": "ਜੀਵਨ ਜਾਚ",
+      "about": "How to live a purposeful, meaningful life and grow into the full human potential Gurbani holds out: the worth of a human birth, the day's rhythm, honest work, compassion and contentment, family, food and conduct. Each topic gathers Babaji's katha that speaks to it.",
+      "order": [
+        "manukh-janam",
+        "amrit-vela",
+        "kirat",
+        "daya-santokh",
+        "gratitude",
+        "grihast",
+        "bhojan",
+        "tyag",
+        "maryada"
+      ],
+      "themes": [
+        "rahini",
+        "seva"
+      ]
+    },
     "idea": {
       "title": "Ideas and practice",
       "gurmukhi": "ਵਿਚਾਰ"
@@ -91,7 +111,7 @@
     },
     {
       "id": "maryada",
-      "kind": "idea",
+      "kind": "jeevan",
       "gurmukhi": "ਮਰਯਾਦਾ",
       "title": "Maryada and discipline",
       "aliases": [
@@ -222,7 +242,7 @@
     },
     {
       "id": "bhojan",
-      "kind": "idea",
+      "kind": "jeevan",
       "gurmukhi": "ਭੋਜਨ",
       "title": "Food and devotion",
       "aliases": [
@@ -246,8 +266,120 @@
       }
     },
     {
+      "id": "manukh-janam",
+      "kind": "jeevan",
+      "gurmukhi": "ਮਨੁੱਖਾ ਜਨਮ",
+      "title": "The worth of a human life (Manukh janam)",
+      "aliases": [
+        "human birth",
+        "human life",
+        "purpose of life",
+        "meaning of life",
+        "purposeful life",
+        "janam safal",
+        "lahaa"
+      ],
+      "about": "Gurbani calls the human birth a rare opportunity: the turn in which a soul can meet the Divine.",
+      "match": {
+        "gurmukhi": [
+          "ਮਨੁੱਖ ਜਨਮ",
+          "ਮਨੁੱਖਾ ਜਨਮ",
+          "ਮਾਨਸ ਜਨਮ",
+          "ਜਨਮ ਸਫਲ",
+          "ਸੁਆਸਾਂ ਦੀ ਕੀਮਤ",
+          "ਉਮਰ ਦਾ ਹਿਸਾਬ"
+        ],
+        "roman": [
+          "manukh janam",
+          "manas janam"
+        ]
+      }
+    },
+    {
+      "id": "amrit-vela",
+      "kind": "jeevan",
+      "gurmukhi": "ਅੰਮ੍ਰਿਤ ਵੇਲਾ",
+      "title": "Amrit vela and the use of time",
+      "aliases": [
+        "amrit vela",
+        "early morning",
+        "daily routine",
+        "time",
+        "sleep",
+        "waking"
+      ],
+      "about": "The ambrosial hours before dawn, which Japji Sahib names as the time for remembrance, and the right use of the day's time.",
+      "match": {
+        "gurmukhi": [
+          "ਅੰਮ੍ਰਿਤ ਵੇਲ",
+          "ਸੌਣ ਤੇ ਜਾਗਣ",
+          "ਸਮੇਂ ਦੀ ਸਹੀ ਵਰਤੋਂ"
+        ],
+        "roman": [
+          "amrit ?vela"
+        ]
+      }
+    },
+    {
+      "id": "kirat",
+      "kind": "jeevan",
+      "gurmukhi": "ਕਿਰਤ",
+      "title": "Honest work and sharing (Kirat, vand chhakna)",
+      "aliases": [
+        "honest work",
+        "earning",
+        "livelihood",
+        "sharing",
+        "dasvandh",
+        "vand chhakna",
+        "kirat karni"
+      ],
+      "about": "Earning by honest work and sharing its fruit with others, which with Naam are the three pillars of a Sikh life.",
+      "match": {
+        "gurmukhi": [
+          "ਕਿਰਤ",
+          "ਵੰਡ ਕੇ",
+          "ਵੰਡ ਛਕ",
+          "ਦਸਵੰਧ"
+        ],
+        "roman": [
+          "kirat",
+          "dasvandh"
+        ]
+      }
+    },
+    {
+      "id": "tyag",
+      "kind": "jeevan",
+      "gurmukhi": "ਔਗੁਣਾਂ ਦਾ ਤਿਆਗ",
+      "title": "Giving up vices and intoxicants",
+      "aliases": [
+        "vices",
+        "addiction",
+        "alcohol",
+        "intoxicants",
+        "drugs",
+        "bad habits",
+        "nasha",
+        "kurehat"
+      ],
+      "about": "Leaving behind intoxicants and the habits that cloud the mind, as Babaji's katha often urges.",
+      "match": {
+        "gurmukhi": [
+          "ਨਸ਼ੇ",
+          "ਨਸ਼ਿਆਂ",
+          "ਸ਼ਰਾਬ",
+          "ਔਗੁਣ",
+          "ਕੁਰਹਿਤ"
+        ],
+        "roman": [
+          "nasha"
+        ]
+      }
+    },
+    {
       "id": "daya-santokh",
-      "kind": "idea",
+      "kind": "jeevan",
       "gurmukhi": "ਦਇਆ ਸੰਤੋਖ",
       "title": "Compassion and contentment (Daya, Santokh)",
       "aliases": [
@@ -277,7 +409,7 @@
     },
     {
       "id": "gratitude",
-      "kind": "idea",
+      "kind": "jeevan",
       "gurmukhi": "ਸ਼ੁਕਰ",
       "title": "Gratitude and ingratitude",
       "aliases": [
@@ -371,7 +503,7 @@
     },
     {
       "id": "grihast",
-      "kind": "idea",
+      "kind": "jeevan",
       "gurmukhi": "ਗ੍ਰਿਹਸਤ",
       "title": "Marriage, family and brahmcharya",
       "aliases": [
@@ -391,7 +523,9 @@
         "gurmukhi": [
           "ਪਤੀ ਪਤਨੀ",
           "ਗ੍ਰਿਹਸਤ",
-          "ਬ੍ਰਹਮਚਾਰੀ"
+          "ਬ੍ਰਹਮਚਾਰੀ",
+          "ਪਰਿਵਾਰ",
+          "ਮਾਤਾ ਪਿਤਾ"
         ],
         "roman": [
           "pati patni",
