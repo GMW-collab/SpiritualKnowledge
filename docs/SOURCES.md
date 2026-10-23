@@ -7,7 +7,7 @@ Status as of 21 October 2026. The live status of each source is shown on the sit
 | Source | Method | Status | What is needed |
 |---|---|---|---|
 | Babaji's YouTube channel | Public Atom feed (newest 15), channel feed then playlist feed | **Working, but unreliable from GitHub**: YouTube sometimes answers 404 to GitHub's servers, so the update tries both feeds twice a day and keeps the previous list if both fail | An API key (next row) makes it dependable |
-| … full upload history, and the dependable route | YouTube Data API v3 | **Built, needs a key** | A free API key as secret `YOUTUBE_API_KEY` (recommended) |
+| … full upload history, and Shorts | YouTube Data API v3: the uploads playlist (UU…) and the Shorts playlist (UUSH…) | **Working** since 23 Oct 2026 (key saved as `YOUTUBE_API_KEY`). The whole archive is read once, then only new pages | Nothing |
 | … captions / transcripts | YouTube captions API | **Not possible without the channel owner** | OAuth consent by the channel owner (roadmap) |
 | Gurmatveechar.com, Babaji's folder | Polite crawl of public folder pages; audio streamed, not copied | **Working**: 37 series, 2,333 recordings, all dated | Courtesy email to Gurmatveechar recommended |
 | Programmes | Google Sheet published as CSV | **Built, not set up** | A published sheet link in `config.json` |

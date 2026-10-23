@@ -66,26 +66,58 @@ class YouTubeTest(TempData):
         self.assertIn("playlist_id=UUabc", seen[-1])
         self.assertEqual(len(common.load("videos.json", {})["videos"]), 2)
 
-    def test_api_pages_and_key_is_scrubbed(self):
+    def test_parse_feed_marks_shorts(self):
+        v = {x["id"]: x for x in youtube.parse_feed(fixture("youtube_feed.xml"))}
+        self.assertNotIn("short", v["AAAAAAAAAAA"])
+        self.assertTrue(v["BBBBBBBBBBB"]["short"])
+
+    @staticmethod
+    def api_page(ids, token=None, day=1):
+        return json.dumps({"items": [{"snippet": {"title": "Video " + i, "publishedAt": "2026-01-%02dT00:00:00Z" % day},
+                                      "contentDetails": {"videoId": i}} for i in ids], **({"nextPageToken": token} if token else {})})
+
+    def api_fetch(self, uploads, shorts, calls):
+        """uploads / shorts: lists of pages (lists of ids); pages chained by tokens p1, p2 ..."""
+        def fetch(url, **k):
+            calls.append(url)
+            if "feeds/videos.xml" in url:
+                return fixture("youtube_feed.xml")
+            pages = shorts if "playlistId=UUSH" in url else uploads
+            n = int(url.split("pageToken=p")[1].split("&")[0]) if "pageToken=" in url else 0
+            return self.api_page(pages[n], "p%d" % (n + 1) if n + 1 < len(pages) else None)
+        return fetch
+
+    def test_api_pages_shorts_and_key_is_scrubbed(self):
         os.environ["YOUTUBE_API_KEY"] = "SECRET123"
         try:
-            pages = [json.dumps({"items": [{"snippet": {"title": "Video %d" % i, "publishedAt": "2026-01-0%dT00:00:00Z" % (i + 1)},
-                                            "contentDetails": {"videoId": "V%d" % i}} for i in range(2)], "nextPageToken": "p2"}),
-                     json.dumps({"items": [{"snippet": {"title": "Private video"}, "contentDetails": {"videoId": "X"}}]})]
             calls = []
-
-            def fetch(url, **k):
-                calls.append(url)
-                if "feeds/videos.xml" in url:
-                    return fixture("youtube_feed.xml")
-                return pages[len([c for c in calls if "googleapis" in c]) - 1]
+            fetch = self.api_fetch([["V0", "S1"], ["V2"]], [["S1"]], calls)
             res = youtube.run({"youtube_channel_id": "UCabc"}, {}, fetch=fetch)
-            ids = [v["id"] for v in common.load("videos.json", {})["videos"]]
-            self.assertIn("V0", ids)
-            self.assertNotIn("X", ids)
-            self.assertIn("playlistId=UUabc", calls[1])
+            saved = common.load("videos.json", {})
+            by = {v["id"]: v for v in saved["videos"]}
+            self.assertTrue({"V0", "V2", "S1"} <= set(by))
+            self.assertTrue(by["S1"].get("short"))
+            self.assertNotIn("short", by["V0"])
+            self.assertTrue(saved["archive_complete"] and saved["shorts_complete"])
+            self.assertTrue(any("playlistId=UUabc" in c for c in calls))
+            self.assertTrue(any("playlistId=UUSHabc" in c for c in calls))
             self.assertEqual(common.scrub("https://x/?key=SECRET123&a=1"), "https://x/?key=***&a=1")
             self.assertEqual(res.state, "ok")
+        finally:
+            del os.environ["YOUTUBE_API_KEY"]
+
+    def test_incomplete_archive_is_read_to_the_end(self):
+        """Known videos on the first page must not stop the walk until the archive has been read once."""
+        common.save("videos.json", {"archive_complete": False, "videos": [{"id": "V0", "title": "x", "published": "2026-01-01"}]})
+        os.environ["YOUTUBE_API_KEY"] = "K"
+        try:
+            calls = []
+            youtube.run({"youtube_channel_id": "UCabc"}, {}, fetch=self.api_fetch([["V0"], ["OLD"]], [[]], calls))
+            self.assertIn("OLD", {v["id"] for v in common.load("videos.json", {})["videos"]})
+            # once complete, a known first page ends the walk
+            calls.clear()
+            youtube.run({"youtube_channel_id": "UCabc"}, {}, fetch=self.api_fetch([["V0"], ["OLDER"]], [[]], calls))
+            self.assertNotIn("OLDER", {v["id"] for v in common.load("videos.json", {})["videos"]})
         finally:
             del os.environ["YOUTUBE_API_KEY"]
 

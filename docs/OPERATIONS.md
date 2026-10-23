@@ -29,7 +29,7 @@ Live at **`https://www.harkhowal.com`** since 23 October 2026, deployed by Cloud
 1. **Learned review** of the eleven theme essays and the journey (the Review page records it). Until then each page says "Awaiting review by a learned reader".
 2. **Search Console**: add `www.harkhowal.com` in Google Search Console and submit `https://www.harkhowal.com/sitemap.xml`.
 3. **Retire the old set-up**: disable the "Daily content update" workflow in the `harkhowal-site` repository, and check its Worker has no custom domain.
-4. **Optional connections**: `YOUTUBE_API_KEY` for the full video archive; `FACEBOOK_PAGE_ID` and `FACEBOOK_PAGE_TOKEN` for Facebook posts; a published Google Sheet for programmes (SOURCES.md).
+4. **Optional connections**: `FACEBOOK_PAGE_ID` and `FACEBOOK_PAGE_TOKEN` for Facebook posts; a published Google Sheet for programmes (SOURCES.md).
 5. **Wix migration checklist** before cancelling Wix (SOURCES.md).
 
 ## Moving harkhowal.com to Cloudflare (done 22–23 October 2026; kept for reference)
