@@ -77,7 +77,8 @@ def load_all():
     k = {
         "config": read_json(ROOT / "config.json", {}),
         "audio": read_json(DATA / "audio.json", {"series": []}),
-        "videos": read_json(DATA / "videos.json", {"videos": []}).get("videos", []),
+        "videos": [v for v in read_json(DATA / "videos.json", {"videos": []}).get("videos", []) if not v.get("short")],
+        "shorts": [v for v in read_json(DATA / "videos.json", {"videos": []}).get("videos", []) if v.get("short")],
         "programmes": read_json(DATA / "programmes.json", {"programmes": []}).get("programmes", []),
         "feeds": read_json(DATA / "feeds.json", {"items": []}).get("items", []),
         "sync": read_json(DATA / "sync-status.json", {"sources": {}}),

@@ -266,5 +266,25 @@ class BuildTest(unittest.TestCase):
                 self.assertNotIn(bad, txt, f"{p.relative_to(self.out)} contains {bad!r}")
 
 
+    def test_watch_page_is_bounded(self):
+        """With thousands of videos, Watch shows the newest 48 and links to Latest for the rest."""
+        import build
+        html_ = (self.out / "watch" / "index.html").read_text()
+        cards = re.findall(r'<div data-themes="[^"]*"( data-extra hidden)?>', html_)
+        self.assertLessEqual(sum(1 for c in cards if not c), build.WATCH_SHOWN)
+        self.assertIn("latest/?show=v", html_)
+
+    def test_shorts_strip(self):
+        import build
+        k = {"config": {"youtube_url": "https://www.youtube.com/@x"},
+             "shorts": [{"id": "S%d" % i, "title": "ਸ਼ਬਦ %d" % i, "published": "2026-10-1%d" % (i % 10)} for i in range(20)]}
+        out = build.shorts_strip(k)
+        self.assertEqual(out.count('class="short"'), build.SHORTS_SHOWN)
+        self.assertIn('aria-label="Play Short: ', out)
+        self.assertIn("https://www.youtube.com/@x/shorts", out)
+        self.assertEqual(build.shorts_strip({"config": {}, "shorts": []}), "")
+        # Shorts never reach the main video lists
+        self.assertFalse(any(v.get("short") for v in self.ctx["k"]["videos"]))
+
 if __name__ == "__main__":
     unittest.main()

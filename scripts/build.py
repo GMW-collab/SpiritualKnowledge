@@ -796,14 +796,23 @@ def ext_url(x):
     return x.get("url") or f"https://www.youtube.com/watch?v={x['youtube']}"
 
 
+WATCH_SHOWN, WATCH_PER_THEME = 48, 12
+
+
 def build_watch(ctx):
     k, links = ctx["k"], ctx["links"]
     chips = "".join(f'<button type="button" class="chip" data-theme-chip="{t["slug"]}" aria-pressed="false"><span class="g" lang="pa">{e(t["gurmukhi"])}</span> {e(t["title"].split(":")[0])}</button>'
                     for t in k["themes"] if any(t["slug"] in links.get("yt:" + v["id"], {}) for v in k["videos"]))
-    cards = []
-    for v in k["videos"]:
-        th = " ".join(links.get("yt:" + v["id"], {}).keys())
-        cards.append(f'<div data-themes="{e(th)}">{video_card(v)}</div>')
+    cards, per_theme = [], {}
+    for n, v in enumerate(k["videos"]):
+        th = list(links.get("yt:" + v["id"], {}).keys())
+        wanted = [t for t in th if per_theme.get(t, 0) < WATCH_PER_THEME]
+        if n >= WATCH_SHOWN and not wanted:
+            continue
+        for t in wanted:
+            per_theme[t] = per_theme.get(t, 0) + 1
+        extra = " data-extra hidden" if n >= WATCH_SHOWN else ""
+        cards.append(f'<div data-themes="{e(" ".join(th))}"{extra}>{video_card(v)}</div>')
     ext = []
     for cid, col in k["external"].get("collections", {}).items():
         items = [x for x in k["external"]["items"] if x.get("collection") == cid and x.get("status") == "published"]
@@ -820,11 +829,11 @@ def build_watch(ctx):
     body = f"""
 <section class="page-head"><div class="wrap">
   <h1>Watch</h1>
-  <p class="lede">Babaji’s divans from the Dera’s YouTube channel, newest first. New videos appear here the morning after they are published.</p>
+  <p class="lede">Babaji’s divans from his YouTube channel, newest first. New videos appear here within half a day of being published. For every video, see <a href="{u('latest/')}?show=v">all {len(k["videos"]):,} in Latest</a>.</p>
   {('<div class="chips" role="group" aria-label="Show videos on a theme">' + chips + '</div>') if chips else ''}
 </div></section>
 <section class="wrap"><div class="vgrid big" data-video-grid>{''.join(cards)}</div>
-<p class="more"><a class="btn plain" href="{e(yt)}" target="_blank" rel="noopener">Open the YouTube channel</a></p></section>
+<p class="more"><a class="btn plain" href="{u('latest/')}?show=v">All {len(k["videos"]):,} videos, newest first</a> <a class="btn plain" href="{e(yt)}" target="_blank" rel="noopener">Open the YouTube channel</a></p></section>
 <div class="wrap ext">{''.join(ext)}</div>"""
     page(ctx, "watch/", "Watch Babaji’s divans", body, "Latest katha videos by Sant Baba Jagjit Singh Ji Harkhowal Wale, with jeevan katha and Sikh history from other channels.", section="watch")
 
@@ -1072,6 +1081,28 @@ def latest_row(x):
     return track_row(t, s, sub=sub)
 
 
+SHORTS_SHOWN = 12
+
+
+def shorts_strip(k):
+    """Newest Shorts as an upright, sideways-scrolling strip; each plays in place."""
+    shorts = k.get("shorts", [])[:SHORTS_SHOWN]
+    if not shorts:
+        return ""
+    cards = []
+    for v in shorts:
+        title = v["title"].replace(" || ", ". ").replace("||", ". ")
+        lang = "pa" if re.search("[\u0A00-\u0A7F]", title) else "en"
+        cards.append(f'<li class="short"><button type="button" class="sthumb" data-video="{e(v["id"])}" aria-label="Play Short: {e(title)}">'
+                     f'<img loading="lazy" decoding="async" alt="" src="https://i.ytimg.com/vi/{e(v["id"])}/hqdefault.jpg" width="480" height="360">'
+                     f'<span class="mini" aria-hidden="true"><svg><use href="#i-play"/></svg></span></button>'
+                     f'<p lang="{lang}">{e(title)}</p><p class="meta">{fdate(v.get("published"))}</p></li>')
+    yt = k["config"].get("youtube_url", "").rstrip("/")
+    more = f'<a href="{e(yt)}/shorts" target="_blank" rel="noopener">All Shorts on YouTube</a>' if yt else ""
+    return (f'<section class="wrap shorts-band" aria-labelledby="shorts-h"><div class="h-row"><h2 id="shorts-h">Shorts</h2>{more}</div>'
+            f'<ul class="shorts">{"".join(cards)}</ul></section>')
+
+
 def build_latest(ctx):
     k = ctx["k"]
     items = latest_items(k)
@@ -1102,6 +1133,7 @@ def build_latest(ctx):
     <label class="filter"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><input id="lq" type="search" placeholder="Filter titles, in English or Gurmukhi" aria-label="Filter titles" autocomplete="off"></label>
   </div>
 </div></section>
+{shorts_strip(k)}
 <div class="wrap latest" data-latest data-src="{u('latest/index.json')}">
   <p class="latest-count" aria-live="polite">Showing the newest {len(first)} of {len(items):,}.</p>
   <div class="rows" data-queue>{''.join(rows)}</div>

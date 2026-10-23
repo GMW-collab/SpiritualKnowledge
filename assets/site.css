@@ -490,3 +490,18 @@ details.morerows summary{cursor:pointer;font:500 16px var(--sans);color:var(--ne
 @media (max-width:340px){.top nav a{padding:7px 2px;font-size:13.5px}}
 .bani blockquote .pangti{display:block}
 .bani blockquote .pangti+.pangti{margin-top:.15em}
+
+/* Shorts: upright cards in a sideways strip (Latest) */
+.shorts-band{padding-block:28px 8px}
+.shorts{list-style:none;margin:0;padding:0 0 12px;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(150px,170px);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain}
+.short{scroll-snap-align:start;min-width:0}
+.sthumb{display:block;position:relative;width:100%;aspect-ratio:9/16;border:0;padding:0;background:var(--night);border-radius:10px;overflow:hidden;cursor:pointer}
+.sthumb img{width:100%;height:100%;object-fit:cover}
+.sthumb .mini{position:absolute;right:8px;bottom:8px;width:36px;height:36px;border-radius:50%;background:rgba(22,26,51,.82);color:#fff;display:grid;place-items:center}
+.sthumb .mini svg{width:13px;height:13px;fill:currentColor;margin-left:2px}
+.sthumb:hover .mini,.sthumb:focus-visible .mini{background:var(--kesri);color:var(--on-kesri)}
+.short iframe{width:100%;aspect-ratio:9/16;border:0;border-radius:10px;display:block}
+.short p{margin:8px 0 0;font:500 15px/1.35 var(--sans);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.short p[lang=pa]{font-family:var(--gur-sans)}
+.short .meta{font-size:13px;color:var(--muted);margin-top:4px;-webkit-line-clamp:1}
+@media (max-width:560px){.shorts{grid-auto-columns:minmax(132px,46vw)}}

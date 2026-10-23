@@ -27,11 +27,14 @@ def parse_feed(xml_text):
         if not vid:
             continue
         desc = e.findtext("media:group/media:description", default="", namespaces=NS) or ""
+        link = e.find("a:link", NS)
+        href = link.get("href", "") if link is not None else ""
         out.append({
             "id": vid,
             "title": (e.findtext("a:title", default="", namespaces=NS) or "").strip(),
             "published": (e.findtext("a:published", default="", namespaces=NS) or "")[:10],
             "description": desc.strip()[:400],
+            **({"short": True} if "/shorts/" in href else {}),
         })
     return out
 
@@ -54,9 +57,13 @@ def parse_api_page(text):
     return items, data.get("nextPageToken")
 
 
-def fetch_api(channel_id, key, known_ids, fetch=request, max_pages=40):
-    """Walk the uploads playlist, newest first. Stop early once a whole page is already known."""
-    playlist = "UU" + channel_id[2:]
+def fetch_api(channel_id, key, known_ids, fetch=request, max_pages=400, prefix="UU", walk_all=False):
+    """Walk an uploads playlist, newest first (UU = all uploads, UUSH = Shorts).
+
+    Until the archive has once been read to the end (walk_all), every page is read;
+    after that, the walk stops once a whole page is already known.
+    Returns (items, reached_end)."""
+    playlist = prefix + channel_id[2:]
     out, token = [], None
     for _ in range(max_pages):
         q = {"part": "snippet,contentDetails", "playlistId": playlist, "maxResults": 50, "key": key}
@@ -64,9 +71,11 @@ def fetch_api(channel_id, key, known_ids, fetch=request, max_pages=40):
             q["pageToken"] = token
         items, token = parse_api_page(fetch("https://www.googleapis.com/youtube/v3/playlistItems?" + urllib.parse.urlencode(q)))
         out += items
-        if not token or (items and all(i["id"] in known_ids for i in items)):
-            break
-    return out
+        if not token:
+            return out, True
+        if not walk_all and items and all(i["id"] in known_ids for i in items):
+            return out, False
+    return out, False
 
 
 def feed_urls(channel_id):
@@ -105,18 +114,32 @@ def run(cfg, source, fetch=request):
         notes.append("feed: " + "; ".join(errors))
     key = os.environ.get("YOUTUBE_API_KEY", "").strip()
     method = "feed"
+    complete = bool(old.get("archive_complete"))
+    shorts_complete = bool(old.get("shorts_complete"))
     if key:
         try:
-            api = fetch_api(cid, key, set(by_id), fetch=fetch)
+            api, reached_end = fetch_api(cid, key, set(by_id), fetch=fetch, walk_all=not complete)
             got += len(api)
             method = "feed+api"
+            complete = complete or reached_end
             for v in api:
                 by_id[v["id"]] = {**by_id.get(v["id"], {}), **v}
         except Exception as e:
             notes.append(f"api: {e}")
+        try:
+            known_shorts = {i for i, v in by_id.items() if v.get("short")}
+            shorts, reached_end = fetch_api(cid, key, known_shorts, fetch=fetch, prefix="UUSH", walk_all=not shorts_complete)
+            shorts_complete = shorts_complete or reached_end
+            for v in shorts:
+                by_id[v["id"]] = {**by_id.get(v["id"], {}), **v, "short": True}
+        except Exception as e:
+            notes.append(f"shorts: {e}")
     if not got:
         return SourceResult("kept-previous", "; ".join(notes) or "Nothing returned", {"videos": len(by_id)})
     videos = sorted(by_id.values(), key=lambda v: v.get("published", ""), reverse=True)
-    save("videos.json", {"updated": today(), "channel_url": cfg.get("youtube_url", ""), "method": method, "videos": videos})
+    save("videos.json", {"updated": today(), "channel_url": cfg.get("youtube_url", ""), "method": method,
+                         "archive_complete": complete, "shorts_complete": shorts_complete, "videos": videos})
+    n_short = sum(1 for v in videos if v.get("short"))
     state = "ok" if not notes else "partial"
-    return SourceResult(state, "; ".join(notes) or f"{got} fetched via {method}", {"videos": len(videos), "fetched": got})
+    return SourceResult(state, "; ".join(notes) or f"{got} fetched via {method}" + ("" if complete or not key else ", archive still being read"),
+                        {"videos": len(videos) - n_short, "shorts": n_short, "fetched": got})

@@ -213,7 +213,7 @@
     var chips = root.querySelectorAll("[data-theme-chip]");
     function apply(slug) {
       chips.forEach(function (c) { c.setAttribute("aria-pressed", String(c.dataset.themeChip === slug)); });
-      grid.querySelectorAll("[data-themes]").forEach(function (c) { c.hidden = !!slug && (" " + c.dataset.themes + " ").indexOf(" " + slug + " ") < 0; });
+      grid.querySelectorAll("[data-themes]").forEach(function (c) { c.hidden = slug ? (" " + c.dataset.themes + " ").indexOf(" " + slug + " ") < 0 : c.hasAttribute("data-extra"); });
     }
     chips.forEach(function (c) { c.onclick = function () { var on = c.getAttribute("aria-pressed") === "true"; apply(on ? "" : c.dataset.themeChip); }; });
     var p = new URLSearchParams(location.search).get("theme"); if (p) apply(p);
@@ -295,6 +295,8 @@
       kind = b.dataset.lk; root.querySelectorAll("[data-lk]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
       shown = PAGE; load().then(render, failed); }; });
     more.onclick = function () { shown += PAGE; load().then(render, failed); };
+    var show = new URLSearchParams(location.search).get("show"), pick = show && root.querySelector('[data-lk="' + (show === "v" ? "v" : show === "a" ? "a" : "") + '"]');
+    if (pick && show) pick.click();
   }
 
   /* ------------------------------------------------------------ search */
