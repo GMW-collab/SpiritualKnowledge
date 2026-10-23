@@ -625,16 +625,25 @@ def build_topics(ctx):
     qs = "".join(f'<li><a href="{u("themes/" + t["slug"] + "/")}"><span class="g" lang="pa">{e(t["gurmukhi"])}</span>'
                  f'<span class="en">{e(t["title"])}</span><span class="q">{e(t["question"])}</span></a></li>' for t in k["themes"])
     groups = []
+    theme_by = {t["slug"]: t for t in k["themes"]}
     for kind, meta in kinds.items():
         rows = []
-        for tp in [t for t in k["topics"] if t["kind"] == kind]:
+        order = meta.get("order", [])
+        members = sorted([t for t in k["topics"] if t["kind"] == kind], key=lambda t: order.index(t["id"]) if t["id"] in order else len(order))
+        for tp in members:
             n = topic_count(ctx, tp["id"])
             if not n:
                 continue
             terms = K.fold(" ".join([tp["title"], tp["gurmukhi"]] + tp.get("aliases", [])))
             rows.append(f'<a class="ix" href="{topic_url(tp)}" data-filter="{e(terms)}"><span class="gn" lang="pa">{e(tp["gurmukhi"])}</span>'
                         f'<span class="en">{e(tp["title"])}</span><span class="n">{n:,}</span></a>')
-        groups.append(f'<section class="shelf"><div class="shelf-head"><h2><span class="g" lang="pa">{e(meta["gurmukhi"])}</span> {e(meta["title"])}</h2></div>'
+        for slug in meta.get("themes", []):
+            t = theme_by.get(slug)
+            if t:
+                rows.append(f'<a class="ix" href="{u("themes/" + slug + "/")}" data-filter="{e(K.fold(" ".join([t["title"], t["gurmukhi"], t["question"]] + t.get("terms", []))))}">'
+                            f'<span class="gn" lang="pa">{e(t["gurmukhi"])}</span><span class="en">{e(t["title"])}: in depth</span><span class="n">{topic_count(ctx, slug):,}</span></a>')
+        about = f'<p>{e(meta["about"])}</p>' if meta.get("about") else ""
+        groups.append(f'<section class="shelf" id="{e(kind)}"><div class="shelf-head"><h2><span class="g" lang="pa">{e(meta["gurmukhi"])}</span> {e(meta["title"])}</h2>{about}</div>'
                       f'<div class="index">{"".join(rows)}</div></section>')
     j = k["journey"]
     journey_row = (f'<a class="ix" href="{u("journey/")}" data-filter="{e(K.fold(" ".join([j["title"], j["gurmukhi"], j["subtitle"]] + j.get("terms", []))))}">'
@@ -648,9 +657,10 @@ def build_topics(ctx):
   <label class="filter"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><input id="tq" type="search" data-filter-input placeholder="Find a topic: ego, ਨਾਮ, Sukhmani, Sangrand" aria-label="Find a topic" autocomplete="off"></label>
 </div></section>
 <div class="wrap shelves" data-filter-scope>
+  {groups[0] if groups and "jeevan" in kinds else ""}
   <section class="shelf"><div class="shelf-head"><h2><span class="g" lang="pa">ਵਿਸਥਾਰ</span> In depth</h2><p>Eleven themes with an introduction, Gurbani, Babaji’s katha and questions for reflection.</p></div>
   <div class="index">{theme_rows}</div></section>
-  {"".join(groups)}
+  {"".join(groups[1:] if "jeevan" in kinds else groups)}
 </div>
 <section class="wrap band themes-index">
   <ol class="qlist">{qs}</ol>
