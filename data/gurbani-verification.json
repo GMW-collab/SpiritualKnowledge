@@ -273,6 +273,41 @@
    "fp": "cda16cebeffe",
    "checked": "2026-10-22",
    "against": "BaniDB, Ang 131"
+  },
+  "dhaul-dharam": {
+   "status": "verified",
+   "reason": "",
+   "fp": "e27cd7f69075",
+   "checked": "2026-10-23",
+   "against": "BaniDB, Ang 3"
+  },
+  "daya-kapah": {
+   "status": "verified",
+   "reason": "",
+   "fp": "c2aad6dda782",
+   "checked": "2026-10-23",
+   "against": "BaniDB, Ang 471"
+  },
+  "santokh-daya-vrat": {
+   "status": "verified",
+   "reason": "",
+   "fp": "ffff893d2201",
+   "checked": "2026-10-23",
+   "against": "BaniDB, Ang 299"
+  },
+  "sat-santokh-daya": {
+   "status": "verified",
+   "reason": "",
+   "fp": "341e382afc74",
+   "checked": "2026-10-23",
+   "against": "BaniDB, Ang 51"
+  },
+  "bina-santokh": {
+   "status": "verified",
+   "reason": "",
+   "fp": "70560e4c2e85",
+   "checked": "2026-10-23",
+   "against": "BaniDB, Ang 279"
   }
  }
 }
