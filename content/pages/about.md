@@ -31,4 +31,4 @@ The Dera traces its spiritual lineage to Bhai Daya Singh Ji, the first of the Pa
 
 ## contact
 
-The Dera can be contacted at harkhowal@outlook.com.
+The Dera can be contacted at satnam@harkhowal.com.
