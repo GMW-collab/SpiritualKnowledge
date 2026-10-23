@@ -4,8 +4,9 @@
   "title": "From manmukh to gurmukh",
   "subtitle": "The journey of a human life, as Gurbani maps it",
   "summary": "The journey from manmukh to gurmukh in Gurbani: life facing the self, the turning, the five khands of Japji Sahib (Dharam, Gian, Saram, Karam, Sach), the true mint of pauri 38, and Babaji's katha of each pauri.",
-  "terms": ["gurmukh", "manmukh", "journey", "path", "spiritual journey", "stages", "khand", "khands", "five realms", "panj khand", "dharam khand", "gian khand", "saram khand", "karam khand", "sach khand", "taksal", "mint", "transformation", "spiritual growth", "ਗੁਰਮੁਖ", "ਮਨਮੁਖ", "ਖੰਡ", "ਸਚ ਖੰਡ"],
+  "terms": ["daya", "dya", "compassion", "santokh", "contentment", "ਦਇਆ", "ਸੰਤੋਖ", "gurmukh", "manmukh", "journey", "path", "spiritual journey", "stages", "khand", "khands", "five realms", "panj khand", "dharam khand", "gian khand", "saram khand", "karam khand", "sach khand", "taksal", "mint", "transformation", "spiritual growth", "ਗੁਰਮੁਖ", "ਮਨਮੁਖ", "ਖੰਡ", "ਸਚ ਖੰਡ"],
   "review": {"status": "awaiting-review", "drafted": "2026-10-22", "by": "AI-assisted editorial draft"},
+  "foundation": {"id": "foundation", "gurmukhi": "ਦਇਆ ਅਤੇ ਸੰਤੋਖ", "title": "Before setting out: compassion and contentment", "short": "Daya, santokh", "source": "Japji Sahib, Pauri 16, Ang 3", "topic": "daya-santokh"},
   "stages": [
     {"id": "manmukh", "gurmukhi": "ਮਨਮੁਖ", "title": "Facing the self", "short": "Manmukh", "source": "Gurbani on the manmukh", "topics": ["haumai", "man", "maya", "gratitude"]},
     {"id": "turning", "gurmukhi": "ਸਨਮੁਖ", "title": "Turning around", "short": "Turning", "source": "Japji Sahib, Pauri 1; Raag Majh, Ang 115", "topics": ["hukam", "guru-dharna", "satsang"]},
@@ -42,6 +43,36 @@ This page follows that turning in seven steps. It begins with an honest look at 
 ::: tension Is it a ladder?
 Commentators read the five khands in different ways. Many teachers expound them as successive stages of spiritual growth, and much katha follows that order. Others read them as dimensions of a single realisation, present together, or as a description of the Divine order rather than of a seeker's progress. Japji itself names the fourth realm *karam*, grace: the decisive step is given, not climbed. This page uses the steps as a map for reflection. It is not a ladder to be scaled by effort, and not a measure for ranking anyone.
 :::
+
+## foundation
+
+**Before the first step.** Japji Sahib gives the journey a footing before it gives it a map. In the sixteenth pauri, Guru Nanak Dev Ji sets aside the old story of a bull that carries the earth on its back, and names what really holds the world up: dharam, born of *daiā*, compassion, and kept in place by *santokh*, contentment.
+
+[[gurbani:dhaul-dharam]]
+
+**Daya, compassion.** Daya is a heart that feels another's pain as if it were its own, and will not add to it. Without it, religious discipline turns hard and proud, and knowledge turns into cleverness. Gurbani makes compassion the raw cotton of the only sacred thread worth wearing.
+
+[[gurbani:daya-kapah]]
+
+**Santokh, contentment.** Santokh is a mind that has stopped grasping. It is not resignation or idleness: Gurbani pairs it with honest work and with effort on the path. It is freedom from the restless ‘more’ that drives the manmukh, and so it frees the attention for Naam.
+
+[[gurbani:bina-santokh]]
+
+**Why they come first.** The first realm of the journey is Dharam Khand. If dharam is the son of daya and stands on santokh, then these two are not one stage among others but the ground on which the whole path is walked. Without compassion, a seeker's progress only feeds haumai; without contentment, every gain becomes one more thing to want.
+
+[[gurbani:santokh-daya-vrat]]
+
+[[gurbani:sat-santokh-daya]]
+
+::: tension First, or all the way?
+Calling daya and santokh ‘prerequisites’ is this page's reading: it joins the sixteenth pauri, where dharam rests on them, to the realm of dharam in the thirty-fourth. Gurbani also speaks of them as gifts of the Guru's grace that grow as the seeker walks. Both fit experience: a little compassion and contentment are needed to begin, and they deepen at every step.
+:::
+
+### In daily life
+- Before judging someone, ask what they may be carrying that you cannot see.
+- Once a day, help someone in a way that will not be noticed or repaid.
+- When you want something new, pause and name what you already have.
+- Listen to Babaji's katha of the sixteenth pauri, below.
 
 ## manmukh
 

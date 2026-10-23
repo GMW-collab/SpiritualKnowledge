@@ -246,6 +246,36 @@
       }
     },
     {
+      "id": "daya-santokh",
+      "kind": "idea",
+      "gurmukhi": "ਦਇਆ ਸੰਤੋਖ",
+      "title": "Compassion and contentment (Daya, Santokh)",
+      "aliases": [
+        "compassion",
+        "contentment",
+        "daya",
+        "dya",
+        "daeya",
+        "santokh",
+        "santosh",
+        "kindness",
+        "mercy to others"
+      ],
+      "about": "Japji Sahib names dharam the son of daya (compassion), held in place by santokh (contentment): the ground of the journey from manmukh to gurmukh.",
+      "match": {
+        "gurmukhi": [
+          "=ਦਇਆ",
+          "=ਦਯਾ",
+          "ਸੰਤੋਖ"
+        ],
+        "roman": [
+          "daya(?! singh)",
+          "santokh",
+          "jap ji sahib pauri 16"
+        ]
+      }
+    },
+    {
       "id": "gratitude",
       "kind": "idea",
       "gurmukhi": "ਸ਼ੁਕਰ",

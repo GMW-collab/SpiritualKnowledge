@@ -536,6 +536,77 @@
         "author": "Guru Arjan Dev Ji"
       },
       "confidence": "to-verify"
+    },
+    {
+      "id": "dhaul-dharam",
+      "gurmukhi": "ਧੌਲੁ ਧਰਮੁ ਦਇਆ ਕਾ ਪੂਤੁ ॥ ਸੰਤੋਖੁ ਥਾਪਿ ਰਖਿਆ ਜਿਨਿ ਸੂਤਿ ॥",
+      "translit": "Dhaul dharam daiā kā pūt. Santokh thāp rakhiā jin sūt.",
+      "rendering": "The bull that holds up the earth is dharam, the son of compassion; contentment is what keeps it set in place, as if by a thread.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 3,
+        "bani": "Japji Sahib, Pauri 16",
+        "author": "Guru Nanak Dev Ji"
+      },
+      "japji_pauri": 16,
+      "confidence": "high",
+      "translation_note": "‘Dhaul’ is the bull of Indian myth said to carry the earth; Guru Nanak Dev Ji puts dharam in its place. ‘Jin sūt’ is read as ‘which holds it with its thread’ or as ‘which keeps it in its proper order’."
+    },
+    {
+      "id": "daya-kapah",
+      "gurmukhi": "ਦਇਆ ਕਪਾਹ ਸੰਤੋਖੁ ਸੂਤੁ ਜਤੁ ਗੰਢੀ ਸਤੁ ਵਟੁ ॥ ਏਹੁ ਜਨੇਊ ਜੀਅ ਕਾ ਹਈ ਤ ਪਾਡੇ ਘਤੁ ॥",
+      "translit": "Daiā kapāh santokh sūt jat gaṇḍhī sat vaṭ. Eh janeū jīa kā haī ta pāḍe ghat.",
+      "rendering": "Make compassion the cotton, contentment the thread, self-restraint the knot and truth the twist. This is the sacred thread of the soul; if you have it, pandit, then put it on me.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 471,
+        "bani": "Asa di Var, Salok Mahalla 1",
+        "author": "Guru Nanak Dev Ji"
+      },
+      "confidence": "high",
+      "translation_note": "Spoken, in the traditional account, when the young Guru Nanak Dev Ji was to be invested with the janeu, the sacred thread."
+    },
+    {
+      "id": "santokh-daya-vrat",
+      "gurmukhi": "ਮਨਿ ਸੰਤੋਖੁ ਸਰਬ ਜੀਅ ਦਇਆ ॥ ਇਨ ਬਿਧਿ ਬਰਤੁ ਸੰਪੂਰਨ ਭਇਆ ॥",
+      "translit": "Man santokh sarab jīa daiā. In bidh barat sampūran bhaiā.",
+      "rendering": "Contentment in the mind and compassion for every living being: in this way the fast is truly kept.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 299,
+        "bani": "Gauri Thitee, Mahalla 5",
+        "author": "Guru Arjan Dev Ji"
+      },
+      "confidence": "to-verify",
+      "translation_note": "‘Barat’ is a religious fast; the Guru names the inner discipline that a fast is meant to be."
+    },
+    {
+      "id": "sat-santokh-daya",
+      "gurmukhi": "ਸਤੁ ਸੰਤੋਖੁ ਦਇਆ ਕਮਾਵੈ ਏਹ ਕਰਣੀ ਸਾਰ ॥",
+      "translit": "Sat santokh daiā kamāvai eh karṇī sār.",
+      "rendering": "To practise truth, contentment and compassion: this is the most excellent way of living.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 51,
+        "bani": "Sri Raag, Mahalla 5",
+        "author": "Guru Arjan Dev Ji"
+      },
+      "confidence": "to-verify",
+      "translation_note": "‘Kamāvai’, earns or practises: these are qualities lived, not only admired."
+    },
+    {
+      "id": "bina-santokh",
+      "gurmukhi": "ਬਿਨਾ ਸੰਤੋਖ ਨਹੀ ਕੋਊ ਰਾਜੈ ॥ ਸੁਪਨ ਮਨੋਰਥ ਬ੍ਰਿਥੇ ਸਭ ਕਾਜੈ ॥",
+      "translit": "Binā santokh nahī koū rājai. Supan manorath brithe sabh kājai.",
+      "rendering": "Without contentment no one is satisfied; like dreams, all their schemes and labours come to nothing.",
+      "source": {
+        "granth": "Sri Guru Granth Sahib Ji",
+        "ang": 279,
+        "bani": "Sukhmani Sahib, Gauri Mahalla 5",
+        "author": "Guru Arjan Dev Ji"
+      },
+      "confidence": "to-verify",
+      "translation_note": "‘Rājai’, is filled or satisfied."
     }
   ]
 }

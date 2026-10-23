@@ -384,8 +384,27 @@ def build_journey(ctx):
     reviewed = review.get("status") == "reviewed"
     review_note = (f'Reviewed by {e(review.get("reviewer", "an editor"))}.' if reviewed else "Awaiting review by a learned reader.")
     n = len(j["stages"])
-    rail = "".join(f'<li><a href="#{st["id"]}"><span class="g" lang="pa">{e(st["gurmukhi"])}</span> {e(st["short"])}</a></li>' for st in j["stages"])
+    fd0 = j.get("foundation")
+    rail = (f'<li class="pre"><a href="#{fd0["id"]}"><span class="g" lang="pa">ਦਇਆ</span> {e(fd0["short"])}</a></li>' if fd0 else "") + "".join(f'<li><a href="#{st["id"]}"><span class="g" lang="pa">{e(st["gurmukhi"])}</span> {e(st["short"])}</a></li>' for st in j["stages"])
     layers = [f'<section id="intro" class="layer">{provenance("editorial", "<span class=rv>" + review_note + "</span>")}<h2>Two ways of facing</h2>{md(sec.get("intro", ""), ctx_local)}</section>']
+    fd = j.get("foundation")
+    if fd:
+        vids, recs, _ = topic_items(ctx, fd.get("topic", ""))
+        pauri = [(t, sr) for t, sr, _ in recs if re.search(r"Pauri 16\b", t["t"])]
+        others = [(t, sr) for t, sr, _ in recs if (t, sr) not in pauri]
+        rows = "".join(track_row(t, sr, sub=sr["title"]) for t, sr in pauri + others)
+        vh = "".join(video_card(v, small=True) for v, _ in vids[:6])
+        tp = k["topic_by_id"].get(fd.get("topic", ""))
+        more = (f'<p class="tags"><span class="tags-lbl">Topic:</span> <a class="tag" href="{topic_url(tp)}"><span class="g" lang="pa">{e(tp["gurmukhi"])}</span> '
+                f'{e(tp["title"].split(" (")[0])}</a></p>') if tp else ""
+        layers.append(f'<section id="{fd["id"]}" class="layer foundation"><p class="gloss"><b>The ground of the journey</b><span>Drawn from {e(fd["source"])}.</span>'
+                      f'<span>Editorial guide; Gurbani is quoted with its source.</span></p>'
+                      f'<h2><span class="g" lang="pa">{e(fd["gurmukhi"])}</span><span class="en">{e(fd["title"])}</span></h2>'
+                      f'{md(sec.get("foundation", ""), ctx_local)}'
+                      + (f'<h3 id="daya-katha">Babaji’s katha on daya and santokh</h3><p class="sub">Japji Sahib, pauri 16, first; then divans that take up compassion and contentment.</p>'
+                         f'<div class="rows" data-queue>{rows}</div>' if rows else "")
+                      + (f'<div class="vgrid">{vh}</div>' if vh else "")
+                      + more + '</section>')
     for i, st in enumerate(j["stages"]):
         chips = []
         for tid in st.get("topics", []):
@@ -419,7 +438,7 @@ def build_journey(ctx):
       <h1><span class="g" lang="pa">{e(j['gurmukhi'])}</span><span class="en">{e(j['title'])}</span></h1>
       <p class="sub">{e(j['subtitle'])}</p>
       {journey_path(ctx, on_night=True)}
-      <p class="journey-listen"><a href="#katha">Listen to Babaji’s katha of these pauris</a></p>
+      <p class="journey-listen">{('<a href="#foundation">Before the first step: daya and santokh</a> · ') if j.get('foundation') else ''}<a href="#katha">Listen to Babaji’s katha of these pauris</a></p>
     </div>
   </header>
   <div class="wrap tika">

@@ -505,3 +505,10 @@ details.morerows summary{cursor:pointer;font:500 16px var(--sans);color:var(--ne
 .short p[lang=pa]{font-family:var(--gur-sans)}
 .short .meta{font-size:13px;color:var(--muted);margin-top:4px;-webkit-line-clamp:1}
 @media (max-width:560px){.shorts{grid-auto-columns:minmax(132px,46vw)}}
+
+/* Journey: the ground before the first step (daya and santokh) */
+.rail li.pre{counter-increment:none}
+.rail li.pre a::before{content:"\2022";color:var(--kesri)}
+.foundation>.gloss{border-top-color:var(--kesri)}
+.foundation .vgrid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:24px}
+@media (max-width:560px){.foundation .vgrid{grid-template-columns:1fr}}

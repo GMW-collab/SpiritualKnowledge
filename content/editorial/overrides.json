@@ -1,7 +1,17 @@
 {
   "_about": "Editorial decisions that override automatic processing. Edit this file on GitHub (or paste the snippet the Review page generates). Item ids: 'yt:<videoId>' for YouTube videos, 'a:<path>' for a Gurmatveechar recording (path as in data/audio.json), 's:<series-id>' for a whole series, 'f:<feed-id>:<guid>' for a feed item.",
   "theme_add": {},
-  "theme_remove": {},
+  "theme_remove": {
+    "yt:B4jN51W3ygY": [
+      "daya-santokh"
+    ],
+    "yt:NEARWIIRsvg": [
+      "daya-santokh"
+    ],
+    "yt:vSSDa5XSmK4": [
+      "daya-santokh"
+    ]
+  },
   "theme_confirmed": {},
   "approve": [],
   "reject": [],

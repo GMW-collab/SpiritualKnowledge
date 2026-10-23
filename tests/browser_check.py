@@ -176,7 +176,11 @@ with sync_playwright() as p:
     pg.locator(".journey-head .path a").nth(5).click()
     pg.wait_for_timeout(300)
     check("a stop on the journey path jumps to its step", pg.url.endswith("#karam-khand") and pg.locator("#karam-khand").is_visible())
-    pg.locator(".journey-head .journey-listen a").click()
+    pg.locator(".journey-head .journey-listen a[href='#foundation']").click()
+    pg.wait_for_timeout(200)
+    check("the journey opens with daya and santokh, with Babaji's katha of pauri 16",
+          pg.url.endswith("#foundation") and "Pauri 16" in pg.locator("#daya-katha + p + .rows").inner_text())
+    pg.locator(".journey-head .journey-listen a[href='#katha']").click()
     pg.wait_for_timeout(200)
     first = pg.locator("#katha + p + .rows .row").first
     first.click()
