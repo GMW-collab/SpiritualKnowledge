@@ -69,6 +69,27 @@ def fetch_api(channel_id, key, known_ids, fetch=request, max_pages=40):
     return out
 
 
+def feed_urls(channel_id):
+    """The channel feed, then the same uploads as a playlist feed. YouTube sometimes answers
+    404 to one of them from data-centre addresses (such as GitHub's) while the other works."""
+    return [f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}",
+            f"https://www.youtube.com/feeds/videos.xml?playlist_id=UU{channel_id[2:]}"]
+
+
+def fetch_feed(channel_id, fetch=request):
+    errors = []
+    for url in feed_urls(channel_id):
+        kind = "playlist" if "playlist_id" in url else "channel"
+        try:
+            items = parse_feed(fetch(url))
+            if items:
+                return items, errors
+            errors.append(f"{kind} feed empty")
+        except Exception as e:
+            errors.append(f"{kind} feed {e}")
+    return [], errors
+
+
 def run(cfg, source, fetch=request):
     cid = cfg.get("youtube_channel_id")
     if not cid:
@@ -76,13 +97,12 @@ def run(cfg, source, fetch=request):
     old = load("videos.json", {"videos": []})
     by_id = {v["id"]: v for v in old.get("videos", [])}
     notes, got = [], 0
-    try:
-        fresh = parse_feed(fetch(f"https://www.youtube.com/feeds/videos.xml?channel_id={cid}"))
-        got += len(fresh)
-        for v in fresh:
-            by_id[v["id"]] = {**by_id.get(v["id"], {}), **v}
-    except Exception as e:
-        notes.append(f"feed: {e}")
+    fresh, errors = fetch_feed(cid, fetch)
+    got += len(fresh)
+    for v in fresh:
+        by_id[v["id"]] = {**by_id.get(v["id"], {}), **v}
+    if not fresh:
+        notes.append("feed: " + "; ".join(errors))
     key = os.environ.get("YOUTUBE_API_KEY", "").strip()
     method = "feed"
     if key:
