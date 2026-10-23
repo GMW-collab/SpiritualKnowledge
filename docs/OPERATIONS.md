@@ -18,7 +18,7 @@ Live at **`https://www.harkhowal.com`** since 23 October 2026, deployed by Cloud
 
 **Done and checked**
 - Every push is tested before it can go live: 50 unit and build tests, 57 browser checks served the way Cloudflare serves the site, an axe-core accessibility audit (WCAG 2.1 A and AA) of every kind of page in light and dark mode at desktop and phone widths, and a Wrangler dry run. Cloudflare builds a preview of every branch.
-- The daily update runs at 04:17 UTC, refuses to save data if the tests fail, and keeps the previous day's material if a source is unreachable.
+- The content update runs twice a day (04:17 and 16:17 UTC), refuses to save data if the tests fail, and keeps the previous day's material if a source is unreachable.
 - Security headers (Content-Security-Policy without `unsafe-inline`, HSTS, nosniff, referrer and permissions policies) are served, confirmed on Cloudflare.
 - The workers.dev address sends `X-Robots-Tag: noindex`, so only harkhowal.com will be indexed once attached. Confirmed on Cloudflare.
 - Gurbani quotations are checked against BaniDB every day; a line that fails, or turns out to be on a neighbouring Ang, is hidden until corrected.
@@ -68,7 +68,7 @@ If the Worker is ever renamed in Cloudflare, change `name` in `wrangler.jsonc` t
 
 ## Routine maintenance
 
-- **Nothing daily.** New katha appears by itself each morning (04:17 UTC).
+- **Nothing daily.** New katha and videos appear by themselves (updates at 04:17 and 16:17 UTC).
 - **Weekly or monthly:** open `/review/`; confirm new theme links, approve imported items, check for Gurbani lines that failed.
 - **When a new series appears on Gurmatveechar** it shows under "Newly added" in the library. Give it a Gurmukhi name in `config.json` (`series_gurmukhi`), place it on a shelf and describe it in `content/texts.json`.
 - **If the Actions tab shows a red cross**, open the run: each source reports separately, one failing never affects the others, and the site keeps the previous day's material.

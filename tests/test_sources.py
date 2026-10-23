@@ -53,6 +53,19 @@ class YouTubeTest(TempData):
         self.assertEqual(res.state, "kept-previous")
         self.assertEqual(len(common.load("videos.json", {})["videos"]), 1)
 
+    def test_falls_back_to_playlist_feed(self):
+        seen = []
+
+        def fetch(url, **k):
+            seen.append(url)
+            if "channel_id=" in url:
+                raise RuntimeError("HTTP Error 404: Not Found")
+            return fixture("youtube_feed.xml")
+        res = youtube.run({"youtube_channel_id": "UCabc"}, {}, fetch=fetch)
+        self.assertEqual(res.state, "ok")
+        self.assertIn("playlist_id=UUabc", seen[-1])
+        self.assertEqual(len(common.load("videos.json", {})["videos"]), 2)
+
     def test_api_pages_and_key_is_scrubbed(self):
         os.environ["YOUTUBE_API_KEY"] = "SECRET123"
         try:
