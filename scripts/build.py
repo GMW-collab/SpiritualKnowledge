@@ -910,7 +910,7 @@ def portrait(name, alt, caption, sizes="(max-width: 900px) 92vw, 400px", lazy=Tr
 
 
 # (width, height) of the prepared sizes in assets/images
-PHOTOS = {"babaji": ((440, 471), (800, 856)), "sant-jawala-singh-ji": ((400, 485), (720, 873))}
+PHOTOS = {"babaji": ((440, 471), (800, 856)), "babaji-standing": ((440, 587), (800, 1067)), "sant-jawala-singh-ji": ((400, 485), (720, 873))}
 
 
 def build_about(ctx):
@@ -930,7 +930,7 @@ def build_about(ctx):
 <section class="page-head"><div class="wrap"><h1>About Babaji and the Dera</h1></div></section>
 <div class="wrap about">
   <div class="col">
-    {portrait("babaji", "Sant Baba Jagjit Singh Ji, seated cross-legged in white, holding prashad", "Sant Baba Jagjit Singh Ji Harkhowal Wale", lazy=False)}
+    {portrait("babaji-standing", "Sant Baba Jagjit Singh Ji standing outdoors in white, with a white turban, a fawn cardigan and a red garland", "Sant Baba Jagjit Singh Ji Harkhowal Wale", lazy=False)}
     {md(s.get('babaji', ''), ctx)}
     <h2>Dera Sant Ghar</h2>{md(s.get('dera', ''), ctx)}
     <h2>Sant Jawala Singh Ji</h2>
