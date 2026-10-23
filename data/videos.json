@@ -2,6 +2,8 @@
  "updated": "2026-10-23",
  "channel_url": "https://www.youtube.com/@Santjagjitsinghjiharkhowal",
  "method": "feed+api",
+ "archive_complete": true,
+ "shorts_complete": true,
  "videos": [
   {
    "id": "dcU63mGhz30",
@@ -25,13 +27,15 @@
    "id": "vyhOR9MliJM",
    "title": "ਸੰਗਰਾਂਦ ਸ਼ਬਦ ||  ਮਹੀਨਾ ਕੱਤਕ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। ਰਾਗ ਤੁਖਾਰੀ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ",
    "published": "2026-10-16",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "wP0iMsUtz44",
    "title": "ਕੱਤਕ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ। ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ ਤੁੜ ||",
    "published": "2026-10-16",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "WEh6AywrkPM",
@@ -109,7 +113,8 @@
    "id": "rRBZ1LpA2cw",
    "title": "Assu Month Sangrand Gurbani Shabad ll",
    "published": "2026-09-16",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "-m1ph2YxVHo",
@@ -121,7 +126,8 @@
    "id": "_sf58M9XaTs",
    "title": "Assu Month Sangrand Gurbani Shabad ll ਅਸੂ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ll",
    "published": "2026-09-16",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "rk45tz_kAhY",
@@ -169,7 +175,8 @@
    "id": "PGWrI88V4WY",
    "title": "ਰੱਬ ਦਾ ਕੀ ਪਾਉਣਾ ? ਪ੍ਰਮਾਤਮਾ ਸਾਰੀਆਂ ਜਗ੍ਹਾਂ ਵਿਆਪਕ ਹੈ।  Sant Baba Jagjit Singh Ji Harkhowal",
    "published": "2026-08-30",
-   "description": "ਰੱਬ ਦਾ ਕੀ ਪਾਉਣਾ ? ਪ੍ਰਮਾਤਮਾ ਸਾਰੀਆਂ ਜਗ੍ਹਾਂ ਵਿਆਪਕ ਹੈ।  Sant Baba Jagjit Singh Ji Harkhowal  #santbabajagjitsinghjiharkhowal"
+   "description": "ਰੱਬ ਦਾ ਕੀ ਪਾਉਣਾ ? ਪ੍ਰਮਾਤਮਾ ਸਾਰੀਆਂ ਜਗ੍ਹਾਂ ਵਿਆਪਕ ਹੈ।  Sant Baba Jagjit Singh Ji Harkhowal  #santbabajagjitsinghjiharkhowal",
+   "short": true
   },
   {
    "id": "9_AJcWCYeqo",
@@ -373,13 +380,15 @@
    "id": "8Hz0t5L0WDg",
    "title": "Sawan Month Sangrand  Gurbani Shabad Tukhari Raag ll ਸੰਗਰਾਂਦ ਦੇ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸੁਣੋ ਜੀ ll",
    "published": "2026-07-16",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "wTj8aGC8QeM",
    "title": "ਸਾਵਣ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਣ ਕਰੋ ਜੀl Bhai Jagtar  Singh Ji Tur",
    "published": "2026-07-15",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "77K59Np0R5Y",
@@ -493,13 +502,15 @@
    "id": "JiEDOaFWgXQ",
    "title": "ਸੰਗਰਾਂਦ ਦੇ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ l",
    "published": "2026-06-15",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "atZZI3LddXk",
    "title": "ਹਾੜ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ l bhai jagtar singh ji tur",
    "published": "2026-06-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "Hx6cUzinePc",
@@ -589,13 +600,15 @@
    "id": "wXytfG2grLg",
    "title": "ਸੰਗਰਾਂਦ ਦੇ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਣ ਕਰੋ ਜੀ",
    "published": "2026-05-15",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "sWYarIOavu4",
    "title": "ਜੇਠ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ",
    "published": "2026-05-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "xdTOOlsADkE",
@@ -721,7 +734,8 @@
    "id": "kByLAU4EKoo",
    "title": "Sant Baba Jagjit Singh Ji Harkhowal ll Sri Guru Nanak Dev Ji University Amritsar",
    "published": "2026-04-15",
-   "description": "Sant Baba Jagjit Singh Ji Harkhowal ll Sri Guru Nanak Dev Ji University Amritsar \n#santbabajagjitsinghharkhowal"
+   "description": "Sant Baba Jagjit Singh Ji Harkhowal ll Sri Guru Nanak Dev Ji University Amritsar \n#santbabajagjitsinghharkhowal",
+   "short": true
   },
   {
    "id": "z8uo7qpuDQM",
@@ -733,13 +747,15 @@
    "id": "eF_JcqHsE00",
    "title": "ਵੈਸਾਖੁ ਭਲਾ ਸਾਖਾ ਵੇਸ ਕਰੇ II ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। Sangrand Gurbani Shabad",
    "published": "2026-04-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "vtiTJDhEvOo",
    "title": "ਸੰਗਰਾਂਦ ਗੁਰਬਾਣੀ ਸ਼ਬਦ। ਵੈਸਾਖੀ ਦੇ ਤਿਉਹਾਰ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ।",
    "published": "2026-04-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "FE79WSSSSQI",
@@ -871,13 +887,15 @@
    "id": "BxmpmGwooNk",
    "title": "ਚੇਤਿ ਗੋਵਿੰਦੁ ਅਰਾਧੀਐ ਹੋਵੈ ਅਨੰਦੁ ਘਣਾ ॥ ਨਵੇਂ ਸਾਲ ਦੀ ਆਰੰਭਤਾ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ।",
    "published": "2026-03-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "POAEpd-3MtM",
    "title": "ਚੇਤ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦਾ ਪਵਿੱਤਰ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji",
    "published": "2026-03-13",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "YMIr4k7DYmc",
@@ -913,7 +931,8 @@
    "id": "Csz2WZSfAWo",
    "title": "ਦਰਸ਼ਨ ਸ੍ਰੀ ਦਰਬਾਰ ਸਾਹਿਬ ਸ੍ਰੀ ਤਰਨਤਾਰਨ ਸਾਹਿਬ। Sant Baba Jagjit Singh Ji Harkhowal",
    "published": "2026-03-07",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "v32y1VAVEEw",
@@ -949,13 +968,15 @@
    "id": "aE-e6X3UXY4",
    "title": "ਗੁਰੂ ਕਾ ਲੰਗਰ। Sant Baba Jagjit Singh Ji Harkhowal ll ਸੰਤ ਆਸ਼ਰਮ ਸੁਲਤਾਨਪੁਰ ਲੋਧੀ।",
    "published": "2026-03-01",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "ilLbWgyvi20",
    "title": "ਸੰਗਤਾਂ ਵੱਲੋਂ ਸਤਿਕਾਰਯੋਗ ਮਹਾਂਪੁਰਖਾਂ ਦਾ ਸਤਿਕਾਰ ਪਿਆਰ। sant baba jagjit singh ji harkhowal",
    "published": "2026-03-01",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "zq1oDU3GFXo",
@@ -1027,13 +1048,15 @@
    "id": "DOsWFFOordM",
    "title": "Sant Baba Jagjit Singh Ji Harkhowal ਦਰਸ਼ਨ ਦੀਦਾਰ ਸ੍ਰੀ ਦਰਬਾਰ ਸਾਹਿਬ ਜੀ ਅੰਮ੍ਰਿਤਸਰ ਸਾਹਿਬ।  14/02/2026",
    "published": "2026-02-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "aWrCDr2YP4Y",
    "title": "ਸੰਗਰਾਂਦ ਦੇ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ ਸੁਲਤਾਨਪੁਰ ਲੋਧੀ",
    "published": "2026-02-13",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "5yHJwsvd1Ho",
@@ -1051,7 +1074,8 @@
    "id": "CM7JBPE3TgY",
    "title": "ਫੱਗਣ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji Tur",
    "published": "2026-02-12",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "nQ0NCcwouOI",
@@ -1147,13 +1171,15 @@
    "id": "v3_P644Dato",
    "title": "ਮਾਘਿ ਪੁਨੀਤ ਭਈ ਤੀਰਥੁ ਅੰਤਰਿ ਜਾਨਿਆ ll ਮਾਘ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ।",
    "published": "2026-01-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "8RfT_pwq4xA",
    "title": "ਮਾਘ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ। Sangrand Gurbani Shabad l Sangrand Shabad l",
    "published": "2026-01-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "YOn2nhhSADw",
@@ -1261,13 +1287,15 @@
    "id": "1VJUZKlLGLk",
    "title": "ਗੁਰਬਾਣੀ ਸ਼ਬਦ। ਪੋਹ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ। ਤੁਖਾਰੀ ਰਾਗੁ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ ਤੁੜ",
    "published": "2025-12-14",
-   "description": "ਗੁਰਬਾਣੀ ਸ਼ਬਦ। ਪੋਹ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ। ਤੁਖਾਰੀ ਰਾਗੁ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ ਤੁੜ"
+   "description": "ਗੁਰਬਾਣੀ ਸ਼ਬਦ। ਪੋਹ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ। ਤੁਖਾਰੀ ਰਾਗੁ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ ਤੁੜ",
+   "short": true
   },
   {
    "id": "JOTxPpzRHZI",
    "title": "ਪੋਹ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ ਤੁੜ",
    "published": "2025-12-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "bsOMwJYdJq4",
@@ -1357,7 +1385,8 @@
    "id": "7ze_wPFJz-M",
    "title": "350 ਸਾਲਾ ਸ਼ਹੀਦੀ ਦਿਹਾੜਾ ਸ੍ਰੀ ਗੁਰੂ ਤੇਗ ਬਹਾਦੁਰ ਸਾਹਿਬ ਜੀ, ਭਾਈ ਮਤੀ ਦਾਸ ਜੀ, ਭਾਈ ਸਤੀ ਦਾਸ ਜੀ, ਭਾਈ ਦਿਆਲਾ ਜੀ।",
    "published": "2025-11-22",
-   "description": "ਧੰਨ ਧੰਨ ਸ੍ਰੀ ਗੁਰੂ ਤੇਗ ਬਹਾਦਰ ਸਾਹਿਬ ਜੀ ਧੰਨ ਧੰਨ ਭਾਈ ਮਤੀ ਦਾਸ ਜੀ ਧੰਨ ਧੰਨ ਭਾਈ ਸਤੀ ਦਾਸ ਜੀ ਧੰਨ ਧੰਨ ਭਾਈ ਦਿਆਲਾ ਜੀ ਦੇ 350 ਸਾਲਾਂ ਸ਼ਹੀਦੀ ਦਿਹਾੜੇ ਦਿਵਸ ਨੂੰ ਸਮਰਪਿਤ ਵਿਚਾਰ ਸ੍ਰਵਣ ਕਰੋ ਜੀ।\n\n350 ਸਾਲਾ ਸ਼ਹੀਦੀ ਦਿਹਾੜਾ ਸ੍ਰੀ ਗੁਰੂ ਤੇਗ ਬਹਾਦੁਰ ਸਾਹਿਬ ਜੀ, ਭਾਈ ਮਤੀ ਦਾਸ ਜੀ, ਭਾਈ ਸਤੀ ਦਾਸ ਜੀ, ਭਾਈ ਦਿਆਲਾ ਜੀ।\nਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ ਤੁੜ। \n#santbabajagjitsinghharkhowal"
+   "description": "ਧੰਨ ਧੰਨ ਸ੍ਰੀ ਗੁਰੂ ਤੇਗ ਬਹਾਦਰ ਸਾਹਿਬ ਜੀ ਧੰਨ ਧੰਨ ਭਾਈ ਮਤੀ ਦਾਸ ਜੀ ਧੰਨ ਧੰਨ ਭਾਈ ਸਤੀ ਦਾਸ ਜੀ ਧੰਨ ਧੰਨ ਭਾਈ ਦਿਆਲਾ ਜੀ ਦੇ 350 ਸਾਲਾਂ ਸ਼ਹੀਦੀ ਦਿਹਾੜੇ ਦਿਵਸ ਨੂੰ ਸਮਰਪਿਤ ਵਿਚਾਰ ਸ੍ਰਵਣ ਕਰੋ ਜੀ।\n\n350 ਸਾਲਾ ਸ਼ਹੀਦੀ ਦਿਹਾੜਾ ਸ੍ਰੀ ਗੁਰੂ ਤੇਗ ਬਹਾਦੁਰ ਸਾਹਿਬ ਜੀ, ਭਾਈ ਮਤੀ ਦਾਸ ਜੀ, ਭਾਈ ਸਤੀ ਦਾਸ ਜੀ, ਭਾਈ ਦਿਆਲਾ ਜੀ।\nਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ ਤੁੜ। \n#santbabajagjitsinghharkhowal",
+   "short": true
   },
   {
    "id": "qyVql_BrYkA",
@@ -1399,19 +1428,22 @@
    "id": "D5fSE_5VU4I",
    "title": "ਮੱਘਰ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਤੇ ਤੁਖਾਰੀ ਰਾਗ ਵਿਚ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji Tur",
    "published": "2025-11-16",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "QCVQzuPBx8Q",
    "title": "ਮੱਘਰ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ ਤੁੜ ।",
    "published": "2025-11-15",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "4wTLyaKLoxA",
    "title": "ਮਿਟੀ ਧੁੰਧ ਜਗ ਚਾਨਣ ਹੋਆ। ਪ੍ਰਕਾਸ਼ ਪੁਰਬ ਧੰਨ ਸ੍ਰੀ ਗੁਰੂ ਨਾਨਕ ਦੇਵ ਜੀ ll Sant Baba Jagjit Singh Ji Harkhowal",
    "published": "2025-11-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "1rNzFAs3ENY",
@@ -1483,7 +1515,8 @@
    "id": "KMlVND6QF4g",
    "title": "ਸੰਖਨ ਕੀ ਧੁਨਿ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। S. Inderpal Singh Ji RCF Kapurthala",
    "published": "2025-11-03",
-   "description": "ਸੰਖਨ ਕੀ ਧੁਨਿ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। Nagar Kirtan Prakash Purab Dhan dhan Sri Guru Nanak Dev Ji ll S. Inderpal Singh Ji RCF Kapurthala ll\n#nagarkirtan"
+   "description": "ਸੰਖਨ ਕੀ ਧੁਨਿ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। Nagar Kirtan Prakash Purab Dhan dhan Sri Guru Nanak Dev Ji ll S. Inderpal Singh Ji RCF Kapurthala ll\n#nagarkirtan",
+   "short": true
   },
   {
    "id": "NQS-mBaN2DU",
@@ -1585,7 +1618,8 @@
    "id": "rIiO8l6NNNI",
    "title": "ਕਤਕਿ ਕਿਰਤੁ ਪਇਆ ਜੋ ਪ੍ਰਭ ਭਾਇਆ ॥ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। Sangrand Gurbani Shabad ll #sangrand",
    "published": "2025-10-17",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "Xfgbuzvj_YM",
@@ -1597,7 +1631,8 @@
    "id": "wMcnaKxkIC0",
    "title": "ਕੱਤਕ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਪਵਿੱਤਰ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ ਤੁੜ",
    "published": "2025-10-16",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "4qVAzZ9yy-U",
@@ -1645,13 +1680,15 @@
    "id": "7jInwubOp2k",
    "title": "ਮਨਮੋਹਕ ਦ੍ਰਿਸ਼। ਆਤਿਸ਼ਬਾਜੀ ਨਜ਼ਾਰਾ। ਸੱਚਖੰਡ ਸ੍ਰੀ ਹਰਿਮੰਦਰ ਸਾਹਿਬ ਜੀ। fireworks sri darbar sahib amritsar",
    "published": "2025-10-08",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "nWcFfhJoW40",
    "title": "ਧੰਨੁ ਧੰਨੁ ਰਾਮਦਾਸ ਗੁਰੁ ਜਿਨਿ ਸਿਰਿਆ ਤਿਨੈ ਸਵਾਰਿਆ ॥ ਧੰਨ ਧੰਨ ਸ੍ਰੀ ਗੁਰੂ ਰਾਮਦਾਸ ਜੀ ਦਾ ਪਵਿੱਤਰ ਪ੍ਰਕਾਸ਼ ਗੁਰਪੁਰਬ",
    "published": "2025-10-08",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "zbDwEVqbQ40",
@@ -1783,13 +1820,15 @@
    "id": "h9mzemLGxpg",
    "title": "ਅਸੁਨਿ ਆਉ ਪਿਰਾ ਸਾ ਧਨ ਝੂਰਿ ਮੁਈ II Sangrand Gurbani Shabad Tukhari Raag ll Bhai Jagtar Singh Ji Tur",
    "published": "2025-09-16",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "N-SCCZ68y_Q",
    "title": "ਅੱਸੂ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਪਵਿੱਤਰ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh J Tur",
    "published": "2025-09-15",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "JpNixr1iLSg",
@@ -1963,13 +2002,15 @@
    "id": "9777o0lkDak",
    "title": "ਬਾਰਹ ਮਾਹਾ ਰਾਗ ਤੁਖਾਰੀ । Sangrand Gurbani Shabad ll bhadro month Sangrand Gurbani Shabad ll",
    "published": "2025-08-15",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "tSc0nb5Ownc",
    "title": "ਭਾਦੁਇ ਭਰਮਿ ਭੁਲਾਣੀਆ ਦੂਜੈ ਲਗਾ ਹੇਤੁ ll ਭਾਦੋਂ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ।",
    "published": "2025-08-15",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "WosobVgFER0",
@@ -2059,13 +2100,15 @@
    "id": "HyfWJXZG15I",
    "title": "sawan Sangrand Gurbani Shabad ll tukhari raag Gurbani Shabad ll Sangrand Shabad ll",
    "published": "2025-07-15",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "rsNmTmc4-6o",
    "title": "ਸਾਵਣਿ ਸਰਸੀ ਕਾਮਣੀ ਚਰਨ ਕਮਲ ਸਿਉ ਪਿਆਰੁ ll Sawan Month Sangrand Gurbani Shabad ll",
    "published": "2025-07-15",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "HIjSfS5d3ak",
@@ -2167,13 +2210,15 @@
    "id": "B-X5KjorcEw",
    "title": "ਆਸਾੜੁ ਭਲਾ ਸੂਰਜੁ ਗਗਨਿ ਤਪੈ ॥ Sangrand Gurbani Shabad ll Harh Month Sangrand ll",
    "published": "2025-06-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "UmXxuKaQIN0",
    "title": "ਹਾੜ੍ਹ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਪਵਿੱਤਰ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji Tur",
    "published": "2025-06-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "leO5PEQ9RDA",
@@ -2251,13 +2296,15 @@
    "id": "jCYFLIyXyMk",
    "title": "ਜੇਠ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਤੁਖਾਰੀ ਰਾਗ ਵਿਚ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji Tur",
    "published": "2025-05-13",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "j7sUlSDoSoE",
    "title": "ਜੇਠ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji Tur",
    "published": "2025-05-13",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "O6GpfePtalw",
@@ -2359,13 +2406,15 @@
    "id": "ZnT8OwEJfrY",
    "title": "ਵੈਸਾਖ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਦਿਹਾੜੇ ਤੇ ਤੁਖਾਰੀ ਰਾਗ ਦਾ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਣ ਕਰੋ ਜੀ। ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ ਤੁੜ ||",
    "published": "2025-04-13",
-   "description": "ਵੈਸਾਖ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਦਿਹਾੜੇ ਤੇ ਤੁਖਾਰੀ ਰਾਗ ਦਾ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਣ ਕਰੋ ਜੀ। ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ ਤੁੜ || ਸੇਵਾਦਾਰ ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ 13.04.2025"
+   "description": "ਵੈਸਾਖ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਦਿਹਾੜੇ ਤੇ ਤੁਖਾਰੀ ਰਾਗ ਦਾ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਣ ਕਰੋ ਜੀ। ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ ਤੁੜ || ਸੇਵਾਦਾਰ ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ 13.04.2025",
+   "short": true
   },
   {
    "id": "kcK2JGSlDN4",
    "title": "ਵੈਸਾਖ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਣ ਕਰੋ ਜੀ। ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ ਤੁੜ",
    "published": "2025-04-12",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "v-6R1lro6lY",
@@ -2521,7 +2570,8 @@
    "id": "QmmOjKcOORs",
    "title": "Sangrand Gurbani Shabad ll ਚੇਤਿ ਗੋਵਿੰਦੁ ਅਰਾਧੀਐ ਹੋਵੈ ਅਨੰਦੁ ਘਣਾ॥ Nanakshahi New Year Start",
    "published": "2025-03-13",
-   "description": "Sangrand Gurbani Shabad ll ਚੇਤਿ ਗੋਵਿੰਦੁ ਅਰਾਧੀਐ ਹੋਵੈ ਅਨੰਦੁ ਘਣਾ॥ Nanakshahi New Year Start"
+   "description": "Sangrand Gurbani Shabad ll ਚੇਤਿ ਗੋਵਿੰਦੁ ਅਰਾਧੀਐ ਹੋਵੈ ਅਨੰਦੁ ਘਣਾ॥ Nanakshahi New Year Start",
+   "short": true
   },
   {
    "id": "wXhkwt1hOYM",
@@ -2671,13 +2721,15 @@
    "id": "vNatfV5Dai0",
    "title": "Falgun Mahine Di Sangrand da Gurbani Shabad || Raag Tukhari Gurbani Shabad Month Fagun",
    "published": "2025-02-12",
-   "description": "Falgun Mahine Di Sangrand da Gurbani Shabad || Raag Tukhari Gurbani Shabad Month Fagun"
+   "description": "Falgun Mahine Di Sangrand da Gurbani Shabad || Raag Tukhari Gurbani Shabad Month Fagun",
+   "short": true
   },
   {
    "id": "9HyTEMh38-0",
    "title": "ਫਲਗੁਣਿ ਅਨੰਦ ਉਪਾਰਜਨਾ ਹਰਿ ਸਜਣ ਪ੍ਰਗਟੇ ਆਇ ll Sangrand Gurbani Shabad ll #santbabajagjitsinghharkhowal",
    "published": "2025-02-11",
-   "description": "ਫਲਗੁਣਿ ਅਨੰਦ ਉਪਾਰਜਨਾ ਹਰਿ ਸਜਣ ਪ੍ਰਗਟੇ ਆਇ ll Sangrand Gurbani Shabad ll #santbabajagjitsinghharkhowal \nSangrand Phagun Gurbani Shabad"
+   "description": "ਫਲਗੁਣਿ ਅਨੰਦ ਉਪਾਰਜਨਾ ਹਰਿ ਸਜਣ ਪ੍ਰਗਟੇ ਆਇ ll Sangrand Gurbani Shabad ll #santbabajagjitsinghharkhowal \nSangrand Phagun Gurbani Shabad",
+   "short": true
   },
   {
    "id": "tpjWIxMuQbA",
@@ -2845,7 +2897,8 @@
    "id": "DM1kNxCESbM",
    "title": "Magh month Sangrand Gurbani Shabad ll",
    "published": "2025-01-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "LWeN40y7fqk",
@@ -2947,7 +3000,8 @@
    "id": "6jVU7hn705E",
    "title": "Sant Baba Jagjit Singh Ji Harkhowal || Sri Guru Granth Sahib Ji Sewa || Gurdwara Sri Ber Sahib Ji ll",
    "published": "2024-12-19",
-   "description": "Sri Guru Granth Sahib Ji Sewa || Sant Baba Jagjit Singh Ji Harkhowal || Gurdwara Sri Ber Sahib Ji ||\nSri Guru Nanak Dev Ji Prakash Gurpurab 16.11.2024 \nSangat Darshan"
+   "description": "Sri Guru Granth Sahib Ji Sewa || Sant Baba Jagjit Singh Ji Harkhowal || Gurdwara Sri Ber Sahib Ji ||\nSri Guru Nanak Dev Ji Prakash Gurpurab 16.11.2024 \nSangat Darshan",
+   "short": true
   },
   {
    "id": "P6gZ83hMKlU",
@@ -2977,13 +3031,15 @@
    "id": "VYbM3apgM-Q",
    "title": "Tukhari Raag Poh Sangrand Gurbani Shabad ll Sangrand Gurbani Shabad ll Poh Di Sangrand",
    "published": "2024-12-15",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "RHr6g5OZwlc",
    "title": "Poh Di Sangrand ll Poh Sangrand Gurbani Shabad ll Sangrand Gurbani Shabad ll",
    "published": "2024-12-15",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "uC-7jz1cw1g",
@@ -3061,7 +3117,8 @@
    "id": "GwgHnBu7hK4",
    "title": "ਸਾਡੇ ਹਿਰਦੇ ਵਿੱਚ ਨਾਮ ਵਸਾ ਦਿਓ ਜੀ ll Sunder Gutka Sahib Ji ll Sant Baba Jagjit Singh Ji Harkhowal ll",
    "published": "2024-11-27",
-   "description": "ਸਾਡੇ ਹਿਰਦੇ ਵਿੱਚ ਨਾਮ ਵਸਾ ਦਿਓ ਜੀ ll Sunder Gutka Sahib Ji ll Sant Baba Jagjit Singh Ji Harkhowal ll"
+   "description": "ਸਾਡੇ ਹਿਰਦੇ ਵਿੱਚ ਨਾਮ ਵਸਾ ਦਿਓ ਜੀ ll Sunder Gutka Sahib Ji ll Sant Baba Jagjit Singh Ji Harkhowal ll",
+   "short": true
   },
   {
    "id": "jhb2gf-kYwQ",
@@ -3115,7 +3172,8 @@
    "id": "C8pna1yKBRA",
    "title": "ਮੱਘਰ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਤੁਖਾਰੀ ਰਾਗ ਦਾ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji Tur",
    "published": "2024-11-16",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "CdQVKGmbKV0",
@@ -3127,7 +3185,8 @@
    "id": "uwW9L-5Gb-g",
    "title": "Manghir Sangrand Gurbani Shabad ll Sangrand Shabad ll ਮੰਘਿਰਿ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ।",
    "published": "2024-11-16",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "Iu6urPQsuO0",
@@ -3139,7 +3198,8 @@
    "id": "q5f3P7Q55Tc",
    "title": "Sri Guru Nanak Dev Ji Prakash Purab Gurbani Shabad ll",
    "published": "2024-11-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "mKIDmLgsstc",
@@ -3277,7 +3337,8 @@
    "id": "9GkDzdIdmAQ",
    "title": "ਕਤਕਿ ਕਿਰਤੁ ਪਇਆ ਜੋ ਪ੍ਰਭ ਭਾਇਆ ॥ Sangrand Gurbani Shabad ll Katik Month Sangrand Shabad ll",
    "published": "2024-10-17",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "F9wvGEW11SY",
@@ -3295,7 +3356,8 @@
    "id": "85t1imc0SLU",
    "title": "ਕਤਿਕਿ ਕਰਮ ਕਮਾਵਣੇ ਦੋਸੁ ਨ ਕਾਹੂ ਜੋਗੁ ॥ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ll ਕੱਤਕ ਦੀ ਸੰਗਰਾਂਦ ਦਾ ਦਿਹਾੜਾ ਕੱਲ੍ਹ 17.10.24 ਨੂੰ ਹੈ",
    "published": "2024-10-16",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "ozMT0JeYsUw",
@@ -3325,7 +3387,8 @@
    "id": "EzUyH9YeMXY",
    "title": "Gurbani Shabad ll ਗੁਰਬਾਣੀ ਸ਼ਬਦ ll Bhai Jagtar Singh Ji Sewadar Sant Baba Jagjit Singh Ji Harkhowal",
    "published": "2024-10-12",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "nXKTHqJW0Iw",
@@ -3445,7 +3508,8 @@
    "id": "1Iyca0m6enQ",
    "title": "Sangrand Gurbani Shabad ll Tukhari Raag Barah Maha Gurbani Shabad ll bhai jagtar singh ji tur",
    "published": "2024-09-16",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "dHE0BAaqk1A",
@@ -3463,7 +3527,8 @@
    "id": "HfbFRFk0uWI",
    "title": "ਅਸੁਨਿ ਪ੍ਰੇਮ ਉਮਾਹੜਾ ਕਿਉ ਮਿਲੀਐ ਹਰਿ ਜਾਇ ॥ Asun Sangrand Gurbani Shabad ll Sangrand Shabad ll",
    "published": "2024-09-15",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "gGQgdX09LLs",
@@ -3643,7 +3708,8 @@
    "id": "4Hq78_f7nfg",
    "title": "ਭਾਦੋਂ ਦੀ ਸੰਗਰਾਂਦ।  Bhadro Sangrand Shabad l Sangrand Gurbani Shabad",
    "published": "2024-08-16",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "z5kl_qGFnoU",
@@ -3661,7 +3727,8 @@
    "id": "PtRkylNnghc",
    "title": "ਭਾਦੁਇ ਭਰਮਿ ਭੁਲਾਣੀਆ ਦੂਜੈ ਲਗਾ ਹੇਤੁ ॥ Bhadro Sangrand Gurbani Shabad ll #sangrand",
    "published": "2024-08-15",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "EMoU8PEdqqA",
@@ -3697,7 +3764,8 @@
    "id": "nNTXYM7HOyg",
    "title": "ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ।",
    "published": "2024-08-03",
-   "description": "Anmol Bachan & Gurbani Katha Veechar ll Sant Baba Jagjit Singh Ji Harkhowal l sant ashram 03.08.2024"
+   "description": "Anmol Bachan & Gurbani Katha Veechar ll Sant Baba Jagjit Singh Ji Harkhowal l sant ashram 03.08.2024",
+   "short": true
   },
   {
    "id": "MiDITdMP62A",
@@ -3811,7 +3879,8 @@
    "id": "pF2CQ7b8VK0",
    "title": "sawan Sangrand Gurbani Shabad",
    "published": "2024-07-15",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "xbrgYTaOEKU",
@@ -3943,7 +4012,8 @@
    "id": "QmmqtvNcXaQ",
    "title": "Gurbani Shabad ll Parkash Purab Sri Guru Hargobind Sahib Ji ll",
    "published": "2024-06-22",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "I_SCxGqRHRM",
@@ -3991,13 +4061,15 @@
    "id": "dT3ixAwjTa0",
    "title": "ਆਸਾੜੁ ਭਲਾ ਸੂਰਜੁ ਗਗਨਿ ਤਪੈ ॥ Haar Di Sangrand || Gurbani Shabad || Sangrand Shabad || #sangrand",
    "published": "2024-06-14",
-   "description": "ਆਸਾੜੁ ਭਲਾ ਸੂਰਜੁ ਗਗਨਿ ਤਪੈ ॥ Haar Di Sangrand || Gurbani Shabad || Sangrand Shabad || #sangrand \nBhai Jagtar Singh Ji Tur"
+   "description": "ਆਸਾੜੁ ਭਲਾ ਸੂਰਜੁ ਗਗਨਿ ਤਪੈ ॥ Haar Di Sangrand || Gurbani Shabad || Sangrand Shabad || #sangrand \nBhai Jagtar Singh Ji Tur",
+   "short": true
   },
   {
    "id": "1o0eHJnN5qw",
    "title": "ਆਸਾੜੁ ਤਪੰਦਾ ਤਿਸੁ ਲਗੈ ਹਰਿ ਨਾਹੁ ਨ ਜਿੰਨਾ ਪਾਸਿ ॥ Gurbani Shabad || Sangrand Shabad || Har Di sangrand",
    "published": "2024-06-14",
-   "description": "ਆਸਾੜੁ ਤਪੰਦਾ ਤਿਸੁ ਲਗੈ ਹਰਿ ਨਾਹੁ ਨ ਜਿੰਨਾ ਪਾਸਿ ॥ Gurbani Shabad || Sangrand Shabad || Har Di sangrand"
+   "description": "ਆਸਾੜੁ ਤਪੰਦਾ ਤਿਸੁ ਲਗੈ ਹਰਿ ਨਾਹੁ ਨ ਜਿੰਨਾ ਪਾਸਿ ॥ Gurbani Shabad || Sangrand Shabad || Har Di sangrand",
+   "short": true
   },
   {
    "id": "QDwLZlkrXBk",
@@ -4051,7 +4123,8 @@
    "id": "qfE3nYozujw",
    "title": "Gurbani Shabad ll ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ।",
    "published": "2024-06-08",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "iGBXd5xp1xY",
@@ -4249,13 +4322,15 @@
    "id": "qjM8IqUFpjo",
    "title": "Sangrand Gurbani Shabad || Jeth Month Today Sangrand || Gurbani Shabad ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਤੁੜ",
    "published": "2024-05-14",
-   "description": "Sangrand Gurbani Shabad || Jeth Month Today Sangrand || Gurbani Shabad ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਤੁੜ"
+   "description": "Sangrand Gurbani Shabad || Jeth Month Today Sangrand || Gurbani Shabad ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਤੁੜ",
+   "short": true
   },
   {
    "id": "9dCNlOENWeg",
    "title": "ਜੇਠ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਪਵਿੱਤਰ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ । Bhai Jagtar Singh Ji Tur",
    "published": "2024-05-13",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "lQvcK4IVtAI",
@@ -4297,7 +4372,8 @@
    "id": "MMgNbECAaf0",
    "title": "ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji",
    "published": "2024-05-09",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "GF5K-h4TCf8",
@@ -4327,7 +4403,8 @@
    "id": "nL3TT3EGX6M",
    "title": "ਕੋਈ ਜਨ ਹਰਿ ਸਿਉ ਦੇਵੈ ਜੋਰਿ ll Gurbani Shabad ll",
    "published": "2024-05-04",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "X2IPEvaDHmQ",
@@ -4345,7 +4422,8 @@
    "id": "Q0tKvxABgWM",
    "title": "ਗੁਰਬਾਣੀ ਸ਼ਬਦ। Gurbani Shabad ll",
    "published": "2024-05-02",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "ku5mkde9XWc",
@@ -4531,7 +4609,8 @@
    "id": "mquNW7ibaxY",
    "title": "vaisakh month gurbani shabad ll Gurbani Shabad status #sangrandvaisakh #gurbanishabad",
    "published": "2024-04-13",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "GJcLN_DTIXk",
@@ -4639,13 +4718,15 @@
    "id": "hwFkzJjwANg",
    "title": "ਹੋਲੀ ਕੀਨੀ ਸੰਤ ਸੇਵ ll Gurbani Shabad ll Holla mohalla Gurbani Shabad ll Bhai Jagtar Singh Ji Tur ll",
    "published": "2024-03-26",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "nKHxVO6kFpw",
    "title": "ਹੋਲਾ ਮਹੱਲਾ ਸ਼੍ਰੀ ਅਨੰਦਪੁਰ ਸਾਹਿਬ ਜੀ।  ਗੁਰਬਾਣੀ ਸ਼ਬਦ ll ਲਾਲ ਰੰਗੁ ਤਿਸ ਕਉ ਲਗਾ ਜਿਸ ਕੇ ਵਡਭਾਗਾ ॥",
    "published": "2024-03-26",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "5ykojIRcZso",
@@ -4771,13 +4852,15 @@
    "id": "SzO-O8HC4ns",
    "title": "Sangrand Gurbani Shabad raag Tukhari ll Chet Sangrand Gurbani Shabad ll Barah Maha tukhari",
    "published": "2024-03-13",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "sflJT4Pwr0w",
    "title": "Sangrand Shabad ll Chet Sangrand Gurbani Shabad ll Barah Maha first month ll",
    "published": "2024-03-13",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "V9CxdMO5l5Y",
@@ -4789,7 +4872,8 @@
    "id": "l0EehowHxsI",
    "title": "ਕਿਰਤਿ ਕਰਮ ਕੇ ਵੀਛੁੜੇ ਕਰਿ ਕਿਰਪਾ ਮੇਲਹੁ ਰਾਮ ll Nanakshahi Year Start ll Desi Samat 556",
    "published": "2024-03-13",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "wV3cUZTSp40",
@@ -4915,7 +4999,8 @@
    "id": "mqc2wpfSazg",
    "title": "Bhagat Ravidass Ji Shabad ll",
    "published": "2024-02-24",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "a80q9SE_JSg",
@@ -5035,7 +5120,8 @@
    "id": "7i-S8KmKV8w",
    "title": "ਫੱਗਣ ਦੀ ਸੰਗਰਾਂਦ ਦਾ ਪਵਿੱਤਰ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਤੁਖਾਰੀ ਰਾਗੁ ਵਿੱਚ ਸ੍ਰਵਨ ਕਰੋ ਜੀ।",
    "published": "2024-02-13",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "nupiYNmqg2w",
@@ -5047,7 +5133,8 @@
    "id": "INJx46N_hOQ",
    "title": "ਫੱਗਣ ਮਹੀਨੇ ਦੇ ਸੰਗਰਾਂਦ ਦੇ ਪਵਿੱਤਰ ਦਿਹਾੜੇ ਤੇ ਵਿਸ਼ੇਸ਼ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ Bhai Jagtar Singh Ji Tur",
    "published": "2024-02-12",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "zdxGlquY3RM",
@@ -5095,7 +5182,8 @@
    "id": "srVYn9NCQ18",
    "title": "Raag Basant ll ਬਸੰਤ ਰਾਗ ਗੁਰਬਾਣੀ ਸ਼ਬਦ।।",
    "published": "2024-02-07",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "sRbGwvaipWc",
@@ -5227,7 +5315,8 @@
    "id": "WXbwHAyOrjk",
    "title": "Dhan dhan Baba Deep Singh Ji Birthday ll Gurbani Shabad ll Bhai Jagtar Singh Ji Tur",
    "published": "2024-01-27",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "vdRXv6ut4dw",
@@ -5317,7 +5406,8 @@
    "id": "lSsltAuMcSs",
    "title": "ਸ਼੍ਰੀ ਗੁਰੂ ਗੋਬਿੰਦ ਸਿੰਘ ਸਾਹਿਬ ਜੀ ਦੇ ਪਵਿੱਤਰ ਪ੍ਰਕਾਸ਼ ਪੁਰਬ ਦੇ ਸ਼ਬਦ। Bhai Jagtar Singh Ji Tur",
    "published": "2024-01-16",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "fW0JlSj80Pw",
@@ -5341,7 +5431,8 @@
    "id": "KsAlVWbAl_g",
    "title": "ਮਾਘੀ ਦੀ ਸੰਗਰਾਂਦ ਦਾ ਪਵਿੱਤਰ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji Tur",
    "published": "2024-01-13",
-   "description": "ਮਾਘੀ ਦੀ ਸੰਗਰਾਂਦ ਦਾ ਪਵਿੱਤਰ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji Tur"
+   "description": "ਮਾਘੀ ਦੀ ਸੰਗਰਾਂਦ ਦਾ ਪਵਿੱਤਰ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji Tur",
+   "short": true
   },
   {
    "id": "XSNTEL99-vY",
@@ -5449,7 +5540,8 @@
    "id": "0EGAPkr2np8",
    "title": "Anmol Bachan ll ਨਵੇਂ ਸਾਲ 2024 ਦੀ ਆਰੰਭਤਾ ਤੇ ਵਿਸ਼ੇਸ਼ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ।",
    "published": "2023-12-31",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "16YVJumxa4Y",
@@ -5539,7 +5631,8 @@
    "id": "1cdnP9ALtqo",
    "title": "ਗਗਨ ਦਮਾਮਾ ਬਾਜਿਓ ਪਰਿਓ ਨੀਸਾਨੈ ਘਾਉ ll",
    "published": "2023-12-23",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "8NBz3Q403VM",
@@ -5611,7 +5704,8 @@
    "id": "ScdUJJJNJzU",
    "title": "ਪੋਹ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦਾ ਪਵਿੱਤਰ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ।",
    "published": "2023-12-15",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "4Lig-eCjbww",
@@ -5695,7 +5789,8 @@
    "id": "TqBS_vkdVYc",
    "title": "Gurbani Shabad ll #gurbanishabad",
    "published": "2023-12-07",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "mvt45LM7i7Y",
@@ -5791,7 +5886,8 @@
    "id": "VF_DKfmZCyk",
    "title": "ਸਤਿਗੁਰ ਨਾਨਕ ਪ੍ਰਗਟਿਆ ਮਿਟੀ ਧੁੰਧੁ ਜਗਿ ਚਾਨਣੁ ਹੋਆ। Sri Guru Nanak Dev Ji Parkash Gurpurab Shabad ll",
    "published": "2023-11-26",
-   "description": "ਸਤਿਗੁਰ ਨਾਨਕ ਪ੍ਰਗਟਿਆ ਮਿਟੀ ਧੁੰਧੁ ਜਗਿ ਚਾਨਣੁ ਹੋਆ। Sri Guru Nanak Dev Ji Parkash Gurpurab Shabad ll"
+   "description": "ਸਤਿਗੁਰ ਨਾਨਕ ਪ੍ਰਗਟਿਆ ਮਿਟੀ ਧੁੰਧੁ ਜਗਿ ਚਾਨਣੁ ਹੋਆ। Sri Guru Nanak Dev Ji Parkash Gurpurab Shabad ll",
+   "short": true
   },
   {
    "id": "xPSptV_FMOk",
@@ -5869,7 +5965,8 @@
    "id": "WmvbQq8bIiw",
    "title": "# short ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲਿਆਂ ਦਾ ਸੰਤ ਆਸ਼ਰਮ ਸੁਲਤਾਨਪੁਰ ਲੋਧੀ ਪੁੱਜਣ ਤੇ ਸੰਗਤਾਂ ਦਾ ਪ੍ਰੇਮ",
    "published": "2023-11-19",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "HQkcGjtcaIc",
@@ -5917,7 +6014,8 @@
    "id": "gKSFim_6H5c",
    "title": "ਮੱਘਰ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਪਵਿੱਤਰ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। bhai Jagtar Singh Ji tur",
    "published": "2023-11-15",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "ujBU4-yCI2Q",
@@ -5959,7 +6057,8 @@
    "id": "oTwhKk3EZE4",
    "title": "Satguru bandi chor hai ll gurbani shabad",
    "published": "2023-11-12",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "JqEyRup2D-Y",
@@ -6025,7 +6124,8 @@
    "id": "eAOBD-OTqVA",
    "title": "ਯਕ ਅਰਜ ਗੁਫਤਮ ਪੇਸਿ ਤੋ ਦਰ ਗੋਸ ਕੁਨ ਕਰਤਾਰ ll Gurbani Shabad ll Bhai Jagtar Singh Ji",
    "published": "2023-11-04",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "xuohRIl6RBY",
@@ -6151,7 +6251,8 @@
    "id": "SMEWvH3Kop0",
    "title": "ਕੱਤਕ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਪਵਿੱਤਰ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ ਤੁੜ",
    "published": "2023-10-16",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "s1n6L13C0mQ",
@@ -6223,7 +6324,8 @@
    "id": "LXwE54YiWOc",
    "title": "#gurbanishabad #jyoti jyot diwas Sri Guru Nanak Dev Ji Maharaj",
    "published": "2023-10-07",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "fdIRTYz0QhI",
@@ -6301,7 +6403,8 @@
    "id": "t-_D47tzh3c",
    "title": "Sri Guru Amar Das Ji Jyoti Jyot Diwas ll Gurbani Shabad ll",
    "published": "2023-09-29",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "-lQY2H80Nmw",
@@ -6403,7 +6506,8 @@
    "id": "xsQioXt_vHM",
    "title": "ਸੰਗਰਾਂਦ ਸ਼ਬਦ ਤੁਖਾਰੀ ਰਾਗ। ਅੱਸੂ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦਾ ਪਵਿੱਤਰ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ।",
    "published": "2023-09-17",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "O5yxvYxehe0",
@@ -6421,7 +6525,8 @@
    "id": "CKwmxGObJiM",
    "title": "Asun Sangrand Shabad ll Sangrand Gurbani Shabad ll Assu Sangrand Gurbani Shabad",
    "published": "2023-09-16",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "FCI2-uegc_0",
@@ -6451,7 +6556,8 @@
    "id": "gpbc1Nzz2Zk",
    "title": "ਠਾਕੁਰ ਤੁਮ੍ ਸਰਣਾਈ ਆਇਆ ll Gurbani Shabad ll Bhai Jagtar Singh Ji Tur",
    "published": "2023-09-12",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "Luo7nnX8UwQ",
@@ -6493,7 +6599,8 @@
    "id": "RuF-fgmZSYs",
    "title": "ਗੂਜਰੀ ਸ੍ਰੀ ਜੈਦੇਵ ਜੀਉ ਕਾ ਪਦਾ ਘਰੁ ੪ ll Bhai Jagtar Singh Ji Tur ||  #religion #sant #gurbanishabad",
    "published": "2023-09-09",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "XZtGzLnuE9o",
@@ -6553,7 +6660,8 @@
    "id": "5VGQ6xSw1mY",
    "title": "bhadro Sangrand shabad tukhari raag ll Bhai Jagtar Singh Ji Tur",
    "published": "2023-08-17",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "94jYv2BUUVQ",
@@ -6571,7 +6679,8 @@
    "id": "NR5LiOhsSIA",
    "title": "bhado mahine di sangrand da Gurbani Shabad ll Sangrand Shabad ll Bhai Jagtar Singh Ji Harkhowal",
    "published": "2023-08-16",
-   "description": "bhado mahine di sangrand da Gurbani Shabad ll Sangrand Shabad ll Bhai Jagtar Singh Ji Harkhowal ll Sangrand date 17.08.2023"
+   "description": "bhado mahine di sangrand da Gurbani Shabad ll Sangrand Shabad ll Bhai Jagtar Singh Ji Harkhowal ll Sangrand date 17.08.2023",
+   "short": true
   },
   {
    "id": "uqWHUZbDqJc",
@@ -6595,7 +6704,8 @@
    "id": "QXPO_3sSXb0",
    "title": "#gurbanishabad #shorts #ਗੁਰਬਾਣੀ ਸ਼ਬਦ ll ਪ੍ਰਭ ਕੀ ਸਰਣਿ ਸਗਲ ਭੈ ਲਾਥੇ ਦੁਖ ਬਿਨਸੇ ਸੁਖੁ ਪਾਇਆ ll",
    "published": "2023-08-08",
-   "description": "#gurbanishabad #shorts #ਗੁਰਬਾਣੀ ਸ਼ਬਦ ll ਪ੍ਰਭ ਕੀ ਸਰਣਿ ਸਗਲ ਭੈ ਲਾਥੇ ਦੁਖ ਬਿਨਸੇ ਸੁਖੁ ਪਾਇਆ ll Bhai Jagtar Singh Ji Tur"
+   "description": "#gurbanishabad #shorts #ਗੁਰਬਾਣੀ ਸ਼ਬਦ ll ਪ੍ਰਭ ਕੀ ਸਰਣਿ ਸਗਲ ਭੈ ਲਾਥੇ ਦੁਖ ਬਿਨਸੇ ਸੁਖੁ ਪਾਇਆ ll Bhai Jagtar Singh Ji Tur",
+   "short": true
   },
   {
    "id": "q-OSq1dqGtE",
@@ -6661,7 +6771,8 @@
    "id": "gtqimazanhM",
    "title": "ਅੰਤਰਜਾਮੀ ਸੋ ਪ੍ਰਭੁ ਪੂਰਾ ll Gurbani Shabad ll #gurbani #gurbanistatus #gurbanishabad",
    "published": "2023-07-19",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "s3FK5jHgMCI",
@@ -6673,7 +6784,8 @@
    "id": "vwGCnMEVlng",
    "title": "ਸਾਵਣਿ ਦੀ ਸੰਗਰਾਂਦ ਤੇ ਤੁਖਾਰੀ ਰਾਗ ਦਾ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ।",
    "published": "2023-07-17",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "FijHs9IxKKU",
@@ -6691,7 +6803,8 @@
    "id": "PJ6IrRQ4eRE",
    "title": "ਸਾਵਣਿ ਸਰਸੀ ਕਾਮਣੀ ਚਰਨ ਕਮਲ ਸਿਉ ਪਿਆਰੁ ll Sangrand sawan month Gurbani Shabad ll Sangrand 16.07.2023",
    "published": "2023-07-15",
-   "description": "ਸਾਵਣਿ ਸਰਸੀ ਕਾਮਣੀ ਚਰਨ ਕਮਲ ਸਿਉ ਪਿਆਰੁ ll Sangrand sawan month Gurbani Shabad ll Sangrand 16.07.2023"
+   "description": "ਸਾਵਣਿ ਸਰਸੀ ਕਾਮਣੀ ਚਰਨ ਕਮਲ ਸਿਉ ਪਿਆਰੁ ll Sangrand sawan month Gurbani Shabad ll Sangrand 16.07.2023",
+   "short": true
   },
   {
    "id": "aciIFw2SpTc",
@@ -6727,7 +6840,8 @@
    "id": "DJotbKQnPNs",
    "title": "ਹਮ ਨਹੀ ਚੰਗੇ ਬੁਰਾ ਨਹੀ ਕੋਇ ll",
    "published": "2023-07-06",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "h310ZSycgTM",
@@ -6763,7 +6877,8 @@
    "id": "6EYtf3afHL8",
    "title": "ਵਾਹਿਗੁਰੂ ਵਾਹਿਗੁਰੂ ਵਾਹਿਗੁਰੂ ਵਾਹਿ ਜੀਉ ll #gurbani",
    "published": "2023-06-28",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "4_059Nza4cw",
@@ -6829,7 +6944,8 @@
    "id": "ITBUSpvAX6Q",
    "title": "ਹਾੜ ਮਹੀਨੇ ਦਾ ਤੁਖਾਰੀ ਰਾਗ ਦਾ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ।",
    "published": "2023-06-15",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "l6MnSB9R6Cw",
@@ -6841,7 +6957,8 @@
    "id": "7gQscg7sKmA",
    "title": "ll ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ ਤੁੜ ll",
    "published": "2023-06-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "g0S3z5RXOsI",
@@ -6889,7 +7006,8 @@
    "id": "Hey5gYOLM7U",
    "title": "ਸਗਲ ਅਨੰਦ ਕੀਆ ਪਰਮੇਸਰਿ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ",
    "published": "2023-06-06",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "CWcYe8UmQyo",
@@ -6901,7 +7019,8 @@
    "id": "TkIudhEkvX4",
    "title": "Sri Guru Hargobind Sahib Ji Parkash Purab Gurbani Shabad ll",
    "published": "2023-06-04",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "-t4MBB9XAYY",
@@ -6943,7 +7062,8 @@
    "id": "acvYiHbOggo",
    "title": "ਤੇਰਾ ਕੀਆ ਮੀਠਾ ਲਾਗੈ ll ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji Tur",
    "published": "2023-05-24",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "sdloyFqs0Uc",
@@ -7009,7 +7129,8 @@
    "id": "nEznI_n-7f0",
    "title": "ਅੱਜ ਜੇਠ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਹੈ ਜੀ। ਸੰਗਰਾਂਦ ਦਾ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ ਤੁੜ",
    "published": "2023-05-15",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "N-e_3Mk1zd4",
@@ -7021,13 +7142,15 @@
    "id": "0VmXD7M68uU",
    "title": "ਸਿਰਫ ਪੰਦਰਾਂ ਮਿੰਟ ਸੇਵਾ ਪਾਠੀ ਸਿੰਘ ਜੀ ll ਇਹ ਜ਼ਰੂਰੀ ਸੁਣੋ ਜੀ। sant Baba Jagjit Singh Ji Harkhowal",
    "published": "2023-05-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "5PT9IsJrQC8",
    "title": "ਪਰਮੇਸਰਿ ਦਿਤਾ ਬੰਨਾ ll ਦੁਖ ਰੋਗ ਕਾ ਡੇਰਾ ਭੰਨਾ ll #gurbani",
    "published": "2023-05-11",
-   "description": "ਪਰਮੇਸਰਿ ਦਿਤਾ ਬੰਨਾ ll ਦੁਖ ਰੋਗ ਕਾ ਡੇਰਾ ਭੰਨਾ ll #gurbani"
+   "description": "ਪਰਮੇਸਰਿ ਦਿਤਾ ਬੰਨਾ ll ਦੁਖ ਰੋਗ ਕਾ ਡੇਰਾ ਭੰਨਾ ll #gurbani",
+   "short": true
   },
   {
    "id": "uC15b7XkllA",
@@ -7069,7 +7192,8 @@
    "id": "W-wH1rP07z4",
    "title": "# Short Janam Din Sant Baba Jawala Singh Ji Harkhowal ll ਜਨਮ ਦਿਨ ਸੰਤ ਬਾਬਾ ਜਵਾਲਾ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ",
    "published": "2023-05-04",
-   "description": "Janam Din Sant Baba Jawala Singh Ji Harkhowal Wale ll ਜਨਮ ਦਿਨ ਸੰਤ ਬਾਬਾ ਜਵਾਲਾ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ। Gurbani Shabad ll Gurbani Status \n04.05.2023"
+   "description": "Janam Din Sant Baba Jawala Singh Ji Harkhowal Wale ll ਜਨਮ ਦਿਨ ਸੰਤ ਬਾਬਾ ਜਵਾਲਾ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ। Gurbani Shabad ll Gurbani Status \n04.05.2023",
+   "short": true
   },
   {
    "id": "1DDEMIiYDFM",
@@ -7111,7 +7235,8 @@
    "id": "rt220IBaK58",
    "title": "ਮੇਰਾ ਮਾਤ ਪਿਤਾ ਹਰਿ ਰਾਇਆ ll",
    "published": "2023-04-18",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "o416OcBfVSg",
@@ -7135,7 +7260,8 @@
    "id": "GnkkiBk9ELc",
    "title": "ਸੰਗਰਾਂਦ ਵੈਸਾਖ ਮਹੀਨਾ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ll Sangrand Shabad Waisakh Month ll Bhai Jagtar Singh Ji Tur",
    "published": "2023-04-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "yuvtegG0Mk8",
@@ -7147,7 +7273,8 @@
    "id": "Pe928erOZC8",
    "title": "ਖਾਲਸਾ ਸਾਜਨਾ ਦਿਵਸ ਦੇ ਪਵਿੱਤਰ ਦਿਹਾੜੇ ਤੇ ਵੈਸਾਖ ਮਹੀਨੇ ਦਾ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। ਭਾਈ ਜਗਤਾਰ ਸਿੰਘ ਜੀ ਤੁੜ",
    "published": "2023-04-13",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "UGV2C3AgdyM",
@@ -7159,7 +7286,8 @@
    "id": "q3XsONkUfA0",
    "title": "ਮੇਰਾ ਬੈਦੁ ਗੁਰੂ ਗੋਵਿੰਦਾ ll ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji Tur",
    "published": "2023-04-08",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "MvEjD7_msmI",
@@ -7243,7 +7371,8 @@
    "id": "qiITgHVQiHs",
    "title": "Sant Baba Attar Singh Ji Mastuana Sahib ll sant baba jagjit singh ji harkhowal Wale ll",
    "published": "2023-03-17",
-   "description": "Sant Baba Attar Singh Ji Mastuana Sahib ll sant baba jagjit singh ji harkhowal Wale ll"
+   "description": "Sant Baba Attar Singh Ji Mastuana Sahib ll sant baba jagjit singh ji harkhowal Wale ll",
+   "short": true
   },
   {
    "id": "tjStcdW4KtY",
@@ -7267,7 +7396,8 @@
    "id": "hAajcCJ4-Rg",
    "title": "ਚੇਤੁ ਬਸੰਤੁ ਭਲਾ ਭਵਰ ਸੁਹਾਵੜੇ ll ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਅਤੇ ਨਵੇਂ ਸਾਲ ਬਿਕ੍ਰਮੀ ਸੰਮਤ ੫੫੫ ਦੀਆਂ ਬੇਅੰਤ ਵਧਾਈਆਂ ਜੀ।",
    "published": "2023-03-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "5O5aXiTzhy4",
@@ -7279,7 +7409,8 @@
    "id": "Ro923B1wfIM",
    "title": "ਅੱਜ ਨਵੇਂ ਸਾਲ ਦੀ ਆਰੰਭਤਾ ਤੇ ਇਹ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji",
    "published": "2023-03-14",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "hq0_qbBgSy0",
@@ -7297,7 +7428,8 @@
    "id": "hpelZ57a1_w",
    "title": "ਚੇਤਿ ਦੀ ਸੰਗਰਾਂਦ ਦਾ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸੁਣੋ ਜੀ ਅਤੇ ਨਵੇਂ ਸਾਲ ਦੀਆਂ ਬਹੁਤ ਮੁਬਾਰਕਾਂ ਜੀ",
    "published": "2023-03-13",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "y2bxRNetWBU",
@@ -7321,7 +7453,8 @@
    "id": "pyIMG5m1Rjw",
    "title": "ਨਚ ਦੁਰਲਭੰ ਧਨੰ ਰੂਪੰ ll ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji",
    "published": "2023-03-10",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "-2gQmbS1f60",
@@ -7339,7 +7472,8 @@
    "id": "GZMUtDdOFhA",
    "title": "ਹੋਲੀ ਕੀਨੀ ਸੰਤ ਸੇਵ || Gurbani Shabad Holi Keene Sant Sew",
    "published": "2023-03-07",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "D13k6w_xcRE",
@@ -7357,13 +7491,15 @@
    "id": "5Ai2v6LthAE",
    "title": "ਗੁਰਿ ਪੂਰੈ ਮੇਰੀ ਰਾਖਿ ਲਈ ll ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji",
    "published": "2023-03-04",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "rNYAfpIoerk",
    "title": "ਥਿਰੁ ਘਰਿ ਬੈਸਹੁ ਹਰਿ ਜਨ ਪਿਆਰੇ ll ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji",
    "published": "2023-03-02",
-   "description": "ਥਿਰੁ ਘਰਿ ਬੈਸਹੁ ਹਰਿ ਜਨ ਪਿਆਰੇ ll ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji"
+   "description": "ਥਿਰੁ ਘਰਿ ਬੈਸਹੁ ਹਰਿ ਜਨ ਪਿਆਰੇ ll ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji",
+   "short": true
   },
   {
    "id": "p1MVBfCN97U",
@@ -7375,13 +7511,15 @@
    "id": "iHM7uyyZ4Ss",
    "title": "ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। ਤਾਤੀ ਵਾਉ ਨ ਲਗਈ ਪਾਰਬ੍ਰਹਮ ਸਰਣਾਈ।",
    "published": "2023-02-28",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "4YNIJ8TGSo8",
    "title": "ਅਉਖੀ ਘੜੀ ਨ ਦੇਖਣ ਦੇਈ ਅਪਨਾ ਬਿਰਦੁ ਸਮਾਲੇ ll ਪਰਮਾਤਮਾ ਦੇ ਚਰਨਾਂ ਵਿੱਚ ਬੇਨਤੀ ਵਾਲਾ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ।",
    "published": "2023-02-27",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "V5kZMuTWv0k",
@@ -7399,13 +7537,15 @@
    "id": "I4VBS9E6Rb8",
    "title": "ਦਰਸ਼ਨ ਕਰੋ ਜੀ ਭਾਈ ਬਾਲਾ ਜੀ ਦੇ ਪਵਿੱਤਰ ਸਸਕਾਰ ਅਸਥਾਨ ਦੇ ll Dhan Dhan Bhai Bala Ji ll Sri Guru Angad Dev Ji",
    "published": "2023-02-25",
-   "description": "ਇਸ ਅਸਥਾਨ ਬਾਰੇ ਬਹੁਤ ਘੱਟ ਸੰਗਤ ਨੂੰ ਪਤਾ ਹੈ ।। ਦਰਸ਼ਨ ਕਰੋ ਜੀ ਭਾਈ ਬਾਲਾ ਜੀ ਦੇ ਪਵਿੱਤਰ ਸਸਕਾਰ ਅਸਥਾਨ ਦੇ । Dhan dhan Bhai Bala Ji ll"
+   "description": "ਇਸ ਅਸਥਾਨ ਬਾਰੇ ਬਹੁਤ ਘੱਟ ਸੰਗਤ ਨੂੰ ਪਤਾ ਹੈ ।। ਦਰਸ਼ਨ ਕਰੋ ਜੀ ਭਾਈ ਬਾਲਾ ਜੀ ਦੇ ਪਵਿੱਤਰ ਸਸਕਾਰ ਅਸਥਾਨ ਦੇ । Dhan dhan Bhai Bala Ji ll",
+   "short": true
   },
   {
    "id": "U1Ze-RT2Pgw",
    "title": "84 ਪੌੜੀਆਂ ਸਾਹਿਬ ਜੀ ll Darshan Sri Bauli Sahib Ji Sri Goindwal Sahib Ji",
    "published": "2023-02-24",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "a2IHk6g_O9w",
@@ -7423,7 +7563,8 @@
    "id": "aOn2CjN2ipo",
    "title": "ਜਿਸ ਕੇ ਸਿਰ ਊਪਰਿ ਤੂੰ ਸੁਆਮੀ ਸੋ ਦੁਖੁ ਕੈਸਾ ਪਾਵੈ ll ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar  Singh Ji ll",
    "published": "2023-02-23",
-   "description": "ਜਿਸ ਕੇ ਸਿਰ ਊਪਰਿ ਤੂੰ ਸੁਆਮੀ ਸੋ ਦੁਖੁ ਕੈਸਾ ਪਾਵੈ ll ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar  Singh Ji ll"
+   "description": "ਜਿਸ ਕੇ ਸਿਰ ਊਪਰਿ ਤੂੰ ਸੁਆਮੀ ਸੋ ਦੁਖੁ ਕੈਸਾ ਪਾਵੈ ll ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar  Singh Ji ll",
+   "short": true
   },
   {
    "id": "mLSvBqK_6Kc",
@@ -7435,7 +7576,8 @@
    "id": "YS5OJ6buneY",
    "title": "ਨਾਨਕ ਦੁਖੀਆ ਸਭੁ ਸੰਸਾਰੁ ll ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ ll Bhai Jagtar Singh Ji",
    "published": "2023-02-21",
-   "description": "ਨਾਨਕ ਦੁਖੀਆ ਸਭੁ ਸੰਸਾਰੁ ll ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ ll Bhai Jagtar Singh Ji. student Sant Baba Jagjit Singh Ji Harkhowal"
+   "description": "ਨਾਨਕ ਦੁਖੀਆ ਸਭੁ ਸੰਸਾਰੁ ll ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ ll Bhai Jagtar Singh Ji. student Sant Baba Jagjit Singh Ji Harkhowal",
+   "short": true
   },
   {
    "id": "l9TQh8DErOc",
@@ -7453,13 +7595,15 @@
    "id": "5i48rVee978",
    "title": "ਦੁਖ ਭੰਜਨੁ ਤੇਰਾ ਨਾਮੁ ਜੀ ਦੁਖ ਭੰਜਨੁ ਤੇਰਾ ਨਾਮੁ ll Listen Gurbani Shabad ll Bhai Jagtar Singh Ji",
    "published": "2023-02-18",
-   "description": "ਦੁਖ ਭੰਜਨੁ ਤੇਰਾ ਨਾਮੁ ਜੀ ਦੁਖ ਭੰਜਨੁ ਤੇਰਾ ਨਾਮੁ ll Listen Gurbani Shabad ll Bhai Jagtar Singh Ji"
+   "description": "ਦੁਖ ਭੰਜਨੁ ਤੇਰਾ ਨਾਮੁ ਜੀ ਦੁਖ ਭੰਜਨੁ ਤੇਰਾ ਨਾਮੁ ll Listen Gurbani Shabad ll Bhai Jagtar Singh Ji",
+   "short": true
   },
   {
    "id": "WFxg-kuVetw",
    "title": "ਇਸ਼ਨਾਨ ਕਰਨ ਸਮੇਂ ਇਹ ਸ਼ਬਦ ਜ਼ਰੂਰ ਪੜ੍ਹੋ ਜੀ ll Bhai Jagtar Singh Ji",
    "published": "2023-02-16",
-   "description": "ਇਸ਼ਨਾਨ ਕਰਨ ਸਮੇਂ ਇਹ ਸ਼ਬਦ ਜ਼ਰੂਰ ਪੜ੍ਹੋ ਜੀ ll Bhai Jagtar Singh Ji"
+   "description": "ਇਸ਼ਨਾਨ ਕਰਨ ਸਮੇਂ ਇਹ ਸ਼ਬਦ ਜ਼ਰੂਰ ਪੜ੍ਹੋ ਜੀ ll Bhai Jagtar Singh Ji",
+   "short": true
   },
   {
    "id": "zyo3YhBF6MI",
@@ -7477,7 +7621,8 @@
    "id": "J6-757_a6Rg",
    "title": "Gatka Fight in Sant Ashram Sultanpur Lodhi ll sant baba jagjit singh ji harkhowal ll",
    "published": "2023-02-14",
-   "description": "Fast Gatka Fight in Sant Ashram Sultanpur Lodhi ll sant baba jagjit singh ji harkhowal ll Sunday 05.02.2023"
+   "description": "Fast Gatka Fight in Sant Ashram Sultanpur Lodhi ll sant baba jagjit singh ji harkhowal ll Sunday 05.02.2023",
+   "short": true
   },
   {
    "id": "ysliiVa7_NA",
@@ -7501,7 +7646,8 @@
    "id": "TWKo-CmOoL8",
    "title": "ਫੱਗਣ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦਾ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji",
    "published": "2023-02-13",
-   "description": "ਫੱਗਣ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦਾ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji Sultanpur Lodhi"
+   "description": "ਫੱਗਣ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦਾ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji Sultanpur Lodhi",
+   "short": true
   },
   {
    "id": "Lh3elU08kIQ",
@@ -7855,7 +8001,8 @@
    "id": "QNtI6QbYsoE",
    "title": "ਤੂੰ ਮੇਲੀਂ ਉਹਨਾਂ ਪਿਆਰਿਆਂ ਨੂੰ ll Sant Baba Jagjit Singh Ji Harkhowal",
    "published": "2022-12-01",
-   "description": "sant baba jagjit singh ji harkhowal Wale ll"
+   "description": "sant baba jagjit singh ji harkhowal Wale ll",
+   "short": true
   },
   {
    "id": "XR8SH1sKwks",
@@ -7975,7 +8122,8 @@
    "id": "uCQHkXtRXPc",
    "title": "gurdwara Sri ber sahib ji bhog salok",
    "published": "2022-11-08",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "hdoxjubphws",
@@ -8005,13 +8153,15 @@
    "id": "T00oE2PzGoY",
    "title": "Sri Guru Nanak Dev Ji 553 Parkash gurpurab sultanpur lodhi gurdwara Sri Ber Sahib Ji",
    "published": "2022-11-06",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "q6VTW9MZuvk",
    "title": "Sri Guru Nanak Dev Ji 553 Parkash gurpurab sultanpur lodhi gurdwara Sri Ber Sahib Ji",
    "published": "2022-11-06",
-   "description": "Sri Guru Nanak Dev Ji 553 Parkash gurpurab sultanpur lodhi gurdwara Sri Ber Sahib Ji sultanpur lodhi"
+   "description": "Sri Guru Nanak Dev Ji 553 Parkash gurpurab sultanpur lodhi gurdwara Sri Ber Sahib Ji sultanpur lodhi",
+   "short": true
   },
   {
    "id": "2MPbUVYRa7M",
@@ -8629,7 +8779,8 @@
    "id": "qO4HWNR6vH8",
    "title": "Yatra Sri Hemkunt Sahib Ji ll Nihang Singh Ji",
    "published": "2022-07-26",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "TiVz5ZqJ7IU",
@@ -8785,7 +8936,8 @@
    "id": "mUlM6fuXeS0",
    "title": "Dhan dhan Baba bidhi Chand Sahib Ji ll ਬਿਧੀ ਚੰਦ ਛੀਨਾ ਗੁਰੂ ਕਾ ਸੀਨਾ ll sant Jagjit Singh ji harkhowal",
    "published": "2022-06-30",
-   "description": "dhan dhan Baba bidhi Chand Sahib Ji"
+   "description": "dhan dhan Baba bidhi Chand Sahib Ji",
+   "short": true
   },
   {
    "id": "duJQRidAKIM",
@@ -8809,7 +8961,8 @@
    "id": "3RnixRamS-k",
    "title": "ਗੁਰਬਾਣੀ ਪੜ੍ਹਨ ਦਾ ਮਹਾਨ ਮਹਾਤਮ । ਭਾਈ ਗੋਂਦਾ ਜੀ। Sri japji sahib ll sant baba jagjit singh ji harkhowal",
    "published": "2022-06-25",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "fCdGMDTLDKE",
@@ -8821,7 +8974,8 @@
    "id": "JaMGAjfhtE8",
    "title": "sant baba jagjit singh ji harkhowal ਧੰਨ ਧੰਨ ਸ਼੍ਰੀ ਗੁਰੂ ਨਾਨਕ ਦੇਵ ਜੀ ਦੇ ਪਵਿੱਤਰ ਵਿਆਹ ਪੁਰਬ ਦੀ ਸਾਖੀ।।",
    "published": "2022-06-22",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "G2wxX9geQGs",
@@ -8905,7 +9059,8 @@
    "id": "xJumHGNUpVE",
    "title": "ਕੋਮਲ ਹਿਰਦੇ ਵਾਲੇ Dhan Dhan Sri Guru Har Rai Sahib Ji ll bachan Sant Baba Jagjit Singh Ji Harkhowal",
    "published": "2022-06-07",
-   "description": "dhan dhan Sri Guru Har Rai Sahib ji"
+   "description": "dhan dhan Sri Guru Har Rai Sahib ji",
+   "short": true
   },
   {
    "id": "sRtk_8bnOjk",
@@ -8923,7 +9078,8 @@
    "id": "S1HA2dAzvnQ",
    "title": "ਧੰਨ ਗੁਰੂ ਧੰਨ ਗੁਰੂ ਪਿਆਰੇ ll ਭਾਈ ਜੀਵਨ ਜੀ ਦੀ ਅਨਮੋਲ ਸਾਖੀ। Sant Baba Jagjit Singh Ji Harkhowal Wale ll",
    "published": "2022-06-04",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "vmS9AooybWA",
@@ -8959,7 +9115,8 @@
    "id": "zfx4ShEt0zM",
    "title": "Sri Guru Arjan Dev Ji Shaheedi Gurpurab short videos Gurbani Shabad status ll",
    "published": "2022-06-02",
-   "description": "Dhan Dhan Sri Guru Arjan Dev Ji Shaheedi Purab Status"
+   "description": "Dhan Dhan Sri Guru Arjan Dev Ji Shaheedi Purab Status",
+   "short": true
   },
   {
    "id": "3SjB5asDGBE",
@@ -9385,7 +9542,8 @@
    "id": "uPgbppwq8V8",
    "title": "Gatka video vir jagtar singh ji & Ustaad gurwinder Singh Ji",
    "published": "2022-04-06",
-   "description": "gatka video"
+   "description": "gatka video",
+   "short": true
   },
   {
    "id": "v7PV07F5Nzw",
@@ -10321,7 +10479,8 @@
    "id": "RKhVrNda6jI",
    "title": "ਗਾਵਹੁ ਮੇਰੀ ਰਸਨਾ ।। dharna kirtan by bhai darshan singh ji rabbo Ucchi at sultanpur lodhi",
    "published": "2021-11-26",
-   "description": "Gurbani Dharna Sarvan Karo ji"
+   "description": "Gurbani Dharna Sarvan Karo ji",
+   "short": true
   },
   {
    "id": "XLuenc54ub8",
@@ -10495,7 +10654,8 @@
    "id": "BpJi0AvT-Eg",
    "title": "Diwali de raat deve balian",
    "published": "2021-11-04",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "mCqU6KxIxi4",
@@ -10543,13 +10703,15 @@
    "id": "soGwgdtxgqA",
    "title": "Dussehra Nagar Kirtan Takhat Sachkhand Sri Hazur Sahib Ji Nanded",
    "published": "2021-11-02",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "O0mk5k5w0ic",
    "title": "Dussehra Nagar Kirtan Takhat Sachkhand Sri Hazur Sahib Ji",
    "published": "2021-11-02",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "L8g1IWSgDmM",
@@ -11053,7 +11215,8 @@
    "id": "aldSs4DXQgM",
    "title": "Mori run jhun laya",
    "published": "2021-07-31",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "tZJhG6vlzSo",
@@ -11191,7 +11354,8 @@
    "id": "1fMnYpBxkbI",
    "title": "Waheguru waheguru Simran by Sehajpreet Kaur",
    "published": "2021-07-04",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "EhcTsyHnM4U",
@@ -11221,7 +11385,8 @@
    "id": "Ulp2fon626o",
    "title": "ਛਬੀਲ ਸੇਵਾ । ਠੰਢੇ ਮਿੱਠੇ ਜਲ ਦੀ ਛਬੀਲ",
    "published": "2021-06-28",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "SBI-x-KFopc",
@@ -11347,7 +11512,8 @@
    "id": "PIYQ8u-R62A",
    "title": "Bachan Sant Baba Jagjit Singh Ji Harkhowal Wale",
    "published": "2021-05-29",
-   "description": ""
+   "description": "",
+   "short": true
   },
   {
    "id": "CPRJ7ShNMho",
@@ -12002,6 +12168,174 @@
    "title": "551 Parkash Gurpurab Dhan Dhan Sri Guru Nanak Dev Ji Maharaj Ji History Sri Guru Nanak Dev Ji Part 3",
    "published": "2020-11-27",
    "description": "Katha by Sant Baba Jagjit Singh Ji Harkhowal Wale."
+  },
+  {
+   "id": "0od19phMrxE",
+   "title": "551 Parkash Gurpurab Dhan Dhan Sri Guru Nanak Dev Ji Maharaj Ji History Sri Guru Nanak Dev Ji Part 2",
+   "published": "2020-11-27",
+   "description": "Katha by Sant Baba Jagjit Singh Ji Harkhowal Wale."
+  },
+  {
+   "id": "dqhqFBIAEnY",
+   "title": "551 Parkash Gurpurab Dhan Dhan Sri Guru Nanak Dev Ji Maharaj Ji History Sri Guru Nanak Dev Ji Part 1",
+   "published": "2020-11-25",
+   "description": "History Dhan Dhan Sri Guru Nanak Dev Ji Maharaj.\nKatha by Sant Baba Jagjit Singh Ji Harkhowal Wale"
+  },
+  {
+   "id": "C8ywE8XS4cc",
+   "title": "Katha 551 Parkash Gurpurab Sri Guru Nanak Dev Ji Maharaj Gurudwara Sri Ber Sahib Ji Sultanpur Lodhi",
+   "published": "2020-11-23",
+   "description": "Katha Shabad (ਜੋ ਦੀਸੈ ਗੁਰਸਿਖੜਾ ਤਿਸੁ ਨਿਵਿ ਨਿਵਿ ਲਾਗਉ ਪਾਇ ਜੀਉ ॥) Ang 763) Gurudwara Sri Ber Sahib Ji Sultanpur Lodhi. Katha by Sant Baba Jagjit Singh Ji Harkhowal Wale. 22.11.2020 Sunday"
+  },
+  {
+   "id": "YfbrdT3YbeQ",
+   "title": "Anmol Bachan, Sant Baba Jagjit Singh Ji Harkhowal Wale Sultanpur Lodhi, 17.11.2020",
+   "published": "2020-11-18",
+   "description": "Gurbani Katha Smagam at Near Sri Tarn Taran Sahib Ji. \nSant Baba Jagjit Singh Ji Harkhowal Wale Mahanpurakh."
+  },
+  {
+   "id": "bhvmYS1L8iE",
+   "title": "Manghir Sangrand di Katha/ ਮੰਘਿਰਿ ਦੀ ਸੰਗਰਾਂਦ ਮਹੀਨੇ ਦੀ ਕਥਾ  Sant Baba Jagjit Singh Ji Harkhowal Wale",
+   "published": "2020-11-16",
+   "description": "ਮੰਘਿਰਿ ਮਾਹਿ ਸੋਹੰਦੀਆ ਹਰਿ ਪਿਰ ਸੰਗਿ ਬੈਠੜੀਆਹ ॥   ਸੰਗਰਾਂਦ ਅਤੇ ਅਮਾਵਸ (ਅੰਗ ੧੩੫) (Ang 135)\nGurbani Katha Veechar, Gurdwara Sri Ber Sahib Ji Sultanpur Lodhi. \nSant Baba Jagjit Singh Ji Harkhowal Wale. 15.11.2020."
+  },
+  {
+   "id": "Uzra59ucR6c",
+   "title": "Sant Baba Jawala Singh Ji / ਸੰਤ ਬਾਬਾ ਜਵਾਲਾ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ ਮਹਾਂਪੁਰਖਾਂ ਦੇ ਸਰੀਰ ਜਲ ਪ੍ਰਵਾਹ ਦੀ ਕਥਾ",
+   "published": "2020-11-14",
+   "description": "ਸੰਤ ਬਾਬਾ ਜਵਾਲਾ  ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ ਮਹਾਂਪੁਰਖਾਂ ਦੇ ਸਰੀਰ ਦੇ ਜਲ ਪ੍ਰਵਾਹ ਦਾ ਪ੍ਰਸੰਗ, ਕਥਾ ਵੀਚਾਰ ਗੁਰਦੁਆਰਾ ਸ੍ਰੀ ਬਿਭੋਰ ਸਾਹਿਬ  ਜੀ, Sant Baba Jagjit Singh Ji Harkhowal Wale. Katha 14.11.2020."
+  },
+  {
+   "id": "Ivi2fwmg7WM",
+   "title": "Sri Guru Hargobind Sahib Ji History & Bandi Chhor Divas  Sant Baba Jagjit Singh Ji Harkhowal Wale",
+   "published": "2020-11-14",
+   "description": "ਦਿਵਾਲੀ ਇਤਿਹਾਸ ਬੰਦੀ ਛੋੜੁ ਦਿਵਸ ਕਥਾ, ਸੰਖੇਪ ਇਤਿਹਾਸ ਧੰਨ ਧੰਨ ਸ਼੍ਰੀ ਗੁਰੂ ਹਰਗੋਬਿੰਦ ਸਾਹਿਬ ਜੀ ਮਹਾਰਾਜ.   \nਕਥਾ ਵੀਚਾਰ ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ \nBandi Chhor Divas Katha By Sant Baba Jagjit Singh Ji Harkhowal Wale.\n14.11.2020."
+  },
+  {
+   "id": "U9lwOIuwC0w",
+   "title": "Katha Barsi Sant Baba Jawala Singh Ji Harkhowal Wale 13.11.2020 ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ",
+   "published": "2020-11-13",
+   "description": "Sant Baba Jawala Singh Ji Barsi, Katha by Sant Baba Jagjit Singh Ji Harkhowal Wale at Sultanpur Lodhi. 13.11.2020. ਸੰਖੇਪ ਜੀਵਨ ਸੰਤ ਬਾਬਾ ਜਵਾਲਾ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ."
+  },
+  {
+   "id": "U8mw04PwYS0",
+   "title": "2nd part Katha at Sri Hazur Sahib Ji 300 Year Samagam, Sant Baba Jagjit Singh Ji Harkhowal Wale.",
+   "published": "2020-11-11",
+   "description": "Sant Baba Jagjit Singh Ji Harkhowal Wale"
+  },
+  {
+   "id": "UWoxqdCXaos",
+   "title": "katha Shabad ਇਛਾ ਪੂਰਕੁ ਸਰਬ ਸੁਖ ਦਾਤਾ ਹਰਿ Sunday 08.11.2020 Sant Baba Jagjit Singh Ji Harkhowal Wale.",
+   "published": "2020-11-09",
+   "description": "ਗੁਰਬਾਣੀ ਕਥਾ ਵੀਚਾਰ : ਧਨਾਸਰੀ ਮਹਲਾ ੪॥ ਇਛਾ ਪੂਰਕੁ ਸਰਬ ਸੁਖਦਾਤਾ ਹਰਿ ਜਾ ਕੈ ਵਸਿ ਹੈ ਕਾਮਧੇਨਾ ॥ ਅੰਗ ੬੬੯  (Ang 669)  ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ . Sant Baba Jagjit Singh Ji Harkhowal Wale."
+  },
+  {
+   "id": "7Xb75h_Bi6A",
+   "title": "Katha & Kirtan 300 ਸਾਲਾ ਪ੍ਰਕਾਸ਼ ਗੁਰਪੁਰਬ ਸ਼੍ਰੀ ਹਜ਼ੂਰ ਸਾਹਿਬ ਜੀ (2008).Sant Jagjit Singh Ji Harkhowal Wale",
+   "published": "2020-11-05",
+   "description": "ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ ਸ਼੍ਰੀ ਹਜ਼ੂਰ ਸਾਹਿਬ ਜੀ ਵਿਖੇ  ੩੦੦ ਸਾਲਾ ਪ੍ਰਕਾਸ਼ ਗੁਰਪੁਰਬ ਤੇ ਕਥਾ ਕੀਰਤਨ ਕਰਦੇ ਹੋਏ. Sant Baba Jagjit Singh Ji Harkhowal Wale. Katha & Kirtan at Sri Hazur Sahib Ji."
+  },
+  {
+   "id": "43fXRDryvW0",
+   "title": "Katha Dhan Dhan Sri Guru Ram Das Ji Parkash Diwas Gurdwara Sri Ber Sahib Sultanpur Lodhi 02.11.2020",
+   "published": "2020-11-03",
+   "description": ""
+  },
+  {
+   "id": "BrkBReNAJJs",
+   "title": "Katha Gurbani Shabad ਤਾਤੀ ਵਾਉ ਨ ਲਗਈ ਪਾਰਬ੍ਰਹਮ ਸਰਣਾਈ / Sant Baba Jagjit Singh Ji Harkhowal Wale.",
+   "published": "2020-11-02",
+   "description": "ਬਿਲਾਵਲੁ ਮਹਲਾ ੫॥ ਤਾਤੀ ਵਾਉ ਨ ਲਗਈ ਪਾਰਬ੍ਰਹਮ ਸਰਣਾਈ॥ (ਅੰਗ ੮੧੯) ANG 819\nKatha At Sant Aashram Sultanpur Lodhi.  Sant Baba Jagjit Singh Ji Harkhowal Wale.\n01.11.2020 Sunday ."
+  },
+  {
+   "id": "OehH2b5EeGk",
+   "title": "Barsi Sant Baba Basta Singh Ji Kar Sewa Wale Sri Tarn Taran Sahib/ ਸੰਤਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲਵਾਲੇ",
+   "published": "2020-10-29",
+   "description": "ਇਸ  ਵੀਡੀਓ ਵਿਚ ਸੰਤ ਬਾਬਾ ਬੀਰਮ ਦਾਸ ਜੀ, ਸੰਤ ਬਾਬਾ ਗੁਰਮੁਖ ਸਿੰਘ ਜੀ ਕਾਰ ਸੇਵਾ ਵਾਲੇ ਮਹਾਪੁਰਖਾਂ ਦੇ  ਸੰਖੇਪ ਜੀਵਨ,\nਸ੍ਰੀ ਦਸਮ ਗਰੰਥ ਸਾਹਿਬ ਜੀ ਬਾਰੇ ਕੁਝ ਵੀਚਾਰ, ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ.\n\nSankhep Jiwan Sant Baba Biram Das Ji Badhoshi Wale, Sant Baba Gurmukh Singh Ji Kar Sewa Wale. \nSri Dasam Granth Sahib Ji Kujh Veechar, Sant Baba Jagjit Singh Ji Harkhowal Wale"
+  },
+  {
+   "id": "tvACfq5Zet0",
+   "title": "Gurbani Katha Gurudwara Sri Ber Sahib Ji 25.10.2020 Sunday./ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ",
+   "published": "2020-10-25",
+   "description": "ਕਥਾ ਸ਼ਬਦ :ਰਾਗੁ ਸੂਹੀ ਮਹਲਾ ੪ ਅਸਟਪਦੀਆ ਘਰੁ ੧੦ ੴ ਸਤਿਗੁਰ ਪ੍ਰਸਾਦਿ ॥\nਅੰਦਰਿ ਸਚਾ ਨੇਹੁ ਲਾਇਆ ਪ੍ਰੀਤਮ ਆਪਣੈ ॥ (ਅੰਗ ੭੫੮)  (ANG 758) \nਗੁਰਦੁਆਰਾ ਸ੍ਰੀ ਬੇਰ ਸਾਹਿਬ ਜੀ ਐਤਵਾਰ 25.10.2020.\nSant Baba Jagjit Singh Ji Harkhowal Wale, Sultanpur Lodhi."
+  },
+  {
+   "id": "32hFUd9bmCw",
+   "title": "History Sant Baba Bir Singh Ji Naurangabad/ਜੀਵਨ ਬਾਬਾ ਬੀਰ ਸਿੰਘ ਜੀ ਨੌਰੰਗਾਬਾਦ Sant Baba Jagjit Singh Ji",
+   "published": "2020-10-24",
+   "description": "History Sant Baba Bir Singh Ji Naurangabad Wale / ਸੰਖੇਪ ਜੀਵਨ ਬਾਬਾ ਬੀਰ ਸਿੰਘ ਜੀ ਨੌਰੰਗਾਬਾਦ ਵਾਲੇ.  ਗੁਰਮਤਿ ਵਿਚਾਰ, ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ/Sant Baba Jagjit Singh Ji Harkhowal Wale.\nKatha at Sri Tarn Taran Sahib Ji. (15.10.2020)"
+  },
+  {
+   "id": "cPW45fkY3MY",
+   "title": "ਕਥਾ ਪ੍ਰਕਾਸ਼ ਪੁਰਬ ਧੰਨ ਧੰਨ ਬਾਬਾ ਬੁੱਢਾ ਸਾਹਿਬ ਜੀ, Sant Baba Jagjit Singh Ji harkhowal Wale. (23.10.2020)",
+   "published": "2020-10-23",
+   "description": "ਕਥਾ ਪ੍ਰਕਾਸ਼ ਪੁਰਬ ਧੰਨ ਧੰਨ ਬਾਬਾ ਬੁੱਢਾ ਸਾਹਿਬ ਜੀ, ਗੁਰਦੁਆਰਾ ਗੁਰੂ ਕਾ ਬਾਗ ਸੁਲਤਾਨਪੁਰ ਲੋਧੀ.\nਕਥਾ ਸ਼ਬਦ  : ਏ ਮਨ ਹਰਿ ਜੀ ਧਿਆਇ ਤੂ ਇਕ ਮਨਿ ਇਕ ਚਿਤਿ ਭਾਇ ॥ (ਅੰਗ  ੬੫੩) ANG 653.\nਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ ਸੁਲਤਾਨਪੁਰ ਲੋਧੀ.\nGurbani Katha Veechar."
+  },
+  {
+   "id": "CjfXKtY9D8I",
+   "title": "ਗੁਰਬਾਣੀ ਕਥਾ: ਗੁਰਦੁਆਰਾ ਸ੍ਰੀ ਬੇਰ ਸਾਹਿਬ ਜੀ (ਐਤਵਾਰ 18.10.2020)  ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ",
+   "published": "2020-10-22",
+   "description": "ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਵੀਚਾਰ :- \nਧਨਾਸਰੀ ਮਹਲਾ ੫ ॥ ਤੁਮ ਦਾਤੇ ਠਾਕੁਰ ਪ੍ਰਤਿਪਾਲਕ ਨਾਇਕ ਖਸਮ ਹਮਾਰੇ ॥ ਅੰਗ ੬੭੩  (Ang 673)\nGurdwara Sri Ber Sahib Ji Sultanpur Lodhi. \nSant Baba Jagjit Singh Ji Harkhowal Wale."
+  },
+  {
+   "id": "YbEjhQhceMw",
+   "title": "ਗੁਰਬਾਣੀ ਕਥਾ ਵੀਚਾਰ ਤਖਤ ਸ਼੍ਰੀ ਕੇਸਗੜ੍ਹ ਸਾਹਿਬ ਜੀ ਸ਼੍ਰੀ ਅਨੰਦਪੁਰ ਸਾਹਿਬ, ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ॥",
+   "published": "2020-10-21",
+   "description": "ਗੁਰਬਾਣੀ ਕਥਾ ਵੀਚਾਰ ਅਤੇ ਹੋਰ ਗੁਰਮਤਿ ਵੀਚਾਰਾਂ \nਕਲਿਆਨ ਮਹਲਾ ੪ ॥ ਰਾਮਾ ਮੈ ਸਾਧੂ ਚਰਨ ਧੁਵੀਜੈ ॥  ਅੰਗ ੧੩੨੫ ॥ (Ang 1325). 21.10.2020. \nKatha Takhat Sri Kesgarh Sahib Ji, Sri Anandpur Sahib Ji. \nSant Baba Jagjit Singh Ji Harkhowal Wale, Sultanpur Lodhi."
+  },
+  {
+   "id": "osfsEF7x0LI",
+   "title": "Amawas Katha Sant Baba Jagjit Singh Ji Harkhowal Wale at Gurdwara Sri Ber Sahib Ji Sultanpur Lodhi.",
+   "published": "2020-10-18",
+   "description": "ਗੁਰਬਾਣੀ ਕਥਾ ਸ਼ਬਦ :  ਬਿਨੁ ਸਤਿਗੁਰ ਸੇਵੇ ਜੀਅ ਕੇ ਬੰਧਨਾ ਜੇਤੇ ਕਰਮ ਕਮਾਹਿ ॥  (ਅੰਗ ੫੯੦) (Ang 590)\nਅਮਾਵਸ ਕਥਾ ਗੁਰਦੁਆਰਾ ਸ਼੍ਰੀ ਬੇਰ ਸਾਹਿਬ ਜੀ ॥\nਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ (ਸੁਲਤਾਨਪੁਰ ਲੋਧੀ)"
+  },
+  {
+   "id": "nC3dLY9zsGY",
+   "title": "ਕਤਿਕ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਮਹੀਨੇ ਦੀ ਕਥਾ, ਗੁਰਦੁਆਰਾ ਸ੍ਰੀ ਬੇਰ ਸਾਹਿਬ ਜੀ /  Sant Jagjit SIngh Ji Harkhowal Wale.",
+   "published": "2020-10-17",
+   "description": "ਕਥਾ ਵੀਚਾਰ: ਕਤਿਕਿ ਕਰਮ ਕਮਾਵਣੇ ਦੋਸੁ ਨ ਕਾਹੂ ਜੋਗੁ ॥ (ਅੰਗ ੧੩੫) 135.\nSangrand Katik Month Gurbani Veechar Katha. \nSant Baba Jagjit SIngh Ji Harkhowal Wale, Sultanpur Lodhi."
+  },
+  {
+   "id": "BOvIhQ0hSvc",
+   "title": "katha Sant Baba Jagjit Singh Ji Harkhowal wale/ ਗੁਰਬਾਣੀ ਕਥਾ ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ",
+   "published": "2020-10-17",
+   "description": "(ਗੁਰਬਾਣੀ ਕਥਾ ਸ਼ਬਦ) ਦੇਵਗੰਧਾਰੀ ਮਹਲਾ ੫ ॥ ਅਪੁਨੇ ਹਰਿ ਪਹਿ ਬਿਨਤੀ ਕਹੀਐ ॥ ਅੰਗ ੫੩੧  (531)\nGurdwara Sri Guru Nanak Dev Ji Wednesfield. UK."
+  },
+  {
+   "id": "-RJ2HC8BHtA",
+   "title": "Katha Gurdwara Sri Ber Sahib Ji Sultanpur Lodhi /  ਗੁਰਦੁਆਰਾ ਸ੍ਰੀ ਬੇਰ ਸਾਹਿਬ ਜੀ ਸੁਲਤਾਨਪੁਰ ਲੋਧੀ .",
+   "published": "2020-10-13",
+   "description": "#gurbanikatha#gurmatgian#kathaveechar\nਕਥਾ ਸ਼ਬਦ: ਭੈ ਤੇ ਉਪਜੈ ਭਗਤਿ ਪ੍ਰਭ (ਅੰਗ 814)\nGurbani Veechar Katha Sant baba Jagjit Singh Ji Harkhowal Wale\nSultanpur Lodhi."
+  },
+  {
+   "id": "99bcI7L6UNk",
+   "title": "Katha veechar, Sant Baba Jagjit Singh Ji Harkhowal Wale",
+   "published": "2020-10-09",
+   "description": "Gurmat Veechar Katha by Sant Baba Jagjit Singh Ji Harkhowal Wale,\nSultanpur lodhi. Katha at Nawa Pind donewal, Jalandhar."
+  },
+  {
+   "id": "1tdvAWC4NvE",
+   "title": "Knowledge of the Parts of Special Gurbani Shabad in Sri Guru Granth Sahib Ji.",
+   "published": "2020-10-04",
+   "description": "ਧੰਂਨ ਧੰਨ ਸਾਹਿਬ ਸ੍ਰੀ ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ ਜੀ ਮਹਾਰਾਜ/ Dhan Dhan Sri Guru Granth Sahib Ji Maharaj"
+  },
+  {
+   "id": "Oq4juY2mZ0s",
+   "title": "40 Mukte Sahib Ji Holy Name/ 40 ਮੁਕਤੇ ਸਾਹਿਬਾਨ ਜੀ ਦੇ ਪਵਿਤਰ ਨਾਮ ਅਤੇ ਸੰਖੇਪ ਜਾਣਕਾਰੀ",
+   "published": "2020-10-01",
+   "description": "40 Mukte Sahib Ji Jo Sri Mukatsar Sahib Ji Shahid Hoye Ji. Uhna da Paviatar Itihas / 40 ਮੁਕਤੇ ਸਾਹਿਬਾਨ ਜੀ ਦੇ ਪਵਿਤਰ ਨਾਮ ਅਤੇ ਸੰਖੇਪ ਜਾਣਕਾਰੀ"
+  },
+  {
+   "id": "iFXBmMEb-sU",
+   "title": "Holy Gurbani Shabad to be read while bathing./ਇਸ਼ਨਾਨ ਕਰਨ ਵੇਲੇ ਪੜ੍ਹਣ ਵਾਲੇ ਗੁਰਬਾਣੀ ਦੇ ਪਵਿਤਰ ਸ਼ਬਦ",
+   "published": "2020-09-28",
+   "description": "Please subscribe my Channel (Gur Peh Ardaas) \nHoly Gurbani Shabad to be read while bathing."
+  },
+  {
+   "id": "mS3hnkOrL9g",
+   "title": "Ardas Which Is Performed Before Taking Meal Prayer before and after meal ਅਰਦਾਸ ਰੋਟੀ ਤੋਂ ਪਹਿਲਾਂ, ਬਾਅਦ",
+   "published": "2020-09-25",
+   "description": "Gur Peh Ardas.\nSikh's Prayer Before & After Food.\nPlease Subscribe my channel & Share Video, Like."
   }
  ]
 }
