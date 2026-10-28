@@ -1,10 +1,23 @@
 {
- "updated": "2026-10-27",
+ "updated": "2026-10-28",
  "channel_url": "https://www.youtube.com/@Santjagjitsinghjiharkhowal",
  "method": "feed+api",
  "archive_complete": true,
  "shorts_complete": true,
  "videos": [
+  {
+   "id": "N9ejDyB2je0",
+   "title": "ਧੰਨ ਸ੍ਰੀ ਗੁਰੂ ਰਾਮਦਾਸ ਜੀ ਦੇ ਪ੍ਰਕਾਸ਼ ਗੁਰਪੁਰਬ ਤੇ ਕਥਾ ਵੀਚਾਰ ਸ੍ਰਵਨ ਕਰੋ ਜੀ ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ",
+   "published": "2026-10-28",
+   "description": "ਧੰਨ ਸ੍ਰੀ ਗੁਰੂ ਰਾਮਦਾਸ ਜੀ ਦੇ ਪ੍ਰਕਾਸ਼ ਗੁਰਪੁਰਬ ਤੇ ਕਥਾ ਵੀਚਾਰ ਸ੍ਰਵਨ ਕਰੋ ਜੀ \nHistory Sri Guru Ramdas Satguru Ji || Prakash Purab Katha Sri Guru Ramdas Maharaj Ji || \nGurdwara Guru Ka Bagh Sahib Ji Sultanpur Lodhi 27/10//2026\n\nSant Baba Jagjit Singh Ji Harkhowal ||\nਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ"
+  },
+  {
+   "id": "wVt4kt9FSiY",
+   "title": "ਪ੍ਰਕਾਸ਼ ਗੁਰਪੁਰਬ ਸ੍ਰੀ ਗੁਰੂ ਰਾਮਦਾਸ ਸਤਿਗੁਰੂ ਜੀ l Dhan Dhan Ramdas Gur Gurbani Shabad",
+   "published": "2026-10-27",
+   "description": "",
+   "short": true
+  },
   {
    "id": "DhqpMlzfFqM",
    "title": "ਚਮੜਾ ਬਿਰਤੀ । ਮਨ ਕਿੱਥੇ ਖੜਾ ? ਅਟੱਲ ਪਦਵੀ। ਪਿਛਲੇ ਪੁੰਨ ਖਾ ਰਹੇ  I ਮਰਿਯਾਦਾ ਵਿੱਚ ਰਹਿਣਾ I Anmol Bachan",
