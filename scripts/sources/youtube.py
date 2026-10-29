@@ -110,17 +110,18 @@ def run(cfg, source, fetch=request):
     got += len(fresh)
     for v in fresh:
         by_id[v["id"]] = {**by_id.get(v["id"], {}), **v}
-    if not fresh:
-        notes.append("feed: " + "; ".join(errors))
+    feed_note = "" if fresh else "feed: " + "; ".join(errors)
     key = os.environ.get("YOUTUBE_API_KEY", "").strip()
     method = "feed"
     complete = bool(old.get("archive_complete"))
     shorts_complete = bool(old.get("shorts_complete"))
+    api_ok = False
     if key:
         try:
             api, reached_end = fetch_api(cid, key, set(by_id), fetch=fetch, walk_all=not complete)
             got += len(api)
-            method = "feed+api"
+            method = "feed+api" if fresh else "api"
+            api_ok = True
             complete = complete or reached_end
             for v in api:
                 by_id[v["id"]] = {**by_id.get(v["id"], {}), **v}
@@ -134,6 +135,10 @@ def run(cfg, source, fetch=request):
                 by_id[v["id"]] = {**by_id.get(v["id"], {}), **v, "short": True}
         except Exception as e:
             notes.append(f"shorts: {e}")
+    # The public feed is only a problem when the API is not there to cover for it:
+    # YouTube often refuses the feed to GitHub's servers while the API works.
+    if feed_note and not api_ok:
+        notes.insert(0, feed_note)
     if not got:
         return SourceResult("kept-previous", "; ".join(notes) or "Nothing returned", {"videos": len(by_id)})
     videos = sorted(by_id.values(), key=lambda v: v.get("published", ""), reverse=True)
@@ -141,5 +146,6 @@ def run(cfg, source, fetch=request):
                          "archive_complete": complete, "shorts_complete": shorts_complete, "videos": videos})
     n_short = sum(1 for v in videos if v.get("short"))
     state = "ok" if not notes else "partial"
-    return SourceResult(state, "; ".join(notes) or f"{got} fetched via {method}" + ("" if complete or not key else ", archive still being read"),
+    return SourceResult(state, "; ".join(notes) or f"{got} fetched via {method}" + ("" if complete or not key else ", archive still being read")
+                        + (" (public feed unavailable)" if feed_note and api_ok else ""),
                         {"videos": len(videos) - n_short, "shorts": n_short, "fetched": got})
