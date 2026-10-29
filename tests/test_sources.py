@@ -106,6 +106,26 @@ class YouTubeTest(TempData):
         finally:
             del os.environ["YOUTUBE_API_KEY"]
 
+    def test_feed_refused_but_api_works_is_ok(self):
+        os.environ["YOUTUBE_API_KEY"] = "K"
+        try:
+            calls, base = [], self.api_fetch([["V0"]], [["S1"]], [])
+
+            def fetch(url, **k):
+                calls.append(url)
+                if "feeds/videos.xml" in url:
+                    raise RuntimeError("HTTP Error 404: Not Found")
+                return base(url)
+            res = youtube.run({"youtube_channel_id": "UCabc"}, {}, fetch=fetch)
+            self.assertEqual(res.state, "ok")
+            self.assertIn("public feed unavailable", res.message)
+        finally:
+            del os.environ["YOUTUBE_API_KEY"]
+        # without a key, the same refusal keeps the previous list and says why
+        res = youtube.run({"youtube_channel_id": "UCabc"}, {}, fetch=lambda url, **k: (_ for _ in ()).throw(RuntimeError("404")))
+        self.assertEqual(res.state, "kept-previous")
+        self.assertIn("feed", res.message)
+
     def test_incomplete_archive_is_read_to_the_end(self):
         """Known videos on the first page must not stop the walk until the archive has been read once."""
         common.save("videos.json", {"archive_complete": False, "videos": [{"id": "V0", "title": "x", "published": "2026-01-01"}]})
