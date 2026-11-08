@@ -1,10 +1,17 @@
 {
- "updated": "2026-11-07",
+ "updated": "2026-11-08",
  "channel_url": "https://www.youtube.com/@Santjagjitsinghjiharkhowal",
- "method": "feed+api",
+ "method": "api",
  "archive_complete": true,
  "shorts_complete": true,
  "videos": [
+  {
+   "id": "xDnaf0HhtYA",
+   "title": "Bandi Chaur Diwas Gurbani Shabad ll ਬੰਦੀ ਛੋੜ ਦਿਵਸ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਣ ਕਰੋ ਜੀ।",
+   "published": "2026-11-08",
+   "description": "",
+   "short": true
+  },
   {
    "id": "5Noo_nf_jm0",
    "title": "ਅਨਮੋਲ ਬਚਨ ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ll",
