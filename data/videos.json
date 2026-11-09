@@ -1,10 +1,16 @@
 {
- "updated": "2026-11-08",
+ "updated": "2026-11-09",
  "channel_url": "https://www.youtube.com/@Santjagjitsinghjiharkhowal",
- "method": "feed+api",
+ "method": "api",
  "archive_complete": true,
  "shorts_complete": true,
  "videos": [
+  {
+   "id": "ndy16moT3O8",
+   "title": "ਬੰਦੀ ਛੋੜ ਦਿਵਸ ਤੇ ਪਵਿੱਤਰ ਇਤਿਹਾਸ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ 08/11/2026",
+   "published": "2026-11-09",
+   "description": "ਬੰਦੀ ਛੋੜ ਦਿਵਸ ਤੇ ਪਵਿੱਤਰ ਇਤਿਹਾਸ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ . ਸੰਤ ਆਸ਼ਰਮ ਸੁਲਤਾਨਪੁਰ ਲੋਧੀ.  ਐਤਵਾਰ  08/11/2026"
+  },
   {
    "id": "xDnaf0HhtYA",
    "title": "Bandi Chaur Diwas Gurbani Shabad ll ਬੰਦੀ ਛੋੜ ਦਿਵਸ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸਰਵਣ ਕਰੋ ਜੀ।",
