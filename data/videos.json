@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-10",
+ "updated": "2026-11-11",
  "channel_url": "https://www.youtube.com/@Santjagjitsinghjiharkhowal",
- "method": "feed+api",
+ "method": "api",
  "archive_complete": true,
  "shorts_complete": true,
  "videos": [
