@@ -1,10 +1,16 @@
 {
  "updated": "2026-11-13",
  "channel_url": "https://www.youtube.com/@Santjagjitsinghjiharkhowal",
- "method": "api",
+ "method": "feed+api",
  "archive_complete": true,
  "shorts_complete": true,
  "videos": [
+  {
+   "id": "6Rr6s0RrsO8",
+   "title": "ਸਾਡੇ ਗੁਰੂ ਕੌਣ ਹਨ ? ਗੁਰੂ ਮਹਾਰਾਜ ਜੀ ਦੀ ਸੇਵਾ ਕੀਤੀ ਖਾਲ੍ਹੀ ਨਹੀਂ l Sant Baba Jagjit Singh Ji Harkhowal",
+   "published": "2026-11-13",
+   "description": ""
+  },
   {
    "id": "WKOSLEmjeSk",
    "title": "ਨੌਂ ਪ੍ਰਕਾਰ ਦੀ ਭਗਤੀ ਅਤੇ ਚਾਰ ਪ੍ਰਕਾਰ ਦੇ ਭਗਤ। ਸਤਸੰਗਤਿ ਦੇ ਲਾਭ। ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ |09/10/2026",
