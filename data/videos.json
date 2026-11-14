@@ -1,10 +1,16 @@
 {
  "updated": "2026-11-14",
  "channel_url": "https://www.youtube.com/@Santjagjitsinghjiharkhowal",
- "method": "api",
+ "method": "feed+api",
  "archive_complete": true,
  "shorts_complete": true,
  "videos": [
+  {
+   "id": "vLGSJJwChuc",
+   "title": "ਸੰਖੇਪ ਜੀਵਨ ਧੰਨ ਧੰਨ ਸੰਤ ਬਾਬਾ ਜਵਾਲਾ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ ਵਾਲੇ l ਸੰਤ ਬਾਬਾ ਜਗਜੀਤ ਸਿੰਘ ਜੀ ਹਰਖੋਵਾਲ 13/11/2026",
+   "published": "2026-11-14",
+   "description": ""
+  },
   {
    "id": "6Rr6s0RrsO8",
    "title": "ਸਾਡੇ ਗੁਰੂ ਕੌਣ ਹਨ ? ਗੁਰੂ ਮਹਾਰਾਜ ਜੀ ਦੀ ਸੇਵਾ ਕੀਤੀ ਖਾਲ੍ਹੀ ਨਹੀਂ l Sant Baba Jagjit Singh Ji Harkhowal",
