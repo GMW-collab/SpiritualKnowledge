@@ -1,7 +1,7 @@
 {
  "updated": "2026-11-15",
  "channel_url": "https://www.youtube.com/@Santjagjitsinghjiharkhowal",
- "method": "api",
+ "method": "feed+api",
  "archive_complete": true,
  "shorts_complete": true,
  "videos": [
@@ -10,6 +10,19 @@
    "title": "Barsi Sant Baba Jawala Singh Ji Harkhowal Wale || Sant Baba Jagjit Singh JI Harkhowal",
    "published": "2026-11-15",
    "description": ""
+  },
+  {
+   "id": "MBi1m6AiK8I",
+   "title": "ਛੇਵੇਂ ਪਾਤਸ਼ਾਹ ਜੀ ਅਤੇ ਦਸਵੇਂ ਸਤਿਗੁਰੂ ਜੀ ਦੇ ਪਵਿੱਤਰ ਸ਼ਸ਼ਤਰਾਂ ਦੇ ਦਰਸ਼ਨ ਦੀਦਾਰ ਸੰਤ ਆਸ਼ਰਮ ਸੁਲਤਾਨਪੁਰ ਲੋਧੀ।",
+   "published": "2026-11-15",
+   "description": "ਛੇਵੇਂ ਪਾਤਸ਼ਾਹ ਜੀ ਅਤੇ ਦਸਵੇਂ ਸਤਿਗੁਰੂ ਜੀ ਦੇ ਪਵਿੱਤਰ ਸ਼ਸ਼ਤਰਾਂ ਦੇ ਦਰਸ਼ਨ ਦੀਦਾਰ ਸੰਤ ਆਸ਼ਰਮ ਸੁਲਤਾਨਪੁਰ ਲੋਧੀ।  Sant Baba Jagjit Singh Ji Harkhowal"
+  },
+  {
+   "id": "peCI-y0NPX0",
+   "title": "shabad sangrandਮੱਘਰ ਮਹੀਨੇ ਦੀ ਸੰਗਰਾਂਦ ਦੇ ਦਿਹਾੜੇ ਤੇ ਗੁਰਬਾਣੀ ਸ਼ਬਦ ਸ੍ਰਵਨ ਕਰੋ ਜੀ। Bhai Jagtar Singh Ji Tur",
+   "published": "2026-11-15",
+   "description": "",
+   "short": true
   },
   {
    "id": "vLGSJJwChuc",
